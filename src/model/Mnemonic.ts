@@ -102,6 +102,7 @@ export class Mnemonic{
 		}
 		if (wordset.prefixLen > 0) {
 			out.push(out[Mnemonic.mn_get_checksum_index(out, wordset.prefixLen)]);
+			out.push(wordset.words[Mnemonic.mn_get_second_checksum_index(out, wordset.words.length, wordset.prefixLen)]);
 		}
 		return out.join(' ');
 	}
@@ -115,11 +116,19 @@ export class Mnemonic{
 		let n = wordset.words.length;
 		let wlist = str.split(' ');
 		let checksum_word = '';
-		if (wlist.length < 12) throw "You've entered too few words, please try again";
-		if ((wordset.prefixLen === 0 && (wlist.length % 3 !== 0)) ||
-			(wordset.prefixLen > 0 && (wlist.length % 3 === 2))) throw "You've entered too few words, please try again";
-		if (wordset.prefixLen > 0 && (wlist.length % 3 === 0)) throw "You seem to be missing the last word in your private key, please try again";
-		if (wordset.prefixLen > 0) {
+		let second_checksum_word = '';
+		if (wlist.length < 24) throw "You've entered too few words, please try again";
+		if (wlist.length == 26) {
+			// Pop second checksum from mnemonic
+			let word = wlist.pop();
+			if(typeof word !== 'undefined')
+				second_checksum_word = word;
+			// Pop checksum from mnemonic
+			let word2 = wlist.pop();
+			if(typeof word2 !== 'undefined')
+				checksum_word = word2;
+		}
+		else if(wlist.length == 25){
 			// Pop checksum from mnemonic
 			let word = wlist.pop();
 			if(typeof word !== 'undefined')
@@ -145,11 +154,20 @@ export class Mnemonic{
 			out += Mnemonic.mn_swap_endian_4byte(('0000000' + x.toString(16)).slice(-8));
 		}
 		// Verify checksum
-		if (wordset.prefixLen > 0) {
+		if (checksum_word) {
 			let index = Mnemonic.mn_get_checksum_index(wlist, wordset.prefixLen);
 			let expected_checksum_word = wlist[index];
 			if (expected_checksum_word.slice(0, wordset.prefixLen) !== checksum_word.slice(0, wordset.prefixLen)) {
 				throw "Your private key could not be verified, please try again";
+			}
+
+			if (second_checksum_word) {
+				wlist.push(checksum_word);
+				let index = Mnemonic.mn_get_second_checksum_index(wlist, wordset.words.length, wordset.prefixLen);
+				let expected_second_checksum_word = wordset.words[index];
+				if (expected_second_checksum_word.slice(0, wordset.prefixLen) !== second_checksum_word.slice(0, wordset.prefixLen)) {
+					throw "Your private key could not be verified, please try again";
+				}
 			}
 		}
 		return out;
@@ -162,6 +180,15 @@ export class Mnemonic{
 		}
 		let checksum = crc32.run(trimmed_words);
 		return checksum % words.length;
+	}
+
+	static mn_get_second_checksum_index(words : string[], wordset_length : number, prefixLen : number) {
+		let trimmed_words = "";
+		for (let i = 0; i < words.length; i++) {
+			trimmed_words += words[i].slice(0, prefixLen);
+		}
+		let checksum = crc32.run(trimmed_words);
+		return checksum % wordset_length;
 	}
 
 	static mn_swap_endian_4byte(str : string) {

@@ -39,7 +39,7 @@ export class MnemonicLang{
 
 	static getLangs(): Array<MnemonicLang> {
 		let langs = [];
-		langs.push(new MnemonicLang(
+		/*langs.push(new MnemonicLang(
 			'electrum',
 			'el',
 			0,[
@@ -258,7 +258,7 @@ export class MnemonicLang{
 			"rude", "scrape", "spiral", "squeeze", "strain", "sunset", "suspend",
 			"sympathy", "thigh", "throne", "total", "unseen", "weapon", "weary"
 		]
-		));
+		));*/
 		langs.push(new MnemonicLang(
 			'english',
 			'en',

@@ -98,7 +98,6 @@ class ExportView extends DestructableView {
 						'english': 'English',
 						'chinese': 'Chinese (simplified)',
 						'dutch': 'Dutch',
-						'electrum': 'Electrum',
 						'esperanto': 'Esperanto',
 						'french': 'French',
 						'italian': 'Italian',
