@@ -1,7 +1,7 @@
 {
-  "name": "masariwebwallet",
+  "name": "sumokoinwebwallet",
   "version": "1.0.0",
-  "description": "Fully client side web wallet for masari",
+  "description": "Fully client side web wallet for Sumokoin",
   "main": "index.js",
   "dependencies": {
     "lodash": "^4.17.15",
@@ -11,12 +11,12 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gnock/masari-webwallet.git"
+    "url": "git+https://github.com/sumoprojects/sumokoin-webwallet.git"
   },
   "author": "Gnock",
   "license": "BSD-3",
   "bugs": {
-    "url": "https://github.com/gnock/masari-webwallet/issues"
+    "url": "https://github.com/sumoprojects/sumokoin-webwallet/issues"
   },
-  "homepage": "https://github.com/gnock/masari-webwallet#readme"
+  "homepage": "https://github.com/sumoprojects/sumokoin-webwallet#readme"
 }
