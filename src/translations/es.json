@@ -1,481 +1,481 @@
 {
   "website":{
-	"title":"Masari Billetera oficial",
-	"description":"Billetera oficial en línea para la moneda de Masari: anónima, segura y totalmente manejada en su navegador para una seguridad óptima"
+	"title":"Official Sumokoin Web Wallet",
+	"description":"Official online Sumokoin wallet - fast, anonymous, and fully handled in your browser for optimal security"
   },
   "messages": {
 	"menu": {
-	  "home": "Inicio",
-	  "account": "Cuenta",
-	  "send": "Enviar",
-	  "receive": "Recibir",
-	  "export": "Exportar",
-	  "donate": "Donar",
-	  "settings": "Ajustes",
-	  "disconnect": "Desconectar",
-	  "network": "Estado de red"
+	  "home": "Home",
+	  "account": "Account",
+	  "send": "Send",
+	  "receive": "Receive",
+	  "export": "Export",
+	  "donate": "Donate",
+	  "settings": "Settings",
+	  "disconnect": "Disconnect",
+	  "network": "Network Stats"
 	},
 	"global": {
-	  "loading": "Cargando",
-	  "disableSecurity":"Deshabilitar esta seguridad, entiendo el riesgo.",
-	  "passwordInvalidRequirements":"La contraseña necesita al menos 8 caracteres: 1 mayúscula, 1 minúscula, un número y un carácter especial",
-	  "passwordConfirmationNotMatching":"La contraseña no coincide con la primera contraseña que escribió",
-	  "download":"Descargar",
+	  "loading": "Loading",
+	  "disableSecurity":"Disable this security, I understand the risk",
+	  "passwordInvalidRequirements":"The password needs at least 8 characters - 1 upper case letter, 1 lower case letter, one number, and one special character",
+	  "passwordConfirmationNotMatching":"The password does not match the first password you wrote",
+	  "download":"Download",
 	  "newVersionModal":{
-		"title":"Hay una nueva version disponible",
-		"content":"Quieres recargar la nueva version?",
-		"confirmText":"Si",
-		"cancelText":"Volver"
+		"title":"A new version is available",
+		"content":"Do you want to reload to load the new version?",
+		"confirmText":"Yes",
+		"cancelText":"Back"
 	  },
 	  "openWalletModal":{
-		"title":"Contraseña de billetera",
-		"confirmText":"Abrir",
-		"cancelText":"Cancelar"
+		"title":"Wallet Password",
+		"confirmText":"Open",
+		"cancelText":"Cancel"
 	  },
 	  "invalidPasswordModal":{
 		"title":"Oops...",
-		"content":"Tu contraseña parece inválida",
+		"content":"Your password seems invalid",
 		"confirmText":"OK"
 	  },
 	  "invalidMnemonicModal":{
 		"title":"Oops...",
-		"content":"La frase mnemonic es inválida",
+		"content":"The mnemonic phrase is invalid",
 		"confirmText":"OK"
 	  },
 	  "passwordNotComplexEnoughModal":{
-		"title":"Tu contraseña no es lo suficientemente compleja",
+		"title":"The password is not complex enough",
 		"confirmText":"OK"
 	  },
 	  "permissionRequiredForCameraModal":{
 		"title":"Oops...",
-		"content":"Se requiere permiso para acceder a su cámara para escanear el código QR",
+		"content":"The permission to access your camera is required to scan the QR code",
 		"confirmText":"OK"
 	  }
 	},
 	"bottom": {
-	  "termsOfUse": "Términos de Uso",
-	  "privacyPolicy": "Política de privacidad",
-	  "support": "Soporte",
-	  "donate": "Donar",
-	  "network": "Estado de red",
-	  "miningPool": "Pool de minería",
+	  "termsOfUse": "Terms of Use",
+	  "privacyPolicy": "Privacy Policy",
+	  "support": "Support",
+	  "donate": "Donate",
+	  "network": "Network Stats",
+	  "miningPool": "Mining Pool",
 	  "github": "GitHub"
 	},
 	"homepage": {
-	  "mainTitle": "Masari Cartera Segura",
-	  "tagLine": "La forma más sencilla de usar Masari - en cualquier lugar y en cualquier momento",
+	  "mainTitle": "SUMOKOIN WEB WALLET",
+	  "tagLine": "The simplest way to use SUMOKOIN",
 	  "actions": {
-		"loadWallet": "Cargar mi cartera",
-		"importWallet": "Importar carteta",
-		"create": "Crear",
-		"createWallet": "Crear una cartera"
+		"loadWallet": "Load my wallet",
+		"importWallet": "Import a wallet",
+		"create": "Create",
+		"createWallet": "Create a wallet"
 	  },
 	  "notes": {
 		"secure": {
-		  "title": "Seguro",
-		  "description": "Sin servidores, totalmente encriptados.!"
+		  "title": "Secure",
+		  "description": "No servers, fully encrypted!"
 		},
 		"fast": {
-		  "title": "Rápido",
-		  "description": "Enviar a todas partes, en cualquier momento!"
+		  "title": "Fast",
+		  "description": "Send Everywhere, Anytime!"
 		},
 		"technology": {
-		  "title": "Tecnología única",
-		  "description": "Conectado directamente a la blockchain de Masari.!"
+		  "title": "Unique Technology",
+		  "description": "Connected directly to Sumokoin's blockchain!"
 		},
 		"openSource": {
-		  "title": "Completamente de código abierto",
-		  "description": "Disponible en Github!"
+		  "title": "Fully Open-source",
+		  "description": "Available on Github!"
 		}
 	  }
 	},
 	"accountPage": {
-	  "title": "Cuenta",
-	  "subtitle": "Resumen de su cuenta e historial de transacciones",
+	  "title": "Account",
+	  "subtitle": "Your account overview and transaction history",
 	  "synchronizingBlock": {
-		"text": "Sincronizando..."
+		"text": "Synchronizing..."
 	  },
 	  "balanceBlock": {
-		"title": "Tu balance",
-		"unlocked": "Desbloqueado"
+		"title": "Your balance",
+		"unlocked": "Unlocked"
 	  },
 	  "historyBlock": {
-		"title": "Historial de transacciones",
-		"pendingTxStatus": "Pendiente",
-		"emptyWallet": "Actualmente no tienes fondos en esta billetera..",
-		"waitSync": "Por favor, espere hasta que la cartera se actualice.",
-		"beReallyPatient": "La configuración inicial puede tomar algún tiempo...",
-		"getMSRAddress": "Recibir MSR"
+		"title": "Transaction history",
+		"pendingTxStatus": "Pending",
+		"emptyWallet": "You currently have no funds in this wallet.",
+		"waitSync": "Please wait until the wallet is updated.",
+		"beReallyPatient": "The initial setup can take some time...",
+		"getMSRAddress": "Receive MSR"
 	  },
 	  "txDetails":{
-		"title":"Detalles de la transacción",
-		"txHash":"Hash Tx",
-		"feesOnTx":"Comision Tx",
-		"blockHeight":"Altura del bloque",
-		"paymentId":"ID de Pago",
-		"txPrivKey":"Clave privada de Transacción"
+		"title":"Transaction details",
+		"txHash":"Tx hash",
+		"feesOnTx":"Tx fees",
+		"blockHeight":"Block height",
+		"paymentId":"Payment ID",
+		"txPrivKey":"Transaction Private Key"
 	  }
 	},
 	"changeWalletPasswordPage":{
-	  "title":"Cambia tu contraseña",
+	  "title":"Change your password",
 	  "oldPassword":{
-		"label":"Contraseña anterior",
-		"invalid":"La contraseña es incorrecta"
+		"label":"Old password",
+		"invalid":"The password is invalid"
 	  },
 	  "newPassword":{
-		"label":"Elija una nueva contraseña para proteger su billetera"
+		"label":"Choose a new password to protect your wallet"
 	  },
 	  "newPasswordConfirm":{
-		"label":"Confirmar la nueva contraseña"
+		"label":"Confirm the new password"
 	  },
-	  "confirm":"Cambio de contraseña",
+	  "confirm":"Change the password",
 	  "modalSuccess":{
-		"title":"Contraseña cambiada!",
+		"title":"Password changed!",
 		"confirmText":"OK"
 	  }
 	},
 	"createWalletPage":{
 	  "generatingStep":{
-		"title":"Tu billetera se está generando....",
-		"subtitle":"Esta casi terminado",
-		"waitingMessage":"Generando tu billetera..."
+		"title":"Your wallet is being generated...",
+		"subtitle":"It's almost done",
+		"waitingMessage":"Generating your wallet..."
 	  },
 	  "finalizationStep":{
-		"title":"Eso fue simple. Tu cuenta esta lista!",
-		"subtitle":"Prepárate para usar Masari como nunca lo has hecho",
+		"title":"That was simple. Your account is ready!",
+		"subtitle":"Be ready to use SUMOKOIN like you never have",
 		"passwordSelectionBlock":{
-		  "label":"Protege tu billetera"
+		  "label":"Protect your wallet"
 		},
 		"passwordConfirmBlock":{
-		  "label":"Confirmar la contraseña"
+		  "label":"Confirm the password"
 		},
-		"validPassword":"Usa esta contraseña",
+		"validPassword":"Use this password",
 		"backupBlock":{
-		  "title":"Guarda tus credenciales privadas para la recuperación.",
-		  "option1":"Opción 1: ",
-		  "option2":"Opción 2: ",
-			  "titlePdf":"Descarga una copia en PDF",
-		  "titleManualWrite":"Escribe mis llaves",
-		  "privateKeys":"Llave privada",
-		  "mnemonicPhrase":"Frase Mnemonic",
-		  "separatorManualMethodsSolution":" o ",
-		  "confirmManuallyWritten":"Escribí mi frase semilla",
-		  "warningMessage":"**No lo pierdas!** No se puede recuperar si lo pierdes..<br/>**No lo compartas!** Sus fondos serán robados si usa este archivo o semilla en un sitio malicioso / de phishing.<br/>**Hacer una copia de seguridad!** Asegúrelo como los millones de dólares que puede valer algún día..<br/>",
-		  "finishButton":"Lo entiendo. Continuar."
+		  "title":"Save your private credentials for recovery.",
+		  "option1":"Option 1: ",
+		  "option2":"Option 2: ",
+		  "titlePdf":"Download a PDF copy",
+		  "titleManualWrite":"Write down my keys",
+		  "privateKeys":"Private key",
+		  "mnemonicPhrase":"Mnemonic phrase",
+		  "separatorManualMethodsSolution":" or ",
+		  "confirmManuallyWritten":"I wrote my seed phrase down",
+		  "warningMessage":"**Do not lose it!** It cannot be recovered if you lose it.<br/>**Do not share it!** Your funds will be stolen if you use this file or seed on a malicious/phishing site.<br/>**Make a backup!** Secure it like the millions of dollars it may one day be worth.<br/>",
+		  "finishButton":"I understand. Continue."
 		}
 	  },
 	  "disclaimerBlock":{
-		"title":"Riesgos de usar MasariWallet",
-		"content":"MasariWallet es una interfaz basada en web. Te ayuda a usar Masari sin ejecutar un nodo Masari completo. <br/>Le recomendamos que trate a MasariWallet como tratará su billetera real.."
+		"title":"Risk of Using SUMOKOIN Wallet",
+		"content":"SUMOKOIN Wallet is a web-based interface. It helps you use SUMOKOIN without running a full SUMOKOIN node. <br/>We recommend you treat SUMOKOIN Wallet like you will treat your actual wallet."
 	  }
 	},
 	"donatePage":{
-	  "title":"Donar",
-	  "subtitle":"Ayuda a financiar el desarrollo y pagar las cuentas.",
+	  "title":"Donate",
+	  "subtitle":"Help to fund the development and pay the bills",
 	  "webwalletBlock":{
-		"title":"Billetera web",
-		"content":"Esta billetera web es desarrollada por Gnock en su tiempo libre..<br/>Si quieres ayudar al desarrollo, ayuda a pagar por los servidores de esta aplicación o considera hacer una donación: <br/><br/>"
+		"title":"Webwallet",
+		"content":"This Web wallet is developed by Gnock on his free time.<br/>If you want to help the development, help to pay for the servers, and like this app, please consider a donation: <br/><br/>"
 	  },
-	  "masariFundBlock":{
-		"title":"Fondo de desarrollo de Masari",
-		"content":"Para ayudar a Masari, puedes donar en estas direcciones."
+	  "SUMOKOINFundBlock":{
+		"title":"SUMOKOIN Dev fund",
+		"content":"To help SUMOKOIN, you can donate at these addresses"
 	  }
 	},
 	"supportPage":{
-	  "title":"Soporte",
-	  "subtitle":"Estamos aquí para ayudar!",
+	  "title":"Support",
+	  "subtitle":"We are here to help!",
 	  "getInTouchBlock":{
-		"title":"Mantengámonos en contacto!",
-		"content":"¿Tiene ideas o comentarios que podrían ayudarnos a mejorar la billetera? Contáctenos!",
-		"discord":"Canal de Masari en Discord"
+		"title":"Let's Get In Touch!",
+		"content":"Do you have ideas or feedback that could help us improve the wallet? Contact us!",
+		"discord":"SUMOKOIN Discord Channel"
 	  }
 	},
 	"networkPage":{
-	  "title":"Estado de red",
-	  "subtitle":"Perspectivas sobre la red de Masari.",
+	  "title":"Network stats",
+	  "subtitle":"Insights on the SUMOKOIN network",
 	  "statsBlock":{
-		"hashrate":"Red de hashrate",
-		"height":"Altura de blockchain",
-		"difficulty":"Dificultad de red",
-		"lastTimeBlock":"Último bloque encontrado",
-		"lastReward":"Recompensa del último bloque"
+		"hashrate":"Network hashrate",
+		"height":"Blockchain height",
+		"difficulty":"Network difficulty",
+		"lastTimeBlock":"Last block found",
+		"lastReward":"Last block reward"
 	  }
 	},
 	"sendPage":{
-	  "title":"Enviar MSR",
+	  "title":"Send MSR",
 	  "sendBlock":{
 		"address":{
-		  "label":"Dirección de destino",
-		  "invalid":"La dirección de destino no es válida",
-		  "fundsTo":"Los fondos serán enviados a",
-		  "receiver":"Receptor",
-		  "description":"Descripción"
+		  "label":"Destination address",
+		  "invalid":"The destination address is invalid",
+		  "fundsTo":"The funds will be sent to",
+		  "receiver":"Receiver",
+		  "description":"Description"
 		},
 		"amount":{
-		  "label":"Monto a enviar",
-		  "invalid":"El monto es inválido"
+		  "label":"Amount to send",
+		  "invalid":"The amount is invalid"
 		},
 		"paymentId":{
-		  "label":"ID de pago (opcional)",
-		  "invalid":"El ID de pago no es válido. La longitud debe ser de 16 o 64 caracteres."
+		  "label":"Payment ID (optional)",
+		  "invalid":"The payment ID is invalid. The length must be 16 or 64 characters"
 		},
-		"sendButton":"Enviar",
-		"cancelButton":"Cancelar"
+		"sendButton":"Send",
+		"cancelButton":"Cancel"
 	  },
 	  "qrCodeScanning":{
-		"explication":"Presentar el código QR"
+		"explication":"Present the QR code"
 	  },
 	  "notEnoughMoneyModal":{
 		"title":"Oops...",
-		"content":"No tiene fondos suficientes en su billetera para ejecutar esta transferencia.",
+		"content":"You don't have enough funds in your wallet to execute this transfer",
 		"confirmText":"OK"
 	  },
 	  "thankYouDonationModal":{
-		"title":"Gracias por tu donación!",
-		"content":"Apreciamos tu ayuda. <br/>Esta donación ayudará a mejorar a Masari.",
+		"title":"Thank you for your donation!",
+		"content":"Your help is appreciated. <br/>This donation will help make SUMOKOIN better",
 		"confirmText":"OK"
 	  },
 	  "transferSentModal":{
-		"title":"Transferencia enviada exitosamente!",
+		"title":"Transfer sent successfully!",
 		"confirmText":"OK"
 	  },
 	  "transferExceptionModal":{
 		"title":"Oops...",
-		"content":"Ocurrió un error. Por favor reporte este error: {details}",
+		"content":"An error occurred. Please report this error: {details}",
 		"confirmText":"OK"
 	  },
 	  "invalidAmountModal":{
 		"title":"Oops...",
-		"content":"Monto invalido",
+		"content":"Invalid amount",
 		"confirmText":"OK"
 	  },
 	  "creatingTransferModal":{
-		"title":"Creando transferencia ...",
-		"content":"Por favor espere..."
+		"title":"Creating transfer ...",
+		"content":"Please wait..."
 	  },
 	  "finalizingTransferModal":{
-		"title":"Finalizando transferencia ...",
-		"content":"Por favor espere..."
+		"title":"Finalizing transfer ...",
+		"content":"Please wait..."
 	  },
 	  "confirmTransactionModal":{
-		"title":"Confirmar transferencia?",
-		"content":"Monto: {amount}<br/>Comision: {fees}<br/>Total: {total}",
-		"confirmText":"Confirmar",
-		"cancelText":"Cancelar"
+		"title":"Confirm transfer?",
+		"content":"Amount: {amount}<br/>Fees: {fees}<br/>Total: {total}",
+		"confirmText":"Confirm",
+		"cancelText":"Cancel"
 	  },
 	  "waitingNfcModal":{
-		  "title":"Esperando por la nfc",
-		  "content":"Acerque su teléfono al otro dispositivo"
+		  "title":"Waiting for NFC",
+		  "content":"Bring your phone closer to the other device"
 	  }
 	},
 	"receivePage":{
-	  "title":"Recibir MSR",
+	  "title":"Receive MSR",
 	  "receiveBlock":{
 		"address":{
-		  "title":"Su dirección para recibir fondos.:",
-		  "label":"Dar esta dirección para recibir fondos."
+		  "title":"Your address to receive funds:",
+		  "label":"Give this address to receive funds"
 		},
 		"qrCode":{
-		  "title":"O personalizar el código QR:",
-		  "labelAmount":"Monto (opcional)",
-		  "labelRecipient":"Nombre del receptor (opcional)",
-		  "labelDescription":"Descripción de la transacción (opcional)",
-		  "updateButton":"Actualizar"
+		  "title":"Or personalize the QR code:",
+		  "labelAmount":"Amount (optional)",
+		  "labelRecipient":"Recipient name (optional)",
+		  "labelDescription":"Transaction description (optional)",
+		  "updateButton":"Update"
 		}
 	  },
 	  "qrBlock":{
-		"title":"Su código QR personalizado"
+		"title":"Your customized QR code"
 	  },
 	  "waitingNfcToWriteModal":{
-		  "title":"Esperando por la NFC",
-		  "titleSuccess":"Etiqueta NFC escrita",
-		  "content":"Acerque su teléfono a la etiqueta NFC para escribir"
+		  "title":"Waiting for NFC",
+		  "titleSuccess":"NFC Tag Written",
+		  "content":"Bring your phone closer to the NFC tag to write"
 	  },
 	  "nfcErrorModal":{
-		"titleInsufficientCapacity":"Capacidad de etiqueta insuficiente"
+		"titleInsufficientCapacity":"Tag capacity insufficient"
 	  }
 	},
 	"miningPage":{
-	  "title":"Mina directamente en tu navegador",
-	  "subtitle":"Apoya la red minando y se te recompensa con MSR",
+	  "title":"Mine directly in your browser",
+	  "subtitle":"Support the network by mining and be rewarded with MSR",
 	  "parameterBlock":{
-		"title":"Parámetros",
-		"labelDestinationAddress":"Mi billetera",
-		"labelThreads":"Número de hilos (más = hashrate superior)",
-		"start":"Iniciar",
-		"stop":"Detener"
+		"title":"Parameters",
+		"labelDestinationAddress":"Wallet to mine",
+		"labelThreads":"Number of threads (more = higher hashrate)",
+		"start":"Start",
+		"stop":"Stop"
 	  },
 	  "statisticsBlocks":{
-		"title":"Estadisticas",
-		"validShares":"Shares validas",
+		"title":"Statistics",
+		"validShares":"Valid shares",
 		"hashrate":"Hashrate",
 		"maxHashrate":"Max Hashrate",
-		"dedicatedHardware":"Al dedicar software y hardware de minería, podría ganar más y ayudar a descentralizar la red.",
-		"miningHandledBy":"Esta minería es manejada por el grupo de minería get.masaricoin.com"
+		"dedicatedHardware":"With dedicating mining software and hardware, you could earn more and help decentralize the network.",
+		"miningHandledBy":"This mining is handled by the mining pool get.SUMOKOINcoin.com"
 	  }
 	},
 	"settingsPage":{
-	  "title":"Ajustes",
-	  "subtitle":"Cambia tus parámetros aquí",
+	  "title":"Settings",
+	  "subtitle":"Change your parameters here",
 	  "versionBlock":{
 		"versionNumber":"Version number: ",
 		"versionCode":"Version code: "
 	  },
 	  "settingsBlock":{
 		"speed":{
-		  "label":"Velocidad para actualizar la cartera (consumirá más recursos)",
-		  "fastest":"Lo más rápido",
-		  "fast":"Rápido",
-		  "medium":"Medio",
-		  "slow":"Lento"
+		  "label":"Speed to update the wallet (will consume more resources)",
+		  "fastest":"Fastest",
+		  "fast":"Fast",
+		  "medium":"Medium",
+		  "slow":"Slow"
 		},
 		"language":{
-		  "label":"Idioma"
+		  "label":"Language"
 		},
 		"readMinerTx":{
-		  "label":"Leer transacciones mineras (solo para minería en solitario)"
+		  "label":"Read miner transactions (only for solo mining)"
 		}
 	  },
-	  "changePasswordButton":"Cambiar mi contraseña de billetera",
-	  "deleteWalletButton":"Eliminar mi billetera (copia local)",
+	  "changePasswordButton":"Change my wallet password",
+	  "deleteWalletButton":"Delete my wallet (local copy)",
 	  "walletSettings":{
 		"creationHeight":{
-		  "label":"Altura de creación de la cartera."
+		  "label":"Creation height of the wallet"
 		},
 		"currentScanningHeight": {
-		  "label": "Altura de escaneo actual"
+		  "label": "Current scanning height"
 		},
-		"updateButton":"Actualizar"
+		"updateButton":"Update"
 	  },
 	  "deleteWalletModal":{
-		"title":"Eliminar mi billetera (copia local)",
-		"content":"¿Está seguro de que REALMENTE desea eliminar su billetera? ?",
-		"confirmText":"Si, estoy seguro",
-		"cancelButtonText":"Cancelar"
+		"title":"Delete My Wallet (local copy)",
+		"content":"Are you sure you REALLY want to delete your wallet ?",
+		"confirmText":"Yes I'm sure",
+		"cancelButtonText":"Cancel"
 	  }
 	},
 	"importBasePage":{
 	  "parametersBlock":{
-		"title":"Parámetros",
+		"title":"Parameters",
 		"password":{
-		  "label":"Contraseña para proteger su billetera"
+		  "label":"Password to protect your wallet"
 		},
 		"passwordConfirm":{
-		  "label":"Confirmar la contraseña",
-		  "invalid":"La contraseña no coincide con la primera contraseña que escribió"
+		  "label":"Confirm the password",
+		  "invalid":"The password does not match the first password you wrote"
 		},
 		"importHeight":{
-		  "label":"Altura para importar desde:"
+		  "label":"Height to import from:"
 		}
 	  }
 	},
 	"importFromQrPage":{
-	  "title":"Importar billetera desde un código QR",
-	  "subtitle":"Importar una billetera desde una copia de seguridad sin conexión",
+	  "title":"Importing wallet from a QR code",
+	  "subtitle":"Import a wallet from an offline backup",
 	  "qrCodeBlock":{
-		"title":"Código QR",
-		"startScanButton":"Iniciar el escaneo",
-		"importButton":"Importar"
+		"title":"QR code",
+		"startScanButton":"Start the scan",
+		"importButton":"Import"
 	  },
 	  "qrScanningBlock":{
-		"title":"Presentar el código QR"
+		"title":"Present the QR code"
 	  }
 	},
 	"exportPage":{
-	  "title":"Copia de seguridad de sus credenciales",
+	  "title":"Backup your credentials",
 	  "publicAddressBlock":{
-		"title":"Tu direccion publica"
+		"title":"Your public address"
 	  },
 	  "pdfBlock":{
-		"title":"Copia de seguridad de PDF",
-		"downloadButton":"Descargar"
+		"title":"PDF Backup",
+		"downloadButton":"Download"
 	  },
 	  "warningBlock":{
-		"title":"Arvertencia",
-		"content":"Si elige guardar sus claves privadas o su frase mnemonic, NO las almacene en texto sin cifrar para su propia seguridad..<br/>El archivo es una solución alternativa donde sus claves están cifradas y contiene una copia de seguridad de todas sus transacciones para ahorrarle una futura sincronización."
+		"title":"Warning",
+		"content":"If you choose to save your private keys or your mnemonic phrase, PLEASE DO NOT store them in clear-text for your own safety.<br/>The file is an alternate solution where your keys are encrypted and contains a backup of all your transactions to spare you a future synchronisation."
 	  },
 	  "exportBlock":{
-		"title":"Exportar sus credenciales RAW",
-		"privateKeysButton":"Obtener mis llaves privadas",
-		"mnemonicKeysButton":"Obtener mi frase mnemonic",
-		"fileButton":"Exportar a un archivo"
+		"title":"Export your RAW credentials",
+		"privateKeysButton":"Get my private keys",
+		"mnemonicKeysButton":"Get my mnemonic phrase",
+		"fileButton":"Export to a file"
 	  },
 	  "walletKeysModal":{
-		"title":"Llaves privadas",
+		"title":"Private keys",
 		"confirmText":"OK",
-		"content":"Por favor guarda cuidadosamente estas llaves. <b>Poseerlos significa poseer los fondos asociados.</b> !<br/>Gastar llave: {privSpendKey}<br/>Ver llave privada: {privViewKey}"
+		"content":"Please store these keys carefully. <b>Possessing them means possessing the funds associated</b> !<br/>Spend key: {privSpendKey}<br/>Private view key: {privViewKey}"
 	  },
 	  "mnemonicKeyModal":{
-		"title":"Frase Mnemonic",
+		"title":"Mnemonic phrase",
 		"confirmText":"OK",
-		"content":"Por favor guarde cuidadosamente esta frase mnemonic. <b>Poseerlo significa poseer los fondos asociados.</b> ! La frase es:<br/>{mnemonic}"
+		"content":"Please store this mnemonic phrase carefully. <b>Possessing it means possessing the funds associated</b> ! The phrase is:<br/>{mnemonic}"
 	  },
 	  "mnemonicLangSelectionModal":{
-		"title":"¿En qué idioma quieres tu frase mnemonic??",
-		"confirmText":"Exportar"
+		"title":"In which language do you want your mnemonic phrase?",
+		"confirmText":"Export"
 	  }
 	},
 	"importPage":{
-	  "title":"Crear una billetera",
-	  "subtitle":"A partir de claves, archivos o frases mnemonic creadas previamente.",
-	  "chooseMethod":"Selecciona un método de importación:",
-	  "fromKeys":"Desde Llaves",
-	  "fromFile":"Desde un archivo",
-	  "fromMnemonic":"Desde una frase mnemonic",
-	  "fromQr":"Desde un código QR"
+	  "title":"Create a wallet",
+	  "subtitle":"From previously created keys, file, or mnemonic phrase",
+	  "chooseMethod":"Choose your import method: <br/>Please note that restoring an old wallet from 0 height can take a long time so please be patient. You can log off and continue restoration at any time",
+	  "fromKeys":"From keys",
+	  "fromFile":"From a file",
+	  "fromMnemonic":"From a mnemonic phrase",
+	  "fromQr":"From a QR code"
 	},
 	"termsOfUsePage":{
-	  "title":"Términos de Uso",
-	  "subtitle":"Por favor léalos cuidadosamente."
+	  "title":"Terms of use",
+	  "subtitle":"Please read them carefully."
 	},
 	"privacyPolicyPage":{
-	  "title":"Por favor léalos detallados",
-	  "subtitle":"Por favor léalos cuidadosamente."
+	  "title":"Privacy Policy",
+	  "subtitle":"Please read them carefully."
 	},
 	"importFromFilePage":{
-	  "title":"Importando billetera desde un archivo de respaldo",
-	  "subtitle":"Utilice su archivo de copia de seguridad para crear una billetera",
+	  "title":"Importing wallet from a backup file",
+	  "subtitle":"Use your backup file to create a wallet",
 	  "walletBlock":{
-		"title":"Archivo de Billetera",
-		"label":"Seleccione un archivo",
-		"importButton":"Importar"
+		"title":"Wallet file",
+		"label":"Select the file",
+		"importButton":"Import"
 	  }
 	},
 	"importFromMnemonicPage":{
-	  "title":"Importando billetera desde una frase mnemonic",
-	  "subtitle":"Use su frase para crear una billetera",
+	  "title":"Importing wallet from a mnemonic phrase",
+	  "subtitle":"Use your phrase to create a wallet",
 	  "mnemonicBlock":{
-		"title":"Frase Mnemonic",
+		"title":"Mnemonic phrase",
 		"mnemonic":{
-		  "label":"Frase Mnemonic: 25 palabras",
-		  "invalid":"La frase mnemonic es inválida",
-		  "language":"Idioma"
+		  "label":"Mnemonic phrase: 26 words",
+		  "invalid":"The mnemonic phrase is invalid",
+		  "language":"Language"
 		},
-		"importButton":"Importar"
+		"importButton":"Import"
 	  }
 	},
 	"importFromKeysPage":{
-	  "title":"Importando billetera desde una llave",
-	  "subtitle":"Use su llave para crear una billetera",
+	  "title":"Importing wallet from keys",
+	  "subtitle":"Use your keys to create a wallet",
 	  "parametersBlock":{
 		"viewOnlyWallet":{
-		  "label":"¿Solo quieres ver la billetera??"
+		  "label":"Do you want a view only wallet?"
 		}
 	  },
 	  "keysBlock":{
-		"titleNotViewOnly":"Llaves de la billetera",
-		"titleViewOnly":"Solo ver la billetera",
+		"titleNotViewOnly":"Wallet keys",
+		"titleViewOnly":"View only wallet",
 		"privateSpend":{
-		  "label":"Gastar llave privada"
+		  "label":"Private spend key"
 		},
 		"privateView":{
-		  "label":"Llave privada de vista",
-		  "optional":"(opcional)"
+		  "label":"Private view key",
+		  "optional":"(optional)"
 		},
 		"publicKey":{
-		  "label":"Llave pública"
+		  "label":"Public key"
 		},
-		"importButton":"Importar"
+		"importButton":"Import"
 	  }
 	}
   },
@@ -483,11 +483,11 @@
   },
   "date":{
 	"short": {
-	  "year": "numérico", "month": "corto", "day": "numérico"
+	  "year": "numeric", "month": "short", "day": "numeric"
 	},
 	"long": {
-	  "year": "numérico", "month": "corto", "day": "numérico",
-	  "weekday": "corto", "hour": "numérico", "minute": "numérico", "hour12": true
+	  "year": "numeric", "month": "short", "day": "numeric",
+	  "weekday": "short", "hour": "numeric", "minute": "numeric", "hour12": true
 	}
   }
 }

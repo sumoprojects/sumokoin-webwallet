@@ -1,43 +1,41 @@
 let global : any = typeof window !== 'undefined' ? window : self;
 global.config = {
-	apiUrl:typeof window !== 'undefined' && window.location ? window.location.href.substr(0,window.location.href.lastIndexOf('/')+1)+'api/' : 'https://www.masariwallet.com/api/',
+	apiUrl:typeof window !== 'undefined' && window.location ? window.location.href.substr(0,window.location.href.lastIndexOf('/')+1)+'api/' : 'https://wallet.sumokoin.com/api/',
 	trustedDaemonsAddresses:[
-		'https://www.masariwallet.com:38084/'
+		'https://wallet.sumokoin.com:4444/'
 	],
 	phpRelay:typeof window !== 'undefined' ? true : false,
-	mainnetExplorerUrl: "https://msrchain.net/",
-	mainnetExplorerUrlHash: "https://msrchain.net/tx/{ID}",
-	mainnetExplorerUrlBlock: "https://msrchain.net/block/{ID}",
-	testnetExplorerUrl: "http://testnet.msrchain.net/",
-	testnetExplorerUrlHash: "http://testnet.msrchain.net/tx/{ID}",
-	testnetExplorerUrlBlock: "http://testnet.msrchain.net/block/{ID}",
+	mainnetExplorerUrl: "https://explorer.sumokoin.com/",
+	mainnetExplorerUrlHash: "https://explorer.sumokoin.com/tx/{ID}",
+	mainnetExplorerUrlBlock: "https://explorer.sumokoin.com/block/{ID}",
+	testnetExplorerUrl: "http://explorer.sumokoin.com/",
+	testnetExplorerUrlHash: "http://explorer.sumokoin.com/tx/{ID}",
+	testnetExplorerUrlBlock: "http://explorer.sumokoin.com/block/{ID}",
 	testnet: false,
-	coinUnitPlaces: 12,
+	coinUnitPlaces: 9,
 	txMinConfirms: 10,         // corresponds to CRYPTONOTE_DEFAULT_TX_SPENDABLE_AGE in Monero
 	txCoinbaseMinConfirms: 60, // corresponds to CRYPTONOTE_MINED_MONEY_UNLOCK_WINDOW in Monero
-	addressPrefix: 28,
-	integratedAddressPrefix: 29,
-	addressPrefixTestnet: 33,
-	integratedAddressPrefixTestnet: 34,
-	subAddressPrefix: 52,
-	subAddressPrefixTestnet: 73,
-	feePerKB: new JSBigInt('400000000'),//20^10 - for testnet its not used, as fee is dynamic.
-	dustThreshold: new JSBigInt('1000000000'),//10^10 used for choosing outputs/change - we decompose all the way down if the receiver wants now regardless of threshold
-	defaultMixin: 12, // default value mixin
+	addressPrefix: 0x2bb39a,
+	integratedAddressPrefix: 0x29339a,
+	addressPrefixTestnet: 0x37751a,
+	integratedAddressPrefixTestnet: 0x34f51a,
+	subAddressPrefix: 0x8319a,
+	subAddressPrefixTestnet: 0x1d351a,
+	feePerKB: new JSBigInt('500000'),//20^10 - for testnet its not used, as fee is dynamic.
+	dustThreshold: new JSBigInt('10000000'),//10^10 used for choosing outputs/change - we decompose all the way down if the receiver wants now regardless of threshold
+	defaultMixin: 48, // default value mixin
 
 	idleTimeout: 30,
 	idleWarningDuration: 20,
 
-	coinSymbol: 'MSR',
-	openAliasPrefix: "msr",
-	coinName: 'Masari',
-	coinUriPrefix: 'masari:',
-	avgBlockTime: 60,
+	coinSymbol: 'SUMO',
+	openAliasPrefix: "sumo",
+	coinName: 'Sumokoin',
+	coinUriPrefix: 'sumokoin:',
+	avgBlockTime: 240,
 	maxBlockNumber: 500000000,
 
 	donationAddresses : [
-		'5qfrSvgYutM1aarmQ1px4aDiY9Da7CLKKDo3UkPuUnQ7bT7tr7i4spuLaiZwXG1dFQbkCinRUNeUNLoNh342sVaqTaWqvt8',
-		'5nYWvcvNThsLaMmrsfpRLBRou1RuGtLabUwYH7v6b88bem2J4aUwsoF33FbJuqMDgQjpDRTSpLCZu3dXpqXicE2uSWS4LUP',
-		'9ppu34ocgmeZiv4nS2FyQTFLL5wBFQZkhAfph7wGcnFkc8fkCgTJqxnXuBkaw1v2BrUW7iMwKoQy2HXRXzDkRE76Cz7WXkD'
+		
 	]
 };

@@ -459,9 +459,7 @@ body.transparent #copyright{
 	position: relative;
 	/*background: url(../img/binary-background.jpg) #146DBD;*/
 	text-align: center;
-	background-image: -webkit-linear-gradient(rgba(62, 75, 92, 0.70), rgba(62, 75, 92, 0.70)), url(../img/landing/75-usersthink-stock-image.jpg);
-	background-image: -o-linear-gradient(rgba(62, 75, 92, 0.70), rgba(62, 75, 92, 0.70)), url(../img/landing/75-usersthink-stock-image.jpg);
-	background-image: linear-gradient(rgba(62, 75, 92, 0.70), rgba(62, 75, 92, 0.70)), url(../img/landing/75-usersthink-stock-image.jpg);
+	background-image: url(../img/landing/75-usersthink-stock-image.jpg);
 	background-position: center center;
 	background-size: cover;
 	margin-bottom:160px;
@@ -478,7 +476,7 @@ body.native .indexTab .mainBlock {
 .indexTab .mainBlock .step:first-child{
 }
 .indexTab .mainBlock .headline{
-	margin-top: 30vh;
+	margin-top: 3vh;
 }
 @media screen and (max-width: 940px) {
 	.indexTab .mainBlock .headline{
@@ -678,7 +676,7 @@ body.native .indexTab .mainBlock > .actions{
 
 /*=====================================*/
 body{
-	font-family: "Roboto-Regular", sans-serif;
+	font-family: "Oswald", sans-serif;
 	font-weight: normal;
 	font-size: 14px;
 	line-height: 1;
@@ -949,9 +947,6 @@ body{
 	background-color: #2185d0;
 }
 .field.checkbox label:after{
-	background: #fff -webkit-gradient(linear,left top,left bottom,from(transparent),to(rgba(0,0,0,.05)));
-	background: #fff -webkit-linear-gradient(transparent,rgba(0,0,0,.05));
-	background: #fff linear-gradient(transparent,rgba(0,0,0,.05));
 	position: absolute;
 	content: ''!important;
 	opacity: 1;

@@ -1,10 +1,7 @@
 <div id="app" class="indexTab content" v-cloak="">
 	<div class="hideOnNonNative" >
 		<div class="mainBlock" >
-			<div class="actions" >
-				<img src="./assets/img/logo_white.png" alt="Masari"/>
-			</div>
-			<div class="headline" >
+               		<div class="headline" >
 				<h1>{{ $t("homepage.mainTitle") }}</h1>
 				<h2>{{ $t("homepage.tagLine") }}</h2>
 			</div>
@@ -18,16 +15,21 @@
 	<div class="hideOnNative" >
 		<div class="mainBlock" >
 			<div class="actions" >
-				<img src="./assets/img/logo_white.png" alt="Masari"/>
+			<h3 style="font-size: 12px; margin-top: 5px; margin-bottom: 3; color: white; font-family: arial">
+			 SUMOKOIN NETWORK INFO
+                        </h3>
+                        <iframe src="https://kexplo.xyz/" name="targetframe"  top="50" left="50" width="200" height="70" allowTransparency="true" scrolling="no" frameborder="0" >
+                        </iframe>
+
 				<div class="right">
 					<a href="#" @click="loadWallet()" v-if="hasLocalWallet" class="btn mini basic">{{ $t("homepage.actions.loadWallet") }}</a>
 					<a href="#!import" class="btn mini">{{ $t("homepage.actions.importWallet") }}</a>
 					<a href="#!createWallet" class="btn mini">{{ $t("homepage.actions.create") }}</a>
 				</div>
-			</div>
+			</div>           
 			<div class="headline" >
-				<h1>{{ $t("homepage.mainTitle") }}</h1>
-				<h2>{{ $t("homepage.tagLine") }}</h2>
+                                <h1>{{ $t("homepage.mainTitle") }}</h1></br></br>
+				<img src="./assets/img/logo_white.png" alt="Sumokoin"/>                               
 			</div>
 			<div class="callToAction tc" >
 				<a href="#" @click="loadWallet()" v-if="hasLocalWallet" class="btn basic">{{ $t("homepage.actions.loadWallet") }}</a>
@@ -62,7 +64,7 @@
 					<div class="block">
 						<i class="fa fa-folder-open-o" aria-hidden="true"></i><br/>
 						<h3>{{ $t("homepage.notes.openSource.title") }}</h3>
-						<a href="https://github.com/masari-project/masari-webwallet" target="_blank" rel="nofollow"><h4>{{ $t("homepage.notes.openSource.description") }}</h4></a>
+						<a href="https://github.com/Aris-sumogr/sumokoin-webwallett" target="_blank" rel="nofollow"><h4>{{ $t("homepage.notes.openSource.description") }}</h4></a>
 					</div>
 				</div>
 			</div>

@@ -1,482 +1,481 @@
 {
   "website":{
-	"title":"Официјални Масари Веб Новчаник",
-	"description":"Официјални онлајн новчаник за Масари валуту који је анониман, сигуран, и у потпуности се ослања на Ваш претраживач у циљу оптималне безбедности."
+	"title":"Official Sumokoin Web Wallet",
+	"description":"Official online Sumokoin wallet - fast, anonymous, and fully handled in your browser for optimal security"
   },
   "messages": {
 	"menu": {
-	  "home": "Почетна",
-	  "account": "Налог",
-	  "send": "Пошаљи",
-	  "receive": "Прими",
-	  "export": "Извоз",
-	  "donate": "Донирај",
-	  "settings": "Подешавања",
-	  "disconnect": "Прекини везу",
-	  "network": "Статистика Мреже"
+	  "home": "Home",
+	  "account": "Account",
+	  "send": "Send",
+	  "receive": "Receive",
+	  "export": "Export",
+	  "donate": "Donate",
+	  "settings": "Settings",
+	  "disconnect": "Disconnect",
+	  "network": "Network Stats"
 	},
 	"global": {
-	  "loading": "Учитавам",
-	  "disableSecurity":"Искључи безбедност, разумем и прихватам ризик",
-	  "passwordInvalidRequirements":"Лозинка мора да се састоји из најмање 8 карактера, једног великог слова, једног малог слова, једног броја и једног симбола",
-	  "passwordConfirmationNotMatching":"Лозинке се не подударају",
-	  "download":"Преузми",
+	  "loading": "Loading",
+	  "disableSecurity":"Disable this security, I understand the risk",
+	  "passwordInvalidRequirements":"The password needs at least 8 characters - 1 upper case letter, 1 lower case letter, one number, and one special character",
+	  "passwordConfirmationNotMatching":"The password does not match the first password you wrote",
+	  "download":"Download",
 	  "newVersionModal":{
-		"title":"Нова верзија је доступна",
-		"content":"Да ли желите да освежите страницу и учитате нову верзију ?",
-		"confirmText":"Да",
-		"cancelText":"Касније"
+		"title":"A new version is available",
+		"content":"Do you want to reload to load the new version?",
+		"confirmText":"Yes",
+		"cancelText":"Back"
 	  },
 	  "openWalletModal":{
-		"title":"'Лозинка новчаника'",
-		"confirmText":"Отвори",
-		"cancelText":"Откажи"
+		"title":"Wallet Password",
+		"confirmText":"Open",
+		"cancelText":"Cancel"
 	  },
 	  "invalidPasswordModal":{
-		"title":"Упс...",
-		"content":"Неисправна лозинка",
-		"confirmText":"У реду"
+		"title":"Oops...",
+		"content":"Your password seems invalid",
+		"confirmText":"OK"
 	  },
 	  "invalidMnemonicModal":{
-		"title":"Упс...",
-		"content":"Мнемоничка фраза није исправна",
-		"confirmText":"У реду"
+		"title":"Oops...",
+		"content":"The mnemonic phrase is invalid",
+		"confirmText":"OK"
 	  },
 	  "passwordNotComplexEnoughModal":{
-		"title":"Лозинка није довољно сложена",
-		"confirmText":"У реду"
+		"title":"The password is not complex enough",
+		"confirmText":"OK"
 	  },
 	  "permissionRequiredForCameraModal":{
-		"title":"Упс...",
-		"content":"Потребна дозвола за приступ камери у циљу скенирања QR кода",
-		"confirmText":"У реду"
+		"title":"Oops...",
+		"content":"The permission to access your camera is required to scan the QR code",
+		"confirmText":"OK"
 	  }
 	},
 	"bottom": {
-	  "termsOfUse": "Правила коришћења",
+	  "termsOfUse": "Terms of Use",
 	  "privacyPolicy": "Privacy Policy",
-	  "support": "Подршка",
-	  "donate": "Донирај",
-	  "network": "Статистика Мреже",
-	  "miningPool": "Пул за рударење",
-	  "github": "Гитхаб"
+	  "support": "Support",
+	  "donate": "Donate",
+	  "network": "Network Stats",
+	  "miningPool": "Mining Pool",
+	  "github": "GitHub"
 	},
 	"homepage": {
-	  "mainTitle": "Безбедан Масари Новчаник",
-	  "tagLine": "Најједноставнији начин да користите Масари, било када и било где!",
+	  "mainTitle": "SUMOKOIN WEB WALLET",
+	  "tagLine": "The simplest way to use SUMOKOIN",
 	  "actions": {
-		"loadWallet": "Учитај новчаник",
-		"importWallet": "Увези новчаник",
-		"create": "Направи",
-		"createWallet": "Направи новчаник"
+		"loadWallet": "Load my wallet",
+		"importWallet": "Import a wallet",
+		"create": "Create",
+		"createWallet": "Create a wallet"
 	  },
 	  "notes": {
 		"secure": {
-		  "title": "Сигурност",
-		  "description": "Без сервера, потпуна енкрипција !"
+		  "title": "Secure",
+		  "description": "No servers, fully encrypted!"
 		},
 		"fast": {
-		  "title": "Брзина",
-		  "description": "Шаљите било где, било када !"
+		  "title": "Fast",
+		  "description": "Send Everywhere, Anytime!"
 		},
 		"technology": {
-		  "title": "Јединствена технологија",
-		  "description": "Повезан директно са Масари Блокчејном!"
+		  "title": "Unique Technology",
+		  "description": "Connected directly to Sumokoin's blockchain!"
 		},
 		"openSource": {
-		  "title": "Код је у потпуности доступан (open-source)",
-		  "description": "Доступно на ГитХаб"
+		  "title": "Fully Open-source",
+		  "description": "Available on Github!"
 		}
 	  }
 	},
 	"accountPage": {
-	  "title": "Налог",
-	  "subtitle": "Преглед налога и трансакција",
+	  "title": "Account",
+	  "subtitle": "Your account overview and transaction history",
 	  "synchronizingBlock": {
-		"text": "Синхронизација у току"
+		"text": "Synchronizing..."
 	  },
 	  "balanceBlock": {
-		"title": "Ваша средства",
-		"unlocked": "Откључано"
+		"title": "Your balance",
+		"unlocked": "Unlocked"
 	  },
 	  "historyBlock": {
-		"title": "Историја ваших трансакција",
-		"pendingTxStatus": "На чекању",
-		"emptyWallet": "Тренутно немате средстава у новчанику",
-		"waitSync": "Сачекајте да се новчаник освежи",
-		"beReallyPatient": "Овај поступак може да потраје...",
-		"getMSRAddress": "Адреса за пријем новчића"
+		"title": "Transaction history",
+		"pendingTxStatus": "Pending",
+		"emptyWallet": "You currently have no funds in this wallet.",
+		"waitSync": "Please wait until the wallet is updated.",
+		"beReallyPatient": "The initial setup can take some time...",
+		"getMSRAddress": "Receive MSR"
 	  },
 	  "txDetails":{
 		"title":"Transaction details",
 		"txHash":"Tx hash",
-		"feesOnTx":"Fees on the tx",
+		"feesOnTx":"Tx fees",
 		"blockHeight":"Block height",
 		"paymentId":"Payment ID",
 		"txPrivKey":"Transaction Private Key"
 	  }
 	},
 	"changeWalletPasswordPage":{
-	  "title":"Промените лозинку",
+	  "title":"Change your password",
 	  "oldPassword":{
-		"label":"Стара лозинка",
-		"invalid":"Погрешна лозинка"
+		"label":"Old password",
+		"invalid":"The password is invalid"
 	  },
 	  "newPassword":{
-		"label":"Изаберите нову лозинку",
-		"invalid":" Лозинка мора да се састоји из најмање 8 карактера, једног великог слова, једног малог слова, једног броја и једног симбола"
+		"label":"Choose a new password to protect your wallet"
 	  },
 	  "newPasswordConfirm":{
-		"label":"Потврдите нову лозинку"
+		"label":"Confirm the new password"
 	  },
-	  "confirm":"Промени лозинку",
+	  "confirm":"Change the password",
 	  "modalSuccess":{
-		"title":"Лозинка промењена !",
-		"confirmText":"У реду"
+		"title":"Password changed!",
+		"confirmText":"OK"
 	  }
 	},
 	"createWalletPage":{
 	  "generatingStep":{
-		"title":"Генерисање новчаника у току...",
-		"subtitle":"Процес је при крају",
-		"waitingMessage":"Генеришем новчаник..."
+		"title":"Your wallet is being generated...",
+		"subtitle":"It's almost done",
+		"waitingMessage":"Generating your wallet..."
 	  },
 	  "finalizationStep":{
-		"title":"Просто као пасуљ. Ваш налог је спреман!",
-		"subtitle":"Спремите се да користите Масари било где и било кад.",
+		"title":"That was simple. Your account is ready!",
+		"subtitle":"Be ready to use SUMOKOIN like you never have",
 		"passwordSelectionBlock":{
-		  "label":"Заштитите ваше податке"
+		  "label":"Protect your wallet"
 		},
 		"passwordConfirmBlock":{
-		  "label":"Потврдите лозинку"
+		  "label":"Confirm the password"
 		},
-		"validPassword":"Користите ову лозинку",
+		"validPassword":"Use this password",
 		"backupBlock":{
-		  "title":"И преузмите шифровану копију ваших података за будућу употребу ",
-		  "option1":"Опција 1: ",
-		  "option2":"Опција 2: ",
-		  "titlePdf":"Преузмите PDF фајл",
-		  "titleManualWrite":"Запишите кључеве",
-		  "privateKeys":"Приватни кључ",
-		  "mnemonicPhrase":"Мнемоничка фраза",
-		  "separatorManualMethodsSolution":" или ",
-		  "confirmManuallyWritten":"Записао сам",
-		  "warningMessage":"**Чувајте ове податке!** У случају губитка, подаци не могу бити враћени.<br/>**Не делите податке ни са ким!** Ваша средства могу бити украдена уколико користите ове податке на другим сајтовима сумњивог садржаја.<br/>**Направите резерву (backup)!** Обезбедите податке као да вреде милион долара.<br/>",
-		  "finishButton":"Разумем. Настави"
+		  "title":"Save your private credentials for recovery.",
+		  "option1":"Option 1: ",
+		  "option2":"Option 2: ",
+		  "titlePdf":"Download a PDF copy",
+		  "titleManualWrite":"Write down my keys",
+		  "privateKeys":"Private key",
+		  "mnemonicPhrase":"Mnemonic phrase",
+		  "separatorManualMethodsSolution":" or ",
+		  "confirmManuallyWritten":"I wrote my seed phrase down",
+		  "warningMessage":"**Do not lose it!** It cannot be recovered if you lose it.<br/>**Do not share it!** Your funds will be stolen if you use this file or seed on a malicious/phishing site.<br/>**Make a backup!** Secure it like the millions of dollars it may one day be worth.<br/>",
+		  "finishButton":"I understand. Continue."
 		}
 	  },
 	  "disclaimerBlock":{
-		"title":"Ризици коришћења Масари новчаника",
-		"content":"Масари новчаник је интерфејс на мрежи. Осмишљен је да помогне при употреби Масари валуте без потребе за покретањем софтвера на личном рачунару. <br/>Предлажемо да се односите према Масари новчанику као према свом личном који користите свакодневно."
+		"title":"Risk of Using SUMOKOIN Wallet",
+		"content":"SUMOKOIN Wallet is a web-based interface. It helps you use SUMOKOIN without running a full SUMOKOIN node. <br/>We recommend you treat SUMOKOIN Wallet like you will treat your actual wallet."
 	  }
 	},
 	"donatePage":{
-	  "title":"Донирај",
-	  "subtitle":"Помозите при финансирању развоја и плаћања рачуна.",
+	  "title":"Donate",
+	  "subtitle":"Help to fund the development and pay the bills",
 	  "webwalletBlock":{
-		"title":"Веб новчаник",
-		"content":"Овај сервис је дело контрибутора под именом Gnock.<br/>Уколико желите да помогнете при даљем развоју ове апликације, молимо вас да размислите о донацији.<br/><br/>"
+		"title":"Webwallet",
+		"content":"This Web wallet is developed by Gnock on his free time.<br/>If you want to help the development, help to pay for the servers, and like this app, please consider a donation: <br/><br/>"
 	  },
-	  "masariFundBlock":{
-		"title":"Масари новчаник за донације",
-		"content":"Уколико сте заинтересовани да помогнете, можете то учинити слањем средстава на следећу адресу"
+	  "SUMOKOINFundBlock":{
+		"title":"SUMOKOIN Dev fund",
+		"content":"To help SUMOKOIN, you can donate at these addresses"
 	  }
 	},
 	"supportPage":{
-	  "title":"Подршка",
-	  "subtitle":"Уколико вам је потребна подршка, ту смо да помогнемо!",
+	  "title":"Support",
+	  "subtitle":"We are here to help!",
 	  "getInTouchBlock":{
-		"title":"Контактирајте нас!",
-		"content":"Ако имате идеје или предлоге који би могли да помогну при даљем развоју овог сервиса, контактирајте нас!",
-		"discord":"Масари Дискорд Сервер"
+		"title":"Let's Get In Touch!",
+		"content":"Do you have ideas or feedback that could help us improve the wallet? Contact us!",
+		"discord":"SUMOKOIN Discord Channel"
 	  }
 	},
 	"networkPage":{
-	  "title":"Статистика мреже",
-	  "subtitle":"Увид у Масари мрежу",
+	  "title":"Network stats",
+	  "subtitle":"Insights on the SUMOKOIN network",
 	  "statsBlock":{
-		"hashrate":"Хешрејт мреже",
-		"height":"Блокчејн висина",
-		"difficulty":"Тешкоћа мреже",
-		"lastTimeBlock":"Последњи пронађени блок",
-		"lastReward":"Последња блок награда"
+		"hashrate":"Network hashrate",
+		"height":"Blockchain height",
+		"difficulty":"Network difficulty",
+		"lastTimeBlock":"Last block found",
+		"lastReward":"Last block reward"
 	  }
 	},
 	"sendPage":{
-	  "title":"Шаљи МСР",
+	  "title":"Send MSR",
 	  "sendBlock":{
 		"address":{
-		  "label":"Пошаљи на адресу",
-		  "invalid":"Адреса неисправна",
-		  "fundsTo":"Средства ће бити послата на",
-		  "receiver":"Прималац",
-		  "description":"Опис"
+		  "label":"Destination address",
+		  "invalid":"The destination address is invalid",
+		  "fundsTo":"The funds will be sent to",
+		  "receiver":"Receiver",
+		  "description":"Description"
 		},
 		"amount":{
-		  "label":"Количина за слање",
-		  "invalid":"Количина неисправна"
+		  "label":"Amount to send",
+		  "invalid":"The amount is invalid"
 		},
 		"paymentId":{
-		  "label":"ID уплате(произвољан корак)",
-		  "invalid":"ID уплате неисправан. Дужина мора бити између 16 и 64 карактера"
+		  "label":"Payment ID (optional)",
+		  "invalid":"The payment ID is invalid. The length must be 16 or 64 characters"
 		},
-		"sendButton":"Пошаљи",
-		"cancelButton":"Откажи"
+		"sendButton":"Send",
+		"cancelButton":"Cancel"
 	  },
 	  "qrCodeScanning":{
-		"explication":"Скенирање QR кода"
+		"explication":"Present the QR code"
 	  },
 	  "notEnoughMoneyModal":{
-		"title":"Упс...",
-		"content":"Немате довољно средстава за овај трансфер",
-		"confirmText":"У реду"
+		"title":"Oops...",
+		"content":"You don't have enough funds in your wallet to execute this transfer",
+		"confirmText":"OK"
 	  },
 	  "thankYouDonationModal":{
-		"title":"Хвала вам на донацији!",
-		"content":"Ваша помоћ је добродошла.<br/>Ваша донација ће помоћи при даљем развитку Масари-ја",
-		"confirmText":"Затвори"
+		"title":"Thank you for your donation!",
+		"content":"Your help is appreciated. <br/>This donation will help make SUMOKOIN better",
+		"confirmText":"OK"
 	  },
 	  "transferSentModal":{
-		"title":"Трансфер успешан!",
-		"confirmText":"Затвори"
+		"title":"Transfer sent successfully!",
+		"confirmText":"OK"
 	  },
 	  "transferExceptionModal":{
-		"title":"Упс...",
-		"content":"Дошло је до грешке. Молимо пријавите грешку: {details}",
-		"confirmText":"Затвори"
+		"title":"Oops...",
+		"content":"An error occurred. Please report this error: {details}",
+		"confirmText":"OK"
 	  },
 	  "invalidAmountModal":{
-		"title":"Упс...",
-		"content":"Количина погрешна",
-		"confirmText":"Затвори"
+		"title":"Oops...",
+		"content":"Invalid amount",
+		"confirmText":"OK"
 	  },
 	  "creatingTransferModal":{
-		"title":"Припремам трансфер...",
-		"content":"Молимо сачекајте..."
+		"title":"Creating transfer ...",
+		"content":"Please wait..."
 	  },
 	  "finalizingTransferModal":{
-		"title":"Финализирам трансфер...",
-		"content":"Молимо сачекајте..."
+		"title":"Finalizing transfer ...",
+		"content":"Please wait..."
 	  },
 	  "confirmTransactionModal":{
-		"title":"Потврди трансфер?",
-		"content":"'Количина: {amount}<br/>Провизија: {fees}<br/>Укупно: {total}",
-		"confirmText":"Потврди",
-		"cancelText":"Откажи"
+		"title":"Confirm transfer?",
+		"content":"Amount: {amount}<br/>Fees: {fees}<br/>Total: {total}",
+		"confirmText":"Confirm",
+		"cancelText":"Cancel"
 	  },
 	  "waitingNfcModal":{
-		"title":"Waiting Nfc",
-		"content":"Bring closer to the other device"
+		  "title":"Waiting for NFC",
+		  "content":"Bring your phone closer to the other device"
 	  }
 	},
 	"receivePage":{
-	  "title":"Прими МСР",
+	  "title":"Receive MSR",
 	  "receiveBlock":{
 		"address":{
-		  "title":"Адреса за примање новчића",
-		  "label":"Приложите ову адресу уколико желите да примите новчиће"
+		  "title":"Your address to receive funds:",
+		  "label":"Give this address to receive funds"
 		},
 		"qrCode":{
-		  "title":"Или помоћу QR кода",
-		  "labelAmount":"Количина (произвољна опција)",
-		  "labelRecipient":"Име примаоца(произвољна опција)",
-		  "labelDescription":"Опис трансакције(произвољна опција)",
-		  "updateButton":"Ажурирај"
+		  "title":"Or personalize the QR code:",
+		  "labelAmount":"Amount (optional)",
+		  "labelRecipient":"Recipient name (optional)",
+		  "labelDescription":"Transaction description (optional)",
+		  "updateButton":"Update"
 		}
 	  },
 	  "qrBlock":{
-		"title":"Ваш QR код"
+		"title":"Your customized QR code"
 	  },
 	  "waitingNfcToWriteModal":{
-		"title":"Waiting Nfc",
-		"titleSuccess":"Nfc Tag written",
-		"content":"Bring closer the NFC tag to write"
+		  "title":"Waiting for NFC",
+		  "titleSuccess":"NFC Tag Written",
+		  "content":"Bring your phone closer to the NFC tag to write"
 	  },
 	  "nfcErrorModal":{
 		"titleInsufficientCapacity":"Tag capacity insufficient"
 	  }
 	},
 	"miningPage":{
-	  "title":"Рударите директно из претраживача",
-	  "subtitle":"Подржите мрежу и повећајте стабилност исте, бићете награђени МСР новчићима",
+	  "title":"Mine directly in your browser",
+	  "subtitle":"Support the network by mining and be rewarded with MSR",
 	  "parameterBlock":{
-		"title":"Параметри",
-		"labelDestinationAddress":"Новчаник за рударење",
-		"labelThreads":"Број језгара(више = већи хешрејт)",
-		"start":"Старт",
-		"stop":"Стоп"
+		"title":"Parameters",
+		"labelDestinationAddress":"Wallet to mine",
+		"labelThreads":"Number of threads (more = higher hashrate)",
+		"start":"Start",
+		"stop":"Stop"
 	  },
 	  "statisticsBlocks":{
-		"title":"Статистика",
-		"validShares":"Валидних шерова",
-		"hashrate":"Хешрејт",
-		"maxHashrate":"Maксимални Хешрејт",
-		"dedicatedHardware":"Са одговарајућим софтвером за рударење можете очекивати 2 до 3 пута већи хешрејт.<br/>Поред тога, софтвер за рударење вам омогућава да користите и графичку картицу.",
-		"miningHandledBy":"Рударење је омогућено и контролисано од стране get.masaricoin.com пула"
+		"title":"Statistics",
+		"validShares":"Valid shares",
+		"hashrate":"Hashrate",
+		"maxHashrate":"Max Hashrate",
+		"dedicatedHardware":"With dedicating mining software and hardware, you could earn more and help decentralize the network.",
+		"miningHandledBy":"This mining is handled by the mining pool get.SUMOKOINcoin.com"
 	  }
 	},
 	"settingsPage":{
-	  "title":"Подешавања",
-	  "subtitle":"Промените подешавања овде",
+	  "title":"Settings",
+	  "subtitle":"Change your parameters here",
 	  "versionBlock":{
 		"versionNumber":"Version number: ",
 		"versionCode":"Version code: "
 	  },
 	  "settingsBlock":{
 		"speed":{
-		  "label":"Брзина ажурирања новчаника(утиче на потрошњу енергије)",
-		  "fastest":"Најбрже",
-		  "fast":"Брзо",
-		  "medium":"Средње",
-		  "slow":"Споро"
+		  "label":"Speed to update the wallet (will consume more resources)",
+		  "fastest":"Fastest",
+		  "fast":"Fast",
+		  "medium":"Medium",
+		  "slow":"Slow"
 		},
 		"language":{
 		  "label":"Language"
 		},
 		"readMinerTx":{
-		  "label":"Трансакције рудара(само за соло рударење)"
+		  "label":"Read miner transactions (only for solo mining)"
 		}
 	  },
-	  "changePasswordButton":"Промени лозинку новчаника",
-	  "deleteWalletButton":"Обриши мој новчаник(локална копија)",
+	  "changePasswordButton":"Change my wallet password",
+	  "deleteWalletButton":"Delete my wallet (local copy)",
 	  "walletSettings":{
 		"creationHeight":{
-		  "label":"Блок висина при креацији новчаника"
+		  "label":"Creation height of the wallet"
 		},
 		"currentScanningHeight": {
-		  "label": "Тренутна висина скенирања"
+		  "label": "Current scanning height"
 		},
-		"updateButton":"Ажурирај"
+		"updateButton":"Update"
 	  },
 	  "deleteWalletModal":{
-		"title":"Обриши мој новчаник(локална копија)",
-		"content":"Да ли сте СИГУРНИ да желите брисање новчаника ?",
-		"confirmText":"Да, сигуран сам",
-		"cancelButtonText":"Откажи"
+		"title":"Delete My Wallet (local copy)",
+		"content":"Are you sure you REALLY want to delete your wallet ?",
+		"confirmText":"Yes I'm sure",
+		"cancelButtonText":"Cancel"
 	  }
 	},
 	"importBasePage":{
 	  "parametersBlock":{
-		"title":"Параметри",
+		"title":"Parameters",
 		"password":{
-		  "label":"Лозинка за заштиту новчаника"
+		  "label":"Password to protect your wallet"
 		},
 		"passwordConfirm":{
-		  "label":"Потврдите лозинку",
-		  "invalid":"Лозинка се не подудара са првим уносом"
+		  "label":"Confirm the password",
+		  "invalid":"The password does not match the first password you wrote"
 		},
 		"importHeight":{
-		  "label":"Блок висина за увоз"
+		  "label":"Height to import from:"
 		}
 	  }
 	},
 	"importFromQrPage":{
-	  "title":"Увоз новчаника преко QR кода",
-	  "subtitle":"Увези новчаник из офлајн датотеке",
+	  "title":"Importing wallet from a QR code",
+	  "subtitle":"Import a wallet from an offline backup",
 	  "qrCodeBlock":{
-		"title":"QR код",
-		"startScanButton":"Покрени скенирање",
-		"importButton":"Увези"
+		"title":"QR code",
+		"startScanButton":"Start the scan",
+		"importButton":"Import"
 	  },
 	  "qrScanningBlock":{
-		"title":"Приложите QR код"
+		"title":"Present the QR code"
 	  }
 	},
 	"exportPage":{
-	  "title":"Сачувајте ваше податке",
+	  "title":"Backup your credentials",
 	  "publicAddressBlock":{
-		"title":"Ваша адреса"
+		"title":"Your public address"
 	  },
 	  "pdfBlock":{
-		"title":"Pdf чување",
-		"downloadButton":"Преузми"
+		"title":"PDF Backup",
+		"downloadButton":"Download"
 	  },
 	  "warningBlock":{
-		"title":"Упозорење",
-		"content":"Уколико се одлучите да сачувате податке вашег новчаника, МОЛИМО ВАС немојте их чувати на видном и лако доступном месту.<br/>Овај фајл је алтернативно решење које садржи комплетан сет шифрованих параметара потребних за будућу ресторацију и синхронизацију."
+		"title":"Warning",
+		"content":"If you choose to save your private keys or your mnemonic phrase, PLEASE DO NOT store them in clear-text for your own safety.<br/>The file is an alternate solution where your keys are encrypted and contains a backup of all your transactions to spare you a future synchronisation."
 	  },
 	  "exportBlock":{
-		"title":"Извези СИРОВЕ податке",
-		"privateKeysButton":"Моји приватни кључеви",
-		"mnemonicKeysButton":"Моја мнемоничка фраза",
-		"fileButton":"Сачувај као фајл"
+		"title":"Export your RAW credentials",
+		"privateKeysButton":"Get my private keys",
+		"mnemonicKeysButton":"Get my mnemonic phrase",
+		"fileButton":"Export to a file"
 	  },
 	  "walletKeysModal":{
-		"title":"Приватни кључеви",
-		"confirmText":"У реду",
-		"content":"Молимо бас да чувате ове податке на безбедном месту. <b>Поседовање ових кључева значи поседовање свих средстава везаних за поменуте кључеве.</b> !<br/>Потрошачки кључ: {privSpendKey}<br/>Приватни кључ: {privViewKey}"
+		"title":"Private keys",
+		"confirmText":"OK",
+		"content":"Please store these keys carefully. <b>Possessing them means possessing the funds associated</b> !<br/>Spend key: {privSpendKey}<br/>Private view key: {privViewKey}"
 	  },
 	  "mnemonicKeyModal":{
-		"title":"Приватни кључеви",
-		"confirmText":"У реду",
-		"content":"Молимо вас да пажљиво чувате мнемоничку фразу. <b>Поседовање исте вам омогућава приступ средствима везаним за овај новчаник</b> ! Ваша фраза је:<br/>{mnemonic}"
+		"title":"Mnemonic phrase",
+		"confirmText":"OK",
+		"content":"Please store this mnemonic phrase carefully. <b>Possessing it means possessing the funds associated</b> ! The phrase is:<br/>{mnemonic}"
 	  },
 	  "mnemonicLangSelectionModal":{
-		"title":"Изаберите језик за мнемоничку фразу",
-		"confirmText":"Извези"
+		"title":"In which language do you want your mnemonic phrase?",
+		"confirmText":"Export"
 	  }
 	},
 	"importPage":{
-	  "title":"Увези новчаник",
-	  "subtitle":"Од претходно добијених кључева, фајла, или мнемоничке фразе",
-	  "chooseMethod":"Изабери метод",
-	  "fromKeys":"Помоћу кључева",
-	  "fromFile":"Помоћу фајла",
-	  "fromMnemonic":"Помоћу мнемоничке фразе",
-	  "fromQr":"Помоћу QR кода"
+	  "title":"Create a wallet",
+	  "subtitle":"From previously created keys, file, or mnemonic phrase",
+	  "chooseMethod":"Choose your import method: <br/>Please note that restoring an old wallet from 0 height can take a long time so please be patient. You can log off and continue restoration at any time",
+	  "fromKeys":"From keys",
+	  "fromFile":"From a file",
+	  "fromMnemonic":"From a mnemonic phrase",
+	  "fromQr":"From a QR code"
 	},
 	"termsOfUsePage":{
-	  "title":"Правила коришћења",
-	  "subtitle":"Молимо пажљиво прочитајте"
+	  "title":"Terms of use",
+	  "subtitle":"Please read them carefully."
 	},
 	"privacyPolicyPage":{
 	  "title":"Privacy Policy",
-	  "subtitle":"Молимо пажљиво прочитајте"
+	  "subtitle":"Please read them carefully."
 	},
 	"importFromFilePage":{
-	  "title":"Увоз новчаника помоћу фајла",
-	  "subtitle":"Искористите преузети бекап фајл за увоз новчаника",
+	  "title":"Importing wallet from a backup file",
+	  "subtitle":"Use your backup file to create a wallet",
 	  "walletBlock":{
-		"title":"Фајл новчаника",
-		"label":"Изаберите фајл",
-		"importButton":"Увези"
+		"title":"Wallet file",
+		"label":"Select the file",
+		"importButton":"Import"
 	  }
 	},
 	"importFromMnemonicPage":{
-	  "title":"Увоз новчаника помоћу мнемоничке фразе",
-	  "subtitle":"Искористите постојећу фразу за увоз новчаника",
+	  "title":"Importing wallet from a mnemonic phrase",
+	  "subtitle":"Use your phrase to create a wallet",
 	  "mnemonicBlock":{
-		"title":"Мнемоминчка фраза",
+		"title":"Mnemonic phrase",
 		"mnemonic":{
-		  "label":"Мнемоничка фраза: 25 речи",
-		  "invalid":"Неисправна мнемоничка фраза",
-		  "language":"Језик"
+		  "label":"Mnemonic phrase: 26 words",
+		  "invalid":"The mnemonic phrase is invalid",
+		  "language":"Language"
 		},
-		"importButton":"Увези"
+		"importButton":"Import"
 	  }
 	},
 	"importFromKeysPage":{
-	  "title":"Увоз новчаника помоћу кључева",
-	  "subtitle":"Искористите кључеве за увоз новчаника",
-	  "parametersBLock":{
+	  "title":"Importing wallet from keys",
+	  "subtitle":"Use your keys to create a wallet",
+	  "parametersBlock":{
 		"viewOnlyWallet":{
-		  "label":"Да ли желите новчаник само за преглед (view-only) ?"
+		  "label":"Do you want a view only wallet?"
 		}
 	  },
 	  "keysBlock":{
-		"titleNotViewOnly":"Кључеви новчаника",
-		"titleViewOnly":"View-only новчаник",
+		"titleNotViewOnly":"Wallet keys",
+		"titleViewOnly":"View only wallet",
 		"privateSpend":{
-		  "label":"Приватни потрошачки кључ"
+		  "label":"Private spend key"
 		},
 		"privateView":{
-		  "label":"Приватни кључ за преглед",
-		  "optional":"(произвољна опција)"
+		  "label":"Private view key",
+		  "optional":"(optional)"
 		},
 		"publicKey":{
-		  "label":"Јавни кључ"
+		  "label":"Public key"
 		},
-		"importButton":"Увези"
+		"importButton":"Import"
 	  }
 	}
   },
@@ -488,7 +487,7 @@
 	},
 	"long": {
 	  "year": "numeric", "month": "short", "day": "numeric",
-	  "weekday": "short", "hour": "numeric", "minute": "numeric", "hour12": false
+	  "weekday": "short", "hour": "numeric", "minute": "numeric", "hour12": true
 	}
   }
 }

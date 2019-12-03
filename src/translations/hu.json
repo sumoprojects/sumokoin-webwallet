@@ -1,481 +1,481 @@
 {
   "website":{
-	"title":"Hivatalos Masari webtárca",
-	"description":"A Masari hivatalos online tárcája - névtelen, biztonságos és teljes mértékben böngészőből kezelt az optimális biztonság érdekében"
+	"title":"Official Sumokoin Web Wallet",
+	"description":"Official online Sumokoin wallet - fast, anonymous, and fully handled in your browser for optimal security"
   },
   "messages": {
 	"menu": {
-	  "home": "Kezdőlap",
-	  "account": "Számla",
-	  "send": "Küldés",
-	  "receive": "Fogadás",
-	  "export": "Exportálás",
-	  "donate": "Adományozás",
-	  "settings": "Beállítások",
-	  "disconnect": "Szétkapcsolás",
-	  "network": "Hálózati statisztika"
+	  "home": "Home",
+	  "account": "Account",
+	  "send": "Send",
+	  "receive": "Receive",
+	  "export": "Export",
+	  "donate": "Donate",
+	  "settings": "Settings",
+	  "disconnect": "Disconnect",
+	  "network": "Network Stats"
 	},
 	"global": {
-	  "loading": "Betöltés",
-	  "disableSecurity":"Biztonság kikapcsolása, megértettem a kockázatot",
-	  "passwordInvalidRequirements":"A jelszónak legalább 8 karakterből kell állnia és tartalmaznia kell egy nagybetűt, egy kisbetűt, egy számot és egy különleges karaktert",
-	  "passwordConfirmationNotMatching":"A megadott jelszavak nem egyeznek",
-	  "download":"Letöltés",
+	  "loading": "Loading",
+	  "disableSecurity":"Disable this security, I understand the risk",
+	  "passwordInvalidRequirements":"The password needs at least 8 characters - 1 upper case letter, 1 lower case letter, one number, and one special character",
+	  "passwordConfirmationNotMatching":"The password does not match the first password you wrote",
+	  "download":"Download",
 	  "newVersionModal":{
-		"title":"Elérhető egy új verzió",
-		"content":"Szeretnéd újratölteni az oldalt az új verzió használatához?",
-		"confirmText":"Igen",
-		"cancelText":"Vissza"
+		"title":"A new version is available",
+		"content":"Do you want to reload to load the new version?",
+		"confirmText":"Yes",
+		"cancelText":"Back"
 	  },
 	  "openWalletModal":{
-		"title":"Tárca jelszava",
-		"confirmText":"Megnyitás",
-		"cancelText":"Mégsem"
+		"title":"Wallet Password",
+		"confirmText":"Open",
+		"cancelText":"Cancel"
 	  },
 	  "invalidPasswordModal":{
-		"title":"Hupsz...",
-		"content":"Érvénytelen jelszó",
+		"title":"Oops...",
+		"content":"Your password seems invalid",
 		"confirmText":"OK"
 	  },
 	  "invalidMnemonicModal":{
-		"title":"Hupsz...",
-		"content":"Érvénytelen mnemonikus szósor",
+		"title":"Oops...",
+		"content":"The mnemonic phrase is invalid",
 		"confirmText":"OK"
 	  },
 	  "passwordNotComplexEnoughModal":{
-		"title":"A jelszó nem elég összetett",
+		"title":"The password is not complex enough",
 		"confirmText":"OK"
 	  },
 	  "permissionRequiredForCameraModal":{
-		"title":"Hupsz...",
-		"content":"A kamerához való hozzáférés szükséges a QR-kód beolvasásához",
+		"title":"Oops...",
+		"content":"The permission to access your camera is required to scan the QR code",
 		"confirmText":"OK"
 	  }
 	},
 	"bottom": {
-	  "termsOfUse": "Felhasználási feltételek",
+	  "termsOfUse": "Terms of Use",
 	  "privacyPolicy": "Privacy Policy",
-	  "support": "Ügyfélszolgálat",
-	  "donate": "Adományozás",
-	  "network": "Hálózati statisztika",
-	  "miningPool": "Bányász pool",
+	  "support": "Support",
+	  "donate": "Donate",
+	  "network": "Network Stats",
+	  "miningPool": "Mining Pool",
 	  "github": "GitHub"
 	},
 	"homepage": {
-	  "mainTitle": "Biztonságos Masari tárca",
-	  "tagLine": "A Masari használatának legegyszerűbb módja - bárhol és bármikor",
+	  "mainTitle": "SUMOKOIN WEB WALLET",
+	  "tagLine": "The simplest way to use SUMOKOIN",
 	  "actions": {
-		"loadWallet": "Tárca betöltése",
-		"importWallet": "Tárcaimportálás",
-		"create": "Létrehozás",
-		"createWallet": "Tárca létrehozása"
+		"loadWallet": "Load my wallet",
+		"importWallet": "Import a wallet",
+		"create": "Create",
+		"createWallet": "Create a wallet"
 	  },
 	  "notes": {
 		"secure": {
-		  "title": "Biztonságos",
-		  "description": "Nincsenek szerverek, teljesen titkosított!"
+		  "title": "Secure",
+		  "description": "No servers, fully encrypted!"
 		},
 		"fast": {
-		  "title": "Gyors",
-		  "description": "Küldj bárhonnan, bármikor!"
+		  "title": "Fast",
+		  "description": "Send Everywhere, Anytime!"
 		},
 		"technology": {
-		  "title": "Egyedi technológia",
-		  "description": "Közvetlen kapcsolat a Masari blokklánccal!"
+		  "title": "Unique Technology",
+		  "description": "Connected directly to Sumokoin's blockchain!"
 		},
 		"openSource": {
-		  "title": "Teljesen nyílt forrású",
-		  "description": "Elérhető a Githubon!"
+		  "title": "Fully Open-source",
+		  "description": "Available on Github!"
 		}
 	  }
 	},
 	"accountPage": {
-	  "title": "Számla",
-	  "subtitle": "Számlaáttekintés és tranzakciós előzmények",
+	  "title": "Account",
+	  "subtitle": "Your account overview and transaction history",
 	  "synchronizingBlock": {
-		"text": "Szinkronizálás..."
+		"text": "Synchronizing..."
 	  },
 	  "balanceBlock": {
-		"title": "Egyenleg",
-		"unlocked": "Feloldva"
+		"title": "Your balance",
+		"unlocked": "Unlocked"
 	  },
 	  "historyBlock": {
-		"title": "Tranzakciós előzmények",
-		"pendingTxStatus": "Függőben",
-		"emptyWallet": "Jelenleg nincsen egyenleged ebben a tárcában.",
-		"waitSync": "Kérlek, várj, míg a tárca naprakész lesz",
-		"beReallyPatient": "A kezdeti beállítás némi időbe telhet...",
-		"getMSRAddress": "MSR fogadása"
+		"title": "Transaction history",
+		"pendingTxStatus": "Pending",
+		"emptyWallet": "You currently have no funds in this wallet.",
+		"waitSync": "Please wait until the wallet is updated.",
+		"beReallyPatient": "The initial setup can take some time...",
+		"getMSRAddress": "Receive MSR"
 	  },
 	  "txDetails":{
-		"title":"Tranzakciórészletek",
-		"txHash":"Tranzakció hash",
-		"feesOnTx":"Tranzakció díjai",
-		"blockHeight":"Blokk",
-		"paymentId":"Fizetési azonosító",
+		"title":"Transaction details",
+		"txHash":"Tx hash",
+		"feesOnTx":"Tx fees",
+		"blockHeight":"Block height",
+		"paymentId":"Payment ID",
 		"txPrivKey":"Transaction Private Key"
 	  }
 	},
 	"changeWalletPasswordPage":{
-	  "title":"Jelszómódosítás",
+	  "title":"Change your password",
 	  "oldPassword":{
-		"label":"Régi jelszó",
-		"invalid":"Érvénytelen jelszó"
+		"label":"Old password",
+		"invalid":"The password is invalid"
 	  },
 	  "newPassword":{
-		"label":"Válassz új jelszót"
+		"label":"Choose a new password to protect your wallet"
 	  },
 	  "newPasswordConfirm":{
-		"label":"Ismételd meg az új jelszót"
+		"label":"Confirm the new password"
 	  },
-	  "confirm":"Jelszómódosítás",
+	  "confirm":"Change the password",
 	  "modalSuccess":{
-		"title":"Jelszó módosítva!",
+		"title":"Password changed!",
 		"confirmText":"OK"
 	  }
 	},
 	"createWalletPage":{
 	  "generatingStep":{
-		"title":"A tárcád létrehozása folyamatban...",
-		"subtitle":"Majdnem kész",
-		"waitingMessage":"Tárcád létrehozása..."
+		"title":"Your wallet is being generated...",
+		"subtitle":"It's almost done",
+		"waitingMessage":"Generating your wallet..."
 	  },
 	  "finalizationStep":{
-		"title":"Ez egyszerű volt. A számlád rendelkezésre áll!",
-		"subtitle":"Állj készen a Masari használatára",
+		"title":"That was simple. Your account is ready!",
+		"subtitle":"Be ready to use SUMOKOIN like you never have",
 		"passwordSelectionBlock":{
-		  "label":"Védd a tárcád"
+		  "label":"Protect your wallet"
 		},
 		"passwordConfirmBlock":{
-		  "label":"Erősítsd meg a jelszót"
+		  "label":"Confirm the password"
 		},
-		"validPassword":"Megadott jelszó használata",
+		"validPassword":"Use this password",
 		"backupBlock":{
-		  "title":"Mentsd el a visszaállításra szolgáló privát adataidat.",
-		  "option1":"1. ",
-		  "option2":"2. ",
-		  "titlePdf":"lehetőség: másolat letöltése PDF-ben",
-		  "titleManualWrite":"lehetőség: kulcsok lejegyzése",
-		  "privateKeys":"Privát kulcs",
-		  "mnemonicPhrase":"Mnemonikus szósor",
-		  "separatorManualMethodsSolution":" vagy ",
-		  "confirmManuallyWritten":"Lejegyeztem",
-		  "warningMessage":"**Ne veszítsd el!** Ha elveszted, nem lehet visszaállítani.<br/>**Ne oszd meg!** Pénzedet ellophatják, ha ezt a fájlt megosztod mással, esetleg rosszindulatú, adathalász oldalon közzéteszed.<br/>**Készíts biztonsági másolatot!** Tartsd úgy biztonságban, mint a több millió dollárt, amit egyszer érhet.<br/>",
-		  "finishButton":"Megértettem. Tovább."
+		  "title":"Save your private credentials for recovery.",
+		  "option1":"Option 1: ",
+		  "option2":"Option 2: ",
+		  "titlePdf":"Download a PDF copy",
+		  "titleManualWrite":"Write down my keys",
+		  "privateKeys":"Private key",
+		  "mnemonicPhrase":"Mnemonic phrase",
+		  "separatorManualMethodsSolution":" or ",
+		  "confirmManuallyWritten":"I wrote my seed phrase down",
+		  "warningMessage":"**Do not lose it!** It cannot be recovered if you lose it.<br/>**Do not share it!** Your funds will be stolen if you use this file or seed on a malicious/phishing site.<br/>**Make a backup!** Secure it like the millions of dollars it may one day be worth.<br/>",
+		  "finishButton":"I understand. Continue."
 		}
 	  },
 	  "disclaimerBlock":{
-		"title":"A MasariWallet használatának kockázatai",
-		"content":"A MasariWallet egy webes felület, mely lehetővé teszi a Masari használatát teljes csomópont futtatása nélkül.<br/>Kezeld úgy a MasariWalletet, mintha az a valódi pénztárcád lenne."
+		"title":"Risk of Using SUMOKOIN Wallet",
+		"content":"SUMOKOIN Wallet is a web-based interface. It helps you use SUMOKOIN without running a full SUMOKOIN node. <br/>We recommend you treat SUMOKOIN Wallet like you will treat your actual wallet."
 	  }
 	},
 	"donatePage":{
-	  "title":"Adományozás",
-	  "subtitle":"Segíts a fejlesztés finanszírozásában és a számlák kifizetésében",
+	  "title":"Donate",
+	  "subtitle":"Help to fund the development and pay the bills",
 	  "webwalletBlock":{
-		"title":"Webtárca",
-		"content":"A webtárcát Gnock fejleszti szabadidejében.<br/>Ha szeretnéd segíteni a fejlesztést, a szerverek fizetését és tetszik az applikáció, úgy vedd fontolóra az adományozást:<br/><br/>"
+		"title":"Webwallet",
+		"content":"This Web wallet is developed by Gnock on his free time.<br/>If you want to help the development, help to pay for the servers, and like this app, please consider a donation: <br/><br/>"
 	  },
-	  "masariFundBlock":{
-		"title":"Masari fejlesztési alap",
-		"content":"Ha szeretnél segíteni a Masarinak, az alábbi címekre adományozhatsz"
+	  "SUMOKOINFundBlock":{
+		"title":"SUMOKOIN Dev fund",
+		"content":"To help SUMOKOIN, you can donate at these addresses"
 	  }
 	},
 	"supportPage":{
-	  "title":"Ügyfélszolgálat",
-	  "subtitle":"Itt vagyunk, hogy segítsünk!",
+	  "title":"Support",
+	  "subtitle":"We are here to help!",
 	  "getInTouchBlock":{
-		"title":"Lépjünk kapcsolatba!",
-		"content":"Visszajelzésed vagy ötleted van a tárcával kapcsolatban? Keress fel bennünket!",
-		"discord":"Masari Discord-csatorna"
+		"title":"Let's Get In Touch!",
+		"content":"Do you have ideas or feedback that could help us improve the wallet? Contact us!",
+		"discord":"SUMOKOIN Discord Channel"
 	  }
 	},
 	"networkPage":{
-	  "title":"Hálózati statisztika",
-	  "subtitle":"Betekintés a Masari hálózatába",
+	  "title":"Network stats",
+	  "subtitle":"Insights on the SUMOKOIN network",
 	  "statsBlock":{
-		"hashrate":"Hálózati hashrate",
-		"height":"Blokklánc hossza",
-		"difficulty":"Hálózati nehézség",
-		"lastTimeBlock":"Utolsó blokk ideje",
-		"lastReward":"Utolsó blokk jutalma"
+		"hashrate":"Network hashrate",
+		"height":"Blockchain height",
+		"difficulty":"Network difficulty",
+		"lastTimeBlock":"Last block found",
+		"lastReward":"Last block reward"
 	  }
 	},
 	"sendPage":{
-	  "title":"MSR küldése",
+	  "title":"Send MSR",
 	  "sendBlock":{
 		"address":{
-		  "label":"Kedvezményezett címe",
-		  "invalid":"A kedvezményezett címe érvénytelen",
-		  "fundsTo":"A pénz ide kerül küldésre:",
-		  "receiver":"Fogadás",
-		  "description":"Leírás"
+		  "label":"Destination address",
+		  "invalid":"The destination address is invalid",
+		  "fundsTo":"The funds will be sent to",
+		  "receiver":"Receiver",
+		  "description":"Description"
 		},
 		"amount":{
-		  "label":"Küldendő mennyiség",
-		  "invalid":"Érvénytelen mennyiség"
+		  "label":"Amount to send",
+		  "invalid":"The amount is invalid"
 		},
 		"paymentId":{
-		  "label":"Fizetési azonosító (opcionális)",
-		  "invalid":"Érvénytelen fizetési azonosító. Hosszának 16 vagy 64 karakternek kell lennie"
+		  "label":"Payment ID (optional)",
+		  "invalid":"The payment ID is invalid. The length must be 16 or 64 characters"
 		},
-		"sendButton":"Küldés",
-		"cancelButton":"Mégsem"
+		"sendButton":"Send",
+		"cancelButton":"Cancel"
 	  },
 	  "qrCodeScanning":{
-		"explication":"Mutasd be a QR-kódot"
+		"explication":"Present the QR code"
 	  },
 	  "notEnoughMoneyModal":{
-		"title":"Hupsz...",
-		"content":"Egyenleged nem elegendő a tranzakció végrehajtásához",
+		"title":"Oops...",
+		"content":"You don't have enough funds in your wallet to execute this transfer",
 		"confirmText":"OK"
 	  },
 	  "thankYouDonationModal":{
-		"title":"Köszönjük az adományt!",
-		"content":"Értékeljük a segítséged.<br/>Ez az adomány is segít jobbá tenni a Masarit.",
+		"title":"Thank you for your donation!",
+		"content":"Your help is appreciated. <br/>This donation will help make SUMOKOIN better",
 		"confirmText":"OK"
 	  },
 	  "transferSentModal":{
-		"title":"Sikeres tranzakció!",
+		"title":"Transfer sent successfully!",
 		"confirmText":"OK"
 	  },
 	  "transferExceptionModal":{
-		"title":"Hupsz...",
-		"content":"Hiba történt. Kérlek, jelentsd az alábbi hibát: {details}",
+		"title":"Oops...",
+		"content":"An error occurred. Please report this error: {details}",
 		"confirmText":"OK"
 	  },
 	  "invalidAmountModal":{
-		"title":"Hupsz...",
-		"content":"Érvénytelen mennyiség",
+		"title":"Oops...",
+		"content":"Invalid amount",
 		"confirmText":"OK"
 	  },
 	  "creatingTransferModal":{
-		"title":"Tranzakció létrehozása...",
-		"content":"Kérlek, várj..."
+		"title":"Creating transfer ...",
+		"content":"Please wait..."
 	  },
 	  "finalizingTransferModal":{
-		"title":"Tranzakció véglegesítése...",
-		"content":"Kérlek, várj..."
+		"title":"Finalizing transfer ...",
+		"content":"Please wait..."
 	  },
 	  "confirmTransactionModal":{
-		"title":"Megerősíted a tranzakciót?",
-		"content":"Mennyiség: {amount}<br/>Díj: {fees}<br/>Összesen: {total}",
-		"confirmText":"Megerősítés",
-		"cancelText":"Mégsem"
+		"title":"Confirm transfer?",
+		"content":"Amount: {amount}<br/>Fees: {fees}<br/>Total: {total}",
+		"confirmText":"Confirm",
+		"cancelText":"Cancel"
 	  },
 	  "waitingNfcModal":{
-		"title":"Waiting Nfc",
-		"content":"Bring closer to the other device"
+		  "title":"Waiting for NFC",
+		  "content":"Bring your phone closer to the other device"
 	  }
 	},
 	"receivePage":{
-	  "title":"MSR fogadása",
+	  "title":"Receive MSR",
 	  "receiveBlock":{
 		"address":{
-		  "title":"Pénz fogadására szolgáló cím:",
-		  "label":"Pénz fogadásához ezt a címet add meg"
+		  "title":"Your address to receive funds:",
+		  "label":"Give this address to receive funds"
 		},
 		"qrCode":{
-		  "title":"Vagy használj egyéni QR-kódot",
-		  "labelAmount":"Mennyiség (opcionális)",
-		  "labelRecipient":"Kedvezményezett neve (opcionális)",
-		  "labelDescription":"Tranzakció leírása (opcionális)",
-		  "updateButton":"Frissítés"
+		  "title":"Or personalize the QR code:",
+		  "labelAmount":"Amount (optional)",
+		  "labelRecipient":"Recipient name (optional)",
+		  "labelDescription":"Transaction description (optional)",
+		  "updateButton":"Update"
 		}
 	  },
 	  "qrBlock":{
-		"title":"Egyéni QR-kód"
+		"title":"Your customized QR code"
 	  },
 	  "waitingNfcToWriteModal":{
-		"title":"Waiting Nfc",
-		"titleSuccess":"Nfc Tag written",
-		"content":"Bring closer the NFC tag to write"
+		  "title":"Waiting for NFC",
+		  "titleSuccess":"NFC Tag Written",
+		  "content":"Bring your phone closer to the NFC tag to write"
 	  },
 	  "nfcErrorModal":{
 		"titleInsufficientCapacity":"Tag capacity insufficient"
 	  }
 	},
 	"miningPage":{
-	  "title":"Bányássz közvetlenül böngészőből",
-	  "subtitle":"Támogasd a hálózatot a bányászással és szerezz érte jutalmat Masariban",
+	  "title":"Mine directly in your browser",
+	  "subtitle":"Support the network by mining and be rewarded with MSR",
 	  "parameterBlock":{
-		"title":"Paraméterek",
-		"labelDestinationAddress":"Céltárca",
-		"labelThreads":"Szálak száma (több = nagyobb hashrate)",
-		"start":"Indítás",
-		"stop":"Megállítás"
+		"title":"Parameters",
+		"labelDestinationAddress":"Wallet to mine",
+		"labelThreads":"Number of threads (more = higher hashrate)",
+		"start":"Start",
+		"stop":"Stop"
 	  },
 	  "statisticsBlocks":{
-		"title":"Statisztika",
-		"validShares":"Érvényes részesedés",
+		"title":"Statistics",
+		"validShares":"Valid shares",
 		"hashrate":"Hashrate",
-		"maxHashrate":"Maximális hashrate",
-		"dedicatedHardware":"Bányászásra dedikált szoftver és hardver használatával nagyobb bevételre tehetsz szert és segíthetsz a hálózat decentralizálásában.",
-		"miningHandledBy":"Ezt a bányászást a get.masaricoin.com pool kezeli"
+		"maxHashrate":"Max Hashrate",
+		"dedicatedHardware":"With dedicating mining software and hardware, you could earn more and help decentralize the network.",
+		"miningHandledBy":"This mining is handled by the mining pool get.SUMOKOINcoin.com"
 	  }
 	},
 	"settingsPage":{
-	  "title":"Beállítások",
-	  "subtitle":"Módosítsd a beállításaidat",
+	  "title":"Settings",
+	  "subtitle":"Change your parameters here",
 	  "versionBlock":{
 		"versionNumber":"Version number: ",
 		"versionCode":"Version code: "
 	  },
 	  "settingsBlock":{
 		"speed":{
-		  "label":"Tárcafrissítés sebessége (több erőforrást igényel)",
-		  "fastest":"Leggyorsabb",
-		  "fast":"Gyors",
-		  "medium":"Közepes",
-		  "slow":"Lassú"
+		  "label":"Speed to update the wallet (will consume more resources)",
+		  "fastest":"Fastest",
+		  "fast":"Fast",
+		  "medium":"Medium",
+		  "slow":"Slow"
 		},
 		"language":{
 		  "label":"Language"
 		},
 		"readMinerTx":{
-		  "label":"Bányászási tranzakciók beolvasása (csak egyedülálló bányászás esetén)"
+		  "label":"Read miner transactions (only for solo mining)"
 		}
 	  },
-	  "changePasswordButton":"Jelszómódosítás",
-	  "deleteWalletButton":"Tárca törlése (helyi másolat)",
+	  "changePasswordButton":"Change my wallet password",
+	  "deleteWalletButton":"Delete my wallet (local copy)",
 	  "walletSettings":{
 		"creationHeight":{
-		  "label":"Tárcalétrehozási blokklánchossz"
+		  "label":"Creation height of the wallet"
 		},
 		"currentScanningHeight": {
-		  "label": "Jelenlegi beolvasási hossz"
+		  "label": "Current scanning height"
 		},
-		"updateButton":"Frissítés"
+		"updateButton":"Update"
 	  },
 	  "deleteWalletModal":{
-		"title":"Tárca törlése (helyi másolat)",
-		"content":"Biztosan törölni szeretnéd a tárcádat?",
-		"confirmText":"Igen, biztosan",
-		"cancelButtonText":"Mégsem"
+		"title":"Delete My Wallet (local copy)",
+		"content":"Are you sure you REALLY want to delete your wallet ?",
+		"confirmText":"Yes I'm sure",
+		"cancelButtonText":"Cancel"
 	  }
 	},
 	"importBasePage":{
 	  "parametersBlock":{
-		"title":"Paraméterek",
+		"title":"Parameters",
 		"password":{
-		  "label":"Tárcajelszó"
+		  "label":"Password to protect your wallet"
 		},
 		"passwordConfirm":{
-		  "label":"Jelszó megerősítése",
-		  "invalid":"A jelszavak nem egyeznek"
+		  "label":"Confirm the password",
+		  "invalid":"The password does not match the first password you wrote"
 		},
 		"importHeight":{
-		  "label":"Importálási blokklánchossz:"
+		  "label":"Height to import from:"
 		}
 	  }
 	},
 	"importFromQrPage":{
-	  "title":"Tárca importálása QR-kóddal",
-	  "subtitle":"Tárca importálása offline biztonsági mentésből",
+	  "title":"Importing wallet from a QR code",
+	  "subtitle":"Import a wallet from an offline backup",
 	  "qrCodeBlock":{
-		"title":"QR-kód",
-		"startScanButton":"Beolvasás",
-		"importButton":"Importálás"
+		"title":"QR code",
+		"startScanButton":"Start the scan",
+		"importButton":"Import"
 	  },
 	  "qrScanningBlock":{
-		"title":"Mutasd be a QR-kódot"
+		"title":"Present the QR code"
 	  }
 	},
 	"exportPage":{
-	  "title":"Készíts biztonsági mentést az adataidról",
+	  "title":"Backup your credentials",
 	  "publicAddressBlock":{
-		"title":"Nyilvános tárcacím"
+		"title":"Your public address"
 	  },
 	  "pdfBlock":{
-		"title":"Biztonsági mentés PDF-ben",
-		"downloadButton":"Letöltés"
+		"title":"PDF Backup",
+		"downloadButton":"Download"
 	  },
 	  "warningBlock":{
-		"title":"Figyelmeztetés",
-		"content":"Ha a privát kulcsaid vagy a mnemonikus szósorod mentését választod, úgy saját biztonságod érdekében ne tárold azokat egyszerű szövegként.<br/>A fájl egy alternatív megoldásként szolgál, ez esetben a kulcsaid titkosítottak és tartalmazza a tranzakciód biztonsági mentését is, így megkímél egy jövőbeli szinkronizálástól."
+		"title":"Warning",
+		"content":"If you choose to save your private keys or your mnemonic phrase, PLEASE DO NOT store them in clear-text for your own safety.<br/>The file is an alternate solution where your keys are encrypted and contains a backup of all your transactions to spare you a future synchronisation."
 	  },
 	  "exportBlock":{
-		"title":"Nyers adatok exportálása",
-		"privateKeysButton":"Privát kulcsok beszerzése",
-		"mnemonicKeysButton":"Mnemonikus szósor beszerzése",
-		"fileButton":"Exportálás fájlba"
+		"title":"Export your RAW credentials",
+		"privateKeysButton":"Get my private keys",
+		"mnemonicKeysButton":"Get my mnemonic phrase",
+		"fileButton":"Export to a file"
 	  },
 	  "walletKeysModal":{
-		"title":"Privát kulcsok",
+		"title":"Private keys",
 		"confirmText":"OK",
-		"content":"Kérlek, gondosan tárold a kulcsokat. <b>Birtoklása a hozzá tartozó pénzösszeg birtoklását is jelenti.</b>!<br/>Privát költőkulcs: {privSpendKey}<br/>Privát figyelőkulcs: {privViewKey}"
+		"content":"Please store these keys carefully. <b>Possessing them means possessing the funds associated</b> !<br/>Spend key: {privSpendKey}<br/>Private view key: {privViewKey}"
 	  },
 	  "mnemonicKeyModal":{
-		"title":"Mnemonikus szósor",
+		"title":"Mnemonic phrase",
 		"confirmText":"OK",
-		"content":"Kérlek, gondosan tárold a mnemonikus szósort. <b>Birtoklása a hozzá tartozó pénzösszeg birtoklását is jelenti.</b>! A szósor:<br/>{mnemonic}"
+		"content":"Please store this mnemonic phrase carefully. <b>Possessing it means possessing the funds associated</b> ! The phrase is:<br/>{mnemonic}"
 	  },
 	  "mnemonicLangSelectionModal":{
-		"title":"Milyen nyelven kéred a mnemonikus szósorod?",
-		"confirmText":"Exportálás"
+		"title":"In which language do you want your mnemonic phrase?",
+		"confirmText":"Export"
 	  }
 	},
 	"importPage":{
-	  "title":"Tárca létrehozása",
-	  "subtitle":"Korábban létrehozott kulcsokkal, fájllal vagy mnemonikus szósorral",
-	  "chooseMethod":"Válassz importálási módszert:",
-	  "fromKeys":"Kulcsok",
-	  "fromFile":"Fájl",
-	  "fromMnemonic":"Mnemonikus szósor",
-	  "fromQr":"QR-kód"
+	  "title":"Create a wallet",
+	  "subtitle":"From previously created keys, file, or mnemonic phrase",
+	  "chooseMethod":"Choose your import method: <br/>Please note that restoring an old wallet from 0 height can take a long time so please be patient. You can log off and continue restoration at any time",
+	  "fromKeys":"From keys",
+	  "fromFile":"From a file",
+	  "fromMnemonic":"From a mnemonic phrase",
+	  "fromQr":"From a QR code"
 	},
 	"termsOfUsePage":{
-	  "title":"Felhasználási feltételek",
-	  "subtitle":"Kérlek, alaposan olvasd el."
+	  "title":"Terms of use",
+	  "subtitle":"Please read them carefully."
 	},
 	"privacyPolicyPage":{
 	  "title":"Privacy Policy",
-	  "subtitle":"Kérlek, alaposan olvasd el."
+	  "subtitle":"Please read them carefully."
 	},
 	"importFromFilePage":{
-	  "title":"Tárca importálása biztonsági mentési fájllal",
-	  "subtitle":"Használd a biztonsági mentési fájlod a tárca létrehozásához",
+	  "title":"Importing wallet from a backup file",
+	  "subtitle":"Use your backup file to create a wallet",
 	  "walletBlock":{
-		"title":"Tárcafájl",
-		"label":"Tallózás",
-		"importButton":"Importálás"
+		"title":"Wallet file",
+		"label":"Select the file",
+		"importButton":"Import"
 	  }
 	},
 	"importFromMnemonicPage":{
-	  "title":"Tárca importálása mnemonikus szósorral",
-	  "subtitle":"Használd a szósorodat a tárca létrehozásához",
+	  "title":"Importing wallet from a mnemonic phrase",
+	  "subtitle":"Use your phrase to create a wallet",
 	  "mnemonicBlock":{
-		"title":"Mnemonikus szósor",
+		"title":"Mnemonic phrase",
 		"mnemonic":{
-		  "label":"Mnemonikus szósor: 25 szó",
-		  "invalid":"Érvénytelen mnemonikus szósor",
-		  "language":"Nyelv"
+		  "label":"Mnemonic phrase: 26 words",
+		  "invalid":"The mnemonic phrase is invalid",
+		  "language":"Language"
 		},
-		"importButton":"Importálás"
+		"importButton":"Import"
 	  }
 	},
 	"importFromKeysPage":{
-	  "title":"Tárca importálása kulcsokkal",
-	  "subtitle":"Használd a kulcsaidat a tárca létrehozásához",
+	  "title":"Importing wallet from keys",
+	  "subtitle":"Use your keys to create a wallet",
 	  "parametersBlock":{
 		"viewOnlyWallet":{
-		  "label":"Csak megtekinthető (view only) tárcát szeretnél?"
+		  "label":"Do you want a view only wallet?"
 		}
 	  },
 	  "keysBlock":{
-		"titleNotViewOnly":"Tárcakulcsok",
-		"titleViewOnly":"sak megtekinthető tárca",
+		"titleNotViewOnly":"Wallet keys",
+		"titleViewOnly":"View only wallet",
 		"privateSpend":{
-		  "label":"Privát költőkulcs"
+		  "label":"Private spend key"
 		},
 		"privateView":{
-		  "label":"Privát figyelőkulcs",
-		  "optional":"(opcionális)"
+		  "label":"Private view key",
+		  "optional":"(optional)"
 		},
 		"publicKey":{
-		  "label":"Nyilvános kulcs"
+		  "label":"Public key"
 		},
-		"importButton":"Importálás"
+		"importButton":"Import"
 	  }
 	}
   },
@@ -487,7 +487,7 @@
 	},
 	"long": {
 	  "year": "numeric", "month": "short", "day": "numeric",
-	  "weekday": "short", "hour": "numeric", "minute": "numeric", "hour12": false
+	  "weekday": "short", "hour": "numeric", "minute": "numeric", "hour12": true
 	}
   }
 }

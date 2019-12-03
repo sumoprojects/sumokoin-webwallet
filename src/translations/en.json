@@ -1,7 +1,7 @@
 {
   "website":{
-	"title":"Official Masari Web Wallet",
-	"description":"Official online wallet for Masari currency - fast, anonymous, and fully handled in your browser for optimal security"
+	"title":"Official Sumokoin Web Wallet",
+	"description":"Official online Sumokoin wallet - fast, anonymous, and fully handled in your browser for optimal security"
   },
   "messages": {
 	"menu": {
@@ -62,8 +62,8 @@
 	  "github": "GitHub"
 	},
 	"homepage": {
-	  "mainTitle": "Secure Masari Wallet",
-	  "tagLine": "The simplest way to use Masari - anywhere and any time",
+	  "mainTitle": "SUMOKOIN WEB WALLET",
+	  "tagLine": "The simplest way to use SUMOKOIN",
 	  "actions": {
 		"loadWallet": "Load my wallet",
 		"importWallet": "Import a wallet",
@@ -81,7 +81,7 @@
 		},
 		"technology": {
 		  "title": "Unique Technology",
-		  "description": "Connected directly to the Masari blockchain!"
+		  "description": "Connected directly to Sumokoin's blockchain!"
 		},
 		"openSource": {
 		  "title": "Fully Open-source",
@@ -142,7 +142,7 @@
 	  },
 	  "finalizationStep":{
 		"title":"That was simple. Your account is ready!",
-		"subtitle":"Be ready to use Masari like you never have",
+		"subtitle":"Be ready to use SUMOKOIN like you never have",
 		"passwordSelectionBlock":{
 		  "label":"Protect your wallet"
 		},
@@ -165,8 +165,8 @@
 		}
 	  },
 	  "disclaimerBlock":{
-		"title":"Risk of Using MasariWallet",
-		"content":"MasariWallet is a web-based interface. It helps you use Masari without running a full Masari node. <br/>We recommend you treat MasariWallet like you will treat your actual wallet."
+		"title":"Risk of Using SUMOKOIN Wallet",
+		"content":"SUMOKOIN Wallet is a web-based interface. It helps you use SUMOKOIN without running a full SUMOKOIN node. <br/>We recommend you treat SUMOKOIN Wallet like you will treat your actual wallet."
 	  }
 	},
 	"donatePage":{
@@ -176,9 +176,9 @@
 		"title":"Webwallet",
 		"content":"This Web wallet is developed by Gnock on his free time.<br/>If you want to help the development, help to pay for the servers, and like this app, please consider a donation: <br/><br/>"
 	  },
-	  "masariFundBlock":{
-		"title":"Masari Dev fund",
-		"content":"To help Masari, you can donate at these addresses"
+	  "SUMOKOINFundBlock":{
+		"title":"SUMOKOIN Dev fund",
+		"content":"To help SUMOKOIN, you can donate at these addresses"
 	  }
 	},
 	"supportPage":{
@@ -187,12 +187,12 @@
 	  "getInTouchBlock":{
 		"title":"Let's Get In Touch!",
 		"content":"Do you have ideas or feedback that could help us improve the wallet? Contact us!",
-		"discord":"Masari Discord Channel"
+		"discord":"SUMOKOIN Discord Channel"
 	  }
 	},
 	"networkPage":{
 	  "title":"Network stats",
-	  "subtitle":"Insights on the Masari network",
+	  "subtitle":"Insights on the SUMOKOIN network",
 	  "statsBlock":{
 		"hashrate":"Network hashrate",
 		"height":"Blockchain height",
@@ -232,7 +232,7 @@
 	  },
 	  "thankYouDonationModal":{
 		"title":"Thank you for your donation!",
-		"content":"Your help is appreciated. <br/>This donation will help make Masari better",
+		"content":"Your help is appreciated. <br/>This donation will help make SUMOKOIN better",
 		"confirmText":"OK"
 	  },
 	  "transferSentModal":{
@@ -311,7 +311,7 @@
 		"hashrate":"Hashrate",
 		"maxHashrate":"Max Hashrate",
 		"dedicatedHardware":"With dedicating mining software and hardware, you could earn more and help decentralize the network.",
-		"miningHandledBy":"This mining is handled by the mining pool get.masaricoin.com"
+		"miningHandledBy":"This mining is handled by the mining pool get.SUMOKOINcoin.com"
 	  }
 	},
 	"settingsPage":{
@@ -418,7 +418,7 @@
 	"importPage":{
 	  "title":"Create a wallet",
 	  "subtitle":"From previously created keys, file, or mnemonic phrase",
-	  "chooseMethod":"Choose your import method:",
+	  "chooseMethod":"Choose your import method: <br/>Please note that restoring an old wallet from 0 height can take a long time so please be patient. You can log off and continue restoration at any time",
 	  "fromKeys":"From keys",
 	  "fromFile":"From a file",
 	  "fromMnemonic":"From a mnemonic phrase",
@@ -447,7 +447,7 @@
 	  "mnemonicBlock":{
 		"title":"Mnemonic phrase",
 		"mnemonic":{
-		  "label":"Mnemonic phrase: 25 words",
+		  "label":"Mnemonic phrase: 26 words",
 		  "invalid":"The mnemonic phrase is invalid",
 		  "language":"Language"
 		},
