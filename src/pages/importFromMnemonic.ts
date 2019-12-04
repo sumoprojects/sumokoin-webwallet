@@ -48,7 +48,6 @@ class ImportView extends DestructableView{
 		this.languages.push({key:'english',name:'English'});
 		this.languages.push({key:'chinese',name:'Chinese (simplified)'});
 		this.languages.push({key:'dutch',name:'Dutch'});
-		this.languages.push({key:'electrum',name:'Electrum'});
 		this.languages.push({key:'esperanto',name:'Esperanto'});
 		this.languages.push({key:'french',name:'French'});
 		this.languages.push({key:'italian',name:'Italian'});
@@ -146,7 +145,7 @@ class ImportView extends DestructableView{
 
 	checkMnemonicValidity(){
 		let splitted = this.mnemonicPhrase.trim().split(' ');
-		if(splitted.length != 25){
+		if(splitted.length < 24 || splitted.length > 26){
 			this.validMnemonicPhrase = false;
 		}else {
 			let detected = Mnemonic.detectLang(this.mnemonicPhrase.trim());
