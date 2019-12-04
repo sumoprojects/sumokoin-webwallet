@@ -1,481 +1,481 @@
 {
   "website":{
-	"title":"Official Sumokoin Web Wallet",
-	"description":"Official online Sumokoin wallet - fast, anonymous, and fully handled in your browser for optimal security"
+	"title":"Hivatalos Sumokoin webtarca",
+	"description":"A Sumokoin hivatalos online tarcaja - nevtelen, biztonsagos es teljes mertekben bongeszobol kezelt az optimalis biztonsag erdekeben"
   },
   "messages": {
 	"menu": {
-	  "home": "Home",
-	  "account": "Account",
-	  "send": "Send",
-	  "receive": "Receive",
-	  "export": "Export",
-	  "donate": "Donate",
-	  "settings": "Settings",
-	  "disconnect": "Disconnect",
-	  "network": "Network Stats"
+	  "home": "Kezdolap",
+	  "account": "Szamla",
+	  "send": "Kuldes",
+	  "receive": "Fogadas",
+	  "export": "Exportalas",
+	  "donate": "Adomanyozas",
+	  "settings": "Beallitasok",
+	  "disconnect": "Szetkapcsolas",
+	  "network": "Halozati statisztika"
 	},
 	"global": {
-	  "loading": "Loading",
-	  "disableSecurity":"Disable this security, I understand the risk",
-	  "passwordInvalidRequirements":"The password needs at least 8 characters - 1 upper case letter, 1 lower case letter, one number, and one special character",
-	  "passwordConfirmationNotMatching":"The password does not match the first password you wrote",
-	  "download":"Download",
+	  "loading": "Betoltes",
+	  "disableSecurity":"Biztonsag kikapcsolasa, megertettem a kockazatot",
+	  "passwordInvalidRequirements":"A jelszonak legalabb 8 karakterbol kell allnia es tartalmaznia kell egy nagybetut, egy kisbetut, egy szamot es egy kulonleges karaktert",
+	  "passwordConfirmationNotMatching":"A megadott jelszavak nem egyeznek",
+	  "download":"Letoltes",
 	  "newVersionModal":{
-		"title":"A new version is available",
-		"content":"Do you want to reload to load the new version?",
-		"confirmText":"Yes",
-		"cancelText":"Back"
+		"title":"Elerheto egy uj verzio",
+		"content":"Szeretned ujratolteni az oldalt az uj verzio hasznalatahoz?",
+		"confirmText":"Igen",
+		"cancelText":"Vissza"
 	  },
 	  "openWalletModal":{
-		"title":"Wallet Password",
-		"confirmText":"Open",
-		"cancelText":"Cancel"
+		"title":"Tarca jelszava",
+		"confirmText":"Megnyitas",
+		"cancelText":"Megsem"
 	  },
 	  "invalidPasswordModal":{
-		"title":"Oops...",
-		"content":"Your password seems invalid",
+		"title":"Hupsz...",
+		"content":"Ervenytelen jelszo",
 		"confirmText":"OK"
 	  },
 	  "invalidMnemonicModal":{
-		"title":"Oops...",
-		"content":"The mnemonic phrase is invalid",
+		"title":"Hupsz...",
+		"content":"Ervenytelen mnemonikus szosor",
 		"confirmText":"OK"
 	  },
 	  "passwordNotComplexEnoughModal":{
-		"title":"The password is not complex enough",
+		"title":"A jelszo nem eleg osszetett",
 		"confirmText":"OK"
 	  },
 	  "permissionRequiredForCameraModal":{
-		"title":"Oops...",
-		"content":"The permission to access your camera is required to scan the QR code",
+		"title":"Hupsz...",
+		"content":"A kamerahoz valo hozzaferes szukseges a QR-kod beolvasasahoz",
 		"confirmText":"OK"
 	  }
 	},
 	"bottom": {
-	  "termsOfUse": "Terms of Use",
+	  "termsOfUse": "Felhasznalasi feltetelek",
 	  "privacyPolicy": "Privacy Policy",
-	  "support": "Support",
-	  "donate": "Donate",
-	  "network": "Network Stats",
-	  "miningPool": "Mining Pool",
+	  "support": "Ugyfelszolgalat",
+	  "donate": "Adomanyozas",
+	  "network": "Halozati statisztika",
+	  "miningPool": "Banyasz pool",
 	  "github": "GitHub"
 	},
 	"homepage": {
-	  "mainTitle": "SUMOKOIN WEB WALLET",
-	  "tagLine": "The simplest way to use SUMOKOIN",
+	  "mainTitle": "Biztonsagos Sumokoin tarca",
+	  "tagLine": "A Sumokoin hasznalatanak legegyszerubb modja - barhol es barmikor",
 	  "actions": {
-		"loadWallet": "Load my wallet",
-		"importWallet": "Import a wallet",
-		"create": "Create",
-		"createWallet": "Create a wallet"
+		"loadWallet": "Tarca betoltese",
+		"importWallet": "Tarcaimportalas",
+		"create": "Letrehozas",
+		"createWallet": "Tarca letrehozasa"
 	  },
 	  "notes": {
 		"secure": {
-		  "title": "Secure",
-		  "description": "No servers, fully encrypted!"
+		  "title": "Biztonsagos",
+		  "description": "Nincsenek szerverek, teljesen titkositott!"
 		},
 		"fast": {
-		  "title": "Fast",
-		  "description": "Send Everywhere, Anytime!"
+		  "title": "Gyors",
+		  "description": "Kuldj barhonnan, barmikor!"
 		},
 		"technology": {
-		  "title": "Unique Technology",
-		  "description": "Connected directly to Sumokoin's blockchain!"
+		  "title": "Egyedi technologia",
+		  "description": "Kozvetlen kapcsolat a Sumokoin blokklanccal!"
 		},
 		"openSource": {
-		  "title": "Fully Open-source",
-		  "description": "Available on Github!"
+		  "title": "Teljesen nyilt forrasu",
+		  "description": "Elerheto a Githubon!"
 		}
 	  }
 	},
 	"accountPage": {
-	  "title": "Account",
-	  "subtitle": "Your account overview and transaction history",
+	  "title": "Szamla",
+	  "subtitle": "Szamlaattekintes es tranzakcios elozmenyek",
 	  "synchronizingBlock": {
-		"text": "Synchronizing..."
+		"text": "Szinkronizalas..."
 	  },
 	  "balanceBlock": {
-		"title": "Your balance",
-		"unlocked": "Unlocked"
+		"title": "Egyenleg",
+		"unlocked": "Feloldva"
 	  },
 	  "historyBlock": {
-		"title": "Transaction history",
-		"pendingTxStatus": "Pending",
-		"emptyWallet": "You currently have no funds in this wallet.",
-		"waitSync": "Please wait until the wallet is updated.",
-		"beReallyPatient": "The initial setup can take some time...",
-		"getMSRAddress": "Receive MSR"
+		"title": "Tranzakcios elozmenyek",
+		"pendingTxStatus": "Fuggoben",
+		"emptyWallet": "Jelenleg nincsen egyenleged ebben a tarcaban.",
+		"waitSync": "Kerlek, varj, mig a tarca naprakesz lesz",
+		"beReallyPatient": "A kezdeti beallitas nemi idobe telhet...",
+		"getMSRAddress": "SUMO fogadasa"
 	  },
 	  "txDetails":{
-		"title":"Transaction details",
-		"txHash":"Tx hash",
-		"feesOnTx":"Tx fees",
-		"blockHeight":"Block height",
-		"paymentId":"Payment ID",
+		"title":"Tranzakcioreszletek",
+		"txHash":"Tranzakcio hash",
+		"feesOnTx":"Tranzakcio dijai",
+		"blockHeight":"Blokk",
+		"paymentId":"Fizetesi azonosito",
 		"txPrivKey":"Transaction Private Key"
 	  }
 	},
 	"changeWalletPasswordPage":{
-	  "title":"Change your password",
+	  "title":"Jelszomodositas",
 	  "oldPassword":{
-		"label":"Old password",
-		"invalid":"The password is invalid"
+		"label":"Regi jelszo",
+		"invalid":"Ervenytelen jelszo"
 	  },
 	  "newPassword":{
-		"label":"Choose a new password to protect your wallet"
+		"label":"Valassz uj jelszot"
 	  },
 	  "newPasswordConfirm":{
-		"label":"Confirm the new password"
+		"label":"Ismeteld meg az uj jelszot"
 	  },
-	  "confirm":"Change the password",
+	  "confirm":"Jelszomodositas",
 	  "modalSuccess":{
-		"title":"Password changed!",
+		"title":"Jelszo modositva!",
 		"confirmText":"OK"
 	  }
 	},
 	"createWalletPage":{
 	  "generatingStep":{
-		"title":"Your wallet is being generated...",
-		"subtitle":"It's almost done",
-		"waitingMessage":"Generating your wallet..."
+		"title":"A tarcad letrehozasa folyamatban...",
+		"subtitle":"Majdnem kesz",
+		"waitingMessage":"Tarcad letrehozasa..."
 	  },
 	  "finalizationStep":{
-		"title":"That was simple. Your account is ready!",
-		"subtitle":"Be ready to use SUMOKOIN like you never have",
+		"title":"Ez egyszeru volt. A szamlad rendelkezesre all!",
+		"subtitle":"Allj keszen a Sumokoin hasznalatara",
 		"passwordSelectionBlock":{
-		  "label":"Protect your wallet"
+		  "label":"Vedd a tarcad"
 		},
 		"passwordConfirmBlock":{
-		  "label":"Confirm the password"
+		  "label":"Erositsd meg a jelszot"
 		},
-		"validPassword":"Use this password",
+		"validPassword":"Megadott jelszo hasznalata",
 		"backupBlock":{
-		  "title":"Save your private credentials for recovery.",
-		  "option1":"Option 1: ",
-		  "option2":"Option 2: ",
-		  "titlePdf":"Download a PDF copy",
-		  "titleManualWrite":"Write down my keys",
-		  "privateKeys":"Private key",
-		  "mnemonicPhrase":"Mnemonic phrase",
-		  "separatorManualMethodsSolution":" or ",
-		  "confirmManuallyWritten":"I wrote my seed phrase down",
-		  "warningMessage":"**Do not lose it!** It cannot be recovered if you lose it.<br/>**Do not share it!** Your funds will be stolen if you use this file or seed on a malicious/phishing site.<br/>**Make a backup!** Secure it like the millions of dollars it may one day be worth.<br/>",
-		  "finishButton":"I understand. Continue."
+		  "title":"Mentsd el a visszaallitasra szolgalo privat adataidat.",
+		  "option1":"1. ",
+		  "option2":"2. ",
+		  "titlePdf":"lehetoseg: masolat letoltese PDF-ben",
+		  "titleManualWrite":"lehetoseg: kulcsok lejegyzese",
+		  "privateKeys":"Privat kulcs",
+		  "mnemonicPhrase":"Mnemonikus szosor",
+		  "separatorManualMethodsSolution":" vagy ",
+		  "confirmManuallyWritten":"Lejegyeztem",
+		  "warningMessage":"**Ne veszitsd el!** Ha elveszted, nem lehet visszaallitani.<br/>**Ne oszd meg!** Penzedet ellophatjak, ha ezt a fajlt megosztod massal, esetleg rosszindulatu, adathalasz oldalon kozzeteszed.<br/>**Keszits biztonsagi masolatot!** Tartsd ugy biztonsagban, mint a tobb millio dollart, amit egyszer erhet.<br/>",
+		  "finishButton":"Megertettem. Tovabb."
 		}
 	  },
 	  "disclaimerBlock":{
-		"title":"Risk of Using SUMOKOIN Wallet",
-		"content":"SUMOKOIN Wallet is a web-based interface. It helps you use SUMOKOIN without running a full SUMOKOIN node. <br/>We recommend you treat SUMOKOIN Wallet like you will treat your actual wallet."
+		"title":"A SumokoinWallet hasznalatanak kockazatai",
+		"content":"A SumokoinWallet egy webes felulet, mely lehetove teszi a Sumokoin hasznalatat teljes csomopont futtatasa nelkul.<br/>Kezeld ugy a SumokoinWalletet, mintha az a valodi penztarcad lenne."
 	  }
 	},
 	"donatePage":{
 	  "title":"Donate",
-	  "subtitle":"Help to fund the development and pay the bills",
+	  "subtitle":"Help to fund the development of this web wallet",
 	  "webwalletBlock":{
 		"title":"Webwallet",
-		"content":"This Web wallet is developed by Gnock on his free time.<br/>If you want to help the development, help to pay for the servers, and like this app, please consider a donation: <br/><br/>"
+		"content":"This Web wallet is based on Gnock's webwallet and is adopted and further developed by Sumokoin developers.<br/>If you want to help the development, help to pay for the servers, and like this app, please consider a donation: <br/><br/>"
 	  },
 	  "SUMOKOINFundBlock":{
-		"title":"SUMOKOIN Dev fund",
+		"title":"SUMOKOIN Support Fund",
 		"content":"To help SUMOKOIN, you can donate at these addresses"
 	  }
 	},
 	"supportPage":{
-	  "title":"Support",
-	  "subtitle":"We are here to help!",
+	  "title":"Ugyfelszolgalat",
+	  "subtitle":"Itt vagyunk, hogy segitsunk!",
 	  "getInTouchBlock":{
-		"title":"Let's Get In Touch!",
-		"content":"Do you have ideas or feedback that could help us improve the wallet? Contact us!",
-		"discord":"SUMOKOIN Discord Channel"
+		"title":"Lepjunk kapcsolatba!",
+		"content":"Visszajelzesed vagy otleted van a tarcaval kapcsolatban? Keress fel bennunket!",
+		"discord":"Sumokoin Telegram"
 	  }
 	},
 	"networkPage":{
-	  "title":"Network stats",
-	  "subtitle":"Insights on the SUMOKOIN network",
+	  "title":"Halozati statisztika",
+	  "subtitle":"Betekintes a Sumokoin halozataba",
 	  "statsBlock":{
-		"hashrate":"Network hashrate",
-		"height":"Blockchain height",
-		"difficulty":"Network difficulty",
-		"lastTimeBlock":"Last block found",
-		"lastReward":"Last block reward"
+		"hashrate":"Halozati hashrate",
+		"height":"Blokklanc hossza",
+		"difficulty":"Halozati nehezseg",
+		"lastTimeBlock":"Utolso blokk ideje",
+		"lastReward":"Utolso blokk jutalma"
 	  }
 	},
 	"sendPage":{
-	  "title":"Send MSR",
+	  "title":"SUMO kuldese",
 	  "sendBlock":{
 		"address":{
-		  "label":"Destination address",
-		  "invalid":"The destination address is invalid",
-		  "fundsTo":"The funds will be sent to",
-		  "receiver":"Receiver",
-		  "description":"Description"
+		  "label":"Kedvezmenyezett cime",
+		  "invalid":"A kedvezmenyezett cime ervenytelen",
+		  "fundsTo":"A penz ide kerul kuldesre:",
+		  "receiver":"Fogadas",
+		  "description":"Leiras"
 		},
 		"amount":{
-		  "label":"Amount to send",
-		  "invalid":"The amount is invalid"
+		  "label":"Kuldendo mennyiseg",
+		  "invalid":"Ervenytelen mennyiseg"
 		},
 		"paymentId":{
-		  "label":"Payment ID (optional)",
-		  "invalid":"The payment ID is invalid. The length must be 16 or 64 characters"
+		  "label":"Fizetesi azonosito (opcionalis)",
+		  "invalid":"Ervenytelen fizetesi azonosito. Hosszanak 16 vagy 64 karakternek kell lennie"
 		},
-		"sendButton":"Send",
-		"cancelButton":"Cancel"
+		"sendButton":"Kuldes",
+		"cancelButton":"Megsem"
 	  },
 	  "qrCodeScanning":{
-		"explication":"Present the QR code"
+		"explication":"Mutasd be a QR-kodot"
 	  },
 	  "notEnoughMoneyModal":{
-		"title":"Oops...",
-		"content":"You don't have enough funds in your wallet to execute this transfer",
+		"title":"Hupsz...",
+		"content":"Egyenleged nem elegendo a tranzakcio vegrehajtasahoz",
 		"confirmText":"OK"
 	  },
 	  "thankYouDonationModal":{
-		"title":"Thank you for your donation!",
-		"content":"Your help is appreciated. <br/>This donation will help make SUMOKOIN better",
+		"title":"Koszonjuk az adomanyt!",
+		"content":"Ertekeljuk a segitseged.<br/>Ez az adomany is segit jobba tenni a Sumokoin.",
 		"confirmText":"OK"
 	  },
 	  "transferSentModal":{
-		"title":"Transfer sent successfully!",
+		"title":"Sikeres tranzakcio!",
 		"confirmText":"OK"
 	  },
 	  "transferExceptionModal":{
-		"title":"Oops...",
-		"content":"An error occurred. Please report this error: {details}",
+		"title":"Hupsz...",
+		"content":"Hiba tortent. Kerlek, jelentsd az alabbi hibat: {details}",
 		"confirmText":"OK"
 	  },
 	  "invalidAmountModal":{
-		"title":"Oops...",
-		"content":"Invalid amount",
+		"title":"Hupsz...",
+		"content":"Ervenytelen mennyiseg",
 		"confirmText":"OK"
 	  },
 	  "creatingTransferModal":{
-		"title":"Creating transfer ...",
-		"content":"Please wait..."
+		"title":"Tranzakcio letrehozasa...",
+		"content":"Kerlek, varj..."
 	  },
 	  "finalizingTransferModal":{
-		"title":"Finalizing transfer ...",
-		"content":"Please wait..."
+		"title":"Tranzakcio veglegesitese...",
+		"content":"Kerlek, varj..."
 	  },
 	  "confirmTransactionModal":{
-		"title":"Confirm transfer?",
-		"content":"Amount: {amount}<br/>Fees: {fees}<br/>Total: {total}",
-		"confirmText":"Confirm",
-		"cancelText":"Cancel"
+		"title":"Megerosited a tranzakciot?",
+		"content":"Mennyiseg: {amount}<br/>Dij: {fees}<br/>Osszesen: {total}",
+		"confirmText":"Megerosites",
+		"cancelText":"Megsem"
 	  },
 	  "waitingNfcModal":{
-		  "title":"Waiting for NFC",
-		  "content":"Bring your phone closer to the other device"
+		"title":"Waiting Nfc",
+		"content":"Bring closer to the other device"
 	  }
 	},
 	"receivePage":{
-	  "title":"Receive MSR",
+	  "title":"SUMO fogadasa",
 	  "receiveBlock":{
 		"address":{
-		  "title":"Your address to receive funds:",
-		  "label":"Give this address to receive funds"
+		  "title":"Penz fogadasara szolgalo cim:",
+		  "label":"Penz fogadasahoz ezt a cimet add meg"
 		},
 		"qrCode":{
-		  "title":"Or personalize the QR code:",
-		  "labelAmount":"Amount (optional)",
-		  "labelRecipient":"Recipient name (optional)",
-		  "labelDescription":"Transaction description (optional)",
-		  "updateButton":"Update"
+		  "title":"Vagy hasznalj egyeni QR-kodot",
+		  "labelAmount":"Mennyiseg (opcionalis)",
+		  "labelRecipient":"Kedvezmenyezett neve (opcionalis)",
+		  "labelDescription":"Tranzakcio leirasa (opcionalis)",
+		  "updateButton":"Frissites"
 		}
 	  },
 	  "qrBlock":{
-		"title":"Your customized QR code"
+		"title":"Egyeni QR-kod"
 	  },
 	  "waitingNfcToWriteModal":{
-		  "title":"Waiting for NFC",
-		  "titleSuccess":"NFC Tag Written",
-		  "content":"Bring your phone closer to the NFC tag to write"
+		"title":"Waiting Nfc",
+		"titleSuccess":"Nfc Tag written",
+		"content":"Bring closer the NFC tag to write"
 	  },
 	  "nfcErrorModal":{
 		"titleInsufficientCapacity":"Tag capacity insufficient"
 	  }
 	},
 	"miningPage":{
-	  "title":"Mine directly in your browser",
-	  "subtitle":"Support the network by mining and be rewarded with MSR",
+	  "title":"Banyassz kozvetlenul bongeszobol",
+	  "subtitle":"Tamogasd a halozatot a banyaszassal es szerezz erte jutalmat Sumokoin",
 	  "parameterBlock":{
-		"title":"Parameters",
-		"labelDestinationAddress":"Wallet to mine",
-		"labelThreads":"Number of threads (more = higher hashrate)",
-		"start":"Start",
-		"stop":"Stop"
+		"title":"Parameterek",
+		"labelDestinationAddress":"Celtarca",
+		"labelThreads":"Szalak szama (tobb = nagyobb hashrate)",
+		"start":"Inditas",
+		"stop":"Megallitas"
 	  },
 	  "statisticsBlocks":{
-		"title":"Statistics",
-		"validShares":"Valid shares",
+		"title":"Statisztika",
+		"validShares":"Ervenyes reszesedes",
 		"hashrate":"Hashrate",
-		"maxHashrate":"Max Hashrate",
-		"dedicatedHardware":"With dedicating mining software and hardware, you could earn more and help decentralize the network.",
-		"miningHandledBy":"This mining is handled by the mining pool get.SUMOKOINcoin.com"
+		"maxHashrate":"Maximalis hashrate",
+		"dedicatedHardware":"Banyaszasra dedikalt szoftver es hardver hasznalataval nagyobb bevetelre tehetsz szert es segithetsz a halozat decentralizalasaban.",
+		"miningHandledBy":"Ezt a banyaszast a get.masaricoin.com pool kezeli"
 	  }
 	},
 	"settingsPage":{
-	  "title":"Settings",
-	  "subtitle":"Change your parameters here",
+	  "title":"Beallitasok",
+	  "subtitle":"Modositsd a beallitasaidat",
 	  "versionBlock":{
 		"versionNumber":"Version number: ",
 		"versionCode":"Version code: "
 	  },
 	  "settingsBlock":{
 		"speed":{
-		  "label":"Speed to update the wallet (will consume more resources)",
-		  "fastest":"Fastest",
-		  "fast":"Fast",
-		  "medium":"Medium",
-		  "slow":"Slow"
+		  "label":"Tarcafrissites sebessege (tobb eroforrast igenyel)",
+		  "fastest":"Leggyorsabb",
+		  "fast":"Gyors",
+		  "medium":"Kozepes",
+		  "slow":"Lassu"
 		},
 		"language":{
 		  "label":"Language"
 		},
 		"readMinerTx":{
-		  "label":"Read miner transactions (only for solo mining)"
+		  "label":"Banyaszasi tranzakciok beolvasasa (csak egyedulallo banyaszas eseten)"
 		}
 	  },
-	  "changePasswordButton":"Change my wallet password",
-	  "deleteWalletButton":"Delete my wallet (local copy)",
+	  "changePasswordButton":"Jelszomodositas",
+	  "deleteWalletButton":"Tarca torlese (helyi masolat)",
 	  "walletSettings":{
 		"creationHeight":{
-		  "label":"Creation height of the wallet"
+		  "label":"Tarcaletrehozasi blokklanchossz"
 		},
 		"currentScanningHeight": {
-		  "label": "Current scanning height"
+		  "label": "Jelenlegi beolvasasi hossz"
 		},
-		"updateButton":"Update"
+		"updateButton":"Frissites"
 	  },
 	  "deleteWalletModal":{
-		"title":"Delete My Wallet (local copy)",
-		"content":"Are you sure you REALLY want to delete your wallet ?",
-		"confirmText":"Yes I'm sure",
-		"cancelButtonText":"Cancel"
+		"title":"Tarca torlese (helyi masolat)",
+		"content":"Biztosan torolni szeretned a tarcadat?",
+		"confirmText":"Igen, biztosan",
+		"cancelButtonText":"Megsem"
 	  }
 	},
 	"importBasePage":{
 	  "parametersBlock":{
-		"title":"Parameters",
+		"title":"Parameterek",
 		"password":{
-		  "label":"Password to protect your wallet"
+		  "label":"Tarcajelszo"
 		},
 		"passwordConfirm":{
-		  "label":"Confirm the password",
-		  "invalid":"The password does not match the first password you wrote"
+		  "label":"Jelszo megerositese",
+		  "invalid":"A jelszavak nem egyeznek"
 		},
 		"importHeight":{
-		  "label":"Height to import from:"
+		  "label":"Importalasi blokklanchossz:"
 		}
 	  }
 	},
 	"importFromQrPage":{
-	  "title":"Importing wallet from a QR code",
-	  "subtitle":"Import a wallet from an offline backup",
+	  "title":"Tarca importalasa QR-koddal",
+	  "subtitle":"Tarca importalasa offline biztonsagi mentesbol",
 	  "qrCodeBlock":{
-		"title":"QR code",
-		"startScanButton":"Start the scan",
-		"importButton":"Import"
+		"title":"QR-kod",
+		"startScanButton":"Beolvasas",
+		"importButton":"Importalas"
 	  },
 	  "qrScanningBlock":{
-		"title":"Present the QR code"
+		"title":"Mutasd be a QR-kodot"
 	  }
 	},
 	"exportPage":{
-	  "title":"Backup your credentials",
+	  "title":"Keszits biztonsagi mentest az adataidrol",
 	  "publicAddressBlock":{
-		"title":"Your public address"
+		"title":"Nyilvanos tarcacim"
 	  },
 	  "pdfBlock":{
-		"title":"PDF Backup",
-		"downloadButton":"Download"
+		"title":"Biztonsagi mentes PDF-ben",
+		"downloadButton":"Letoltes"
 	  },
 	  "warningBlock":{
-		"title":"Warning",
-		"content":"If you choose to save your private keys or your mnemonic phrase, PLEASE DO NOT store them in clear-text for your own safety.<br/>The file is an alternate solution where your keys are encrypted and contains a backup of all your transactions to spare you a future synchronisation."
+		"title":"Figyelmeztetes",
+		"content":"Ha a privat kulcsaid vagy a mnemonikus szosorod menteset valasztod, ugy sajat biztonsagod erdekeben ne tarold azokat egyszeru szovegkent.<br/>A fajl egy alternativ megoldaskent szolgal, ez esetben a kulcsaid titkositottak es tartalmazza a tranzakciod biztonsagi menteset is, igy megkimel egy jovobeli szinkronizalastol."
 	  },
 	  "exportBlock":{
-		"title":"Export your RAW credentials",
-		"privateKeysButton":"Get my private keys",
-		"mnemonicKeysButton":"Get my mnemonic phrase",
-		"fileButton":"Export to a file"
+		"title":"Nyers adatok exportalasa",
+		"privateKeysButton":"Privat kulcsok beszerzese",
+		"mnemonicKeysButton":"Mnemonikus szosor beszerzese",
+		"fileButton":"Exportalas fajlba"
 	  },
 	  "walletKeysModal":{
-		"title":"Private keys",
+		"title":"Privat kulcsok",
 		"confirmText":"OK",
-		"content":"Please store these keys carefully. <b>Possessing them means possessing the funds associated</b> !<br/>Spend key: {privSpendKey}<br/>Private view key: {privViewKey}"
+		"content":"Kerlek, gondosan tarold a kulcsokat. <b>Birtoklasa a hozza tartozo penzosszeg birtoklasat is jelenti.</b>!<br/>Privat koltokulcs: {privSpendKey}<br/>Privat figyelokulcs: {privViewKey}"
 	  },
 	  "mnemonicKeyModal":{
-		"title":"Mnemonic phrase",
+		"title":"Mnemonikus szosor",
 		"confirmText":"OK",
-		"content":"Please store this mnemonic phrase carefully. <b>Possessing it means possessing the funds associated</b> ! The phrase is:<br/>{mnemonic}"
+		"content":"Kerlek, gondosan tarold a mnemonikus szosort. <b>Birtoklasa a hozza tartozo penzosszeg birtoklasat is jelenti.</b>! A szosor:<br/>{mnemonic}"
 	  },
 	  "mnemonicLangSelectionModal":{
-		"title":"In which language do you want your mnemonic phrase?",
-		"confirmText":"Export"
+		"title":"Milyen nyelven kered a mnemonikus szosorod?",
+		"confirmText":"Exportalas"
 	  }
 	},
 	"importPage":{
-	  "title":"Create a wallet",
-	  "subtitle":"From previously created keys, file, or mnemonic phrase",
-	  "chooseMethod":"Choose your import method: <br/>Please note that restoring an old wallet from 0 height can take a long time so please be patient. You can log off and continue restoration at any time",
-	  "fromKeys":"From keys",
-	  "fromFile":"From a file",
-	  "fromMnemonic":"From a mnemonic phrase",
-	  "fromQr":"From a QR code"
+	  "title":"Tarca letrehozasa",
+	  "subtitle":"Korabban letrehozott kulcsokkal, fajllal vagy mnemonikus szosorral",
+	  "chooseMethod":"Valassz importalasi modszert:",
+	  "fromKeys":"Kulcsok",
+	  "fromFile":"Fajl",
+	  "fromMnemonic":"Mnemonikus szosor",
+	  "fromQr":"QR-kod"
 	},
 	"termsOfUsePage":{
-	  "title":"Terms of use",
-	  "subtitle":"Please read them carefully."
+	  "title":"Felhasznalasi feltetelek",
+	  "subtitle":"Kerlek, alaposan olvasd el."
 	},
 	"privacyPolicyPage":{
 	  "title":"Privacy Policy",
-	  "subtitle":"Please read them carefully."
+	  "subtitle":"Kerlek, alaposan olvasd el."
 	},
 	"importFromFilePage":{
-	  "title":"Importing wallet from a backup file",
-	  "subtitle":"Use your backup file to create a wallet",
+	  "title":"Tarca importalasa biztonsagi mentesi fajllal",
+	  "subtitle":"Hasznald a biztonsagi mentesi fajlod a tarca letrehozasahoz",
 	  "walletBlock":{
-		"title":"Wallet file",
-		"label":"Select the file",
-		"importButton":"Import"
+		"title":"Tarcafajl",
+		"label":"Tallozas",
+		"importButton":"Importalas"
 	  }
 	},
 	"importFromMnemonicPage":{
-	  "title":"Importing wallet from a mnemonic phrase",
-	  "subtitle":"Use your phrase to create a wallet",
+	  "title":"Tarca importalasa mnemonikus szosorral",
+	  "subtitle":"Hasznald a szosorodat a tarca letrehozasahoz",
 	  "mnemonicBlock":{
-		"title":"Mnemonic phrase",
+		"title":"Mnemonikus szosor",
 		"mnemonic":{
-		  "label":"Mnemonic phrase: 26 words",
-		  "invalid":"The mnemonic phrase is invalid",
-		  "language":"Language"
+		  "label":"Mnemonikus szosor: 26 szo",
+		  "invalid":"Ervenytelen mnemonikus szosor",
+		  "language":"Nyelv"
 		},
-		"importButton":"Import"
+		"importButton":"Importalas"
 	  }
 	},
 	"importFromKeysPage":{
-	  "title":"Importing wallet from keys",
-	  "subtitle":"Use your keys to create a wallet",
+	  "title":"Tarca importalasa kulcsokkal",
+	  "subtitle":"Hasznald a kulcsaidat a tarca letrehozasahoz",
 	  "parametersBlock":{
 		"viewOnlyWallet":{
-		  "label":"Do you want a view only wallet?"
+		  "label":"Csak megtekintheto (view only) tarcat szeretnel?"
 		}
 	  },
 	  "keysBlock":{
-		"titleNotViewOnly":"Wallet keys",
-		"titleViewOnly":"View only wallet",
+		"titleNotViewOnly":"Tarcakulcsok",
+		"titleViewOnly":"sak megtekintheto tarca",
 		"privateSpend":{
-		  "label":"Private spend key"
+		  "label":"Privat koltokulcs"
 		},
 		"privateView":{
-		  "label":"Private view key",
-		  "optional":"(optional)"
+		  "label":"Privat figyelokulcs",
+		  "optional":"(opcionalis)"
 		},
 		"publicKey":{
-		  "label":"Public key"
+		  "label":"Nyilvanos kulcs"
 		},
-		"importButton":"Import"
+		"importButton":"Importalas"
 	  }
 	}
   },
@@ -487,7 +487,7 @@
 	},
 	"long": {
 	  "year": "numeric", "month": "short", "day": "numeric",
-	  "weekday": "short", "hour": "numeric", "minute": "numeric", "hour12": true
+	  "weekday": "short", "hour": "numeric", "minute": "numeric", "hour12": false
 	}
   }
 }

@@ -1,7 +1,7 @@
 {
   "website":{
-	"title":"Offizielle Masari Web Wallet",
-	"description":"Offizielle Online Wallet für Masari currency, anonym, sicher und für optimale Sicherheit vollständig in deinem Browser verwaltet"
+	"title":"Offizielle Sumokoin Web Wallet",
+	"description":"Offizielle Online Wallet für Sumokoin currency, anonym, sicher und für optimale Sicherheit vollständig in deinem Browser verwaltet"
   },
   "messages": {
 	"menu": {
@@ -62,8 +62,8 @@
 	  "github": "GitHub"
 	},
 	"homepage": {
-	  "mainTitle": "Gesicherte Masari Wallet",
-	  "tagLine": "Der einfachste Weg Masari jederzeit und überall zu nutzen",
+	  "mainTitle": "Gesicherte Sumokoin Wallet",
+	  "tagLine": "Der einfachste Weg Sumokoin jederzeit und überall zu nutzen",
 	  "actions": {
 		"loadWallet": "Lade meine Wallet",
 		"importWallet": "Importiere eine Wallet",
@@ -81,7 +81,7 @@
 		},
 		"technology": {
 		  "title": "Einzigartige Technologie",
-		  "description": "Direkt mit der Masari Blockchain verbunden!"
+		  "description": "Direkt mit der Sumokoin Blockchain verbunden!"
 		},
 		"openSource": {
 		  "title": "Komplett open-source",
@@ -142,7 +142,7 @@
 	  },
 	  "finalizationStep":{
 		"title":"Das war einfach. Dein Account ist bereit!",
-		"subtitle":"Benutze Masari wie noch nie zuvor",
+		"subtitle":"Benutze Sumokoin wie noch nie zuvor",
 		"passwordSelectionBlock":{
 		  "label":"Schütze deine Daten mit einem Passwort"
 		},
@@ -160,25 +160,25 @@
 		  "mnemonicPhrase":"Mnemonic phrase",
 		  "separatorManualMethodsSolution":" oder ",
 		  "confirmManuallyWritten":"Ich habe es aufgeschieben",
-		  "warningMessage":"**Auf keinen Fall verlieren!** Sie können nicht wiederhergestellt werden wenn du sie verlierst.<br/>**Nicht weitergeben!** Deine Masari werden gestohlen werden wenn diese Datei auf einer bösartigen/Phishing Seite benutzt.<br/>**Mache ein Backup!** Sichere es so wie die Millionen Euro, die es eines Tages vielleicht wert sein wird.<br/>",
+		  "warningMessage":"**Auf keinen Fall verlieren!** Sie können nicht wiederhergestellt werden wenn du sie verlierst.<br/>**Nicht weitergeben!** Deine Sumokoin werden gestohlen werden wenn diese Datei auf einer bösartigen/Phishing Seite benutzt.<br/>**Mache ein Backup!** Sichere es so wie die Millionen Euro, die es eines Tages vielleicht wert sein wird.<br/>",
 		  "finishButton":"Ich habe verstanden. Weiter"
 		}
 	  },
 	  "disclaimerBlock":{
-		"title":"Risiko beim benutzen der MasariWallet",
-		"content":"MasariWallet ist ein web-basierendes Interface. Es hilft beim Nutzen von Masari ohne einen vollen Node zu betreiben. <br/>Wir empfehlen MasariWallet sicherheitstechnisch wie eine richtige Wallet zu behandeln."
+		"title":"Risiko beim benutzen der SumokoinWallet",
+		"content":"SumokoinWallet ist ein web-basierendes Interface. Es hilft beim Nutzen von Sumokoin ohne einen vollen Node zu betreiben. <br/>Wir empfehlen SumokoinWallet sicherheitstechnisch wie eine richtige Wallet zu behandeln."
 	  }
 	},
 	"donatePage":{
-	  "title":"Spenden",
-	  "subtitle":"Hilf uns die Enwicklung zu finanzieren und die Rechnungen zu bezahlen",
+	  "title":"Donate",
+	  "subtitle":"Help to fund the development of this web wallet",
 	  "webwalletBlock":{
 		"title":"Webwallet",
-		"content":"Diese Webwallet ist von Gnock in seiner Freizeit entwickelt.<br/>Bitte denk über eine Spende nach wenn dir die App gefällt und du bei der Bezahlung der Server und der Enwicklung helfen willst.: <br/><br/>"
+		"content":"This Web wallet is based on Gnock's webwallet and is adopted and further developed by Sumokoin developers.<br/>If you want to help the development, help to pay for the servers, and like this app, please consider a donation: <br/><br/>"
 	  },
-	  "masariFundBlock":{
-		"title":"Masari Entwicklerfonds",
-		"content":"Spende an diese Adresse um Masari zu helfen"
+	  "SUMOKOINFundBlock":{
+		"title":"SUMOKOIN Support Fund",
+		"content":"To help SUMOKOIN, you can donate at these addresses"
 	  }
 	},
 	"supportPage":{
@@ -187,7 +187,7 @@
 	  "getInTouchBlock":{
 		"title":"Nehmen wir Kontakt auf!",
 		"content":"Wenn du Ideen oder Feedback hast um die Wallet zu verbessern, kontaktiere uns!",
-		"discord":"Masari Discord Channel"
+		"discord":"Sumokoin Telegram Group"
 	  }
 	},
 	"networkPage":{
@@ -202,7 +202,7 @@
 	  }
 	},
 	"sendPage":{
-	  "title":"Schicke MSR",
+	  "title":"Schicke SUMO",
 	  "sendBlock":{
 		"address":{
 		  "label":"Zieladresse",
@@ -232,7 +232,7 @@
 	  },
 	  "thankYouDonationModal":{
 		"title":"Danke für deine Spende!",
-		"content":"Deine Hilfe wird sehr geschätzt. <br/>Diese Spende wird helfen Masari noch beser zu machen",
+		"content":"Deine Hilfe wird sehr geschätzt. <br/>Diese Spende wird helfen Sumokoin noch beser zu machen",
 		"confirmText":"Schließen"
 	  },
 	  "transferSentModal":{
@@ -269,7 +269,7 @@
 	  }
 	},
 	"receivePage":{
-	  "title":"Empfange MSR",
+	  "title":"Empfange SUMO",
 	  "receiveBlock":{
 		"address":{
 		  "title":"Deine Adresse um Guthaben zu empfangen",
@@ -297,7 +297,7 @@
 	},
 	"miningPage":{
 	  "title":"Mine direkt in deinem Browser",
-	  "subtitle":"Unterstütze das Netzwerk für mehr Stabilität und werde mit MSR belohnt",
+	  "subtitle":"Unterstütze das Netzwerk für mehr Stabilität und werde mit SUMO belohnt",
 	  "parameterBlock":{
 		"title":"Parameter",
 		"labelDestinationAddress":"Wallet für die gemined werden soll",
@@ -447,7 +447,7 @@
 	  "mnemonicBlock":{
 		"title":"Mnemonic Phrase",
 		"mnemonic":{
-		  "label":"Mnemonic Phrase : 25 Wörter",
+		  "label":"Mnemonic Phrase : 26 Wörter",
 		  "invalid":"Die Mnemonic Phrase ist ungültig",
 		  "language":"Sprache"
 		},
