@@ -16,7 +16,7 @@
 var MasariApi = new function(){
 
 	this.ready = false;
-	this.apiDomain = 'http://localhost:38090';
+	this.apiDomain = 'http://localhost:4444';
 	this.timeoutErrorTime = 10000;
 	this.timeoutError = 10000;
 
