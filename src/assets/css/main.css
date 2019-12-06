@@ -259,7 +259,7 @@ body.transparent #copyright{
 	text-align: right;
 	padding-right:5px;
 }
-.transactions .transaction .amount.more{color:#6bc534;}
+.transactions .transaction .amount.more{color:#62b42f;}
 .transactions .transaction .amount.less{color:#FD4A4A;}
 .transactions .transaction .moreInfo {
 	font-size: 15px;

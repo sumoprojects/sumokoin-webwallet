@@ -22,9 +22,9 @@
 			<div class="body" >
 				<div class="header-title" >{{ $t("accountPage.balanceBlock.title") }}</div>
 				<div class="content" >
-					<span class="walletAmount" >{{ $n(walletAmount / currencyDivider) }}</span> SUMO
+					<b><font color="#62b42f"> <font size="5"><span class="walletAmount" >{{ $n(walletAmount / currencyDivider) }}</span></font></font></b><b><font size="5"> SUMO </font></b>
 					<tempate class="amount unlocked" v-if="unlockedWalletAmount !== walletAmount" >
-						<br/><span class="walletAmount" >{{ $t("accountPage.balanceBlock.unlocked") }}: {{ $n(unlockedWalletAmount / currencyDivider) }}</span> SUMO
+						<br/><span class="walletAmount" >{{ $t("accountPage.balanceBlock.unlocked") }}: {{ $n(unlockedWalletAmount / currencyDivider) }}</span> SUMO 
 					</tempate>
 				</div>
 			</div>
