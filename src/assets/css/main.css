@@ -245,24 +245,24 @@ body.transparent #copyright{
 	font-size: 16px;
 }
 .transactions .transaction .direction{
-	font-size: 20px;
+	font-size: 15px;
 	width: 5%;
 	padding-left:5px;
 }
 .transactions .transaction .timestamp{
 	width: 45%;
-	font-size: 20px;
+	font-size: 15x;
 }
 .transactions .transaction .amount{
-	font-size: 20px;
+	font-size: 15px;
 	width: 42%;
 	text-align: right;
 	padding-right:5px;
 }
 .transactions .transaction .amount.more{color:#6bc534;}
-.transactions .transaction .amount.less{color:#5b5b5b;}
+.transactions .transaction .amount.less{color:#FD4A4A;}
 .transactions .transaction .moreInfo {
-	font-size: 20px;
+	font-size: 15px;
 	width: 8%;
 	text-align: right;
 	padding-right: 10px;
@@ -676,7 +676,7 @@ body.native .indexTab .mainBlock > .actions{
 
 /*=====================================*/
 body{
-	font-family: "Oswald", sans-serif;
+	font-family: "Noto Sans", sans-serif;
 	font-weight: normal;
 	font-size: 14px;
 	line-height: 1;
