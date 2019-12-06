@@ -7,6 +7,8 @@
 			{{ $t("accountPage.subtitle") }}
 		</div>
 	</div>
+	<script src="https://widgets.coingecko.com/coingecko-coin-price-static-headline-widget.js"></script>
+	<coingecko-coin-price-static-headline-widget  coin-ids="sumokoin,bitcoin,ethereum" currency="usd" locale="en"></coingecko-coin-price-static-headline-widget>
 	<div class="body-content" >
 
 		<div class="panel inline" v-if="currentScanBlock+2 < blockchainHeight" >

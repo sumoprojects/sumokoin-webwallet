@@ -49,7 +49,7 @@ class NetworkView extends DestructableView{
 	refreshStats() {
 		blockchainExplorer.getNetworkInfo().then((info : NetworkInfo)=>{
 			this.networkDifficulty = info.difficulty;
-			this.networkHashrate = info.difficulty/config.avgBlockTime/1000000;
+			this.networkHashrate = +((info.difficulty / config.avgBlockTime / 1000000).toFixed(3));
 			this.blockchainHeight = info.height;
 			this.lastReward = info.reward/Math.pow(10, config.coinUnitPlaces);
 			this.lastBlockFound = info.timestamp;
