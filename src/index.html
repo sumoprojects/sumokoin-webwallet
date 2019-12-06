@@ -56,26 +56,26 @@
 
 <div id="menu" >
 	<a><img src="./assets/img/logo.png"/></a>
-	<a href="#!index" class="onlyNotConnected"><span class="icon" ><i class="fa fa-bank" aria-hidden="true"></i></span> {{ $t("menu.home") }}</a>
-	<a href="#!account" class="onlyWhenConnected"><span class="icon" ><i class="fa fa-bank" aria-hidden="true"></i></span> {{ $t("menu.account") }}</a>
-	<a href="#!send" class="onlyWhenConnected notViewOnlyWallet"><span class="icon" ><i class="fa fa-level-up" aria-hidden="true"></i></span> {{ $t("menu.send") }}</a>
-	<a href="#!receive" class="onlyWhenConnected"><span class="icon" ><i class="fa fa-level-down" aria-hidden="true"></i></span> {{ $t("menu.receive") }}</a>
-	<a href="#!export" class="onlyWhenConnected"><span class="icon" ><i class="fa fa-download" aria-hidden="true"></i></span> {{ $t("menu.export") }}</a>
-	<a href="#!settings" class="onlyWhenConnected"><span class="icon" ><i class="fa fa-cog" aria-hidden="true"></i></span> {{ $t("menu.settings") }}</a>
-	<a href="#!donate" ><span class="icon" ><i class="fa fa-heart" aria-hidden="true"></i></span> {{ $t("menu.donate") }}</a>
-	<a href="#!disconnect"  class="onlyWhenConnected"><span class="icon" ><i class="fa fa-cog" aria-hidden="true"></i></span> {{ $t("menu.disconnect") }}</a>
-	<a href="#!network" ><span class="icon" ><i class="fa fa-pie-chart" aria-hidden="true"></i></span> {{ $t("menu.network") }}</a>
+	<a href="#!index" class="onlyNotConnected"><span class="icon" ><i class="fa fa-money fa-lg" aria-hidden="true"></i></span> {{ $t("menu.home") }}</a>
+	<a href="#!account" class="onlyWhenConnected"><span class="icon" ><i class="fa fa-money fa-lg" aria-hidden="true"></i></span> {{ $t("menu.account") }}</a>
+	<a href="#!send" class="onlyWhenConnected notViewOnlyWallet"><span class="icon" ><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i></span> {{ $t("menu.send") }}</a>
+	<a href="#!receive" class="onlyWhenConnected"><span class="icon" ><i class="fa fa-sign-in fa-lg" aria-hidden="true"></i></span> {{ $t("menu.receive") }}</a>
+	<a href="#!export" class="onlyWhenConnected"><span class="icon" ><i class="fa fa-folder-open fa-lg" aria-hidden="true"></i></span> {{ $t("menu.export") }}</a>
+	<a href="#!settings" class="onlyWhenConnected"><span class="icon" ><i class="fa fa-wrench fa-lg" aria-hidden="true"></i></span> {{ $t("menu.settings") }}</a>
+	<a href="#!donate" ><span class="icon" ><i class="fa fa-thumbs-up fa-lg" aria-hidden="true"></i></span> {{ $t("menu.donate") }}</a>
+	<a href="#!disconnect"  class="onlyWhenConnected"><span class="icon" ><i class="fa fa-ban fa-lg" aria-hidden="true"></i></span> {{ $t("menu.disconnect") }}</a>
+	<a href="#!network" ><span class="icon" ><i class="fa fa-area-chart fa-lg" aria-hidden="true"></i></span> {{ $t("menu.network") }}</a>
 </div>
 
 <div id="pageLoading" >
-	<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+	<i class="fa fa-refresh fa-pulse fa-3x fa-fw"></i>
 	<span class="sr-only">{{ $t("global.loading") }}...</span>
 </div>
 
 <div id="page" ></div>
 
 <div id="copyright" v-cloak="" >
-      <div class="hideOnNative" >© 2019 2019 www.sumokoin.org</div>
+      <div class="hideOnNative" >© 2019 www.sumokoin.org</div>
       <div class="links" >
 	      <select v-model="language" class="hideOnNative">
 		      <option value="en">English</option>

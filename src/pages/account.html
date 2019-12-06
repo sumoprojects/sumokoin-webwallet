@@ -1,7 +1,7 @@
 <div id="app" class="body-root" v-cloak="">
 	<div class="body-header" >
 		<div class="header-title">
-			<i class="fa fa-bank" aria-hidden="true"></i> {{ $t("accountPage.title") }}
+			<i class="fa fa-money fa-lg" aria-hidden="true"></i> {{ $t("accountPage.title") }}
 		</div>
 		<div class="header-subtitle" >
 			{{ $t("accountPage.subtitle") }}
@@ -22,9 +22,9 @@
 			<div class="body" >
 				<div class="header-title" >{{ $t("accountPage.balanceBlock.title") }}</div>
 				<div class="content" >
-					<span class="walletAmount" >{{ $n(walletAmount / currencyDivider) }}</span> SUMO
+					<b><font color="#62b42f"> <font size="5"><span class="walletAmount" >{{ $n(walletAmount / currencyDivider) }}</span></font></font></b><b><font size="5"> SUMO </font></b>
 					<tempate class="amount unlocked" v-if="unlockedWalletAmount !== walletAmount" >
-						<br/><span class="walletAmount" >{{ $t("accountPage.balanceBlock.unlocked") }}: {{ $n(unlockedWalletAmount / currencyDivider) }}</span> SUMO
+						<br/><span class="walletAmount" >{{ $t("accountPage.balanceBlock.unlocked") }}: {{ $n(unlockedWalletAmount / currencyDivider) }}</span> SUMO 
 					</tempate>
 				</div>
 			</div>
@@ -40,8 +40,8 @@
 							<template v-for="transaction of transactions" v-if="transaction.isFullyChecked()">
 								<tr class="transaction" :class="(transaction.blockHeight === 0 ? 'pending' : '')">
 									<td class="direction" >
-										<i v-if="transaction.ins.length == 0" class="fa fa-level-down" aria-hidden="true"></i>
-										<i v-else="" class="fa fa-level-up" aria-hidden="true"></i>
+										<i v-if="transaction.ins.length == 0" class="fa fa-arrow-right" aria-hidden="true"></i>
+										<i v-else="" class="fa fa-arrow-left" aria-hidden="true"></i>
 									</td><!--LEfT-->
 									<td class="timestamp" v-if="transaction.blockHeight > 0">{{$d(new Date(transaction.timestamp*1000), 'long')}}</td>
 									<td class="timestamp" v-else="">{{ $t("accountPage.historyBlock.pendingTxStatus") }}...</td>
