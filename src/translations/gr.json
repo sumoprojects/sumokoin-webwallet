@@ -29,7 +29,7 @@
 	  },
 	  "openWalletModal":{
 		"title":"Κωδικός Πορτοφολιού",
-		"confirmText":"’νοιγμα",
+		"confirmText":"Επιβεβαίωση",
 		"cancelText":"Ακύρωση"
 	  },
 	  "invalidPasswordModal":{
@@ -216,7 +216,7 @@
 		},
 		"paymentId":{
 		  "label":"Payment ID (προαιρετικό)",
-		  "invalid":"Το payment ID είναι άκυρο. Πρέπει να αποτελείται από 16 ή 64 χαρακτήρες"
+		  "invalid":"Το payment ID είναι άκυρο. Πρέπει να αποτελείται από 16 χαρακτήρες"
 		},
 		"sendButton":"Αποστολή",
 		"cancelButton":"Ακύρωση"
