@@ -388,21 +388,46 @@ export namespace CnUtils{
 	}
 
 	export function decode_rct_ecdh(ecdh : {mask:string, amount:string}, key : string) {
-		let first = Cn.hash_to_scalar(key);
-		let second = Cn.hash_to_scalar(first);
-		return {
-			mask: CnNativeBride.sc_sub(ecdh.mask, first),
-			amount: CnNativeBride.sc_sub(ecdh.amount, second),
-		};
+		if (ecdh.amount.length !== 16) {
+			let first = Cn.hash_to_scalar(key);
+			let second = Cn.hash_to_scalar(first);
+			return {
+				mask: CnNativeBride.sc_sub(ecdh.mask, first),
+				amount: CnNativeBride.sc_sub(ecdh.amount, second),
+			};
+		}
+		else{
+			//v2, with deterministic mask
+            let mask = Cn.hash_to_scalar("636f6d6d69746d656e745f6d61736b" + key); //"commitment_mask"
+            let amtkey = CnUtils.cn_fast_hash("616d6f756e74" + key); //"amount"
+            let amount = CnUtils.hex_xor(ecdh.amount, amtkey.slice(0,16));
+            amount += "000000000000000000000000000000000000000000000000"; //pad to 64 chars
+            return {
+                mask: mask,
+                amount: amount
+            };
+		}
 	}
 
-	export function encode_rct_ecdh(ecdh : {mask:string, amount:string}, key : string) {
-		let first = Cn.hash_to_scalar(key);
-		let second = Cn.hash_to_scalar(first);
-		return {
-			mask: CnNativeBride.sc_add(ecdh.mask, first),
-			amount: CnNativeBride.sc_add(ecdh.amount, second),
-		};
+	export function encode_rct_ecdh(ecdh : {mask:string, amount:string}, key : string, v2 : boolean) {
+		if(v2){
+			let mask = CnVars.Z;
+			let amtkey = CnUtils.cn_fast_hash("616d6f756e74" + key); //"amount"
+			let amount = CnUtils.hex_xor(ecdh.amount.slice(0, 16), amtkey.slice(0, 16));
+			amount += "000000000000000000000000000000000000000000000000"; //pad to 64 chars
+			return {
+                mask: mask,
+                amount: amount
+            };
+		}
+		else{
+			let first = Cn.hash_to_scalar(key);
+			let second = Cn.hash_to_scalar(first);
+			return {
+				mask: CnNativeBride.sc_add(ecdh.mask, first),
+				amount: CnNativeBride.sc_add(ecdh.amount, second),
+			};
+		}
 	}
 
 	//fun mul function
@@ -1340,7 +1365,7 @@ export namespace CnTransactions{
 		message?: string,
 		p?: {
 			rangeSigs: RangeProveSignature[],
-			bulletproofs: RangeProveBulletproofSignature[],
+			bp: RangeProveBulletproofSignature[],
 			MGs: MG_Signature[],
 			pseudoOuts:string[]
 		},
@@ -1450,7 +1475,7 @@ export namespace CnTransactions{
 				buf3 += p.MGs[i].cc;
 			}
 
-			if (tx.rct_signatures.type > 2) {
+			if (tx.rct_signatures.type === 5) {
 				for (let i = 0; i < p.pseudoOuts.length; i++) {
 					buf3 += p.pseudoOuts[i];
 				}
@@ -1711,8 +1736,8 @@ export namespace CnTransactions{
 			throw "mismatched outPk/ecdhInfo!";
 		}
 		for (let i = 0; i < rv.ecdhInfo.length; i++) {
-			buf += rv.ecdhInfo[i].mask;
-			buf += rv.ecdhInfo[i].amount;
+			// buf += rv.ecdhInfo[i].mask;
+			buf += rv.ecdhInfo[i].amount.slice(0, 16);
 		}
 		for (let i = 0; i < rv.outPk.length; i++) {
 			buf += rv.outPk[i];
@@ -1733,7 +1758,7 @@ export namespace CnTransactions{
 		let buf = "";
 		let p = rv.p;
 		if(p)
-			if (rv.type < 3) {
+			if (rv.type != 5) {
 				for (let i = 0; i < p.rangeSigs.length; i++) {
 					for (let j = 0; j < p.rangeSigs[i].bsig.s.length; j++) {
 						for (let l = 0; l < p.rangeSigs[i].bsig.s[j].length; l++) {
@@ -1746,24 +1771,24 @@ export namespace CnTransactions{
 					}
 				}
 			} else{
-				if (fortx) {buf += "01000000";} //#bulletproofs, uint32
-				buf += p.bulletproofs[0].A;
-				buf += p.bulletproofs[0].S;
-				buf += p.bulletproofs[0].T1;
-				buf += p.bulletproofs[0].T2;
-				buf += p.bulletproofs[0].taux;
-				buf += p.bulletproofs[0].mu;
-				if (fortx) {buf += CnUtils.encode_varint(p.bulletproofs[0].L.length);}
-				for (let i = 0; i < p.bulletproofs[0].L.length; i++) {
-					buf += p.bulletproofs[0].L[i];
+				if (fortx) {buf += CnUtils.encode_varint(p.bp.length);} //#bulletproofs, uint32
+				buf += p.bp[0].A;
+				buf += p.bp[0].S;
+				buf += p.bp[0].T1;
+				buf += p.bp[0].T2;
+				buf += p.bp[0].taux;
+				buf += p.bp[0].mu;
+				if (fortx) {buf += CnUtils.encode_varint(p.bp[0].L.length);}
+				for (let i = 0; i < p.bp[0].L.length; i++) {
+					buf += p.bp[0].L[i];
 				}
-				if (fortx) {buf += CnUtils.encode_varint(p.bulletproofs[0].R.length);}
-				for (let i = 0; i < p.bulletproofs[0].R.length; i++) {
-					buf += p.bulletproofs[0].R[i];
+				if (fortx) {buf += CnUtils.encode_varint(p.bp[0].R.length);}
+				for (let i = 0; i < p.bp[0].R.length; i++) {
+					buf += p.bp[0].R[i];
 				}
-				buf += p.bulletproofs[0].a;
-				buf += p.bulletproofs[0].b;
-				buf += p.bulletproofs[0].t;
+				buf += p.bp[0].a;
+				buf += p.bp[0].b;
+				buf += p.bp[0].t;
 			}
 		return buf;
 	}
@@ -2393,12 +2418,12 @@ export namespace CnTransactions{
 		console.log('======t');
 
 		let rv : RctSignature = {
-			type: inAmounts.length > 1 ? CnVars.RCT_TYPE.Bulletproof : CnVars.RCT_TYPE.Bulletproof2,
+			type: 5,
 			message: message,
 			outPk: [],
 			p: {
 				rangeSigs: [],
-				bulletproofs: [],
+				bp: [],
 				MGs: [],
 				pseudoOuts: []
 			},
@@ -2413,7 +2438,7 @@ export namespace CnTransactions{
 
 		let p = rv.p;
 		if(p) {
-			if(rv.type != CnVars.RCT_TYPE.Bulletproof && rv.type != CnVars.RCT_TYPE.Bulletproof2){
+			if(rv.type != 5){
 				let cmObj = {
 					C: '',
 					mask: ''
@@ -2427,7 +2452,7 @@ export namespace CnTransactions{
 					console.log("Time take for range proof " + i + ": " + testfinish);
 					rv.outPk[i] = cmObj.C;
 					sumout = CnNativeBride.sc_add(sumout, cmObj.mask);
-					rv.ecdhInfo[i] = CnUtils.encode_rct_ecdh({mask: cmObj.mask, amount: CnUtils.d2s(outAmounts[i])}, amountKeys[i]);
+					rv.ecdhInfo[i] = CnUtils.encode_rct_ecdh({mask: cmObj.mask, amount: CnUtils.d2s(outAmounts[i])}, amountKeys[i], false);
 				}
 			}
 			else{
@@ -2437,12 +2462,12 @@ export namespace CnTransactions{
 				  svs[i] = outAmounts[i];
 				  gamma[i] = CnRandom.random_scalar();
 				  sumout = CnNativeBride.sc_add(sumout, gamma[i]);
-				  rv.ecdhInfo[i] = CnUtils.encode_rct_ecdh({mask: gamma[i], amount: CnUtils.d2s(outAmounts[i])}, amountKeys[i]);
+				  rv.ecdhInfo[i] = CnUtils.encode_rct_ecdh({mask: gamma[i], amount: CnUtils.d2s(outAmounts[i])}, amountKeys[i], true);
 				}
 
-				p.bulletproofs.push(CnTransactions.bulletproof_PROVE(svs, gamma));
+				p.bp.push(CnTransactions.bulletproof_PROVE(svs, gamma));
 				for (let i = 0; i < outAmounts.length; i++) {
-				  rv.outPk[i] = CnUtils.ge_scalarmult(p.bulletproofs[0].V[i], CnUtils.d2s("8"));
+				  rv.outPk[i] = CnUtils.ge_scalarmult(p.bp[0].V[i], CnUtils.d2s("8"));
 				}
 			}
 
@@ -2486,6 +2511,8 @@ export namespace CnTransactions{
 
 			console.log('====a');
 		}
+
+		rv.type = CnVars.RCT_TYPE.Bulletproof2;
 
 		return rv;
 	}
@@ -2796,7 +2823,8 @@ export namespace CnTransactions{
 
 			// sets res.mask among other things. mask is identity for non-rct transactions
 			// and for coinbase ringct (type = 0) txs.
-			let res = CnTransactions.generate_key_image_helper_rct(keys, sources[i].real_out_tx_key, sources[i].real_out_in_tx, ''+sources[i].mask); //mask will be undefined for non-rct
+			var mask = sources[i].mask.length == 16 ? sources[i].mask + "000000000000000000000000000000000000000000000000" : ''+sources[i].mask;
+			let res = CnTransactions.generate_key_image_helper_rct(keys, sources[i].real_out_tx_key, sources[i].real_out_in_tx, mask); //mask will be undefined for non-rct
 			// in_contexts.push(res.in_ephemeral);
 
 			// now we mark if this is ringct coinbase txs. such transactions
