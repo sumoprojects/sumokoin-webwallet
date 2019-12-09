@@ -29,7 +29,7 @@
 	  },
 	  "openWalletModal":{
 		"title":"Password portafoglio",
-		"confirmText":"Apri",
+		"confirmText":"Confermare",
 		"cancelText":"Annulla"
 	  },
 	  "invalidPasswordModal":{
@@ -217,7 +217,7 @@
 		},
 		"paymentId":{
 		  "label":"Payment ID (opzionale)",
-		  "invalid":"Il Payment ID e invalido. La lunghezza deve essere di 16 o 64 caratteri"
+		  "invalid":"Il Payment ID e invalido. La lunghezza deve essere di 16 caratteri"
 		},
 		"sendButton":"Invia",
 		"cancelButton":"Annulla"

@@ -484,12 +484,13 @@ body.native .indexTab .mainBlock {
 	}
 }
 .indexTab .mainBlock h1{
-	display: inline-block;
-	color:white;
-	border-bottom:1px solid white;
-	padding: 0 20px;
-	margin-bottom: 0;
-	font-size: 40px;
+      display: inline-block;
+      color:white;
+      border-bottom:1px solid white;
+      padding: 0 20px;
+      margin-bottom: 0;
+      font-size: 40px;
+      text-shadow: 1.5px 1.5px 0px rgba(82, 91, 254);
 }
 
 .indexTab .mainBlock h2{

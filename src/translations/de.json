@@ -29,7 +29,7 @@
 	  },
 	  "openWalletModal":{
 		"title":"Wallet Passwort",
-		"confirmText":"Öffnen",
+		"confirmText":"Konfirmieren",
 		"cancelText":"Abbrechen"
 	  },
 	  "invalidPasswordModal":{
@@ -217,7 +217,7 @@
 		},
 		"paymentId":{
 		  "label":"Payment ID (optional)",
-		  "invalid":"Die payment ID ist ungültig. Sie muss aus 16 oder 64 Zeichen bestehen"
+		  "invalid":"Die payment ID ist ungültig. Sie muss aus 16 Zeichen bestehen"
 		},
 		"sendButton":"Senden",
 		"cancelButton":"Abbrechen"

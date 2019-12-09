@@ -24,7 +24,7 @@
     "newVersionModal":{
     "title":"Nowa wersja jest dostepna",
     "content":"Czy chcesz ponownie zaladowac, aby uzyskac nowa wersje?",
-    "confirmText":"Tak",
+    "confirmText":"Âierzmowac",
     "cancelText":"Wstecz"
 	  },
     "openWalletModal":{
@@ -217,7 +217,7 @@
       },
       "paymentId":{
         "label":"Identyfikator platnosci (opcjonalnie)",
-        "invalid":"Identyfikator platnosci jest nieprawidlowy. Dlugosc musi wynosic 16 lub 64 znaki"
+        "invalid":"Identyfikator platnosci jest nieprawidlowy. Dlugosc musi wynosic 16 znaki"
       },
       "sendButton":"Wyslij",
       "cancelButton":"Przerwij"
