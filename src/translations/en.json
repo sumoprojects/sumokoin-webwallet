@@ -108,12 +108,12 @@
 		"getMSRAddress": "Receive SUMO"
 	  },
 	  "txDetails":{
-		"title":"Transaction details",
-		"txHash":"Tx hash",
-		"feesOnTx":"Tx fees",
-		"blockHeight":"Block height",
+		"title":"Transaction Details",
+		"txHash":"TX Hash",
+		"feesOnTx":"TX Fee",
+		"blockHeight":"Block Height",
 		"paymentId":"Payment ID",
-		"txPrivKey":"Transaction Private Key"
+		"txPrivKey":"TX Private Key"
 	  }
 	},
 	"changeWalletPasswordPage":{
