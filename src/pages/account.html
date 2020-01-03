@@ -50,8 +50,9 @@
 										<i class="fa fa-search" aria-hidden="true" @click="moreInfoOnTx(transaction)"></i>
 									</td>
 								</tr>
-								<tr v-if="transaction.paymentId !== ''">
-									<td colspan="4" class="paymentId" >{{transaction.paymentId}}</td><!--UNDER-->
+								<tr>
+                                    <td class="direction" ></td>
+									<td colspan="3" class="tx-hash" >{{transaction.hash}}</td><!--UNDER-->
 								</tr>
 							</template>
 							<tr v-if="transactions.length == 0" >
