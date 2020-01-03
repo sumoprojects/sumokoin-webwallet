@@ -8,21 +8,21 @@ global.config = {
 	mainnetExplorerUrl: "https://explorer.sumokoin.com/",
 	mainnetExplorerUrlHash: "https://explorer.sumokoin.com/tx/{ID}",
 	mainnetExplorerUrlBlock: "https://explorer.sumokoin.com/block/{ID}",
-	testnetExplorerUrl: "http://explorer.sumokoin.com/",
-	testnetExplorerUrlHash: "http://explorer.sumokoin.com/tx/{ID}",
-	testnetExplorerUrlBlock: "http://explorer.sumokoin.com/block/{ID}",
+	testnetExplorerUrl: "https://testnet-explorer.sumokoin.com/",
+	testnetExplorerUrlHash: "https://testnet-explorer.sumokoin.com/tx/{ID}",
+	testnetExplorerUrlBlock: "https://testnet-explorer.sumokoin.com/block/{ID}",
 	testnet: false,
 	coinUnitPlaces: 9,
-	txMinConfirms: 10,         // corresponds to CRYPTONOTE_DEFAULT_TX_SPENDABLE_AGE in Monero
-	txCoinbaseMinConfirms: 60, // corresponds to CRYPTONOTE_MINED_MONEY_UNLOCK_WINDOW in Monero
+	txMinConfirms: 10,         // corresponds to CRYPTONOTE_DEFAULT_TX_SPENDABLE_AGE in Sumokoin
+	txCoinbaseMinConfirms: 60, // corresponds to CRYPTONOTE_MINED_MONEY_UNLOCK_WINDOW in Sumokoin
 	addressPrefix: 0x2bb39a,
 	integratedAddressPrefix: 0x29339a,
 	addressPrefixTestnet: 0x37751a,
 	integratedAddressPrefixTestnet: 0x34f51a,
 	subAddressPrefix: 0x8319a,
 	subAddressPrefixTestnet: 0x1d351a,
-	feePerKB: new JSBigInt('500000'),//20^10 - for testnet its not used, as fee is dynamic.
-	dustThreshold: new JSBigInt('10000000'),//10^10 used for choosing outputs/change - we decompose all the way down if the receiver wants now regardless of threshold
+	feePerKB: new JSBigInt('1200000'),
+	dustThreshold: new JSBigInt('10000000'),
 	defaultMixin: 48, // default value mixin
 
 	idleTimeout: 30,
@@ -31,11 +31,9 @@ global.config = {
 	coinSymbol: 'SUMO',
 	openAliasPrefix: "sumo",
 	coinName: 'Sumokoin',
-	coinUriPrefix: 'sumokoin:',
+	coinUriPrefix: 'sumo:',
 	avgBlockTime: 240,
 	maxBlockNumber: 500000000,
 
-	donationAddresses : [
-		
-	]
+	donationAddresses : []
 };
