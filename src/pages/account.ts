@@ -66,28 +66,28 @@ class AccountView extends DestructableView{
 		let explorerUrlBlock = config.testnet ? config.testnetExplorerUrlBlock : config.mainnetExplorerUrlBlock;
 		let feesHtml = '';
 		if(transaction.getAmount() < 0)
-			feesHtml = `<div>`+i18n.t('accountPage.txDetails.feesOnTx')+`: `+Cn.formatMoneySymbol(transaction.fees)+`</a></div>`;
+			feesHtml = `<div><strong>`+i18n.t('accountPage.txDetails.feesOnTx')+`</strong>: `+Cn.formatMoneySymbol(transaction.fees)+`</a></div>`;
 
 		let paymentId = '';
 		if(transaction.paymentId !== ''){
-			paymentId = `<div>`+i18n.t('accountPage.txDetails.paymentId')+`: `+transaction.paymentId+`</a></div>`;
+			paymentId = `<div><strong>`+i18n.t('accountPage.txDetails.paymentId')+`</strong>: `+transaction.paymentId+`</a></div>`;
 		}
 
 		let txPrivKeyMessage = '';
 		let txPrivKey = wallet.findTxPrivateKeyWithHash(transaction.hash);
 		if(txPrivKey !== null){
-			txPrivKeyMessage = `<div>`+i18n.t('accountPage.txDetails.txPrivKey')+`: `+txPrivKey+`</a></div>`;
+			txPrivKeyMessage = `<div><strong>`+i18n.t('accountPage.txDetails.txPrivKey')+`</strong>: `+txPrivKey+`</a></div>`;
 		}
 
 		let blockHeight = '';
 		if(transaction.blockHeight > 0){
-			blockHeight = `<div>`+i18n.t('accountPage.txDetails.blockHeight')+`: <a href="`+explorerUrlBlock.replace('{ID}', ''+transaction.blockHeight)+`" target="_blank">`+transaction.blockHeight+`</a></div>`;
+			blockHeight = `<div><strong>`+i18n.t('accountPage.txDetails.blockHeight')+`</strong>: <a href="`+explorerUrlBlock.replace('{ID}', ''+transaction.blockHeight)+`" target="_blank">`+transaction.blockHeight+`</a></div>`;
 		}
 		swal({
 			title:i18n.t('accountPage.txDetails.title'),
 			html:`
 <div class="tl" >
-	<div>`+i18n.t('accountPage.txDetails.txHash')+`: <a href="`+explorerUrlHash.replace('{ID}', transaction.hash)+`" target="_blank">`+transaction.hash+`</a></div>
+	<div><strong>`+i18n.t('accountPage.txDetails.txHash')+`</strong>: <a href="`+explorerUrlHash.replace('{ID}', transaction.hash)+`" target="_blank">`+transaction.hash+`</a></div>
 	`+paymentId+`
 	`+feesHtml+`
 	`+txPrivKeyMessage+`

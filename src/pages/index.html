@@ -14,27 +14,26 @@
 	</div>
 	<div class="hideOnNative" >
 		<div class="mainBlock" >
+            <div class="left" style="float:left; margin: 10px">
+                <h3 style="font-size: 12px; color: white; font-family: arial">SUMOKOIN NETWORK INFO</h3>
+                <iframe src="https://kexplo.xyz/" name="targetframe"  top="50" left="50" width="200" height="70" allowTransparency="true" scrolling="no" frameborder="0" ></iframe>
+            </div>
 			<div class="actions" >
-			<h3 style="font-size: 12px; margin-top: 5px; margin-bottom: 3; color: white; font-family: arial">
-			 SUMOKOIN NETWORK INFO
-                        </h3>
-                        <iframe src="https://kexplo.xyz/" name="targetframe"  top="50" left="50" width="200" height="70" allowTransparency="true" scrolling="no" frameborder="0" >
-                        </iframe>
-
-				<div class="right">
+                <div class="right">
 					<a href="#" @click="loadWallet()" v-if="hasLocalWallet" class="btn mini basic">{{ $t("homepage.actions.loadWallet") }}</a>
 					<a href="#!import" class="btn mini">{{ $t("homepage.actions.importWallet") }}</a>
 					<a href="#!createWallet" class="btn mini">{{ $t("homepage.actions.create") }}</a>
 				</div>
-			</div>           
-			<div class="headline" >
-                                <h1>{{ $t("homepage.mainTitle") }}</h1></br></br>
-				<img src="./assets/img/logo_white.png" alt="Sumokoin"/>                               
 			</div>
-			<div class="callToAction tc" >
-				<a href="#" @click="loadWallet()" v-if="hasLocalWallet" class="btn basic">{{ $t("homepage.actions.loadWallet") }}</a>
-				<a href="#!createWallet" class="btn primary" >{{ $t("homepage.actions.createWallet") }}</a>
-			</div>
+            <br clear="both">
+            <div class="center" style="margin-bottom: 20px">
+                <div class="headline"><h1>{{ $t("homepage.mainTitle") }}</h1></div>
+                <img style="margin: 30px auto 10px" src="./assets/img/logo_white.png" alt="Sumokoin"/>
+                <div class="callToAction tc" >
+                    <a href="#" @click="loadWallet()" v-if="hasLocalWallet" class="btn basic" style="margin-right:20px">{{ $t("homepage.actions.loadWallet") }}</a>
+                    <a href="#!createWallet" class="btn primary" >{{ $t("homepage.actions.createWallet") }}</a>
+                </div>
+            </div>
 		</div>
 
 		<div class="notesBlock" >

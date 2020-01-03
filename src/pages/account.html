@@ -7,8 +7,6 @@
 			{{ $t("accountPage.subtitle") }}
 		</div>
 	</div>
-	<script src="https://widgets.coingecko.com/coingecko-coin-price-static-headline-widget.js"></script>
-	<coingecko-coin-price-static-headline-widget  coin-ids="sumokoin,bitcoin,ethereum" currency="usd" locale="en"></coingecko-coin-price-static-headline-widget>
 	<div class="body-content" >
 
 		<div class="panel inline" v-if="currentScanBlock+2 < blockchainHeight" >
@@ -21,12 +19,12 @@
 		</div>
 
 		<div class="panel">
-			<div class="body" >
+			<div class="body">
 				<div class="header-title" >{{ $t("accountPage.balanceBlock.title") }}</div>
-				<div class="content" >
-					<b><font color="#62b42f"> <font size="5"><span class="walletAmount" >{{ $n(walletAmount / currencyDivider) }}</span></font></font></b><b><font size="5"> SUMO </font></b>
+				<div class="content">
+					<span class="walletAmount" style="color:#62b42f; font-size:x-large;font-weight:bold">{{ Number(walletAmount / currencyDivider).toFixed(6) }}</span><span style="font-size:x-large;font-weight:bold"> SUMO</span>
 					<tempate class="amount unlocked" v-if="unlockedWalletAmount !== walletAmount" >
-						<br/><span class="walletAmount" >{{ $t("accountPage.balanceBlock.unlocked") }}: {{ $n(unlockedWalletAmount / currencyDivider) }}</span> SUMO 
+						<br/><span class="walletAmount" >{{ $t("accountPage.balanceBlock.unlocked") }}: {{ Number(unlockedWalletAmount / currencyDivider).toFixed(6) }}</span> SUMO
 					</tempate>
 				</div>
 			</div>
@@ -35,19 +33,19 @@
 		<div class="panel nopadding">
 			<div class="body" >
 				<div class="header-title" >{{ $t("accountPage.historyBlock.title") }}</div>
-				<div class="content" >
+				<div class="content" style="padding: 10px">
 
 					<div class="transactions" >
 						<table>
 							<template v-for="transaction of transactions" v-if="transaction.isFullyChecked()">
 								<tr class="transaction" :class="(transaction.blockHeight === 0 ? 'pending' : '')">
 									<td class="direction" >
-										<i v-if="transaction.ins.length == 0" class="fa fa-arrow-right" aria-hidden="true"></i>
-										<i v-else="" class="fa fa-arrow-left" aria-hidden="true"></i>
+										<i v-if="transaction.ins.length == 0" class="fa fa-arrow-right amount more" aria-hidden="true"></i>
+										<i v-else="" class="fa fa-arrow-left amount less" aria-hidden="true"></i>
 									</td><!--LEfT-->
 									<td class="timestamp" v-if="transaction.blockHeight > 0">{{$d(new Date(transaction.timestamp*1000), 'long')}}</td>
 									<td class="timestamp" v-else="">{{ $t("accountPage.historyBlock.pendingTxStatus") }}...</td>
-									<td :class="'amount '+(transaction.getAmount() > 0 ? 'more' : 'less')" >{{ $n(transaction.getAmount() / currencyDivider) }}</td>
+									<td :class="'amount '+(transaction.getAmount() > 0 ? 'more' : 'less')" >{{ Number(transaction.getAmount() / currencyDivider).toFixed(6) }}</td>
 									<td class="moreInfo">
 										<i class="fa fa-search" aria-hidden="true" @click="moreInfoOnTx(transaction)"></i>
 									</td>
@@ -76,5 +74,7 @@
 				</div>
 			</div>
 		</div>
+        <script src="https://widgets.coingecko.com/coingecko-coin-price-static-headline-widget.js"></script>
+        <coingecko-coin-price-static-headline-widget  coin-ids="sumokoin,bitcoin,ethereum" currency="usd" locale="en"></coingecko-coin-price-static-headline-widget>
 	</div>
 </div>

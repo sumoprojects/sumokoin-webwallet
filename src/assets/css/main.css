@@ -232,7 +232,7 @@ body.transparent #copyright{
 	table-layout: fixed;
 }
 .transactions .transaction{
-	border-bottom: 1px solid #E2E2E2;
+	border-top: 1px solid #E2E2E2;
 }
 .transactions .transaction td{
 	padding:8px 0;
@@ -480,13 +480,13 @@ body.native .indexTab .mainBlock {
 }
 @media screen and (max-width: 940px) {
 	.indexTab .mainBlock .headline{
-		margin-top: 15vh;
+		margin-top: 10vh;
 	}
 }
 .indexTab .mainBlock h1{
       display: inline-block;
       color:white;
-      border-bottom:1px solid white;
+      /*border-bottom:1px solid white;*/
       padding: 0 20px;
       margin-bottom: 0;
       font-size: 40px;
