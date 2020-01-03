@@ -12,12 +12,14 @@ Encryption is done with a certified library, [Tweetnacl.Js.](https://github.com/
 # Copyright and Contributors
 - Copyright (c) 2019, Sumokoin Project
 - Copyright (c) 2018, Gnock
+- Copyright (c) 2019, MyMonero.com
 - Copyright (c) 2018, The Masari Project
 
 ## Developers
 
 - gnock (main)
 - cryptochangements
+- MyMonero (Paul Shapiro)
 - quangvu3
 - sumogr
 
