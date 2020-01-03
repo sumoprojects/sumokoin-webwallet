@@ -398,14 +398,14 @@ export namespace CnUtils{
 		}
 		else{
 			//v2, with deterministic mask
-            let mask = Cn.hash_to_scalar("636f6d6d69746d656e745f6d61736b" + key); //"commitment_mask"
-            let amtkey = CnUtils.cn_fast_hash("616d6f756e74" + key); //"amount"
-            let amount = CnUtils.hex_xor(ecdh.amount, amtkey.slice(0,16));
-            amount += "000000000000000000000000000000000000000000000000"; //pad to 64 chars
-            return {
-                mask: mask,
-                amount: amount
-            };
+			let mask = Cn.hash_to_scalar("636f6d6d69746d656e745f6d61736b" + key); //"commitment_mask"
+			let amtkey = CnUtils.cn_fast_hash("616d6f756e74" + key); //"amount"
+			let amount = CnUtils.hex_xor(ecdh.amount, amtkey.slice(0,16));
+			amount += "000000000000000000000000000000000000000000000000"; //pad to 64 chars
+			return {
+				mask: mask,
+				amount: amount
+			};
 		}
 	}
 
@@ -416,9 +416,9 @@ export namespace CnUtils{
 			let amount = CnUtils.hex_xor(ecdh.amount.slice(0, 16), amtkey.slice(0, 16));
 			amount += "000000000000000000000000000000000000000000000000"; //pad to 64 chars
 			return {
-                mask: mask,
-                amount: amount
-            };
+				mask: mask,
+				amount: amount
+			};
 		}
 		else{
 			let first = Cn.hash_to_scalar(key);
@@ -893,11 +893,13 @@ export namespace Cn{
 		let expectedPrefixInt = CnUtils.encode_varint(CRYPTONOTE_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX);
 		let expectedPrefixSub = CnUtils.encode_varint(CRYPTONOTE_PUBLIC_SUBADDRESS_BASE58_PREFIX);
 		let prefix = dec.slice(0, expectedPrefix.length);
-		console.log(prefix,expectedPrefixInt,expectedPrefix);
-		if (prefix !== expectedPrefix && prefix !== expectedPrefixInt && prefix !== expectedPrefixSub) {
+		var prefix_subaddr = dec.slice(0, expectedPrefixSub.length);
+		var is_subaddr = prefix_subaddr === expectedPrefixSub; // is a sub-address?
+		console.log("addr/iaddr:", prefix, expectedPrefixInt, expectedPrefix, "subaddrr:", prefix_subaddr, expectedPrefixSub);
+		if (prefix !== expectedPrefix && prefix !== expectedPrefixInt && !is_subaddr) {
 			throw "Invalid address prefix";
 		}
-		dec = dec.slice(expectedPrefix.length);
+		dec = is_subaddr ? dec.slice(expectedPrefixSub.length) : dec.slice(expectedPrefix.length);
 		let spend = dec.slice(0, 64);
 		let view = dec.slice(64, 128);
 		let checksum : string|null = null;
@@ -909,7 +911,7 @@ export namespace Cn{
 			expectedChecksum = CnUtils.cn_fast_hash(prefix + spend + view + intPaymentId).slice(0, ADDRESS_CHECKSUM_SIZE * 2);
 		} else {
 			checksum = dec.slice(128, 128 + (ADDRESS_CHECKSUM_SIZE * 2));
-			expectedChecksum = CnUtils.cn_fast_hash(prefix + spend + view).slice(0, ADDRESS_CHECKSUM_SIZE * 2);
+			expectedChecksum = CnUtils.cn_fast_hash((is_subaddr ? prefix_subaddr : prefix) + spend + view).slice(0, ADDRESS_CHECKSUM_SIZE * 2);
 		}
 		if (checksum !== expectedChecksum) {
 			throw "Invalid checksum";
@@ -1174,6 +1176,36 @@ export namespace CnTransactions{
 		size += ((mixin + 1) * 4 + 32 + 8) * inputs; //key offsets + key image + amount
 		size += 64 * (mixin + 1) * inputs + 64 * inputs; //signature + pseudoOuts/cc
 		size += 74; //extra + whatever, assume long payment ID
+		return size;
+	}
+
+	export function estimateRctSizeNew(inputs : number, mixin : number, outputs : number, extra_size : number, bulletproof : boolean) {
+		let size = 0;
+		size += 1 + 6;
+		size += inputs * (1+6+(mixin+1)*2+32);
+		size += outputs * (6+32);
+		size += extra_size;
+		size += 1;
+
+		if (bulletproof)
+		{
+			let log_padded_outputs = 0;
+			while ((1<<log_padded_outputs) < outputs)
+			  ++log_padded_outputs;
+			size += (2 * (6 + log_padded_outputs) + 4 + 5) * 32 + 3;
+		}
+		else
+			size += (2*64*32+32+64*32) * outputs;
+
+
+		size += inputs * (64 * (mixin+1) + 32);
+
+		size += 32 * inputs;
+
+		size += 2 * 32 * outputs;
+		size += 32 * outputs;
+		size += 4;
+
 		return size;
 	}
 
@@ -1639,6 +1671,51 @@ export namespace CnTransactions{
 		return sig;
 	}
 
+	export function MLSAG_ver(message: string, pk : string[][], rv : MG_Signature, kimg : string) : boolean {
+		// we assume that col, row, rectangular checks are already done correctly
+		// in MLSAG_gen
+		const cols = pk.length;
+		let c_old = rv.cc;
+		let i = 0;
+		let toHash = [];
+		toHash[0] = message;
+		while (i < cols) {
+			//!secret index (pubkey section)
+			toHash[1] = pk[i][0];
+			toHash[2] = CnUtils.ge_double_scalarmult_base_vartime(
+				c_old,
+				pk[i][0],
+				rv.ss[i][0],
+			);
+			toHash[3] = CnUtils.ge_double_scalarmult_postcomp_vartime(
+				rv.ss[i][0],
+				pk[i][0],
+				c_old,
+				kimg,
+			);
+
+			//!secret index (commitment section)
+			toHash[4] = pk[i][1];
+			toHash[5] = CnUtils.ge_double_scalarmult_base_vartime(
+				c_old,
+				pk[i][1],
+				rv.ss[i][1],
+			);
+
+			c_old = Cn.array_hash_to_scalar(toHash);
+
+			i = i + 1;
+		}
+
+		const c = CnNativeBride.sc_sub(c_old, rv.cc);
+		console.log(`[MLSAG_ver]
+		c_old: ${c_old}
+		rc.cc: ${rv.cc}
+		c: ${c}`);
+
+		return Number(c) === 0;
+	}
+
 	// Gen creates a signature which proves that for some column in the keymatrix "pk"
 	//	 the signer knows a secret key for each row in that column
 	// we presently only support matrices of 2 rows (pubkey, commitment)
@@ -1649,7 +1726,8 @@ export namespace CnTransactions{
 		if (index >= cols){throw "index out of range";}
 		let rows = pk[0].length; //number of signature rows (always 2)
 		if (rows !== 2){throw "wrong row count";}
-		for (let i = 0; i < cols; i++){
+		let i;
+		for (i = 0; i < cols; i++){
 			if (pk[i].length !== rows){throw "pk is not rectangular";}
 		}
 		if (xx.length !== rows){throw "bad xx size";}
@@ -1661,7 +1739,7 @@ export namespace CnTransactions{
 			ss: [],
 			cc: ''
 		};
-		for (let i = 0; i < cols; i++){
+		for (i = 0; i < cols; i++){
 			rv.ss[i] = [];
 		}
 		let toHash = []; //holds 6 elements: message, pubkey, dsRow L, dsRow R, commitment, ndsRow L
@@ -1679,7 +1757,7 @@ export namespace CnTransactions{
 
 		c_old = Cn.array_hash_to_scalar(toHash);
 
-		let i = (index + 1) % cols;
+		i = (index + 1) % cols;
 		if (i === 0){
 			rv.cc = c_old;
 		}
@@ -1720,7 +1798,9 @@ export namespace CnTransactions{
 		}
 		xx[0] = inSk.x;
 		xx[1] = CnNativeBride.sc_sub(inSk.a, mask);
-		return CnTransactions.MLSAG_Gen(message, PK, xx, kimg, index);
+		let rv = CnTransactions.MLSAG_Gen(message, PK, xx, kimg, index);
+		//if(!CnTransactions.MLSAG_ver(message, PK, rv, kimg)) throw "MG_Signature verification failed: Bad signature hash";
+		return rv;
 	}
 
 	export function serialize_rct_base(rv : RctSignature) {
@@ -1758,7 +1838,7 @@ export namespace CnTransactions{
 		let buf = "";
 		let p = rv.p;
 		if(p)
-			if (rv.type != 5) {
+			if (rv.type < 3) {
 				for (let i = 0; i < p.rangeSigs.length; i++) {
 					for (let j = 0; j < p.rangeSigs[i].bsig.s.length; j++) {
 						for (let l = 0; l < p.rangeSigs[i].bsig.s[j].length; l++) {
@@ -2548,229 +2628,6 @@ export namespace CnTransactions{
 		unlock_time : number = 0,
 		rct:boolean = true
 	){
-		/*//we move payment ID stuff here, because we need txkey to encrypt
-		let txkey = Cn.random_keypair();
-		console.log(txkey);
-		let extra = '';
-		if (payment_id) {
-			if (pid_encrypt && payment_id.length !== INTEGRATED_ID_SIZE * 2) {
-				throw "payment ID must be " + INTEGRATED_ID_SIZE + " bytes to be encrypted!";
-			}
-			console.log("Adding payment id: " + payment_id);
-			if (pid_encrypt && realDestViewKey) { //get the derivation from our passed viewkey, then hash that + tail to get encryption key
-				let pid_key = CnUtils.cn_fast_hash(Cn.generate_key_derivation(realDestViewKey, txkey.sec) + ENCRYPTED_PAYMENT_ID_TAIL.toString(16)).slice(0, INTEGRATED_ID_SIZE * 2);
-				console.log("Txkeys:", txkey, "Payment ID key:", pid_key);
-				payment_id = CnUtils.hex_xor(payment_id, pid_key);
-			}
-			let nonce = CnTransactions.get_payment_id_nonce(payment_id, pid_encrypt);
-			console.log("Extra nonce: " + nonce);
-			extra = CnTransactions.add_nonce_to_extra(extra, nonce);
-		}
-		let tx : CnTransactions.Transaction = {
-			unlock_time: unlock_time,
-			version: rct ? CURRENT_TX_VERSION : OLD_TX_VERSION,
-			extra: extra,
-			prvkey: '',
-			vin: [],
-			vout: [],
-			rct_signatures:{
-				ecdhInfo:[],
-				outPk:[],
-				pseudoOuts:[],
-				txnFee:'',
-				type:0,
-			}
-		};
-
-		if(!rct) tx.signatures = [];
-
-		tx.prvkey = txkey.sec;
-
-		let in_contexts = [];
-		
-		let is_rct_coinbases = [];	// monkey patching to solve problem of
-									// not being able to spend coinbase ringct txs.
-		
-		let inputs_money = JSBigInt.ZERO;
-		let i, j;
-
-		console.log('Sources: ');
-		//run the for loop twice to sort ins by key image
-		//first generate key image and other construction data to sort it all in one go
-		for (i = 0; i < sources.length; i++) {
-			console.log(i + ': ' + Cn.formatMoneyFull(sources[i].amount));
-			if (sources[i].real_out >= sources[i].outputs.length) {
-				throw "real index >= outputs.length";
-			}
-			inputs_money = inputs_money.add(sources[i].amount);
-
-			// sets res.mask among other things. mask is identity for non-rct transactions
-			// and for coinbase ringct (type = 0) txs.
-			let res = CnTransactions.generate_key_image_helper_rct(keys, sources[i].real_out_tx_key, sources[i].real_out_in_tx, ''+sources[i].mask); //mask will be undefined for non-rct
-			in_contexts.push(res.in_ephemeral);
-
-			// now we mark if this is ringct coinbase txs. such transactions
-			// will have identity mask. Non-ringct txs will have  sources[i].mask set to null.
-			// this only works if beckend will produce masks in get_unspent_outs for
-			// coinbaser ringct txs.
-			is_rct_coinbases.push((sources[i].mask ? sources[i].mask === CnVars.I : 0));
-
-			console.log('res.in_ephemeral.pub', res, res.in_ephemeral.pub, sources, i);
-			if (res.in_ephemeral.pub !== sources[i].outputs[sources[i].real_out].key) {
-				throw "in_ephemeral.pub != source.real_out.key";
-			}
-
-			let input_to_key : CnTransactions.Vin = {
-				type:"input_to_key",
-				amount:sources[i].amount,
-				k_image:res.image,
-				key_offsets:[],
-			};
-
-			for (j = 0; j < sources[i].outputs.length; ++j) {
-				input_to_key.key_offsets.push(sources[i].outputs[j].index);
-			}
-			input_to_key.key_offsets = CnTransactions.abs_to_rel_offsets(input_to_key.key_offsets);
-			tx.vin.push(input_to_key);
-		}
-
-		// new to sort key_imags and associated variables.
-
-		let ins_order = [];
-
-		for (i = 0; i < tx.vin.length; i++){
-			ins_order.push(i);
-		}
-
-		// determine indexes which we should sort.
-		ins_order.sort(function(i0, i1) {
-			if (tx.vin[i0].k_image < tx.vin[i1].k_image) {
-				return 1;
-			}
-
-			if (tx.vin[i0].k_image > tx.vin[i1].k_image) {
-				return -1;
-			}
-
-			return 0;
-		});
-
-		// sort key images along with rources and contexts.
-		tx.vin = CnTransactions.rearrange(tx.vin , ins_order);
-		sources = CnTransactions.rearrange(sources, ins_order);
-		in_contexts = CnTransactions.rearrange(in_contexts, ins_order);
-
-		let outputs_money = JSBigInt.ZERO;
-		let out_index = 0;
-		let amountKeys = []; //rct only
-
-		for (i = 0; i < dsts.length; ++i) {
-
-            if (new JSBigInt(dsts[i].amount).compare(0) < 0) {
-                throw "dst.amount < 0"; //amount can be zero if no change
-            }
-
-            dsts[i].keys = Cn.decode_address(dsts[i].address);
-			let dst_keys = dsts[i].keys; 
-			if(dst_keys){
-				if (Cn.is_subaddress(dsts[i].address)) {
-				   txkey.pub = CnUtils.ge_scalarmult(dst_keys.spend, txkey.sec);
-				}
-
-				let out_derivation;
-
-				// if destination public view and spend keys matches our own public keys
-				// we send change to ourself
-				if (dst_keys.view === keys.view.pub && dst_keys.spend === keys.spend.pub)             {
-					out_derivation = Cn.generate_key_derivation(txkey.pub, keys.view.sec);
-				}
-				else {
-					out_derivation = Cn.generate_key_derivation(dst_keys.view, txkey.sec);
-				}
-
-				if (rct) {
-					amountKeys.push(CnUtils.derivation_to_scalar(out_derivation, out_index));
-				}
-
-				let out_ephemeral_pub = CnNativeBride.derive_public_key(out_derivation, out_index, dst_keys.spend);
-				
-				let out : CnTransactions.Vout = {
-					amount: dsts[i].amount.toString(),
-					target:{
-						type: "txout_to_key",
-						key: out_ephemeral_pub
-					}
-				};
-
-				tx.vout.push(out);
-				++out_index;
-			}
-
-            outputs_money = outputs_money.add(dsts[i].amount);
-        }
-
-        tx.extra = CnTransactions.add_pub_key_to_extra(tx.extra, txkey.pub);
-
-        if (outputs_money.add(fee_amount).compare(inputs_money) > 0) {
-            throw "outputs money (" + Cn.formatMoneyFull(outputs_money) + ") + fee (" + Cn.formatMoneyFull(fee_amount) + ") > inputs money (" + Cn.formatMoneyFull(inputs_money) + ")";
-        }
-
-
-        if (!rct && tx.signatures) {
-            for (i = 0; i < sources.length; ++i) {
-                let src_keys = [];
-                for (j = 0; j < sources[i].outputs.length; ++j) {
-                    src_keys.push(sources[i].outputs[j].key);
-                }
-                let sigs = CnNativeBride.generate_ring_signature(CnTransactions.get_tx_prefix_hash(tx), tx.vin[i].k_image, src_keys,
-                    in_contexts[i].sec, sources[i].real_out);
-                tx.signatures.push(sigs);
-            }
-        } else { //rct
-            let txnFee = fee_amount;
-            let keyimages = [];
-            let inSk = [];
-            let inAmounts = [];
-            let mixRing : {dest:string, mask:string}[][] = [];
-            let indices = [];
-            for (i = 0; i < tx.vin.length; i++) {
-                keyimages.push(tx.vin[i].k_image);
-                inSk.push({
-                    x: in_contexts[i].sec,
-                    a: in_contexts[i].mask
-                });
-                inAmounts.push(tx.vin[i].amount);
-
-                //if (in_contexts[i].mask !== I) {//if input is rct (has a valid mask), 0 out amount
-                    //tx.vin[i].amount = "0";
-                //}
-
-                if (in_contexts[i].mask !== CnVars.I || is_rct_coinbases[i] === true)
-                {
-                    // if input is rct (has a valid mask), 0 out amount
-                    // coinbase ringct txs also have mask === I, so their amount
-                    // must be set to zero when spending them.
-                    tx.vin[i].amount = "0";
-                }
-
-                mixRing[i] = [];
-                for (j = 0; j < sources[i].outputs.length; j++) {
-                    mixRing[i].push({
-                        dest: sources[i].outputs[j].key,
-                        mask: sources[i].outputs[j].commit
-                    });
-                }
-                indices.push(sources[i].real_out);
-            }
-            let outAmounts = [];
-            for (i = 0; i < tx.vout.length; i++) {
-                outAmounts.push(tx.vout[i].amount);
-                tx.vout[i].amount = "0"; //zero out all rct outputs
-            }
-            let tx_prefix_hash = CnTransactions.get_tx_prefix_hash(tx);
-            tx.rct_signatures = CnTransactions.genRct(tx_prefix_hash, inSk, keyimages, inAmounts, outAmounts, mixRing, amountKeys, indices, txnFee);
-        }*/
-
 		//we move payment ID stuff here, because we need txkey to encrypt
 		let txkey = Cn.random_keypair();
 		console.log(txkey);
@@ -2823,7 +2680,7 @@ export namespace CnTransactions{
 
 			// sets res.mask among other things. mask is identity for non-rct transactions
 			// and for coinbase ringct (type = 0) txs.
-			var mask = sources[i].mask.length == 16 ? sources[i].mask + "000000000000000000000000000000000000000000000000" : ''+sources[i].mask;
+			let mask = sources[i].mask!.length == 16 ? sources[i].mask + "000000000000000000000000000000000000000000000000" : ''+sources[i].mask;
 			let res = CnTransactions.generate_key_image_helper_rct(keys, sources[i].real_out_tx_key, sources[i].real_out_in_tx, mask); //mask will be undefined for non-rct
 			// in_contexts.push(res.in_ephemeral);
 
@@ -2918,7 +2775,7 @@ export namespace CnTransactions{
 				}else
 					additional_txkey.pub = CnUtils.ge_scalarmult_base(additional_txkey.sec);
 			}
-			let out_derivation;
+			let out_derivation = null;
 			if(destKeys.view === keys.view.pub) {
 				out_derivation = Cn.generate_key_derivation(txkey.pub, keys.view.sec);
 			} else {
@@ -3003,7 +2860,6 @@ export namespace CnTransactions{
 			let tx_prefix_hash = CnTransactions.get_tx_prefix_hash(tx);
 			console.log('rc signature----');
 			tx.rct_signatures = CnTransactions.genRct(tx_prefix_hash, inSk, keyimages, inAmounts, outAmounts, mixRing, amountKeys, indices, txnFee);
-
 		}
 
 		console.log(tx);
@@ -3180,5 +3036,170 @@ export namespace CnTransactions{
 			throw "Need more money than found! (have: " + Cn.formatMoney(found_money) + " need: " + Cn.formatMoney(needed_money) + ")";
 		}
 		return CnTransactions.construct_tx(keys, sources, dsts, fee_amount, payment_id, pid_encrypt, realDestViewKey, unlock_time, rct);
+	}
+
+	export function create_transaction2(pub_keys:{spend:string,view:string},
+										sec_keys:{spend:string,view:string},
+										from_dsts:CnTransactions.Destination[],
+										to_dsts:CnTransactions.Destination[],
+										outputs:{
+											amount:number,
+											public_key:string,
+											index:number,
+											global_index:number,
+											rct:string,
+											tx_pub_key:string,
+										}[],
+										mix_outs:{
+											outputs:{
+												rct: string,
+												public_key:string,
+												global_index:number
+											}[],
+											amount:0
+										}[] = [],
+										fake_outputs_count:number,
+										fee_amount: any/*JSBigInt*/,
+										unlock_time:number=0,
+										priority:number=1) : any {
+		let i, j;
+		if (from_dsts.length === 0 || to_dsts.length === 0) {
+			throw 'Destinations empty';
+		}
+		if (mix_outs.length !== outputs.length && fake_outputs_count !== 0) {
+			throw 'Wrong number of mix outs provided (' + outputs.length + ' outputs, ' + mix_outs.length + ' mix outs)';
+		}
+		for (i = 0; i < mix_outs.length; i++) {
+			if ((mix_outs[i].outputs || []).length < fake_outputs_count) {
+				throw 'Not enough outputs to mix with';
+			}
+		}
+		let keys = {
+			view: {
+				pub: pub_keys.view,
+				sec: sec_keys.view
+			},
+			spend: {
+				pub: pub_keys.spend,
+				sec: sec_keys.spend
+			}
+		};
+		if (!Cn.valid_keys(keys.view.pub, keys.view.sec, keys.spend.pub, keys.spend.sec)) {
+			throw "Invalid secret keys!";
+		}
+		let needed_money = JSBigInt.ZERO;
+		for (i = 0; i < from_dsts.length; ++i) {
+			needed_money = needed_money.add(from_dsts[i].amount);
+			if (needed_money.compare(UINT64_MAX) !== -1) {
+				throw "Output overflow!";
+			}
+		}
+		for (i = 0; i < to_dsts.length; ++i) {
+			needed_money = needed_money.add(to_dsts[i].amount);
+			if (needed_money.compare(UINT64_MAX) !== -1) {
+				throw "Output overflow!";
+			}
+		}
+
+		let found_money = JSBigInt.ZERO;
+		let my_mix_outs:{
+			"amount": string,
+			"outputs":{
+				"global_index": string,
+				"public_key": string,
+				"rct": string
+			}[],
+		}[] = [];
+		let using_outs:{
+			"amount": string,
+			"public_key": string,
+			"rct": string,
+			"global_index": string,
+			"index": string,
+			"tx_pub_key": string
+		}[] = [];
+		for (i = 0; i < outputs.length; ++i) {
+			found_money = found_money.add(outputs[i].amount);
+			if (found_money.compare(UINT64_MAX) !== -1) {
+				throw "Input overflow!";
+			}
+
+			if (mix_outs.length !== 0) {
+				// Sort fake outputs by global index
+				// console.log('mix outs before sort', mix_outs[i].outputs);
+				mix_outs[i].outputs.sort(function (a, b) {
+					return new JSBigInt(a.global_index).compare(b.global_index);
+				});
+				j = 0;
+
+				my_mix_outs.push({
+					"amount":"0",
+					"outputs":[]
+				});
+				while ((my_mix_outs[i].outputs.length < fake_outputs_count) && (j < mix_outs[i].outputs.length)) {
+					let out = mix_outs[i].outputs[j];
+					if (out.global_index === outputs[i].global_index) {
+						j++;
+						continue;
+					}
+					my_mix_outs[i].outputs.push({"global_index": out.global_index.toString(), "public_key": out.public_key, "rct": out.rct });
+					j++;
+				}
+
+				using_outs.push({
+					"amount": "" + outputs[i].amount,
+					"public_key": outputs[i].public_key,
+					"rct": outputs[i].rct,
+					"global_index": "" + outputs[i].global_index,
+					"index": "" + outputs[i].index,
+					"tx_pub_key": outputs[i].tx_pub_key
+				});
+			}
+		}
+
+		let fee:{"amount":any} = {
+			"amount": JSBigInt.ZERO
+		};
+		let cmp = needed_money.compare(found_money);
+		if (cmp < 0) {
+			fee.amount = found_money.subtract(needed_money);
+			if (fee.amount.compare(fee_amount) !== 0) {
+				throw "early fee calculation != later";
+			}
+		}
+		else if (cmp > 0) {
+			throw "Need more money than found! (have: " + Cn.formatMoney(found_money) + " need: " + Cn.formatMoney(needed_money) + ")";
+		}
+
+		let change_amount:number = Number(from_dsts[0].amount);
+		let final_total_wo_fee:string = "" + (Number(needed_money) - change_amount);
+
+		return	(<any>window).mymonero_core_js.monero_utils_promise.catch(function(e:any)
+		{
+			console.log("err", e)
+		}).then(function(monero_utils:any)
+		{
+			const ret = monero_utils.send_step2__try_create_transaction(
+				from_dsts[0].address, // from_address_string,
+				sec_keys, // sec keys
+				to_dsts[0].address, // to_address_string,
+				using_outs, // using_outs,
+				my_mix_outs, // mix_outs,
+				fake_outputs_count, // fake_outputs_count,
+				final_total_wo_fee, // final sending_amount
+				change_amount.toString(), // change_amount,
+				Number(fee_amount).toString(), // fee_amount,
+				null, // payment_id,
+				priority, // priority,
+				"1200", // fee_per_b,
+				"1", // fee_mask,
+				unlock_time, // unlock_time,
+				(<any>window).mymonero_core_js.nettype_utils.network_type.MAINNET, // nettype
+				9 // fork version
+			)
+			// console.log("ret", JSON.stringify(ret, null, '  '))
+
+			return ( {"raw": ret.signed_serialized_tx, "hash": ret.tx_hash, "prvkey": ret.tx_key} );
+		});
 	}
 }
