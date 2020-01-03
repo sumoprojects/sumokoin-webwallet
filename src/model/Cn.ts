@@ -34,7 +34,7 @@ if (config.testnet === true)
 	CRYPTONOTE_PUBLIC_SUBADDRESS_BASE58_PREFIX = config.subAddressPrefixTestnet;
 }
 let UINT64_MAX = new JSBigInt(2).pow(64);
-let CURRENT_TX_VERSION = 1;
+let CURRENT_TX_VERSION = 2;
 let OLD_TX_VERSION = 1;
 let TX_EXTRA_NONCE_MAX_COUNT = 255;
 let TX_EXTRA_TAGS = {
@@ -66,12 +66,13 @@ export namespace CnVars{
 		Null = 0,
 		Full = 1,
 		Simple = 2,
-		FullBulletproof = 3,
-		SimpleBulletproof = 4,
+		Bulletproof = 3,  // Full
+		Bulletproof2 = 4  // Simple
 	}
 
 	export let H = "8b655970153799af2aeadc9ff1add0ea6c7251d54154cfa92c173a0dd39c1f94"; //base H for amounts
 	export let l = JSBigInt("7237005577332262213973186563042994240857116359379907606001950938285454250989"); //curve order (not RCT specific)
+	export let lminus2 = l.subtract(2);
 	export let I = "0100000000000000000000000000000000000000000000000000000000000000"; //identity element
 	export let Z = "0000000000000000000000000000000000000000000000000000000000000000"; //zero scalar
 	//H2 object to speed up some operations
@@ -107,6 +108,14 @@ export namespace CnVars{
 		"746d1dccfed2f0ff1e13c51e2d50d5324375fbd5bf7ca82a8931828d801d43ab", "cb98110d4a6bb97d22feadbc6c0d8930c5f8fc508b2fc5b35328d26b88db19ae",
 		"60b626a033b55f27d7676c4095eababc7a2c7ede2624b472e97f64f96b8cfc0e", "e5b52bc927468df71893eb8197ef820cf76cb0aaf6e8e4fe93ad62d803983104",
 		"056541ae5da9961be2b0a5e895e5c5ba153cbb62dd561a427bad0ffd41923199", "f8fef05a3fa5c9f3eba41638b247b711a99f960fe73aa2f90136aeb20329b888"];
+
+	//yay bulletproofs
+	//begin bulletproof vars
+	export let maxN = 64;
+	export let BULLETPROOF_MAX_OUTPUTS = 16;
+	export let maxM = BULLETPROOF_MAX_OUTPUTS;
+	export let INV_EIGHT = "792fdce229e50661d0da1c7db39dd30700000000000000000000000000000006";
+	export let Hi = [], Gi = []; //consider precomputing -- takes approximately 500ms to generate
 }
 
 export namespace CnRandom{
@@ -224,6 +233,15 @@ export namespace CnUtils{
 		return CnUtils.swapEndianC((padding + a.toString(2)).slice(-64));
 	}
 
+	//scalar to integer (string)
+	export function s2d(scalar : any){
+		return JSBigInt.parse(CnUtils.swapEndian(scalar), 16).toString();
+	}
+
+	export function invert(a : any) {
+		return CnUtils.d2s(JSBigInt(CnUtils.s2d(a)).modPow(CnVars.lminus2, CnVars.l).toString());
+	}
+
 	export function ge_scalarmult(pub : string, sec : string) {
 		if (pub.length !== 64 || sec.length !== 64) {
 			throw "Invalid input length";
@@ -235,7 +253,7 @@ export namespace CnUtils{
 		if (p1.length !== 64 || p2.length !== 64) {
 			throw "Invalid input length!";
 		}
-		return bintohex(nacl.ll.ge_add(hextobin(p1), hextobin(p2)));
+		return CnUtils.bintohex(nacl.ll.ge_add(hextobin(p1), hextobin(p2)));
 	}
 
 	//curve and scalar functions; split out to make their host functions cleaner and more readable
@@ -370,21 +388,62 @@ export namespace CnUtils{
 	}
 
 	export function decode_rct_ecdh(ecdh : {mask:string, amount:string}, key : string) {
-		let first = Cn.hash_to_scalar(key);
-		let second = Cn.hash_to_scalar(first);
-		return {
-			mask: CnNativeBride.sc_sub(ecdh.mask, first),
-			amount: CnNativeBride.sc_sub(ecdh.amount, second),
-		};
+		if (ecdh.amount.length !== 16) {
+			let first = Cn.hash_to_scalar(key);
+			let second = Cn.hash_to_scalar(first);
+			return {
+				mask: CnNativeBride.sc_sub(ecdh.mask, first),
+				amount: CnNativeBride.sc_sub(ecdh.amount, second),
+			};
+		}
+		else{
+			//v2, with deterministic mask
+			let mask = Cn.hash_to_scalar("636f6d6d69746d656e745f6d61736b" + key); //"commitment_mask"
+			let amtkey = CnUtils.cn_fast_hash("616d6f756e74" + key); //"amount"
+			let amount = CnUtils.hex_xor(ecdh.amount, amtkey.slice(0,16));
+			amount += "000000000000000000000000000000000000000000000000"; //pad to 64 chars
+			return {
+				mask: mask,
+				amount: amount
+			};
+		}
 	}
 
-	export function encode_rct_ecdh(ecdh : {mask:string, amount:string}, key : string) {
-		let first = Cn.hash_to_scalar(key);
-		let second = Cn.hash_to_scalar(first);
-		return {
-			mask: CnNativeBride.sc_add(ecdh.mask, first),
-			amount: CnNativeBride.sc_add(ecdh.amount, second),
-		};
+	export function encode_rct_ecdh(ecdh : {mask:string, amount:string}, key : string, v2 : boolean) {
+		if(v2){
+			let mask = CnVars.Z;
+			let amtkey = CnUtils.cn_fast_hash("616d6f756e74" + key); //"amount"
+			let amount = CnUtils.hex_xor(ecdh.amount.slice(0, 16), amtkey.slice(0, 16));
+			amount += "000000000000000000000000000000000000000000000000"; //pad to 64 chars
+			return {
+				mask: mask,
+				amount: amount
+			};
+		}
+		else{
+			let first = Cn.hash_to_scalar(key);
+			let second = Cn.hash_to_scalar(first);
+			return {
+				mask: CnNativeBride.sc_add(ecdh.mask, first),
+				amount: CnNativeBride.sc_add(ecdh.amount, second),
+			};
+		}
+	}
+
+	//fun mul function
+	export function sc_mul (scalar1 : any, scalar2 : any) {
+		if (scalar1.length !== 64 || scalar2.length !== 64) {
+			throw "sc_mul: Invalid scalar1 or scalar2 input lengths!";
+		}
+		return CnUtils.d2s(JSBigInt(CnUtils.s2d(scalar1)).multiply(JSBigInt(CnUtils.s2d(scalar2))).remainder(CnVars.l).toString());
+	}
+
+	export function sc_muladd(a : any, b : any, c : any) {
+		if (a.length !== KEY_SIZE * 2 || b.length !== KEY_SIZE * 2 || c.length !== KEY_SIZE * 2 || !CnUtils.valid_hex(a) || !CnUtils.valid_hex(b) || !CnUtils.valid_hex(c)) {
+			throw "bad scalar";
+		}
+		return CnUtils.swapEndian(("0000000000000000000000000000000000000000000000000000000000000000" + (JSBigInt.parse(CnUtils.swapEndian(a), 16).multiply(JSBigInt.parse(CnUtils.swapEndian(b), 16)).add(JSBigInt.parse(CnUtils.swapEndian(c), 16)).remainder(	CnVars.l).toString(16))).toLowerCase().slice(-64));
+		//return d2s(JSBigInt(s2d(a)).multiply(JSBigInt(s2d(b))).add(JSBigInt(s2d(c))).remainder(l).toString());
 	}
 }
 
@@ -834,11 +893,13 @@ export namespace Cn{
 		let expectedPrefixInt = CnUtils.encode_varint(CRYPTONOTE_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX);
 		let expectedPrefixSub = CnUtils.encode_varint(CRYPTONOTE_PUBLIC_SUBADDRESS_BASE58_PREFIX);
 		let prefix = dec.slice(0, expectedPrefix.length);
-		console.log(prefix,expectedPrefixInt,expectedPrefix);
-		if (prefix !== expectedPrefix && prefix !== expectedPrefixInt && prefix !== expectedPrefixSub) {
+		var prefix_subaddr = dec.slice(0, expectedPrefixSub.length);
+		var is_subaddr = prefix_subaddr === expectedPrefixSub; // is a sub-address?
+		console.log("addr/iaddr:", prefix, expectedPrefixInt, expectedPrefix, "subaddrr:", prefix_subaddr, expectedPrefixSub);
+		if (prefix !== expectedPrefix && prefix !== expectedPrefixInt && !is_subaddr) {
 			throw "Invalid address prefix";
 		}
-		dec = dec.slice(expectedPrefix.length);
+		dec = is_subaddr ? dec.slice(expectedPrefixSub.length) : dec.slice(expectedPrefix.length);
 		let spend = dec.slice(0, 64);
 		let view = dec.slice(64, 128);
 		let checksum : string|null = null;
@@ -850,7 +911,7 @@ export namespace Cn{
 			expectedChecksum = CnUtils.cn_fast_hash(prefix + spend + view + intPaymentId).slice(0, ADDRESS_CHECKSUM_SIZE * 2);
 		} else {
 			checksum = dec.slice(128, 128 + (ADDRESS_CHECKSUM_SIZE * 2));
-			expectedChecksum = CnUtils.cn_fast_hash(prefix + spend + view).slice(0, ADDRESS_CHECKSUM_SIZE * 2);
+			expectedChecksum = CnUtils.cn_fast_hash((is_subaddr ? prefix_subaddr : prefix) + spend + view).slice(0, ADDRESS_CHECKSUM_SIZE * 2);
 		}
 		if (checksum !== expectedChecksum) {
 			throw "Invalid checksum";
@@ -975,7 +1036,7 @@ export namespace CnTransactions{
 		// DP("Ctmp");
 		// DP(Ctmp);
 		// if (equalKeys(C, Ctmp) == false) {
-		// 	CHECK_AND_ASSERT_THROW_MES(false, "warning, amount decoded incorrectly, will be unable to spend");
+		//	CHECK_AND_ASSERT_THROW_MES(false, "warning, amount decoded incorrectly, will be unable to spend");
 		// }
 
 		return CnUtils.h2d(amount);
@@ -1011,13 +1072,13 @@ export namespace CnTransactions{
 						i,
 						mask);
 					break;
-				case CnVars.RCT_TYPE.SimpleBulletproof:
+				case CnVars.RCT_TYPE.Bulletproof:
 					amount = CnTransactions.decodeRctSimple(rv,
 						scalar1,
 						i,
 						mask);
 					break;
-				case CnVars.RCT_TYPE.FullBulletproof:
+				case CnVars.RCT_TYPE.Bulletproof2:
 					amount = CnTransactions.decodeRctSimple(rv,
 						scalar1,
 						i,
@@ -1115,6 +1176,36 @@ export namespace CnTransactions{
 		size += ((mixin + 1) * 4 + 32 + 8) * inputs; //key offsets + key image + amount
 		size += 64 * (mixin + 1) * inputs + 64 * inputs; //signature + pseudoOuts/cc
 		size += 74; //extra + whatever, assume long payment ID
+		return size;
+	}
+
+	export function estimateRctSizeNew(inputs : number, mixin : number, outputs : number, extra_size : number, bulletproof : boolean) {
+		let size = 0;
+		size += 1 + 6;
+		size += inputs * (1+6+(mixin+1)*2+32);
+		size += outputs * (6+32);
+		size += extra_size;
+		size += 1;
+
+		if (bulletproof)
+		{
+			let log_padded_outputs = 0;
+			while ((1<<log_padded_outputs) < outputs)
+			  ++log_padded_outputs;
+			size += (2 * (6 + log_padded_outputs) + 4 + 5) * 32 + 3;
+		}
+		else
+			size += (2*64*32+32+64*32) * outputs;
+
+
+		size += inputs * (64 * (mixin+1) + 32);
+
+		size += 32 * inputs;
+
+		size += 2 * 32 * outputs;
+		size += 32 * outputs;
+		size += 4;
+
 		return size;
 	}
 
@@ -1232,7 +1323,14 @@ export namespace CnTransactions{
 		in_ephemeral:CnTransactions.Ephemeral,
 	};
 
-	export type Destination = {address:string,amount:number};
+	export type Destination = {
+		address:string,
+		amount:number,
+		keys? : {
+			view: string,
+			spend: string
+		}
+	};
 
 	export type Vin = {
 		type:string,
@@ -1299,8 +1397,9 @@ export namespace CnTransactions{
 		message?: string,
 		p?: {
 			rangeSigs: RangeProveSignature[],
-			bulletproofs: RangeProveBulletproofSignature[],
-			MGs: MG_Signature[]
+			bp: RangeProveBulletproofSignature[],
+			MGs: MG_Signature[],
+			pseudoOuts:string[]
 		},
 	}
 
@@ -1312,17 +1411,17 @@ export namespace CnTransactions{
 		vin: Vin[],
 		vout: Vout[],
 		rct_signatures:RctSignature,
-		signatures:any[],
+		signatures?:any[],
 	};
 
 	export function serialize_tx(tx : CnTransactions.Transaction, headeronly : boolean = false) {
 		//tx: {
-		//  version: uint64,
-		//  unlock_time: uint64,
-		//  extra: hex,
-		//  vin: [{amount: uint64, k_image: hex, key_offsets: [uint64,..]},...],
-		//  vout: [{amount: uint64, target: {key: hex}},...],
-		//  signatures: [[s,s,...],...]
+		//	version: uint64,
+		//	unlock_time: uint64,
+		//	extra: hex,
+		//	vin: [{amount: uint64, k_image: hex, key_offsets: [uint64,..]},...],
+		//	vout: [{amount: uint64, target: {key: hex}},...],
+		//	signatures: [[s,s,...],...]
 		//}
 		console.log('serialize tx ', JSON.parse(JSON.stringify(tx)));
 		let buf = "";
@@ -1373,7 +1472,7 @@ export namespace CnTransactions{
 
 		buf += CnUtils.encode_varint(tx.extra.length / 2);
 		buf += tx.extra;
-		if (!headeronly) {
+		if (!headeronly && tx.signatures) {
 			if (tx.vin.length !== tx.signatures.length) {
 				throw "Signatures length != vin length";
 			}
@@ -1396,10 +1495,10 @@ export namespace CnTransactions{
 		let buf2 = CnTransactions.serialize_rct_base(tx.rct_signatures);
 		hashes += CnUtils.cn_fast_hash(buf2);
 		buf += buf2;
-		let buf3 = serializeRangeProofs(tx.rct_signatures);
+		let buf3 = CnTransactions.serialize_range_proofs(tx.rct_signatures, true);
 		//add MGs
 		let p = tx.rct_signatures.p;
-		if(p)
+		if(p){
 			for (let i = 0; i < p.MGs.length; i++) {
 				for (let j = 0; j < p.MGs[i].ss.length; j++) {
 					buf3 += p.MGs[i].ss[j][0];
@@ -1408,6 +1507,12 @@ export namespace CnTransactions{
 				buf3 += p.MGs[i].cc;
 			}
 
+			if (tx.rct_signatures.type === 5) {
+				for (let i = 0; i < p.pseudoOuts.length; i++) {
+					buf3 += p.pseudoOuts[i];
+				}
+			}
+		}
 		hashes += CnUtils.cn_fast_hash(buf3);
 		buf += buf3;
 		let hash = CnUtils.cn_fast_hash(hashes);
@@ -1498,10 +1603,10 @@ export namespace CnTransactions{
 	}
 
 	//proveRange gives C, and mask such that \sumCi = C
-	//   c.f. http://eprint.iacr.org/2015/1098 section 5.1
-	//   and Ci is a commitment to either 0 or s^i, i=0,...,n
-	//   thus this proves that "amount" is in [0, s^n] (we assume s to be 4) (2 for now with v2 txes)
-	//   mask is a such that C = aG + bH, and b = amount
+	//	 c.f. http://eprint.iacr.org/2015/1098 section 5.1
+	//	 and Ci is a commitment to either 0 or s^i, i=0,...,n
+	//	 thus this proves that "amount" is in [0, s^n] (we assume s to be 4) (2 for now with v2 txes)
+	//	 mask is a such that C = aG + bH, and b = amount
 	//commitMaskObj = {C: commit, mask: mask}
 	export function proveRange(commitMaskObj : {C:string,mask:string}, amount : string, nrings : number, enc_seed : number, exponent : number){
 		let size = 2;
@@ -1566,24 +1671,53 @@ export namespace CnTransactions{
 		return sig;
 	}
 
-	/*export function proveRangeBulletproof(commitMaskObj : {C:string,mask:string}, amount : string, nrings : number, enc_seed : number, exponent : number) : CnTransactions.RangeProveBulletproofSignature{
-		let mask = CnRandom.random_scalar();
+	export function MLSAG_ver(message: string, pk : string[][], rv : MG_Signature, kimg : string) : boolean {
+		// we assume that col, row, rectangular checks are already done correctly
+		// in MLSAG_gen
+		const cols = pk.length;
+		let c_old = rv.cc;
+		let i = 0;
+		let toHash = [];
+		toHash[0] = message;
+		while (i < cols) {
+			//!secret index (pubkey section)
+			toHash[1] = pk[i][0];
+			toHash[2] = CnUtils.ge_double_scalarmult_base_vartime(
+				c_old,
+				pk[i][0],
+				rv.ss[i][0],
+			);
+			toHash[3] = CnUtils.ge_double_scalarmult_postcomp_vartime(
+				rv.ss[i][0],
+				pk[i][0],
+				c_old,
+				kimg,
+			);
 
-		let proof : CnTransactions.RangeProveBulletproofSignature = bulletproof_PROVE(amount, mask);
+			//!secret index (commitment section)
+			toHash[4] = pk[i][1];
+			toHash[5] = CnUtils.ge_double_scalarmult_base_vartime(
+				c_old,
+				pk[i][1],
+				rv.ss[i][1],
+			);
 
-		CHECK_AND_ASSERT_THROW_MES(proof.V.length == 1, "V has not exactly one element");
-		commitMaskObj.C = proof.V[0];
-		commitMaskObj.mask = mask;
-		return proof;
+			c_old = Cn.array_hash_to_scalar(toHash);
+
+			i = i + 1;
+		}
+
+		const c = CnNativeBride.sc_sub(c_old, rv.cc);
+		console.log(`[MLSAG_ver]
+		c_old: ${c_old}
+		rc.cc: ${rv.cc}
+		c: ${c}`);
+
+		return Number(c) === 0;
 	}
-	export function verBulletproof(proof : CnTransactions.RangeProveBulletproofSignature) : boolean{
-		try { return bulletproof_VERIFY(proof); }
-			// we can get deep throws from ge_frombytes_vartime if input isn't valid
-		catch (e) { return false; }
-	}*/
 
 	// Gen creates a signature which proves that for some column in the keymatrix "pk"
-	//   the signer knows a secret key for each row in that column
+	//	 the signer knows a secret key for each row in that column
 	// we presently only support matrices of 2 rows (pubkey, commitment)
 	// this is a simplied MLSAG_Gen function to reflect that
 	// because we don't want to force same secret column for all inputs
@@ -1592,7 +1726,8 @@ export namespace CnTransactions{
 		if (index >= cols){throw "index out of range";}
 		let rows = pk[0].length; //number of signature rows (always 2)
 		if (rows !== 2){throw "wrong row count";}
-		for (let i = 0; i < cols; i++){
+		let i;
+		for (i = 0; i < cols; i++){
 			if (pk[i].length !== rows){throw "pk is not rectangular";}
 		}
 		if (xx.length !== rows){throw "bad xx size";}
@@ -1604,7 +1739,7 @@ export namespace CnTransactions{
 			ss: [],
 			cc: ''
 		};
-		for (let i = 0; i < cols; i++){
+		for (i = 0; i < cols; i++){
 			rv.ss[i] = [];
 		}
 		let toHash = []; //holds 6 elements: message, pubkey, dsRow L, dsRow R, commitment, ndsRow L
@@ -1622,7 +1757,7 @@ export namespace CnTransactions{
 
 		c_old = Cn.array_hash_to_scalar(toHash);
 
-		let i = (index + 1) % cols;
+		i = (index + 1) % cols;
 		if (i === 0){
 			rv.cc = c_old;
 		}
@@ -1663,7 +1798,9 @@ export namespace CnTransactions{
 		}
 		xx[0] = inSk.x;
 		xx[1] = CnNativeBride.sc_sub(inSk.a, mask);
-		return CnTransactions.MLSAG_Gen(message, PK, xx, kimg, index);
+		let rv = CnTransactions.MLSAG_Gen(message, PK, xx, kimg, index);
+		//if(!CnTransactions.MLSAG_ver(message, PK, rv, kimg)) throw "MG_Signature verification failed: Bad signature hash";
+		return rv;
 	}
 
 	export function serialize_rct_base(rv : RctSignature) {
@@ -1679,8 +1816,8 @@ export namespace CnTransactions{
 			throw "mismatched outPk/ecdhInfo!";
 		}
 		for (let i = 0; i < rv.ecdhInfo.length; i++) {
-			buf += rv.ecdhInfo[i].mask;
-			buf += rv.ecdhInfo[i].amount;
+			// buf += rv.ecdhInfo[i].mask;
+			buf += rv.ecdhInfo[i].amount.slice(0, 16);
 		}
 		for (let i = 0; i < rv.outPk.length; i++) {
 			buf += rv.outPk[i];
@@ -1688,62 +1825,643 @@ export namespace CnTransactions{
 		return buf;
 	}
 
-	export function serializeRangeProofs(rv : RctSignature) : string {
-		let buf = "";
-		let p = rv.p;
-		if(p){
-			if(p.rangeSigs.length)
-				return CnTransactions.serializeRangeProofsClassic(rv);
-			else if(p.bulletproofs.length)
-				return CnTransactions.serializeRangeProofsBulletproof(rv);
-			else
-				throw new Error(' missing range proof or bulletproof range proof');
-		}
-		else
-			throw new Error('invalid p signature');
-		return buf;
-	}
-
-	export function serializeRangeProofsClassic(rv : RctSignature) : string {
-		let buf = "";
-		let p = rv.p;
-		if(p && p.rangeSigs.length)
-			for (let i = 0; i < p.rangeSigs.length; i++) {
-				for (let j = 0; j < p.rangeSigs[i].bsig.s.length; j++) {
-					for (let l = 0; l < p.rangeSigs[i].bsig.s[j].length; l++) {
-						buf += p.rangeSigs[i].bsig.s[j][l];
-					}
-				}
-				buf += p.rangeSigs[i].bsig.ee;
-				for (let j = 0; j < p.rangeSigs[i].Ci.length; j++) {
-					buf += p.rangeSigs[i].Ci[j];
-				}
-			}
-		else
-			throw new Error('invalid p signature. missing range proof');
-		return buf;
-	}
-
-	export function serializeRangeProofsBulletproof(rv : RctSignature) : string {
-		let buf = "";
-		let p = rv.p;
-		if(p)
-			for (let i = 0; i < p.bulletproofs.length; i++) {
-				throw new Error('bulletproof serialization not implemented');
-			}
-		else
-			throw new Error('invalid p signature. missing bulletproof range proof');
-
-		return buf;
-	}
-
 	export function get_pre_mlsag_hash(rv : RctSignature) {
 		let hashes = "";
 		hashes += rv.message;
 		hashes += CnUtils.cn_fast_hash(CnTransactions.serialize_rct_base(rv));
-		let buf = CnTransactions.serializeRangeProofs(rv);
+		let buf = CnTransactions.serialize_range_proofs(rv);
 		hashes += CnUtils.cn_fast_hash(buf);
 		return CnUtils.cn_fast_hash(hashes);
+	}
+
+	export function serialize_range_proofs(rv : RctSignature, fortx? : any) {
+		let buf = "";
+		let p = rv.p;
+		if(p)
+			if (rv.type < 3) {
+				for (let i = 0; i < p.rangeSigs.length; i++) {
+					for (let j = 0; j < p.rangeSigs[i].bsig.s.length; j++) {
+						for (let l = 0; l < p.rangeSigs[i].bsig.s[j].length; l++) {
+							buf += p.rangeSigs[i].bsig.s[j][l];
+						}
+					}
+					buf += p.rangeSigs[i].bsig.ee;
+					for (let j = 0; j < p.rangeSigs[i].Ci.length; j++) {
+						buf += p.rangeSigs[i].Ci[j];
+					}
+				}
+			} else{
+				if (fortx) {buf += CnUtils.encode_varint(p.bp.length);} //#bulletproofs, uint32
+				buf += p.bp[0].A;
+				buf += p.bp[0].S;
+				buf += p.bp[0].T1;
+				buf += p.bp[0].T2;
+				buf += p.bp[0].taux;
+				buf += p.bp[0].mu;
+				if (fortx) {buf += CnUtils.encode_varint(p.bp[0].L.length);}
+				for (let i = 0; i < p.bp[0].L.length; i++) {
+					buf += p.bp[0].L[i];
+				}
+				if (fortx) {buf += CnUtils.encode_varint(p.bp[0].R.length);}
+				for (let i = 0; i < p.bp[0].R.length; i++) {
+					buf += p.bp[0].R[i];
+				}
+				buf += p.bp[0].a;
+				buf += p.bp[0].b;
+				buf += p.bp[0].t;
+			}
+		return buf;
+	}
+
+	//*******************************************
+	//********Begin Bulletproof functions********
+	//*******************************************
+
+	export let TWO = CnUtils.d2s("2");
+
+	export function get_exponent(base : string, index : number) {
+		let salt = "62756c6c657470726f6f66"; //"bulletproof"
+		let hashed = base + salt + CnUtils.encode_varint(index);
+		//console.log("1");
+		return CnNativeBride.hash_to_ec_2(CnUtils.cn_fast_hash(hashed)); //no way this works -- it works
+	}
+
+	//create the new bases -- cached below
+	export function init_exponents() {
+		let teststart = new Date().getTime();
+		for (let i = 0; i < CnVars.maxN*2; i++) {		//MyMonero can only send to 2 destinations as of now; don't create more than we need
+			CnTransactions.Hi[i] = CnTransactions.get_exponent(CnVars.H, i*2);
+			CnTransactions.Gi[i] = CnTransactions.get_exponent(CnVars.H, i*2+1);
+		}
+		let testfinish = new Date().getTime() - teststart;
+	}
+
+	//cache exponents
+	export let Hi = [
+	"42ba668a007d0fcd6fea4009de8a6437248f2d445230af004a89fd04279bc297", "e5224ef871eeb87211511d2a5cb81eeaa160a8a5408eab5deaeb9d4558780947", "8fc547c0c52e90e01ecd2ce41bfc624086f0ecdc260cf30e1b9cae3b18ed6b2c", "9f11044145da98e3111b40a1078ea90457b28b01462c90e3d847949ed8c1d31d",
+	"179637ec7565f76fa20acc471b1694b795ca44618e4cc68e0a46b20f91e86777", "251dad91f0d5d451d7e94bfcd413934c1da173a92ddc0d5e0e4c2cfbe5925b0b", "889c8022f3a7e42fcfd4eacd06316315c8c06cb667176e8fd675e18a2296100a", "d34206fcf444357be1e9872f59d71c4e66afdf7c196b6a596be2890c0aea928a",
+	"9c69d2c4df3b9c528bce2c0c306b6291dea28de1c023328719e9a1ba1d849c1b", "b446bc0b0d3776250dd66d9727c25d0efeb0f931fc537ab2bd9f8978216f6eb6", "e423fae0d374d34a20694e397a70b84b75e3be14b2cf5301c7cbc662509671a5", "e593736f6113c3f288ec00a1cc2fc7156f4fffa1748e9b2c2ddf2f4303bbfe7f",
+	"fcee5e57b3b84206a91bcf32f712c75e5fa5108785b8cc2447998312ca31ab85", "00c82c62684539a27001fb17f2a5649db2e2d64b6b88f0d681009ae78eaece9c", "7357802c6c1cd81ef6248689854089aad694473391bad618ef01dfd680981a78", "9718e9d7caef063deb2d675fe843ea634dcf9677c1d3ee92513971b724c788e4",
+	"107a4240fe26e5fb36cc007e7658964882f769f18c786ab152f25c5d2ae472f7", "1e4013c4b0c5787dc1d78bdc8d52331039af4124112ee9346f110a4e8118e864", "115d49b082c83851d4d5e110a4abdaddbda9b0227f5b26bf52d5a22525235972", "843de91d99d0091f17f4782d4feb2b760cd58b6f2476e8b02d908a1515078aa8",
+	"08aa3a565efcb7169fe0cbf72c12ce1750f2861fb6c6851613cbe974efc1684a", "ebbe8b8a522abbe78277d0daa7892d9da87c27becd3ec03895233ad466318c44", "3c4d6d5cf12eba7dbd3e84329df61afc9b7e08fc1332a682344273396ec7dcdc", "beae48ff70a19a31d662443cce57f77afe050b81224860255bcbc8f480c43cfd",
+	"ebb1b2a68972b7d3323b0361f3a1142f8b452e9298773def5635c2e2efa3700e", "4cc9e5d8de78967e573582cf7c74977c30b5469b2c0bace8ec259f71ba25c8dd", "1c51e5b0241cca7c86f718b7d2c3d457a6e5e0b39f1f39ebafbb0883d427d936", "476015ad88b792a031e4dd983757c99aea3912e8f8c2f659de4bc1a2204cea13",
+	"2e4f9ef71777119153639a71ff2417f522fe41b87e9c1cb7669f40f9d685887d", "ff81927aa42eda7f2a696789091033cf5be2fc1f5f3a2de22715eb33d6282892", "2dac862efc7fc6d54c99e6ec6e58c0b64da957e736d30093c867a120d5dbfc55", "03ca276405df4b2dbe6cfe7c2c56bcd2669f1b7d82c9f92991bf4102af6110bf",
+	"1bf5bdae897f9a064209cf31299653137e865f905c8929449139545ac8253c32", "be19cc8bd854ca7cdb07c2aeba12a14ccfa3085f9ffd9f753980c9d45b7b4e0f", "5be46df3ae5c10c189f1dc9ed2592e246bd2449aa0daae458ae8bfbd52f983c3", "de44123726719c08d4c37c8c9b0be17b6b49826136aa7b908531bc91732b087a",
+	"4136030bad7b5b1cfa7d9c98a9dc347a92651f29c2e110aff8897f267c042210", "a6b70a313cc06afa2bd9c2911537d609d68bec9432e84b9679527d6abb588ba7", "2bb214987069d80b0abc2bbd68eba0331e3ae5f4106f7fc1e2e7b8d6e5370e32", "01cce2a036b68ed354316339f092dec7662bcebdd2066111d16ce55a937e2c61",
+	"907bc366c885daa37495be671ef6c2f2e554ede3b53ce280cbe88a48b9d9740e", "980ceaf804edcd8c96858193e6d5178bf604cc73bd8faad50d531549993197cc", "272827216d1af9dcc6e9862a6e53a0a2c73298e1fadc0f9148cbc85ec0567c38", "769c2765d654c4269f6ef13947f13c239cbb08b7cf67a25bac030ad1b892c434",
+	"79246449f5328dac3141d3d7c8a9a2540dcac2cbc98e27843143e7d4b96dde75", "21fc70b3280a2a4c5f39287f5d24d7a759ea037b11448739ee2a28fc4b160eac", "406108aee6b580621311fe030bf08b4f6eed3d7d3d8693d3ac524da2b4ebf19e", "2559dc50ff35e62da620dc0a02edcbe4f398b1bd86ea154b6a9400579e3f1cd5",
+	"7fdc2f10bd8cdb167c0b283f9007e620d9ca28067fe2b015ed657c9153b8443d", "77e8e25ff348f4df78bbc1ce20a7babde40ed2bdbeaf2b5cd98e5202baf7e3dc", "f18ba115620c51ae8b58b4923b9a8694c93df64b178c4cd2f9f6efc51f458b0c", "5ee860a40ac8cec3506ec85b99dc716b95cbb342db91ade4b61e177f60f9fabb",
+	"ff2c9badee04cfd741d66d2f26321e2cf50a3cd021f6288863de2dadf8d52d1f", "8b9f51424305a3d407962963c1d0beeb8113f80307ecc21923947fe8cbaf5c2c", "05ae6369852199c52a1797b9aff2a9245d7a8b9172d572b4432f63441ff51c4a", "4e270e3b61eae6e13eefe35e85427bc758ef4af4c00f9c77521c0361d299431f",
+	"9d8e298c13414c46170a1d82a1380fbafe531ca70184ab8965c4c807060e8039", "fec4615e5909d27ac5ca8041e3f95b27f1c3d4d406a2048b1e6ce1e637cb87c0", "f97d3617d46aeffdd1e813c255fb8b3ef939a2c5fad4d10973c08c055f7913c5", "1664589da5145a9c5972f4b212ebf51171d92343833a08953cd80cd0d908904c",
+	"563edc34294221865633d8cf6ff50444b9d29beb05a47b8bb121cb118d6cb16b", "24c445098aa90e6d5a10eae0a0f3977a2808f79cafe8f8705297bd91ebbf2792", "a1892cb009db0b7ac351d0353f43fe3aa97192e8b9d7fef5baec415b0ca48c92", "0e7cdd78f9246ad254e87ee1b06584b860b0b8800aaee17896f0290cb789b0d7",
+	"9ecd7d04cdeda710efa55e76e4731485ba1ff86a31faadfaf5628fbf1711346d", "573254ba0f56b538f75b6fc4321745ed42a319a8efb868a6f35a64a6c744a696", "c91a61125fad2592020256fa8a6141a74b9d4962deec53ab7514ca3aceded524", "997a9aeb7c430fbf01d936fdc76f55eecb74963248dfb4a15f71f7a93035143c",
+	"8f42e31aed71bdecd9535424e77d3148491ff7e463f638a62dad5695ef934e96", "fd5e21304ace05c42af986607781ab5766c18383071fe35f16a589d4e481a932", "217c3bc5628d67293f50bffe46988ee10c3e30586c77451ba75808464dc1ac64", "502e8fde87b5d3c8977ee90d637d4b2db92aced20cdcaf5da0ad154adc682dd7",
+	"2f0f33bcf6bdcce6fe178c82ca183dce8c8237f9f58f84b4b108f79785710831", "1766840297cacb0d7d2a28b447555f39a1da0dda875e9d06e0a48e2b637a8fd3", "6f34e56e3028deeb3636c14f5387cc832beee7add41d8abd1f6a503dbf2ef9ca", "55e5db159a024fb46fa89c00322330a0eec9d8673a8cf5600db477acaed4afa2",
+	"4113429e2124da8107dae9467c5f976eb01d36ad575ee4486ebd2ca6b0d934e1", "f4cd6ecc0f0f10a54443880315ceb97fcd3fa2093dbeabefe5d49be67eca9f4a", "f02f64a813c3a375be1150a28c4527ff675dc076f44ce19c6fa28106b797c9c0", "cb32c590f76caaa951a6709dc37526ccc3061653943d4b4fc61ac6022a63de69",
+	"5ad23d9526629a6bf6ff3382d4be95491127531bb69ea3699cac5f21fe652e10", "8eccd05d9a10c0423f722f971c841d0fe02a82ce3f65ca23d0dede39264bf27f", "9c70526636fa493ebce06ed2905beb2d6632e8097cc1c46a487933f46330a048", "582021b0ab0c6df24c547b99e98a19fecd8d1867d999f4f59d7bca1913b2cf74",
+	"6dd3bea6ec65b1edc20cde46ad02cf555997f0b188c0eb02ab4c8aff11c202c1", "9f1607cf2e8d64a7bf6f21c24f1eb125bcc6264a35b78172e4f9d34b120a36f2", "549f6baca4568520b57ae0d0b1ce5d3b2b7932b8110faecdabb36455eb5ad3ec", "875d1634f6c5b6b9a5b0d3a0326a79c03408b818e730e19c22e9fbda0ad0eeb7",
+	"85198e18ad6e98e444bdd5deda8ce90ba9e8fd276f4e135ae5b2751ec40bf35d", "b6c3d275338bb959a0750de700b074abc41b126c690caeed54a296d90122dcf4", "8a7a81e13f401b7a585268586839f7ca166a46f2989b72258dc828c23d40af74", "9b4db945d3fae8833ccf22e5f4c3a2e9abf227dc004c1fc5e496976557edd709",
+	"d41a7ed6af6be48d7ede5e8e6de31d2fe812d777eb0d59a6e9155220b20dd8d4", "3aa3af5099493b25fba1337d4e79ec2c10b48fadbb4c93b932e806cb49d9fa17", "b1d86317c098032e164663c4669acbeeb43845dd2ded341a5f056b8a2b7102fe", "c18caf2504bc37c0d4c9b38f1bf362381e13a5a3939ae306e821620d07a90088",
+	"01e969ad4086c111a6a1fbd229b8fd0609cfd08a019c0f46382a7a9189e2968f", "0012b70fc773451ced065c0f8048171c0f5dfc965b2260530fb050475b00ea42", "cf37f0d428e01e761f1729294f070eaa8e155e2ea0d96c9654818a6e5f1523ac", "3bd87bf25634861d6a9e286a3fa3fb26afb4e5544585319cf02308730716915e",
+	"70b367b2baa9502cb71de0cbc4c4deab33c4b981d8f80c955d9e0daf9bb61b05", "b4c7e5e1f9a80936d34bb864575926e746d7d34e7671e0b824b18e7a316167ee", "c987f14b955e357f991c89d2fafa2ac6db876c7f357f06e482365ee91c15a923", "95a1a763a13bff1a36ded210c61fc7ac8cf4448dbbb4935e840bc6bf113fd243",
+	"bdf874ac9164a31431cc4daaf5c03db9bc80d91e4f2caa8cece58d415f26b003", "bf5b74a17d8b8e529a64e414d0bd8849a62a8845e751cc3cbaa421c467900e52", "990c3586da11ab33772d9e13446c714c6678004d725e0287daad196da123ab11", "3860ce49f50b12e6dfafa0c0a8ce799c8c40d1e68def09ec1d6263e5e8520877",
+	"28d5508edbbe17a3768713a4b75e49d699d830c759cc83d5a895e96e42dd268f", "0b7c14733dba87b1a947e3c00e7e228b630706d46293889e9f539b58933bbdea", "708c3010c18a01b45eb03ea50637b7b33a079f3c730609aba42012cdab7f7911", "17f6dbe43d1a6f061eee270f3e4ec2fbfd7cab5845ffdca3d45c5d3d99da7d74",
+	"e9b555a6597c4372e179616c36dfe9cc487a97a79b6ff02aa812a6ad5537ba99", "153503254d00e23353c60af1e1c48aac0238176dff6373047335aad416ae2050", "59eff667148de29d2a6d2442d7761c919b3d1107304aa6540af0552070d83ea5", "e349c36e802cbc0535db5c55a03c10e3d5c561a4b71fcb25030f04fd005d31fb",
+	"e2c48996c6285b743d8d62b13b7f58b92ff39e58e7044a8d39a069b43abee259", "2e287181b017eb2b91a8b148bd713bd6e1c52b2f088e38ece1dc9c0f92e9a539", "65a08f195eb51a7436c12a68d6c6eeece26fc832c85181513978fc4da463618b", "da41273703b2ee107c3cf02455cc32c44bc18a7a1bb4f6f3ff6f7d03896f6cea",
+	"1a8f5b1bf7496869447baf5f8f34b875300a6fc7deb9f46729c836aab0fc82b3", "241bde634b3b9578f80f084b8f17cb85ee392a79ec928a6a57d1ba9a648a009f", "21bb21c1f35968e9704613a09c535a27b67bb6d8dd3bffe2db0110ce908f2470", "0b31c0db031c50984341c3e251f3ea2d5b8135d181d2b6d26260935d70e3ccf6",
+	"a22b540f5cac730591e08c72a205698c9b2d3cf9a04df9941cb485454eac1214", "24d7fe865682d382aa311b3856dc289f91f45eefe0b819d5db86e8ac5e8b547e", "a2bebfb8acf1bca292ac1c84b6a3a32830c84dd545147574f6978c0462c2cf43", "90e8e594f1cf0e3c5828fafddb4b8a36823d1c389c304f9c205fda6a7e88447e"
+		];
+	export let Gi = [
+	"0b48be50e49cad13fb3e014f3fa7d68baca7c8a91083dc9c59b379aaab218f15", "df01a5d63b3e3a38382afbd7bc685f343d6192da16ed4b451f15fddab170e22d", "7369c8d5a745423d260623a1f75fae1fb1f81b169d422acd8558e9d5742548bd", "81c07d2bd8771eb4bd84155d38d70531fe662b78f0c44a9aeaea2ed2d6f0ebe1",
+	"0896c5c22f0070ebf055dfe8dc1cb20542ef29151aa0771e581e68fe7818ef42", "35c8df1a32aeceedefcbdf6d91d524929b8402a026cb8574e0e3a3342ce211bc", "d967bc14e7abda6c17c2f22a381b84c249757852e99d62c45f160e8915ec21d4", "c8a3831d7c2f24581ec9d15013dfccb5eba69df691a08002b33d4f2fb06ca9f2",
+	"9cfbc70db023a48e4535f5838f5ea27f70980d11ecd935b478258e2a4f1006b3", "2da6387292259e69ac0a829ef347699896728c0cc0cadc746dae46fb31864a59", "a5b9a1549c77e4cf8ab8b255a3a0aefaa4cad125d219949c0aeff0c3560ab158", "ed671748a17556419ec942e16b901dbb2fc6df9660324fcbcd6e40f235d75b76",
+	"4faff61c1905222baf87d51d45f3558138c87ce54c464cc640b955e7fa3310f8", "3b13dd7b247319e13ce61995bc771ee1ede7363599f08fc5cfda890ea803e0ec", "a70a97707e905629a5e06d186a964f322fffbaa7ed2e781d4d3fede07461f44b", "2d98dbcc0caa2055146e13f50ecf75491dadd36ad2baac56bc08562ec66ce110",
+	"b544831dbd34c6c252958151c49a734c6e625e42608c005e797edb6d0a8934b3", "24a0e4d31cba015783501ecdfa7a8ebae3a6bfd32e6d1a3614b11183c80980d4", "546cc3ee5db47bfe9705aa95e2da29f228230353917e5d2b1932fe482fbcfed7", "134d556d0c27f6cc6bf3015c06611625739d889c5789fa75b3c83969cb88b1df",
+	"01c0aca470f665eb7182e072bca89bc669ffe5b0296fe21343a8c327c8a84175", "02855a25ccb75b2f8eeac5d1db25044b0aead2cf77021ed94f79f3001e7b8e9d", "b7311db28c45c90d80a1e3d5b27b43f8e380214d6a2c4046c8d40f524d478353", "204d01a17c4fb7b18c2f48270150db67d4b0b9ce8786e03c9550c547fb18029e",
+	"f16e5629e9a1c668e1aa79c7887355f5f51b0cbb1f0835e04e7acc53ac55a357", "4197b54c5aaaad47be24dbbc11c1bd3eeb6246542d2f5ae5f4398dd4a7601703", "cbbfd59baddd3a7ce6e375e7d90050e271b13f132df85e1c12be54fe66de81f6", "8a1c8f696f3e773c7eef57ac1389bd0280d558ea7862f01b641ec6da0efefbee",
+	"d0509c538a8c3616681d761ae5c6f9d2aaded71890da2496156043082182ec85", "9c3ae48693f91343d0a5f0ecbb7dec9b973bf213678a653b0d9df510652a23c0", "b8065367924a4cfc786036c066caa738349cf1cda70dbfa85cceb4a09f85039b", "6f77274fa6e27935bf89ae373a3b5ada5824bd4b2aec222aebd7fee7a482e9c1",
+	"3358eab25f942236f3f4b6ebafe1c3eeeef793836680667c669464c3d4a0847d", "f3024bd5df2aa4aa4d19e551ede93dd075f7953acae53f0f9e8a384e496c5250", "b07e7617e89e28f953d096ec2987ebd8f3e74d933963b82773d37ab1b7a3601d", "c8971334825dd1d67e4c48297292a07a40629675b3e8788efc687385300481ae",
+	"697406d24ef88ebf9ca1972c1d528478858ead85782ed410ebbc1f3da48ba807", "836236aac0a8f08a5029115d57e7ef18cb27cce8d2c157a9f4f5615dcc348aea", "c80d0f28df33babe39f6ecbd19a4a6afa853aa4da03b6bd7a806229ded76d2c5", "b9de1176d519a793946792b5417eaf7d2d5126977c5704fc0fcd8e1b2f589b1d",
+	"418d19dd28f7e94c51a1782d322e03cba478857424497b4a373fde0fbae4ccd9", "38cbbfa0f4ad2397eed7f76dc3cdb6b06a36660c0775d391ca47213341f659e9", "014f70284efaa5faaba4bb8379ce0204f5aedc28268d82438b5b881fdf2dee4a", "d7d40ed13dad57ca929614a63a00fe3a78f33b30b6fd5f39e4437036dced8d87",
+	"af43282f43fa14abaf6c8415fc05ee1ad171d81faa467ddfe5e02eb6895e5688", "dec048f6660e3a2fd8bdec602af59590ec4c6eab834cc0dec8621eb510fba6f7", "adf47693c2fd574d8220a2e70e73ad68e4c332488eb8e731fe600d1e9f6b8f5c", "bf699c18d06bcd73b7cfcef42e68af7ae67fea46e946de6a61faa42c535cfcae",
+	"aad5334fc1a9bad4a53e57d11c6accfcefd2e8ab44cb12fb2e664fcbdf5c82b2", "1289626ac2a1402bde7a869eb9ed7807338dd3b2ba8237845db96771cc988008", "1acf053d9bd51c0101941c4c26f66aa5dbad3f5354608577f9e51afe743add50", "f1b5901bea7beb5ae780b6ece977f65b9c628e1dce0ad1e078c746c2f38d0e7f",
+	"06b088708ae9ac1117e3a37999c1d75a62e9c9e017018e088aebfb378de29c78", "93acf10942584bf558a2d02d751e34f3f484b001e31924cc21848bf0ddaf1f3d", "8a310049736ff7f049294d8a595f2ca7263a3613840c14b33ef483cdca5bbb8a", "4c7004ccb8f67156267ee35f280db12645de8e552a9312df5769a030a6b46d80",
+	"db2e6c06b3c76c1ada42373b29a0591f39856749dfdfb26681166a286fb4f209", "7a3b6f8febdbe4413b67b558689c2e7c1d6d6408f46a6094c74b2281e796e1d9", "00cc835337a31b5350caa9c444c670f78f866e03ef6ec2cbcbc179974145b239", "b90912bbeef8f576961b5efc69641f7a7151708775b67c9e65ed9bb9f5a87bb7",
+	"90da203557bed2674055e8a6ab3646c4e1a845ea53d8614ae490065def757615", "a265f2ab98388029aec3afb5cca3a666ab29b6d2c002979c636a3b41b8837a43", "2a81d6db55cf406b1f5842b0a887fe6b2bd88e46298ed3ecc3874c9837734633", "1fde7a2ff7f104265bbd2d0274c033c7583851001dcdb3ded90a9c0977c1f86d",
+	"584647557330cee50a53bb15ab2b5a8d8a2b5fb29ffda0e154b26367e5ba1c67", "a879dddb61d40867b6cdf5e38e0fcbdb9a925f622c7de934a308239067da1165", "dc9ba891fd29bb9d9dff2c46c60f95390d3dda52af9ef64ff63d2df72225383b", "92be1ba48b17405678d2243565bb58869bc4b2b879ccc899d2f936c2b8195fd4",
+	"7405d86ffb469755b772e4b5fbe7e4a293b5db710008c9006dabd6a9abecdf60", "9a3c789acfe2f233ae1421931ef66334fe743f4877bfcd3a6371fbe378465bd6", "3bf5daee920b1a6413a46c69693f72fc879fffe1a91738084df846be95438928", "93958344a001581ee32c21a728e8050469953bdab783eeaec556a2a5ab1cf3d0",
+	"8c2b9233f5f3641bcd76087cf2955b60ae141ed4cade545df60a619a556071d2", "ef3dea09e7bf546050e5df3a8fdf04f66316f6daa4dbb8cbd242d06aaecb1f1d", "bb4dae42c1589c32830277d209be160daf628b5b1992f2b1c5f0eacda1e38e00", "87b7ca8dab93501540485ad18ff869ab4f4b8b016f4543c6a7a936fd351fa5cc",
+	"627d24ebbb30d8189c42588645cbf1ff87eec9b7d709c05e649d9b6401a99b3a", "cab8afc1c69b85eaaf3ff36867de1250d98acf2dc6b2e1d71cd32ef0c71402cd", "665f03053d22a9c58de081c4ec3a5eae8a20ebe808561978ae455943c6542d03", "19864cf7754f649ae4646969be65185fb759e698274b456b748b9a51f7fdefd4",
+	"cd48609cbe6460a31976529fe4b6fc643745fd2dd3631c8f7576bc8052bd3290", "5fbd42659479bf79de2d3be3cb19e3d4d02883449be1374b6e243aaa87149477", "c25ff682e5c84a0303f11231086e4a578ff52b630600fcbbe71fb719c303b916", "310581b32ef2dc89f4094e0b370b083bd3214a0f3f4504fcb372d3ad4ae206bd",
+	"8e34d1e20fce72a8ab40c1ca4e454635eebfe72dea80fd95f9c653e32ede816b", "432ba48e38be49570cf5550b7e8267fc2f1564bc4b64efee9be2b581f90eb96e", "d01d5f34e34262314c87f602c9b1d31cce772c1a023c2c029528cf8d6f9ea1b3", "3b6126c4a8c28772388f382a7a8756e1e2fcca549b00858de2829f87aa20eb08",
+	"30a004bd8ae7d5b3e33631aa57cf0718262c0e768062eb36a037f8f0ab7cca79", "29f78f03c91727174e53e6024739be7324fec9b450f4ab82d105bb3acb693327", "558f809689d452e9a46e3de7dafadf87921f17fa24ce874d3ef2a556100a0c88", "4f8440481f974deb9e1786e5fa8e14191b6f797dbc0c8642a1f734bed7cd72b2",
+	"15d0b2b5b987d230df63742bbc4b10176a9915cfc7498d48b3fd304757b2a1f5", "9e08978818cf043a6e9cdce9beaf09d61530de061fd7adc9d47d23e75288d092", "91c601bad4a76da8dff262a72346c077ee2515621df907aabcfdbc145904fffd", "9f8b04e24765a0fbb0b434abd3b786d560eceab5f9fce42a85ec05e885e1c66b",
+	"afdd0f6eb7de3ab14511da69c7723dec8292bb3ff201ffe60df6e2c5240d1ad7", "cc0c51a3dcb2f6af1f30e3a97af1f32f30da0c7d6ceb897199c9367d4dadd7a8", "43cd2fbda13614692ba492bbb37ceae151d56f81532feb378a186cca0fc8f136", "63ce017e2c7c219976c76b93fec40b5272b25972ba14672e7b720005dffd08f7",
+	"82188cc16e371a3b9e985f9f51907c49b017a4a88a14e32b67364ef0de7a12ed", "6588334bdfbfe2e4ead99e7be5be319334e075529a8437c724f61e6cc516d3b2", "aab6b4f935351f01a837b0b3e64eac92eeb8a146af9be97661022cf9c66b983b", "b1557c42d9bed41234e9936b318664d8cb2406e8a4db92678ae12f940f3ca33b",
+	"e27b375d296505d37db1f37b457fe4456a92da584a66d0bd4d576e07cd4b1b50", "97f401e188ab16bc92c823ac02f2ae41e22fb5d4ce56257c5527d08892493e33", "e8a1c29a9155831f5c86989681b69d83d738b15b75c69e3862ceddb90b9697f7", "27e0ca28c86738c42f4d2eb84de23a3c5c32c86ddc8ce26f0ba1cad99db42e34",
+	"6ac1ae59232143b93924bfd2f159054203b840b8604724f98194e13a7a4207b4", "1b37e0b3fad41c244b19e7c25f22764d888c5c8c61e115576dea399ef2a2732f", "d8c24cc6aa0f725fe4916c4e234e924cb4f7084d2df19c06bdc324866dbd5b4a", "165429619f2e99f030efb223301c47565a48a9a28fc539c182cfc90c4406bafc",
+	"a74fe4582285a3791e3cbebf2a1acadbe87da655c9cee94de68fd13461f01f5d", "225e061fcf05171226de40a39bd2b0177ea0deaed23610ade41eee1ea325dfe4", "3cca28000dafcd796cb28c23cfd9bd9e8b6afbb21d3334c396cafd23f67dd8cd", "cd5866f936f12970b3a1fb4bd7386eec4fafff64ff658d14fce92d811f93e9de",
+	"6d01241c851cf3efbe72bb177e818f6245fc7e8fb8571f0f480401492f110eed", "e84d5ee2f4252c56236a0f5a8f93ddfcf22240df56e58cf9e5a6647b697ed1f5", "871955a2fbce9e11ca26c13ade04eabb675d69f4ce3e609ce506f37a03978ce5", "2601ba4ae9bb28b05ab7b24e93b9fe6a2159ab589ab5f5e34b9eeac46fd67c97",
+	"a59d08d0c9dc897f89459524007b6221700ffa78f6fedfb173c0c3f5e4105b7e", "25fa5fa43d66e66ed80a0d0abfabd94112e15831899249ef96b9df1fa176ad3b", "4423708c3fcd4ed88e92e5cc9b69b7d469af431207e00a0f0f99a0b8ca94bc12", "b67808e3f2c7dcc24ba582cdb8cb33a8f4152347f049cae59945d7027a2c27bd",
+	"884abf2e02130bafe933f3c7ffc16d61f68ad06d017bc6b1015a12abf3b14df5", "b7e21f34037462056ce8c398657dc98f20bc62a54f83fd4a6773c65495e81e97", "9a6e0440d17225794e057f76657d5819bf6c9a4287321302e42fb0bb92d40bfd", "c23d5e9604aad674f18cabd4df79f857ca8bf6cde8659bed37c9583a5f1b3d01"
+		];
+
+	export function ge_double_scalarmult_postcomp_vartime_2(a : string, A : string, b : string, B : string) : string {
+		if (a.length !== 64 || A.length !== 64 || b.length !== 64 || B.length !== 64) {
+			throw "Invalid input length!";
+		}
+		return CnUtils.bintohex(nacl.ll.ge_double_scalarmult_postcomp_vartime(CnUtils.hextobin(a), CnUtils.hextobin(A), CnUtils.hextobin(b), CnUtils.hextobin(B)));
+	}
+
+	export function ge_double_scalarmult_postcomp_vartime_2_raw_output(a : string, A : string, b : string, B : string) : Uint8Array {
+		if (a.length !== 64 || A.length !== 64 || b.length !== 64 || B.length !== 64) {
+			throw "Invalid input length!";
+		}
+		return nacl.ll.ge_double_scalarmult_postcomp_vartime_raw_output(CnUtils.hextobin(a), CnUtils.hextobin(A), CnUtils.hextobin(b), CnUtils.hextobin(B));
+	};
+
+	export function ge_scalarmult_raw(A : any, a : string) :  string{
+		if (A.length === 64) {
+			A = nacl.ll.unpack(CnUtils.hextobin(A));
+		}
+		return nacl.ll.ge_scalarmult_raw(A, CnUtils.hextobin(a));
+	}
+
+	//construct a vector commitment of two vectors of scalars using pippenger
+	//res = sum(a[i]*Gi[i] + b[i]*Hi[i])
+	export function vector_exponent_pip(a : string[], b : string[]) : string {
+		let teststart = new Date().getTime();
+		if (a.length !== b.length){throw "Incompatible sizes of a and b";}
+		if (a.length > CnVars.maxN*CnVars.maxM){throw "Incompatible sizes of a and maxN";}
+		let data = [];
+		for (let i = 0; i < a.length; i++) {
+			data.push({
+				scalar: a[i],
+				point: CnTransactions.Gi[i]
+			});
+			data.push({
+				scalar: b[i],
+				point: CnTransactions.Hi[i]
+			});
+		}
+		let c = CnTransactions.get_pippenger_c(a.length*2);
+		let res = CnTransactions.pippenger_raw(data, 6);
+		let testfinish = new Date().getTime() - teststart;
+		return res;
+	}
+
+	//like the above but with supplied points
+	//res = sum(a[i]*A[i] + b[i]*B[i])
+	export function vector_exponent_custom(A : string[], B : string[], a : string[], b : string[]) {
+		let teststart = new Date().getTime();
+		if (A.length !== B.length){throw "Incompatible sizes of A and B";}
+		if (a.length !== b.length){throw "Incompatible sizes of a and b";}
+		if (a.length !== A.length){throw "Incompatible sizes of a and A";}
+		if (a.length > CnVars.maxN*CnVars.maxM){throw "Incompatible sizes of a and maxN";}
+		let res = CnVars.I;
+		if (a.length < 32) {
+			for (let i = 0; i < a.length; i++) {
+				res = CnUtils.ge_add(CnTransactions.ge_double_scalarmult_postcomp_vartime_2(a[i], A[i], b[i], B[i]), res);
+			}
+		} else {
+			let data = [];
+			for (let i = 0; i < a.length; i++) {
+				data.push({
+					scalar: a[i],
+					point: A[i]
+				});
+				data.push({
+					scalar: b[i],
+					point: B[i]
+				});
+			}
+			let c = CnTransactions.get_pippenger_c(a.length*2);
+			res = CnTransactions.pippenger_raw(data, c);
+		}
+		let testfinish = new Date().getTime() - teststart;
+		return res;
+	}
+
+	//let's try pippylongstockings
+	export function get_pippenger_c(N : number) {
+		if (N <= 2) return 5;
+		if (N <= 8) return 5;
+		if (N <= 16) return 5;
+		if (N <= 32) return 6;
+		if (N <= 64) return 7;
+		if (N <= 128) return 7;
+		if (N <= 256) return 8;
+	}
+
+	export function ge_add_raw (A : any, B : any) {
+		if (B.length === 64) {
+			B = nacl.ll.unpack(CnUtils.hextobin(B));
+		}
+		if (A.length === 64) {
+			A = nacl.ll.unpack(CnUtils.hextobin(A));
+		}
+		nacl.ll.ge_add_raw(A, B);
+		return A; //in case of hex input
+	}
+
+	export function pippenger_raw(data : any[], c : any) {
+		let result = CnVars.I;
+		let buckets = [];
+		let groups = Math.floor((253 + c - 1) / c);
+		let twoc = CnUtils.d2s(1<<c);
+		let sbitv = [], rawdata = [], ar = [];
+		for (let i = 0; i < data.length; i++) {
+			sbitv[i] = CnUtils.swapEndianC(JSBigInt.parse(CnUtils.swapEndian(data[i].scalar), 16).toString(2));
+			rawdata[i] = nacl.ll.unpack(CnUtils.hextobin(data[i].point));
+		}
+		for (let k = groups; k-- > 0; ) {
+			if (result !== CnVars.I) {
+				result = CnTransactions.ge_scalarmult_raw(result, twoc);
+			}
+			for (let i = 0; i < (1<<c); i++) {
+				buckets[i] = CnVars.I;
+			}
+			for (let i = 0; i < data.length; i++) {
+				let bucket = 0;
+				for (let j = 0; j < c; j++) {
+					if (sbitv[i][k*c+j] === "1") {
+						bucket |= 1<<j;
+					}
+				}
+				if (bucket === 0) {
+					continue;
+				}
+				if (buckets[bucket] !== CnVars.I) {
+					buckets[bucket] = CnTransactions.ge_add_raw(buckets[bucket], rawdata[i]);
+				} else {
+					//strategy: copy the "raw" rawdata so it doesn't get overwritten later by ge_add_raw via buckets[bucket]
+					//there is probably a better way
+					ar = [];
+					for(let j=0;j<rawdata[i].length;j++) {
+						ar[j] = new Float64Array(rawdata[i][j].length);
+						for(let h=0;h<rawdata[i][j].length;h++){
+							ar[j][h] = parseFloat(rawdata[i][j][h]);
+						}
+					}
+					buckets[bucket] = ar;
+				}
+			}
+			let pail = CnVars.I;
+			for (let i = (1<<c)-1; i > 0; i--) {
+				if (buckets[i] !== CnVars.I) {
+					pail = CnTransactions.ge_add_raw(pail, buckets[i]);
+				}
+				if (pail !== CnVars.I) {
+					result = CnTransactions.ge_add_raw(result, pail);
+				}
+			}
+		}
+		return CnUtils.bintohex(nacl.ll.pack(result));
+	}
+
+	//create a vector of size n of value x
+	//res[i] = x
+	export function vector_dup(x : any, n : number) {
+		let res = [];
+		for (let i = 0; i < n; i++) {
+			res[i] = x;
+		}
+		return res;
+	}
+
+	//subtract two vectors of scalars
+	//res[i] = a[i] - b[i]
+	export function vector_subtract(a : any[], b : any[]) {
+		let teststart = new Date().getTime();
+		if (a.length !== b.length){throw "Incompatible sizes of a and b";}
+		let res = [];
+		for (let i = 0; i < a.length; i++) {
+			res[i] = CnNativeBride.sc_sub(a[i], b[i]);
+		}
+		let testfinish = new Date().getTime() - teststart;
+		return res;
+	}
+
+	//add two vectors of scalars
+	//res[i] = a[i] + b[i]
+	export function vector_add(a : any[], b : any[]) {
+		let teststart = new Date().getTime();
+		if (a.length !== b.length){throw "Incompatible sizes of a and b";}
+		let res = [];
+		for (let i = 0; i < a.length; i++) {
+			res[i] = CnNativeBride.sc_add(a[i], b[i]);
+		}
+		let testfinish = new Date().getTime() - teststart;
+		return res;
+	}
+
+	//fills a vector with powers of x till nth power
+	//res[i] = x^i
+	export function vector_powers(x : string, n : number) : any[] {
+		let teststart = new Date().getTime();
+		let res:string[] = [];
+		if (n === 0){return res;}
+		res[0] = CnVars.I;
+		if (n === 1){return res;}
+		res[1] = x;
+		for (let i = 2; i < n; i++) {
+			res[i] = CnUtils.sc_mul(res[i-1], x);
+		}
+		let testfinish = new Date().getTime() - teststart;
+		return res;
+	}
+
+	//computes the inner product of two vectors of scalars
+	//res = sum(a[i]*b[i])
+	export function inner_product(a : string[], b : string[]) {
+		let teststart = new Date().getTime();
+		if (a.length !== b.length){throw "Incompatible sizes of a and b";}
+		let res = CnVars.Z;
+		for (let i = 0; i < a.length; i++) {
+			res = CnUtils.sc_muladd(a[i], b[i], res);
+		}
+		let testfinish = new Date().getTime() - teststart;
+		return res;
+	}
+
+	//computes the Hadamard product of two vectors of scalars
+	//res[i] = a[i]*b[i]
+	export function hadamard(a : any[], b : any[]) {
+		let teststart = new Date().getTime();
+		if (a.length !== b.length){throw "Incompatible sizes of a and b";}
+		let res = [];
+		for (let i = 0; i < a.length; i++) {
+			res[i] = CnUtils.sc_mul(a[i], b[i]);
+		}
+		let testfinish = new Date().getTime() - teststart;
+		return res;
+	}
+
+	//copmutes the "Hadamard product" of two vectors of points
+	//res[i] = A[i]+B[i]
+	export function hadamard2(A : any[], B : any[]) {
+		let teststart = new Date().getTime();
+		if (A.length !== B.length){throw "Incompatible sizes of A and B";}
+		let res = [];
+		for (let i = 0; i < A.length; i++) {
+			res[i] = CnUtils.ge_add(A[i], B[i]);
+		}
+		let testfinish = new Date().getTime() - teststart;
+		return res;
+	}
+
+	//multiply a vector of scalars by a scalar
+	//res[i] = a[i]*x
+	export function vector_scalar(a : any[], x : any) {
+		let teststart = new Date().getTime();
+		let res = [];
+		for (let i = 0; i < a.length; i++) {
+			res[i] = CnUtils.sc_mul(a[i], x);
+		}
+		let testfinish = new Date().getTime() - teststart;
+		return res;
+	}
+
+	//multiply a vector of points by a scalar
+	//res[i] = x*A[i]
+	export function vector_scalar2(A : any[], x : any) {
+		let teststart = new Date().getTime();
+		let res = [];
+		for (let i = 0; i < A.length; i++) {
+			res[i] = CnUtils.ge_scalarmult(A[i], x);
+		}
+		let testfinish = new Date().getTime() - teststart;
+		return res;
+	}
+
+	//slice a vector based on start and stop indices
+	//res[0] = a[start], res[end] = a[stop-1]
+	export function slice(a : any[], start : number, stop : number) {
+		if (start >= a.length){throw "Invalid start index";}
+		if (stop > a.length){throw "Invalid stop index";}
+		if (start >= stop){throw "Invalid start/stop indices";}
+		let res = [];
+		for (let i = start; i < stop; i++) {
+			res[i-start] = a[i];
+		}
+		return res;
+	}
+	//end Bulletproof functions
+
+	export function bulletproof_PROVE(svs : any[], gamma : any[]) {
+		let bpteststart = new Date().getTime();
+
+		if (svs.length !== gamma.length) {
+			throw "Incompatible sizes of sv and gamma";
+		}
+		//this.init_exponents(); //cache them instead
+
+		let sv = [];
+		//convert amounts to scalars
+		for (let i = 0; i < svs.length; i++) {
+			sv[i] = CnUtils.d2s(svs[i]);
+		}
+
+		let logN = 6;
+		let N = 64;
+		let M, logM;
+		for (logM = 0; (M = 1<<logM) <= CnVars.maxM && M < sv.length; logM++) {
+			if (M > CnVars.maxM) {
+				throw "sv/gamma are too large";
+			}
+		}
+		let logMN = logM + logN;
+		let MN = M * N;
+		let V = [], aL = [], aR = [];
+
+		for (let i = 0; i < sv.length; i++) {
+			V[i] = commit(sv[i], gamma[i]); //sv[i]*H + gamma[i]*G
+			V[i] = CnUtils.ge_scalarmult(V[i], CnVars.INV_EIGHT);
+		}
+
+		let svb; //to hold bit value for amount - I hope this works
+		for (let j = 0; j < M; j++) {
+			svb = CnUtils.d2b(svs[j]);
+			for (let i = N; i > 0; ) {
+				i--;
+				if (j >= sv.length) {
+					aL[j*N+i] = CnVars.Z;
+				} else if (svb[i] === "1") {
+					aL[j*N+i] = CnVars.I;
+				} else {
+					aL[j*N+i] = CnVars.Z;
+				}
+				aR[j*N+i] = CnNativeBride.sc_sub(aL[j*N+i], CnVars.I);
+			}
+		}
+
+		let hash_cache = Cn.array_hash_to_scalar(V);
+
+		// PAPER LINES 38-39
+		let alpha = CnRandom.random_scalar();
+		let ve = CnTransactions.vector_exponent_pip(aL, aR);
+		let A = CnUtils.ge_add(ve, CnUtils.ge_scalarmult_base(alpha));
+		A = CnUtils.ge_scalarmult(A, CnVars.INV_EIGHT);
+
+		// PAPER LINES 40-42
+		let sL = [], sR = [];
+		for (let i = 0; i < MN; i++) {
+			sL[i] = CnRandom.random_scalar();
+			sR[i] = CnRandom.random_scalar();
+		}
+		let rho = CnRandom.random_scalar();
+		ve = CnTransactions.vector_exponent_pip(sL, sR);
+		let S = CnUtils.ge_add(ve, CnUtils.ge_scalarmult_base(rho));
+		S = CnUtils.ge_scalarmult(S, CnVars.INV_EIGHT);
+
+		// PAPER LINES 43-45
+		let y = Cn.hash_to_scalar(hash_cache + A + S);
+		let z = Cn.hash_to_scalar(y);
+		hash_cache = z;
+
+		// Polynomial construction by coefficients
+		let zMN = vector_dup(z, MN);
+		let l0 = CnTransactions.vector_subtract(aL, zMN);
+		let l1 = sL;
+
+		// This computes the ugly sum/concatenation from PAPER LINE 65
+		let zero_twos = [];
+		let twoN = CnTransactions.vector_powers(CnTransactions.TWO, CnVars.maxN);
+		let zpow = CnTransactions.vector_powers(z, M+2);
+		for (let i = 0; i < MN; i++) {
+			zero_twos[i] = CnVars.Z;
+			for (let j = 1; j <= M; j++) {
+				if (i >= (j-1)*N && i < j*N) {
+					if (j+1 >= zpow.length){throw "invalid zpow index";}
+					if (i-(j-1)*N >= twoN.length){throw "invalid twoN index";}
+					zero_twos[i] = CnUtils.sc_muladd(zpow[j+1], twoN[i-(j-1)*N], zero_twos[i]);
+				}
+			}
+		}
+
+		let r0 = CnTransactions.vector_add(aR, zMN);
+		let yMN = CnTransactions.vector_powers(y, MN);
+		r0 = CnTransactions.hadamard(r0, yMN);
+		r0 = CnTransactions.vector_add(r0, zero_twos);
+		let r1 = CnTransactions.hadamard(yMN, sR);
+
+		// Polynomial construction before PAPER LINE 46
+		let t1_1 = CnTransactions.inner_product(l0, r1);
+		let t1_2 = CnTransactions.inner_product(l1, r0);
+		let t1 = CnNativeBride.sc_add(t1_1, t1_2);
+		let t2 = CnTransactions.inner_product(l1, r1);
+
+		// PAPER LINES 47-48
+		let tau1 = CnRandom.random_scalar(), tau2 = CnRandom.random_scalar();
+		let T1 = CnUtils.ge_scalarmult(commit(t1, tau1), CnVars.INV_EIGHT);
+		let T2 = CnUtils.ge_scalarmult(commit(t2, tau2), CnVars.INV_EIGHT);
+
+		// PAPER LINES 49-51
+		let x = Cn.hash_to_scalar(hash_cache + z + T1 + T2);
+		hash_cache = x;
+
+		// PAPER LINES 52-53
+		let taux = CnUtils.sc_mul(tau1, x);
+		let xsq = CnUtils.sc_mul(x, x);
+		taux = CnUtils.sc_muladd(tau2, xsq, taux);
+		for (let j = 1; j <= sv.length; j++) {
+			if (j+1 >= zpow.length){throw "invalid zpow index";}
+			taux = CnUtils.sc_muladd(zpow[j+1], gamma[j-1], taux);
+		}
+		let mu = CnUtils.sc_muladd(x, rho, alpha);
+
+		// PAPER LINES 54-57
+		//let l = l0;
+		let l = CnTransactions.vector_add(l0, vector_scalar(l1, x));
+		//let r = r0;
+		let r = CnTransactions.vector_add(r0, vector_scalar(r1, x));
+
+		let t = CnTransactions.inner_product(l, r);
+
+		/*//debug
+		let t0 = CnTransactions.inner_product(l0, r0);
+		let test_t = CnUtils.sc_muladd(t1, x, t0);
+		test_t = CnUtils.sc_muladd(t2, xsq, test_t);
+		console.log("debug: " + (test_t == t));
+		//end debug*/
+
+		// PAPER LINES 32-33
+		let x_ip = Cn.hash_to_scalar(hash_cache + x + taux + mu + t);
+		hash_cache = x_ip;
+
+		// These are used in the inner product rounds
+		let nprime = MN;
+		let Gprime = [],
+		Hprime = [],
+		aprime = [],
+		bprime = [];
+		let yinv = CnUtils.invert(y);
+		let yinvpow = CnVars.I;
+		for (let i = 0; i < MN; i++) {
+			Gprime[i] = CnTransactions.Gi[i];
+			Hprime[i] = CnUtils.ge_scalarmult(CnTransactions.Hi[i], yinvpow);
+			yinvpow = CnUtils.sc_mul(yinvpow, yinv);
+			aprime[i] = l[i];
+			bprime[i] = r[i];
+		}
+		let L = [], R = [];
+		let round = 0;
+		let w = []; // this is the challenge x in the inner product protocol
+		// PAPER LINE 13
+		let tmp;
+		while (nprime > 1) {
+			// PAPER LINE 15
+			nprime /= 2;
+
+			// console.log("round: " + round + " nprime: " + nprime);
+			// PAPER LINES 16-17
+			let cL = CnTransactions.inner_product(slice(aprime, 0, nprime), slice(bprime, nprime, bprime.length));
+			let cR = CnTransactions.inner_product(slice(aprime, nprime, aprime.length), slice(bprime, 0, nprime));
+
+			// PAPER LINES 18-19
+			L[round] = CnTransactions.vector_exponent_custom(slice(Gprime, nprime, Gprime.length), slice(Hprime, 0, nprime), slice(aprime, 0, nprime), slice(bprime, nprime, bprime.length));
+			tmp = CnUtils.sc_mul(cL, x_ip);
+			L[round] = CnUtils.ge_add(L[round], CnUtils.ge_scalarmult(CnVars.H, tmp));
+			L[round] = CnUtils.ge_scalarmult(L[round], CnVars.INV_EIGHT);
+			R[round] = CnTransactions.vector_exponent_custom(slice(Gprime, 0, nprime), slice(Hprime, nprime, Hprime.length), slice(aprime, nprime, aprime.length), slice(bprime, 0, nprime));
+			tmp = CnUtils.sc_mul(cR, x_ip);
+			R[round] = CnUtils.ge_add(R[round], CnUtils.ge_scalarmult(CnVars.H, tmp));
+			R[round] = CnUtils.ge_scalarmult(R[round], CnVars.INV_EIGHT);
+
+			// PAPER LINES 21-22
+			w[round] = Cn.hash_to_scalar(hash_cache + L[round] + R[round]);
+			hash_cache = w[round];
+
+			// PAPER LINES 24-25
+			let winv = CnUtils.invert(w[round]);
+			Gprime = CnTransactions.hadamard2(vector_scalar2(slice(Gprime, 0, nprime), winv), CnTransactions.vector_scalar2(slice(Gprime, nprime, Gprime.length), w[round]));
+			Hprime = CnTransactions.hadamard2(vector_scalar2(slice(Hprime, 0, nprime), w[round]), CnTransactions.vector_scalar2(slice(Hprime, nprime, Hprime.length), winv));
+
+			// PAPER LINES 28-29
+			aprime = CnTransactions.vector_add(CnTransactions.vector_scalar(slice(aprime, 0, nprime), w[round]), CnTransactions.vector_scalar(slice(aprime, nprime, aprime.length), winv));
+			bprime = CnTransactions.vector_add(CnTransactions.vector_scalar(slice(bprime, 0, nprime), winv), CnTransactions.vector_scalar(slice(bprime, nprime, bprime.length), w[round]));
+
+			round++;
+		}
+
+		// PAPER LINE 58 (with inclusions from PAPER LINE 8 and PAPER LINE 20)
+		let bp = {
+			V: V,
+			A: A,
+			S: S,
+			T1: T1,
+			T2: T2,
+			taux: taux,
+			mu: mu,
+			L: L,
+			R: R,
+			a: aprime[0],
+			b: bprime[0],
+			t: t
+		};
+		let bptestfinish = new Date().getTime() - bpteststart;
+
+		return bp;
 	}
 
 	//message is normal prefix hash
@@ -1766,7 +2484,7 @@ export namespace CnTransactions{
 		amountKeys : string[],
 		indices : number[],
 		txnFee : string,
-		bulletproof : boolean = false
+		bulletproof : boolean = true
 	){
 		console.log('MIXIN:', mixRing);
 		if (outAmounts.length !== amountKeys.length ){throw "different number of amounts/amount_keys";}
@@ -1780,13 +2498,14 @@ export namespace CnTransactions{
 		console.log('======t');
 
 		let rv : RctSignature = {
-			type: inSk.length === 1 ? CnVars.RCT_TYPE.Full : CnVars.RCT_TYPE.Simple,
+			type: 5,
 			message: message,
 			outPk: [],
 			p: {
 				rangeSigs: [],
-				bulletproofs: [],
-				MGs: []
+				bp: [],
+				MGs: [],
+				pseudoOuts: []
 			},
 			ecdhInfo: [],
 			txnFee: txnFee.toString(),
@@ -1794,64 +2513,100 @@ export namespace CnTransactions{
 		};
 
 		let sumout = CnVars.Z;
-		let cmObj = {
-			C: '',
-			mask: ''
-		};
 
 		console.log('====a');
 
 		let p = rv.p;
 		if(p) {
-			let nrings = 64; //for base 2/current
-			//compute range proofs, etc
-			for (let i = 0; i < outAmounts.length; i++) {
-				let teststart = new Date().getTime();
-				if(!bulletproof)
+			if(rv.type != 5){
+				let cmObj = {
+					C: '',
+					mask: ''
+				};
+				let nrings = 64; //for base 2/current
+				//compute range proofs, etc
+				for (let i = 0; i < outAmounts.length; i++) {
+					let teststart = new Date().getTime();
 					p.rangeSigs[i] = CnTransactions.proveRange(cmObj, outAmounts[i], nrings, 0, 0);
-				// else
-				// 	p.bulletproofs[i] = CnTransactions.proveRangeBulletproof(cmObj, outAmounts[i], nrings, 0, 0);
-
-				let testfinish = new Date().getTime() - teststart;
-				console.log("Time take for range proof " + i + ": " + testfinish);
-				rv.outPk[i] = cmObj.C;
-				sumout = CnNativeBride.sc_add(sumout, cmObj.mask);
-				rv.ecdhInfo[i] = CnUtils.encode_rct_ecdh({mask: cmObj.mask, amount: CnUtils.d2s(outAmounts[i])}, amountKeys[i]);
+					let testfinish = new Date().getTime() - teststart;
+					console.log("Time take for range proof " + i + ": " + testfinish);
+					rv.outPk[i] = cmObj.C;
+					sumout = CnNativeBride.sc_add(sumout, cmObj.mask);
+					rv.ecdhInfo[i] = CnUtils.encode_rct_ecdh({mask: cmObj.mask, amount: CnUtils.d2s(outAmounts[i])}, amountKeys[i], false);
+				}
 			}
-			console.log('====a');
+			else{
+				//bulletproof stuff
+				let svs = [], gamma = [];
+				for (let i = 0; i < outAmounts.length; i++) {
+				  svs[i] = outAmounts[i];
+				  gamma[i] = CnRandom.random_scalar();
+				  sumout = CnNativeBride.sc_add(sumout, gamma[i]);
+				  rv.ecdhInfo[i] = CnUtils.encode_rct_ecdh({mask: gamma[i], amount: CnUtils.d2s(outAmounts[i])}, amountKeys[i], true);
+				}
 
-			//simple
+				p.bp.push(CnTransactions.bulletproof_PROVE(svs, gamma));
+				for (let i = 0; i < outAmounts.length; i++) {
+				  rv.outPk[i] = CnUtils.ge_scalarmult(p.bp[0].V[i], CnUtils.d2s("8"));
+				}
+			}
+
 			console.log('-----------rv type', rv.type);
-			if (rv.type === CnVars.RCT_TYPE.Simple) {
+			//simple (1 input) OR bulletproof is always simple
+			if (rv.type !== 1 && rv.type !== 3){
 				let ai = [];
 				let sumpouts = CnVars.Z;
 				//create pseudoOuts
 				let i = 0;
-				for (; i < inAmounts.length - 1; i++) {
+				for (i = 0; i < inAmounts.length - 1; i++){
 					ai[i] = CnRandom.random_scalar();
 					sumpouts = CnNativeBride.sc_add(sumpouts, ai[i]);
-					rv.pseudoOuts[i] = commit(CnUtils.d2s(inAmounts[i]), ai[i]);
+					if (rv.type === 2 || rv.type === 4) {
+						rv.pseudoOuts[i] = commit(CnUtils.d2s(inAmounts[i]), ai[i]);
+					} else {//pseudoOuts moved to prunable with bulletproofs
+						p.pseudoOuts[i] = commit(CnUtils.d2s(inAmounts[i]), ai[i]);
+					}
 				}
 				ai[i] = CnNativeBride.sc_sub(sumout, sumpouts);
-				rv.pseudoOuts[i] = commit(CnUtils.d2s(inAmounts[i]), ai[i]);
+				if (rv.type === 2 || rv.type === 4) {
+					rv.pseudoOuts[i] = commit(CnUtils.d2s(inAmounts[i]), ai[i]);
+				} else {//pseudoOuts moved to prunable with bulletproofs
+					p.pseudoOuts[i] = commit(CnUtils.d2s(inAmounts[i]), ai[i]);
+				}
+				//console.log(rv);
 				let full_message = CnTransactions.get_pre_mlsag_hash(rv);
-				for (let i = 0; i < inAmounts.length; i++) {
-					p.MGs.push(CnTransactions.proveRctMG(full_message, mixRing[i], inSk[i], kimg[i], ai[i], rv.pseudoOuts[i], indices[i]));
+				for (i = 0; i < inAmounts.length; i++){
+					p.MGs.push(CnTransactions.proveRctMG(full_message, mixRing[i], inSk[i], kimg[i], ai[i], (rv.type === 2 || rv.type === 4 ? rv.pseudoOuts[i] : p.pseudoOuts[i]), indices[i]));
 				}
 			} else {
 				let sumC = CnVars.I;
 				//get sum of output commitments to use in MLSAG
-				for (let i = 0; i < rv.outPk.length; i++) {
+				for (let i = 0; i < rv.outPk.length; i++){
 					sumC = CnUtils.ge_add(sumC, rv.outPk[i]);
 				}
 				sumC = CnUtils.ge_add(sumC, CnUtils.ge_scalarmult(CnVars.H, CnUtils.d2s(rv.txnFee)));
 				let full_message = CnTransactions.get_pre_mlsag_hash(rv);
 				p.MGs.push(CnTransactions.proveRctMG(full_message, mixRing[0], inSk[0], kimg[0], sumout, sumC, indices[0]));
 			}
+
+			console.log('====a');
 		}
+
+		rv.type = CnVars.RCT_TYPE.Bulletproof2;
 
 		return rv;
 	}
+
+	// reargances array to specific indices.
+	export function rearrange(arr : any[], ind : any[]) : any[] {
+		let new_arr = [];
+
+		for (let j = 0; j < ind.length; j++) {
+			new_arr.push(arr[ind[j]]);
+		}
+
+		return new_arr;
+	};
 
 	export function construct_tx(
 		keys : {
@@ -1871,7 +2626,7 @@ export namespace CnTransactions{
 		pid_encrypt : boolean,
 		realDestViewKey : string|undefined,
 		unlock_time : number = 0,
-		rct:boolean
+		rct:boolean = true
 	){
 		//we move payment ID stuff here, because we need txkey to encrypt
 		let txkey = Cn.random_keypair();
@@ -1925,7 +2680,8 @@ export namespace CnTransactions{
 
 			// sets res.mask among other things. mask is identity for non-rct transactions
 			// and for coinbase ringct (type = 0) txs.
-			let res = CnTransactions.generate_key_image_helper_rct(keys, sources[i].real_out_tx_key, sources[i].real_out_in_tx, ''+sources[i].mask); //mask will be undefined for non-rct
+			let mask = sources[i].mask!.length == 16 ? sources[i].mask + "000000000000000000000000000000000000000000000000" : ''+sources[i].mask;
+			let res = CnTransactions.generate_key_image_helper_rct(keys, sources[i].real_out_tx_key, sources[i].real_out_in_tx, mask); //mask will be undefined for non-rct
 			// in_contexts.push(res.in_ephemeral);
 
 			// now we mark if this is ringct coinbase txs. such transactions
@@ -2019,7 +2775,7 @@ export namespace CnTransactions{
 				}else
 					additional_txkey.pub = CnUtils.ge_scalarmult_base(additional_txkey.sec);
 			}
-			let out_derivation;
+			let out_derivation = null;
 			if(destKeys.view === keys.view.pub) {
 				out_derivation = Cn.generate_key_derivation(txkey.pub, keys.view.sec);
 			} else {
@@ -2058,7 +2814,7 @@ export namespace CnTransactions{
 		if (outputs_money.add(fee_amount).compare(inputs_money) > 0) {
 			throw "outputs money (" + Cn.formatMoneyFull(outputs_money) + ") + fee (" + Cn.formatMoneyFull(fee_amount) + ") > inputs money (" + Cn.formatMoneyFull(inputs_money) + ")";
 		}
-		if (!rct) {
+		if (!rct && tx.signatures) {
 			for (i = 0; i < sources.length; ++i) {
 				let src_keys : string[] = [];
 				for (j = 0; j < sources[i].outputs.length; ++j) {
@@ -2103,9 +2859,9 @@ export namespace CnTransactions{
 			console.log('rc signature----');
 			let tx_prefix_hash = CnTransactions.get_tx_prefix_hash(tx);
 			console.log('rc signature----');
-			tx.rct_signatures = CnTransactions.genRct(tx_prefix_hash, inSk, keyimages, /*destinations, */inAmounts, outAmounts, mixRing, amountKeys, indices, txnFee);
-
+			tx.rct_signatures = CnTransactions.genRct(tx_prefix_hash, inSk, keyimages, inAmounts, outAmounts, mixRing, amountKeys, indices, txnFee);
 		}
+
 		console.log(tx);
 		return tx;
 	}
@@ -2280,5 +3036,170 @@ export namespace CnTransactions{
 			throw "Need more money than found! (have: " + Cn.formatMoney(found_money) + " need: " + Cn.formatMoney(needed_money) + ")";
 		}
 		return CnTransactions.construct_tx(keys, sources, dsts, fee_amount, payment_id, pid_encrypt, realDestViewKey, unlock_time, rct);
+	}
+
+	export function create_transaction2(pub_keys:{spend:string,view:string},
+										sec_keys:{spend:string,view:string},
+										from_dsts:CnTransactions.Destination[],
+										to_dsts:CnTransactions.Destination[],
+										outputs:{
+											amount:number,
+											public_key:string,
+											index:number,
+											global_index:number,
+											rct:string,
+											tx_pub_key:string,
+										}[],
+										mix_outs:{
+											outputs:{
+												rct: string,
+												public_key:string,
+												global_index:number
+											}[],
+											amount:0
+										}[] = [],
+										fake_outputs_count:number,
+										fee_amount: any/*JSBigInt*/,
+										unlock_time:number=0,
+										priority:number=1) : any {
+		let i, j;
+		if (from_dsts.length === 0 || to_dsts.length === 0) {
+			throw 'Destinations empty';
+		}
+		if (mix_outs.length !== outputs.length && fake_outputs_count !== 0) {
+			throw 'Wrong number of mix outs provided (' + outputs.length + ' outputs, ' + mix_outs.length + ' mix outs)';
+		}
+		for (i = 0; i < mix_outs.length; i++) {
+			if ((mix_outs[i].outputs || []).length < fake_outputs_count) {
+				throw 'Not enough outputs to mix with';
+			}
+		}
+		let keys = {
+			view: {
+				pub: pub_keys.view,
+				sec: sec_keys.view
+			},
+			spend: {
+				pub: pub_keys.spend,
+				sec: sec_keys.spend
+			}
+		};
+		if (!Cn.valid_keys(keys.view.pub, keys.view.sec, keys.spend.pub, keys.spend.sec)) {
+			throw "Invalid secret keys!";
+		}
+		let needed_money = JSBigInt.ZERO;
+		for (i = 0; i < from_dsts.length; ++i) {
+			needed_money = needed_money.add(from_dsts[i].amount);
+			if (needed_money.compare(UINT64_MAX) !== -1) {
+				throw "Output overflow!";
+			}
+		}
+		for (i = 0; i < to_dsts.length; ++i) {
+			needed_money = needed_money.add(to_dsts[i].amount);
+			if (needed_money.compare(UINT64_MAX) !== -1) {
+				throw "Output overflow!";
+			}
+		}
+
+		let found_money = JSBigInt.ZERO;
+		let my_mix_outs:{
+			"amount": string,
+			"outputs":{
+				"global_index": string,
+				"public_key": string,
+				"rct": string
+			}[],
+		}[] = [];
+		let using_outs:{
+			"amount": string,
+			"public_key": string,
+			"rct": string,
+			"global_index": string,
+			"index": string,
+			"tx_pub_key": string
+		}[] = [];
+		for (i = 0; i < outputs.length; ++i) {
+			found_money = found_money.add(outputs[i].amount);
+			if (found_money.compare(UINT64_MAX) !== -1) {
+				throw "Input overflow!";
+			}
+
+			if (mix_outs.length !== 0) {
+				// Sort fake outputs by global index
+				// console.log('mix outs before sort', mix_outs[i].outputs);
+				mix_outs[i].outputs.sort(function (a, b) {
+					return new JSBigInt(a.global_index).compare(b.global_index);
+				});
+				j = 0;
+
+				my_mix_outs.push({
+					"amount":"0",
+					"outputs":[]
+				});
+				while ((my_mix_outs[i].outputs.length < fake_outputs_count) && (j < mix_outs[i].outputs.length)) {
+					let out = mix_outs[i].outputs[j];
+					if (out.global_index === outputs[i].global_index) {
+						j++;
+						continue;
+					}
+					my_mix_outs[i].outputs.push({"global_index": out.global_index.toString(), "public_key": out.public_key, "rct": out.rct });
+					j++;
+				}
+
+				using_outs.push({
+					"amount": "" + outputs[i].amount,
+					"public_key": outputs[i].public_key,
+					"rct": outputs[i].rct,
+					"global_index": "" + outputs[i].global_index,
+					"index": "" + outputs[i].index,
+					"tx_pub_key": outputs[i].tx_pub_key
+				});
+			}
+		}
+
+		let fee:{"amount":any} = {
+			"amount": JSBigInt.ZERO
+		};
+		let cmp = needed_money.compare(found_money);
+		if (cmp < 0) {
+			fee.amount = found_money.subtract(needed_money);
+			if (fee.amount.compare(fee_amount) !== 0) {
+				throw "early fee calculation != later";
+			}
+		}
+		else if (cmp > 0) {
+			throw "Need more money than found! (have: " + Cn.formatMoney(found_money) + " need: " + Cn.formatMoney(needed_money) + ")";
+		}
+
+		let change_amount:number = Number(from_dsts[0].amount);
+		let final_total_wo_fee:string = "" + (Number(needed_money) - change_amount);
+
+		return	(<any>window).mymonero_core_js.monero_utils_promise.catch(function(e:any)
+		{
+			console.log("err", e)
+		}).then(function(monero_utils:any)
+		{
+			const ret = monero_utils.send_step2__try_create_transaction(
+				from_dsts[0].address, // from_address_string,
+				sec_keys, // sec keys
+				to_dsts[0].address, // to_address_string,
+				using_outs, // using_outs,
+				my_mix_outs, // mix_outs,
+				fake_outputs_count, // fake_outputs_count,
+				final_total_wo_fee, // final sending_amount
+				change_amount.toString(), // change_amount,
+				Number(fee_amount).toString(), // fee_amount,
+				null, // payment_id,
+				priority, // priority,
+				"1200", // fee_per_b,
+				"1", // fee_mask,
+				unlock_time, // unlock_time,
+				(<any>window).mymonero_core_js.nettype_utils.network_type.MAINNET, // nettype
+				9 // fork version
+			)
+			// console.log("ret", JSON.stringify(ret, null, '  '))
+
+			return ( {"raw": ret.signed_serialized_tx, "hash": ret.tx_hash, "prvkey": ret.tx_key} );
+		});
 	}
 }

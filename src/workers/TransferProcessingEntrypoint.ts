@@ -18,5 +18,5 @@ try {
 		require(['./TransferProcessing.js'], function (App) {});
 	};
 }catch(e){
-	//TODO send error
+	console.log("Error loading native modules...", e);
 }

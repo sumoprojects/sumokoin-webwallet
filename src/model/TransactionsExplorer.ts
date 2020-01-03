@@ -397,7 +397,8 @@ export class TransactionsExplorer {
 	}
 
 	static createRawTx(
-		dsts: { address: string, amount: number }[],
+		from_dsts: { address: string, amount: number }[],
+		to_dsts: { address: string, amount: number }[],
 		wallet: Wallet,
 		rct: boolean,
 		usingOuts: RawOutForTx[],
@@ -409,15 +410,7 @@ export class TransactionsExplorer {
 	): Promise<{ raw: { hash: string, prvkey: string, raw: string }, signed: any }> {
 		return new Promise<{ raw: { hash: string, prvkey: string, raw: string }, signed: any }>(function (resolve, reject) {
 			try {
-				console.log('Destinations: ');
-				//need to get viewkey for encrypting here, because of splitting and sorting
-				let realDestViewKey = undefined;
-				if (pid_encrypt) {
-					realDestViewKey = Cn.decode_address(dsts[0].address).view;
-				}
-
-				let splittedDsts = CnTransactions.decompose_tx_destinations(dsts, rct);
-				let signed = CnTransactions.create_transaction(
+				CnTransactions.create_transaction2(
 					{
 						spend: wallet.keys.pub.spend,
 						view: wallet.keys.pub.view
@@ -425,15 +418,17 @@ export class TransactionsExplorer {
 						spend: wallet.keys.priv.spend,
 						view: wallet.keys.priv.view
 					},
-					splittedDsts, usingOuts,
-					mix_outs, mixin, neededFee,
-					payment_id, pid_encrypt,
-					realDestViewKey, 0, rct);
-
-				console.log("signed tx: ", signed);
-				let raw_tx_and_hash = CnTransactions.serialize_rct_tx_with_hash(signed);
-				resolve({raw: raw_tx_and_hash, signed: signed});
-
+					from_dsts,
+					to_dsts, 
+					usingOuts,
+					mix_outs, 
+					mixin, 
+					neededFee,
+					0, // unlock_time
+					1	// priority
+				).then(function(rawTx:any){
+					resolve({ raw: rawTx, signed: null });
+				});
 			} catch (e) {
 				reject("Failed to create transaction: " + e);
 			}
@@ -451,19 +446,20 @@ export class TransactionsExplorer {
 		Promise<{ raw: { hash: string, prvkey: string, raw: string }, signed: any }> {
 		return new Promise<{ raw: { hash: string, prvkey: string, raw: string }, signed: any }>(function (resolve, reject) {
 			// few multiplayers based on uint64_t wallet2::get_fee_multiplier
-			let fee_multiplayers = [1, 4, 20, 166];
-			let default_priority = 2;
+			let fee_multiplayers = [1, 2, 4, 20, 166];
+			let default_priority = 1;
 			let feePerKB = new JSBigInt(config.feePerKB);
 			let priority = default_priority;
 			let fee_multiplayer = fee_multiplayers[priority - 1];
-			let neededFee = feePerKB.multiply(13).multiply(fee_multiplayer);
+			let neededFee = JSBigInt(Math.ceil(CnTransactions.estimateRctSizeNew(1, mixin, 2, 256, true) / 1024)).multiply(feePerKB).multiply(fee_multiplayer);
 			let pid_encrypt = false; //don't encrypt payment ID unless we find an integrated one
 
 			let totalAmountWithoutFee = new JSBigInt(0);
 			let paymentIdIncluded = 0;
 
 			let paymentId = '';
-			let dsts: { address: string, amount: number }[] = [];
+			let from_dsts: { address: string, amount: number }[] = [];
+            let to_dsts: { address: string, amount: number }[] = [];
 
 			for (let dest of userDestinations) {
 				totalAmountWithoutFee = totalAmountWithoutFee.add(dest.amount);
@@ -473,7 +469,7 @@ export class TransactionsExplorer {
 					paymentId = target.intPaymentId;
 					pid_encrypt = true;
 				}
-				dsts.push({
+				to_dsts.push({
 					address:dest.address,
 					amount:new JSBigInt(dest.amount)
 				});
@@ -544,7 +540,7 @@ export class TransactionsExplorer {
 
 			console.log("Selected outs:", usingOuts);
 			if (usingOuts.length > 1) {
-				let newNeededFee = JSBigInt(Math.ceil(CnTransactions.estimateRctSize(usingOuts.length, mixin, 2) / 1024)).multiply(feePerKB).multiply(fee_multiplayer);
+				let newNeededFee = JSBigInt(Math.ceil(CnTransactions.estimateRctSizeNew(usingOuts.length, mixin, 2, 256, true) / 1024)).multiply(feePerKB).multiply(fee_multiplayer);
 				totalAmount = totalAmountWithoutFee.add(newNeededFee);
 				//add outputs 1 at a time till we either have them all or can meet the fee
 				while (usingOuts_amount.compare(totalAmount) < 0 && unusedOuts.length > 0) {
@@ -552,7 +548,7 @@ export class TransactionsExplorer {
 					usingOuts.push(out);
 					usingOuts_amount = usingOuts_amount.add(out.amount);
 					console.log("Using output: " + Cn.formatMoney(out.amount) + " - " + JSON.stringify(out));
-					newNeededFee = JSBigInt(Math.ceil(CnTransactions.estimateRctSize(usingOuts.length, mixin, 2) / 1024)).multiply(feePerKB).multiply(fee_multiplayer);
+					newNeededFee = JSBigInt(Math.ceil(CnTransactions.estimateRctSizeNew(usingOuts.length, mixin, 2, 0, true) / 1024)).multiply(feePerKB).multiply(fee_multiplayer);
 					totalAmount = totalAmountWithoutFee.add(newNeededFee);
 				}
 				console.log("New fee: " + Cn.formatMoneySymbol(newNeededFee) + " for " + usingOuts.length + " inputs");
@@ -572,26 +568,17 @@ export class TransactionsExplorer {
 					reject({error: 'balance_too_low'});
 					return;
 				}
-				else if (usingOuts_amount.compare(totalAmount) > 0) {
-					let changeAmount = usingOuts_amount.subtract(totalAmount);
-					//add entire change for rct
-					console.log("1) Sending change of " + Cn.formatMoneySymbol(changeAmount)
-						+ " to " /*+ AccountService.getAddress()*/);
-					dsts.push({
-						address: wallet.getPublicAddress(),
-						amount: changeAmount
-					});
-				}
-				else if (usingOuts_amount.compare(totalAmount) === 0) {
-					//create random destination to keep 2 outputs always in case of 0 change
-					let fakeAddress = Cn.create_address(CnRandom.random_scalar()).public_addr;
-					console.log("Sending 0 XMR to a fake address to keep tx uniform (no change exists): " + fakeAddress);
-					dsts.push({
-						address: fakeAddress,
-						amount: 0
-					});
-				}
-				console.log('destinations', dsts);
+
+				let changeAmount = usingOuts_amount.subtract(totalAmount);
+				//add entire change for rct
+				console.log("1) Sending change of " + Cn.formatMoneySymbol(changeAmount)
+					+ " to " + wallet.getPublicAddress());
+				from_dsts.push({
+					address: wallet.getPublicAddress(),
+					amount: changeAmount
+				});
+
+				console.log('destinations', from_dsts, to_dsts);
 
 				let amounts: string[] = [];
 				for (let l = 0; l < usingOuts.length; l++) {
@@ -619,7 +606,7 @@ export class TransactionsExplorer {
 					}
 					console.log('mix_outs', mix_outs);
 
-					TransactionsExplorer.createRawTx(dsts, wallet, true, usingOuts, pid_encrypt, mix_outs, mixin, neededFee, paymentId).then(function (data: { raw: { hash: string, prvkey: string, raw: string }, signed: any }) {
+					TransactionsExplorer.createRawTx(from_dsts, to_dsts, wallet, true, usingOuts, pid_encrypt, mix_outs, mixin, neededFee, paymentId).then(function (data: { raw: { hash: string, prvkey: string, raw: string }, signed: any }) {
 						resolve(data);
 					}).catch(function (e : any) {
 						reject(e);

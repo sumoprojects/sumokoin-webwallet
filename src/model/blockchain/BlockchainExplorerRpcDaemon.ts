@@ -93,6 +93,9 @@ export class BlockchainExplorerRpcDaemon implements BlockchainExplorer{
 			$.ajax({
 				url: this.daemonAddress+url+(this.phpProxy ? '.php' : ''),
 				method: method,
+				dataType: 'json',
+				processData: false,
+				contentType: 'application/json',
 				data: typeof body === 'string' ? body : JSON.stringify(body)
 			}).done(function (raw: any) {
 				resolve(raw);
@@ -223,7 +226,7 @@ export class BlockchainExplorerRpcDaemon implements BlockchainExplorer{
 				}while(selectedIndex === -1 || randomBlocksIndexesToGet.indexOf(selectedIndex) !== -1);
 				randomBlocksIndexesToGet.push(selectedIndex);
 
-				compressedBlocksToGet[Math.floor(selectedIndex/100)*100] = true;
+				compressedBlocksToGet[selectedIndex] = true;
 			}
 
 			console.log('Random blocks required: ', randomBlocksIndexesToGet);
@@ -232,7 +235,7 @@ export class BlockchainExplorerRpcDaemon implements BlockchainExplorer{
 			//load compressed blocks (100 blocks) containing the blocks referred by their index
 			for(let compressedBlock in compressedBlocksToGet) {
 				promiseGetCompressedBlocks = promiseGetCompressedBlocks.then(()=>{
-					return self.getTransactionsForBlocks(parseInt(compressedBlock), Math.min(parseInt(compressedBlock)+99, height-config.txCoinbaseMinConfirms)).then(function (rawTransactions: RawDaemon_Transaction[]) {
+					return self.getTransactionsForBlocks(parseInt(compressedBlock), Math.min(parseInt(compressedBlock)+1, height-config.txCoinbaseMinConfirms)).then(function (rawTransactions: RawDaemon_Transaction[]) {
 						txs.push.apply(txs, rawTransactions);
 					});
 				});
