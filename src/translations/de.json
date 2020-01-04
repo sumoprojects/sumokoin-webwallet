@@ -105,7 +105,7 @@
 		"emptyWallet": "Du hast zur Zeit kein Guthaben auf dieser Wallet",
 		"waitSync": "Warte bis die Wallet upgedated ist",
 		"beReallyPatient": "Die erste Einrichtung kann etwas dauern...",
-		"getMSRAddress": "Hol die deine Adresse um MSR zu empfangen"
+		"getMSRAddress": "Hol die deine Adresse um SUMO zu empfangen"
 	  },
 	  "txDetails":{
 		"title":"Transaktionsdetails",
