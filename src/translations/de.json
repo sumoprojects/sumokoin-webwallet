@@ -398,10 +398,10 @@
 		"title":"Exportiere deine Zugangsdaten unverschlusselt",
 		"privateKeysButton":"Gib mir meine pirvaten Keys",
 		"mnemonicKeysButton":"Gib mir meine Mnemonic-Phrase",
-		"fileButton":"Exportiere in eine Wallet-File
+		"fileButton":"Exportiere in eine Wallet-File"
 	  },
 	  "walletKeysModal":{
-		"title":"Private Keys"
+		"title":"Private Keys",
 		"confirmText":"OK",
 		"content":"Diese Keys bitte sorgfaltig speichern. <b>Der Besitz dieser Keys bedeutet den Besitz des zugeordneten Guthabens</b> !<br/>Spend key: {privSpendKey}<br/>Private view key: {privViewKey}"
 	  },
@@ -419,8 +419,8 @@
 	  "title":"Importiere eine Wallet",
 	  "subtitle":"Importiere eine Wallet aus zuvor erstellten Keys, einer Wallet-File oder einer Mnemonic-Phrase",
 	  "chooseMethod":"Wahle deine Import Methode",
-	  "fromKeys":"Von Keys
-	  "fromFile":"Von einer Wallet-File
+	  "fromKeys":"Von Keys",
+	  "fromFile":"Von einer Wallet-File",
 	  "fromMnemonic":"Von einer Mnemonic-Phrase",
 	  "fromQr":"Von einem QR code"
 	},
@@ -455,7 +455,7 @@
 	  }
 	},
 	"importFromKeysPage":{
-	  "title":"Importiere  Wallet mithilfe von Keys
+	  "title":"Importiere  Wallet mithilfe von Keys",
 	  "subtitle":"Benutze die Keys um eine Wallet zu erstellen",
 	  "parametersBlock":{
 		"viewOnlyWallet":{
@@ -463,7 +463,7 @@
 		}
 	  },
 	  "keysBlock":{
-		"titleNotViewOnly":"Wallet Keys
+		"titleNotViewOnly":"Wallet Keys",
 		"titleViewOnly":"View-Only Wallet",
 		"privateSpend":{
 		  "label":"Privater Spend Key"
@@ -473,7 +473,7 @@
 		  "optional":"(optional)"
 		},
 		"publicKey":{
-		  "label":"Offentlicher Key
+		  "label":"Offentlicher Key"
 		},
 		"importButton":"Importiere"
 	  }
