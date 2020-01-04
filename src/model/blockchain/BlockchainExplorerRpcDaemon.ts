@@ -185,16 +185,8 @@ export class BlockchainExplorerRpcDaemon implements BlockchainExplorer{
 	}
 
 	getTransactionPool() : Promise<RawDaemon_Transaction[]>{
-		return this.makeRequest('GET', 'get_transaction_pool').then((rawTransactions : {tx_blob:string, tx_json:string}[])=>{
-			let formatted : RawDaemon_Transaction[] = [];
-			for(let rawTransaction of rawTransactions){
-				try {
-					formatted.push(JSON.parse(rawTransaction.tx_json));
-				}catch (e) {
-					console.error(e);
-				}
-			}
-			return formatted;
+		return this.makeRequest('GET', 'get_transaction_pool').then((rawTransactions : any)=>{
+			return rawTransactions;
 		});
 	}
 

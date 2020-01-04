@@ -97,7 +97,7 @@ export class WalletWatchdog{
 		this.explorer.getTransactionPool().then(function(data : any){
 			if(typeof data.transactions !== 'undefined')
 				for(let rawTx of data.transactions){
-					let tx = TransactionsExplorer.parse(rawTx.tx_json,self.wallet);
+					let tx = TransactionsExplorer.parse(JSON.parse(rawTx.tx_json),self.wallet);
 					if(tx !== null){
 						tx.hash = rawTx.id_hash;
 						tx.fees = rawTx.fee;
