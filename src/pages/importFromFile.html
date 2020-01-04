@@ -12,6 +12,10 @@
 			<div class="body" >
 				<div class="header-title" >{{ $t("importFromFilePage.title") }}</div>
 				<div class="content" >
+					<div class="field actions tc">
+						<button class="btn" @click="selectFile()" >{{ $t("importFromFilePage.walletBlock.label") }}</button>
+					</div>
+
 					<div class="field">
 						<label>{{ $t("importBasePage.parametersBlock.password.label") }}</label>
 						<input type="password" name="public" v-model="password">
@@ -30,17 +34,6 @@
 							{{ $t("importBasePage.parametersBlock.passwordConfirm.invalid") }}
 						</div>
 					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="panel" >
-			<div class="body" >
-				<div class="header-title" >{{ $t("importFromFilePage.walletBlock.title") }}</div>
-				<div class="content" >
-					<div class="actions tc" >
-						<button class="btn" @click="selectFile()" >{{ $t("importFromFilePage.walletBlock.label") }}</button>
-					</div>
 
 					<div class="actions tc" >
 						<button @click="importWallet()" class="btn primary" :disabled="!formValid()" >{{ $t("importFromFilePage.walletBlock.importButton") }}</button>
@@ -48,6 +41,5 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
 </div>

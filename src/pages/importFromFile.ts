@@ -55,7 +55,7 @@ class ImportView extends DestructableView{
 
 	selectFile(){
 		let self = this;
-		let element = $('<input type="file">');
+		let element = $('<input type="file" value="">');
 		self.invalidRawFile = true;
 		element.on('change', function(event : Event){
 			let files :File[] = (<any>event.target).files; // FileList object
