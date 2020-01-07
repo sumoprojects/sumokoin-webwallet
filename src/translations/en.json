@@ -402,12 +402,12 @@
 	  },
 	  "walletKeysModal":{
 		"title":"Private keys",
-		"confirmText":"Export",
+		"confirmText":"Cancel",
 		"content":"Please store these keys carefully. <b>Possessing them means possessing the funds associated</b> !<br/>Spend key: {privSpendKey}<br/>Private view key: {privViewKey}"
 	  },
 	  "mnemonicKeyModal":{
 		"title":"Mnemonic phrase",
-		"confirmText":"Export",
+		"confirmText":"Cancel",
 		"content":"Please store this mnemonic phrase carefully. <b>Possessing it means possessing the funds associated</b> ! The phrase is:<br/>{mnemonic}"
 	  },
 	  "mnemonicLangSelectionModal":{
