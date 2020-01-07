@@ -47,7 +47,7 @@ class ExportView extends DestructableView {
 			showCancelButton: true,
 			title: i18n.t('global.openWalletModal.title'),
 			confirmButtonText: i18n.t('exportPage.mnemonicLangSelectionModal.confirmText'),
-			cancelButtonText: i18n.t('exportPage.mnemonicKeyModal.confirmText'),
+			cancelButtonText: i18n.t('exportPage.mnemonicLangSelectionModal.cancelButtonText'),
 		}).then((result: any) => {
 			if (result.value) {
 				let savePassword : string = result.value;

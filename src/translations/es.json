@@ -412,7 +412,8 @@
 	  },
 	  "mnemonicLangSelectionModal":{
 		"title":"?En que idioma quieres tu frase mnemonic??",
-		"confirmText":"Exportar"
+		"confirmText":"Exportar",
+		"cancelButtonText":"Cancelar"
 	  }
 	},
 	"importPage":{

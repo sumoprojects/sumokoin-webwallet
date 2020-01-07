@@ -412,7 +412,8 @@
 	  },
 	  "mnemonicLangSelectionModal":{
 		"title":"Dans quelle langue souhaitez vous exporter la phrase mnemotechnique ?",
-		"confirmText":"Exporter"
+		"confirmText":"Exporter",
+		"cancelButtonText":"Annuler"
 	  }
 	},
 	"importPage":{
