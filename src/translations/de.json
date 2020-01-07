@@ -412,7 +412,8 @@
 	  },
 	  "mnemonicLangSelectionModal":{
 		"title":"In welcher Sprache mochtest du deine Mnemonic-Phrase?",
-		"confirmText":"Exportiere"
+		"confirmText":"Exportiere",
+		"cancelButtonText":"Abbrechen"
 	  }
 	},
 	"importPage":{

@@ -411,7 +411,8 @@
 	  },
 	  "mnemonicLangSelectionModal":{
 		"title":"Σε ποιά γλώσσα θέλετε τη μνημονική φράση σας;",
-		"confirmText":"Εξαγωγή"
+		"confirmText":"Εξαγωγή",
+		"cancelButtonText":"Ακύρωση"
 	  }
 	},
 	"importPage":{

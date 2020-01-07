@@ -412,7 +412,8 @@
 	  },
 	  "mnemonicLangSelectionModal":{
 		"title":"Milyen nyelven kered a mnemonikus szosorod?",
-		"confirmText":"Exportalas"
+		"confirmText":"Exportalas",
+		"cancelButtonText":"Megsem"
 	  }
 	},
 	"importPage":{

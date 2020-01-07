@@ -412,7 +412,8 @@
     },
     "mnemonicLangSelectionModal":{
       "title":"W jakim jezyku chcesz wygenerowany mnemonic?",
-      "confirmText":"Export"
+      "confirmText":"Export",
+      "cancelButtonText":"Przerwij"
     }
   },
   "importPage":{
