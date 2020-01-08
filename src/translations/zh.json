@@ -73,7 +73,7 @@
 	  "notes": {
 		"secure": {
 		  "title": "安全",
-		  "description": "No servers, fully encrypted!"
+		  "description": "无服务器，完全加密！"
 		},
 		"fast": {
 		  "title": "快速",
