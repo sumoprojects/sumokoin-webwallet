@@ -1,0 +1,494 @@
+{
+  "website":{
+	"title":"Dompet Web Sumokoin Resmi",
+	"description":"Dompet Sumokoin online resmi - cepat, anonim, dan ditangani sepenuhnya di peramban Anda untuk keamanan optimal"
+  },
+  "messages": {
+	"menu": {
+	  "home": "Rumah",
+	  "account": "Akun",
+	  "send": "Kirim",
+	  "receive": "Menerima",
+	  "export": "Ekspor",
+	  "donate": "Menyumbangkan",
+	  "settings": "Pengaturan",
+	  "disconnect": "Memutuskan",
+	  "network": "Statistik Jaringan"
+	},
+	"global": {
+	  "loading": "Memuat",
+	  "disableSecurity":"Nonaktifkan keamanan ini, saya mengerti risikonya",
+	  "passwordInvalidRequirements":"Kata sandi memerlukan setidaknya 8 karakter - 1 huruf besar, 1 huruf kecil, satu angka, dan satu karakter khusus",
+	  "passwordConfirmationNotMatching":"Kata sandi tidak cocok dengan kata sandi pertama yang Anda tulis",
+	  "download":"Unduh",
+	  "newVersionModal":{
+		"title":"Versi baru tersedia",
+		"content":"Apakah Anda ingin memuat ulang untuk memuat versi baru?",
+		"confirmText":"Iya",
+		"cancelText":"Kembali"
+	  },
+	  "openWalletModal":{
+		"title":"Kata sandi dompet",
+		"confirmText":"Konfirmasi",
+		"cancelText":"Membatalkan"
+	  },
+	  "invalidPasswordModal":{
+		"title":"Ups ...",
+		"content":"Kata sandi Anda tampaknya tidak valid",
+		"confirmText":"baik"
+	  },
+	  "invalidMnemonicModal":{
+		"title":"Ups ...",
+		"content":"Frasa mnemonik tidak valid",
+		"confirmText":"baik"
+	  },
+	  "passwordNotComplexEnoughModal":{
+		"title":"Kata sandi tidak cukup kompleks",
+		"confirmText":"baik"
+	  },
+	  "permissionRequiredForCameraModal":{
+		"title":"Ups ...",
+		"content":"Izin untuk mengakses kamera Anda diperlukan untuk memindai kode QR",
+		"confirmText":"baik"
+	  }
+	},
+	"bottom": {
+	  "termsOfUse": "Syarat Penggunaan",
+	  "privacyPolicy": "Kebijakan pribadi",
+	  "support": "Dukung",
+	  "donate": "Menyumbangkan",
+	  "network": "Statistik Jaringan",
+	  "miningPool": "Pool Penambangan",
+	  "github": "GitHub"
+	},
+	"homepage": {
+	  "mainTitle": "HUBUNGI DOMPET WEB",
+	  "tagLine": "Cara paling sederhana untuk menggunakan SUMOKOIN",
+	  "actions": {
+		"loadWallet": "Muat dompet saya",
+		"importWallet": "Impor dompet",
+		"create": "Membuat",
+		"createWallet": "Buat dompet"
+	  },
+	  "notes": {
+		"secure": {
+		  "title": "Aman",
+		  "description": "Tidak ada server, sepenuhnya terenkripsi!"
+		},
+		"fast": {
+		  "title": "Cepat",
+		  "description": "Kirim Kemana-mana, Kapan Saja!"
+		},
+		"technology": {
+		  "title": "Teknologi Unik",
+		  "description": "Terhubung langsung ke blockchain Sumokoin!"
+		},
+		"openSource": {
+		  "title": "Open-source sepenuhnya",
+		  "description": "Tersedia di Github!"
+		}
+	  }
+	},
+	"accountPage": {
+	  "title": "Akun",
+	  "subtitle": "Ikhtisar akun dan riwayat transaksi Anda",
+	  "synchronizingBlock": {
+		"text": "Menyinkronkan ..."
+	  },
+	  "balanceBlock": {
+		"title": "Keseimbanganmu",
+		"unlocked": "Tidak terkunci"
+	  },
+	  "historyBlock": {
+		"title": "Sejarah transaksi",
+		"pendingTxStatus": "Tertunda",
+		"emptyWallet": "Anda saat ini tidak memiliki dana di dompet ini.",
+		"waitSync": "Harap tunggu hingga dompet diperbarui.",
+		"beReallyPatient": "Pengaturan awal dapat memakan waktu ...",
+		"getMSRAddress": "Terima SUMO"
+	  },
+	  "txDetails":{
+		"title":"Detil transaksi",
+		"txHash":"TX Hash",
+		"feesOnTx":"Biaya TX",
+		"blockHeight":"Tinggi Blok",
+		"paymentId":"ID Pembayaran",
+		"txPrivKey":"TX Private Key"
+	  }
+	},
+	"changeWalletPasswordPage":{
+	  "title":"Ubah kata sandi Anda",
+	  "oldPassword":{
+		"label":"Password lama",
+		"invalid":"Kata sandi tidak valid"
+	  },
+	  "newPassword":{
+		"label":"Pilih kata sandi baru untuk melindungi dompet Anda"
+	  },
+	  "newPasswordConfirm":{
+		"label":"Konfirmasikan kata sandi baru"
+	  },
+	  "confirm":"Ubah kata sandi",
+	  "modalSuccess":{
+		"title":"Kata sandi berubah!",
+		"confirmText":"baik"
+	  }
+	},
+	"createWalletPage":{
+	  "generatingStep":{
+		"title":"Dompet Anda sedang dibuat ...",
+		"subtitle":"Ini hampir selesai",
+		"waitingMessage":"Menghasilkan dompet Anda ..."
+	  },
+	  "finalizationStep":{
+		"title":"Itu sederhana. Akun Anda sudah siap!",
+		"subtitle":"Bersiaplah untuk menggunakan SUMOKOIN seperti yang belum pernah Anda miliki",
+		"passwordSelectionBlock":{
+		  "label":"Lindungi dompet Anda"
+		},
+		"passwordConfirmBlock":{
+		  "label":"Konfirmasikan kata sandi"
+		},
+		"validPassword":"Gunakan kata sandi ini",
+		"backupBlock":{
+		  "title":"Simpan kredensial pribadi Anda untuk pemulihan.",
+		  "option1":"Pilihan 1:",
+		  "option2":"Pilihan 2:",
+		  "titlePdf":"Unduh salinan PDF",
+		  "titleManualWrite":"Tuliskan kunci saya",
+		  "privateKeys":"Kunci pribadi",
+		  "mnemonicPhrase":"Frase mnemonik",
+		  "separatorManualMethodsSolution":" atau",
+		  "confirmManuallyWritten":"Saya menuliskan frase benih saya",
+		  "warningMessage":"** Jangan kehilangan itu! ** Ini tidak dapat dipulihkan jika Anda kehilangannya. <br/> ** Jangan bagikan! ** Dana Anda akan dicuri jika Anda menggunakan file atau seed ini di situs jahat / phising. <br/> ** Buat cadangan! ** Amankan seperti jutaan dolar yang mungkin suatu hari bernilai. <br/>",
+		  "finishButton":"Saya mengerti. Terus."
+		}
+	  },
+	  "disclaimerBlock":{
+		"title":"Risiko Menggunakan SUMO Wallet",
+		"content":"SUMOKOIN Wallet adalah antar muka berbasis web. Ini membantu Anda menggunakan SUMOKOIN tanpa menjalankan simpul SUMOKOIN penuh. <br/> Kami menyarankan Anda memperlakukan Dompet SUMOKOIN seperti Anda akan memperlakukan dompet Anda yang sebenarnya."
+	  }
+	},
+	"donatePage":{
+	  "title":"Menyumbangkan",
+	  "subtitle":"Bantu mendanai pengembangan dompet web ini",
+	  "webwalletBlock":{
+		"title":"Webwallet",
+		"content":"Dompet Web ini didasarkan pada webwallet Gnock dan diadopsi dan dikembangkan lebih lanjut oleh pengembang Sumokoin. <br/> Jika Anda ingin membantu pengembangan, membantu membayar server, dan menyukai aplikasi ini, silakan pertimbangkan sumbangan: <br / > <br/>"
+	  },
+	  "SUMOKOINFundBlock":{
+		"title":"GABUNG Dana Dukungan",
+		"content":"Untuk membantu SUMOKOIN, Anda dapat menyumbang di alamat-alamat ini"
+	  }
+	},
+	"supportPage":{
+	  "title":"Dukungan",
+	  "subtitle":"Kami di sini untuk membantu!",
+	  "getInTouchBlock":{
+		"title":"Silahkan hubungi Kami!",
+		"content":"Apakah Anda memiliki ide atau umpan balik yang dapat membantu kami meningkatkan dompet? Hubungi kami!",
+		"discord":"GABUNG Grup Telegram"
+	  }
+	},
+	"networkPage":{
+	  "title":"Statistik jaringan",
+	  "subtitle":"Wawasan di jaringan SUMOKOIN",
+	  "statsBlock":{
+		"hashrate":"Hashrate jaringan",
+		"height":"Tinggi Blockchain",
+		"difficulty":"Kesulitan jaringan",
+		"lastTimeBlock":"Blok terakhir ditemukan",
+		"lastReward":"Blokir hadiah terakhir"
+	  }
+	},
+	"sendPage":{
+	  "title":"Kirim SUMO",
+	  "sendBlock":{
+		"address":{
+		  "label":"Alamat tujuan",
+		  "invalid":"Alamat tujuan tidak valid",
+		  "fundsTo":"Dana akan dikirim ke",
+		  "receiver":"Penerima",
+		  "description":"Deskripsi"
+		},
+		"amount":{
+		  "label":"Jumlah yang dikirim",
+		  "invalid":"Jumlahnya tidak valid"
+		},
+		"paymentId":{
+		  "label":"ID Pembayaran (opsional)",
+		  "invalid":"ID pembayaran tidak valid. Panjangnya harus 16 karakter"
+		},
+		"sendButton":"Kirim",
+		"cancelButton":"Membatalkan"
+	  },
+	  "qrCodeScanning":{
+		"explication":"Tampilkan kode QR"
+	  },
+	  "notEnoughMoneyModal":{
+		"title":"Ups ...",
+		"content":"Anda tidak memiliki cukup dana di dompet Anda untuk melakukan transfer ini",
+		"confirmText":"baik"
+	  },
+	  "thankYouDonationModal":{
+		"title":"Terima kasih atas donasinya!",
+		"content":"Bantuan Anda dihargai. <br/> Donasi ini akan membantu menjadikan SUMOKOIN lebih baik",
+		"confirmText":"baik"
+	  },
+	  "transferSentModal":{
+		"title":"Transfer berhasil dikirim!",
+		"confirmText":"baik"
+	  },
+	  "transferExceptionModal":{
+		"title":"Ups ...",
+		"content":"Terjadi kesalahan. Silakan laporkan kesalahan ini: {details}",
+		"confirmText":"baik"
+	  },
+	  "invalidAmountModal":{
+		"title":"Ups ...",
+		"content":"Jumlah tidak valid",
+		"confirmText":"baik"
+	  },
+	  "creatingTransferModal":{
+		"title":"Pembuatan transfer ...",
+		"content":"Tunggu sebentar..."
+	  },
+	  "finalizingTransferModal":{
+		"title":"Menyelesaikan transfer ...",
+		"content":"Tunggu sebentar..."
+	  },
+	  "confirmTransactionModal":{
+		"title":"Konfirmasikan transfer?",
+		"content":"Jumlah: {jumlah} <br/> Biaya: {biaya} <br/> Total: {total}",
+		"confirmText":"Konfirmasi",
+		"cancelText":"Membatalkan"
+	  },
+	  "waitingNfcModal":{
+		  "title":"Menunggu NFC",
+		  "content":"Bawa ponsel Anda lebih dekat ke perangkat lain"
+	  }
+	},
+	"receivePage":{
+	  "title":"Terima SUMO",
+	  "receiveBlock":{
+		"address":{
+		  "title":"Alamat Anda untuk menerima dana:",
+		  "label":"Berikan alamat ini untuk menerima dana"
+		},
+		"qrCode":{
+		  "title":"Atau mempersonalisasi kode QR:",
+		  "labelAmount":"Jumlah (opsional)",
+		  "labelRecipient":"Nama penerima (opsional)",
+		  "labelDescription":"Deskripsi transaksi (opsional)",
+		  "updateButton":"Update"
+		}
+	  },
+	  "qrBlock":{
+		"title":"Kode QR khusus Anda"
+	  },
+	  "waitingNfcToWriteModal":{
+		  "title":"Menunggu NFC",
+		  "titleSuccess":"Tag NFC Ditulis",
+		  "content":"Bawa ponsel Anda lebih dekat ke tag NFC untuk menulis"
+	  },
+	  "nfcErrorModal":{
+		"titleInsufficientCapacity":"Kapasitas tag tidak cukup"
+	  }
+	},
+	"miningPage":{
+	  "title":"Milik saya langsung di pencarian Anda",
+	  "subtitle":"Dukung jaringan dengan menambang dan dapatkan imbalan dengan SUMO",
+	  "parameterBlock":{
+		"title":"Parameter",
+		"labelDestinationAddress":"Dompet untuk menambang",
+		"labelThreads":"Jumlah utas (lebih = hashrate lebih tinggi)",
+		"start":"Mulai",
+		"stop":"Berhenti"
+	  },
+	  "statisticsBlocks":{
+		"title":"Statistik",
+		"validShares":"Saham yang valid",
+		"hashrate":"Hashrate",
+		"maxHashrate":"Max hashrate",
+		"dedicatedHardware":"Dengan mendedikasikan perangkat lunak dan perangkat keras penambangan, Anda dapat memperoleh lebih banyak dan membantu mendesentralisasikan jaringan.",
+		"miningHandledBy":"Penambangan ini ditangani oleh penambangan get.SUMOKOINcoin.com"
+	  }
+	},
+	"settingsPage":{
+	  "title":"Pengaturan",
+	  "subtitle":"Ubah parameter Anda di sini",
+	  "versionBlock":{
+		"versionNumber":"Nomor versi:",
+		"versionCode":"Kode versi:"
+	  },
+	  "settingsBlock":{
+		"speed":{
+		  "label":"Kecepatan untuk memperbarui dompet (akan menghabiskan lebih banyak sumber daya)",
+		  "fastest":"Paling Cepat",
+		  "fast":"Cepat",
+		  "medium":"Medium",
+		  "slow":"Lambat"
+		},
+		"language":{
+		  "label":"Bahasa"
+		},
+		"readMinerTx":{
+		  "label":"Baca transaksi penambang (hanya untuk penambangan tunggal)"
+		}
+	  },
+	  "changePasswordButton":"Ubah kata sandi dompet saya",
+	  "deleteWalletButton":"Hapus dompet saya (salinan lokal)",
+	  "walletSettings":{
+		"creationHeight":{
+		  "label":"Tinggi pembuatan dompet"
+		},
+		"currentScanningHeight": {
+		  "label": "Tinggi pemindaian saat ini"
+		},
+		"updateButton":"Update"
+	  },
+	  "deleteWalletModal":{
+		"title":"Hapus Dompetku (salinan lokal)",
+		"content":"Apakah Anda yakin BENAR-BENAR ingin menghapus dompet Anda?",
+		"confirmText":"Ya saya yakin",
+		"cancelButtonText":"Membatalkan"
+	  }
+	},
+	"importBasePage":{
+	  "parametersBlock":{
+		"title":"Parameter",
+		"password":{
+		  "label":"Kata sandi untuk melindungi dompet Anda"
+		},
+		"passwordConfirm":{
+		  "label":"Konfirmasikan kata sandi",
+		  "invalid":"Kata sandi tidak cocok dengan kata sandi pertama yang Anda tulis"
+		},
+		"importHeight":{
+		  "label":"Tinggi untuk diimpor dari:"
+		}
+	  }
+	},
+	"importFromQrPage":{
+	  "title":"Mengimpor dompet dari kode QR",
+	  "subtitle":"Impor dompet dari cadangan offline",
+	  "qrCodeBlock":{
+		"title":"Kode QR",
+		"startScanButton":"Mulai pemindaian",
+		"importButton":"Impor"
+	  },
+	  "qrScanningBlock":{
+		"title":"Sajikan kode QR"
+	  }
+	},
+	"exportPage":{
+	  "title":"Cadangkan kredensial Anda",
+	  "publicAddressBlock":{
+		"title":"Alamat publik Anda"
+	  },
+	  "pdfBlock":{
+		"title":"PDF Backup",
+		"downloadButton":"Download"
+	  },
+	  "warningBlock":{
+		"title":"Peringatan",
+		"content":"Jika Anda memilih untuk menyimpan kunci pribadi atau frasa mnemonik Anda, TOLONG JANGAN menyimpannya dalam teks yang jelas untuk keselamatan Anda sendiri. <br/> File adalah solusi alternatif di mana kunci Anda dienkripsi dan berisi cadangan semua transaksi Anda untuk memberi Anda sinkronisasi di masa mendatang."
+	  },
+	  "exportBlock":{
+		"title":"Ekspor kredensial RAW Anda",
+		"privateKeysButton":"Dapatkan kunci pribadi saya",
+		"mnemonicKeysButton":"Dapatkan frasa mnemonik saya",
+		"fileButton":"Ekspor ke file"
+	  },
+	  "walletKeysModal":{
+		"title":"Kunci pribadi",
+		"confirmText":"Ekspor",
+		"content":"Harap simpan kunci-kunci ini dengan hati-hati. <b> Memiliki mereka berarti memiliki dana yang terkait </b>! <br/> Kunci belanja: {privSpendKey} <br/> Kunci tampilan pribadi: {privViewKey}"
+	  },
+	  "mnemonicKeyModal":{
+		"title":"Frase mnemonik",
+		"confirmText":"Ekspor",
+        "content":"Harap simpan frasa mnemonik ini dengan cermat. <b> Memiliki itu berarti memiliki dana yang terkait </b>! Ungkapannya adalah: <br/> {mnemonic}"
+	  },
+	  "mnemonicLangSelectionModal":{
+		"title":"Dalam bahasa apa Anda ingin frase mnemonik Anda?",
+		"confirmText":"Ekspor",
+		"cancelButtonText":"Membatalkan"
+	  }
+	},
+	"importPage":{
+	  "title":"Buat dompet",
+	  "subtitle":"Dari kunci, file, atau frasa mnemonik yang dibuat sebelumnya",
+	  "chooseMethod":"Pilih metode impor Anda. Harap dicatat bahwa memulihkan dompet lama dari 0 tinggi dapat memakan waktu lama jadi harap bersabar.",
+	  "fromKeys":"Dari kunci",
+	  "fromFile":"Dari sebuah file",
+	  "fromMnemonic":"Dari frasa mnemonik",
+	  "fromQr":"Dari kode QR"
+	},
+	"termsOfUsePage":{
+	  "title":"Syarat Penggunaan",
+	  "subtitle":"Harap baca dengan cermat."
+	},
+	"privacyPolicyPage":{
+	  "title":"Kebijakan pribadi",
+	  "subtitle":"Harap baca dengan cermat."
+	},
+	"importFromFilePage":{
+	  "title":"Mengimpor dompet dari file cadangan",
+	  "subtitle":"Gunakan file cadangan Anda untuk membuat dompet",
+	  "walletBlock":{
+		"title":"Dompet file",
+		"label":"Pilih file",
+		"importButton":"Impor"
+	  }
+	},
+	"importFromMnemonicPage":{
+	  "title":"Mengimpor dompet dari frasa mnemonik",
+	  "subtitle":"Gunakan frasa Anda untuk membuat dompet",
+	  "mnemonicBlock":{
+		"title":"Frase mnemonik",
+		"mnemonic":{
+		  "label":"Frase mnemonik: 26 kata",
+		  "invalid":"Frasa mnemonik tidak valid",
+		  "language":"Bahasa"
+		},
+		"importButton":"Impor"
+	  }
+	},
+	"importFromKeysPage":{
+	  "title":"Mengimpor dompet dari kunci",
+	  "subtitle":"Gunakan kunci Anda untuk membuat dompet",
+	  "parametersBlock":{
+		"viewOnlyWallet":{
+		  "label":"Apakah Anda ingin hanya melihat dompet?"
+		}
+	  },
+	  "keysBlock":{
+		"titleNotViewOnly":"Kunci dompet",
+		"titleViewOnly":"Lihat hanya dompet",
+		"privateSpend":{
+		  "label":"Kunci pengeluaran pribadi"
+		},
+		"privateView":{
+		  "label":"Kunci tampilan pribadi",
+		  "optional":"(pilihan)"
+		},
+		"publicKey":{
+		  "label":"Kunci publik"
+		},
+		"importButton":"Impor"
+	  }
+	}
+  },
+  "number":{
+  },
+  "date":{
+	"short": {
+	  "year": "numerik", "month": "short", "day": "numerik"
+	},
+	"long": {
+	  "year": "numerik", "month": "short", "day": "numerik",
+	  "weekday": "short", "hour": "numeric", "minute": "numerik", "hour12": true
+	}
+  }
+}

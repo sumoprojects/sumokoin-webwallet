@@ -1,0 +1,494 @@
+{
+  "website":{
+	"title":"Officiële Sumokoin Web Wallet",
+	"description":"Officiële online Sumokoin wallet - snel, anoniem en volledig *lokaal* afgehandeld in je eigen browser voor volledige veiligheid"
+  },
+  "messages": {
+	"menu": {
+	  "home": "Home",
+	  "account": "Rekening",
+	  "send": "Versturen",
+	  "receive": "Ontvangen",
+	  "export": "Export",
+	  "donate": "Doneer",
+	  "settings": "Instellingen",
+	  "disconnect": "Uitloggen",
+	  "network": "Netwerk Statistieken"
+	},
+	"global": {
+	  "loading": "Laden",
+	  "disableSecurity":"Extra beveiliging uitschakelen, ik accepteer het risico",
+	  "passwordInvalidRequirements":"Het wachtwoord moet minimaal 8 karakters zijn en voorzien van een hoofdletter, een kleine letter, een nummer en een speciaal karakter",
+	  "passwordConfirmationNotMatching":"De wachtwoorden komen niet met elkaar overeen",
+	  "download":"Download",
+	  "newVersionModal":{
+		"title":"Er is een nieuwe versie beschikbaar",
+		"content":"Wil je de pagina verversen voor de nieuwe versie?",
+		"confirmText":"Ja",
+		"cancelText":"Terug"
+	  },
+	  "openWalletModal":{
+		"title":"Wallet Password",
+		"confirmText":"Bevestigen",
+		"cancelText":"Afbreken"
+	  },
+	  "invalidPasswordModal":{
+		"title":"Oops...",
+		"content":"Het wachtwoord is niet goed",
+		"confirmText":"OK"
+	  },
+	  "invalidMnemonicModal":{
+		"title":"Oops...",
+		"content":"De mnemonic woordenreeks is niet goed",
+		"confirmText":"OK"
+	  },
+	  "passwordNotComplexEnoughModal":{
+		"title":"Het wachtwoord is niet complex genoeg. Het moet minimaal 8 karakters zijn en voorzien van een hoofdletter, een kleine letter, een nummer en een speciaal karakter",
+		"confirmText":"OK"
+	  },
+	  "permissionRequiredForCameraModal":{
+		"title":"Oops...",
+		"content":"Toegang nodig tot de camera om de QR code te kunnen inscannen",
+		"confirmText":"OK"
+	  }
+	},
+	"bottom": {
+	  "termsOfUse": "Gebruikersovereenkomst",
+	  "privacyPolicy": "Privacybeleid",
+	  "support": "Support",
+	  "donate": "Doneer",
+	  "network": "Netwerk Stats",
+	  "miningPool": "Mining Pool",
+	  "github": "GitHub"
+	},
+	"homepage": {
+	  "mainTitle": "SUMOKOIN WEB WALLET",
+	  "tagLine": "De makkelijkste manier om SUMOKOIN te gebruiken",
+	  "actions": {
+		"loadWallet": "Wallet laden",
+		"importWallet": "Wallet importeren",
+		"create": "Maken",
+		"createWallet": "Wallet aanmaken"
+	  },
+	  "notes": {
+		"secure": {
+		  "title": "Veilig",
+		  "description": "Geen servers, volledige encryptie!"
+		},
+		"fast": {
+		  "title": "Snel",
+		  "description": "Altijd en overal versturen!"
+		},
+		"technology": {
+		  "title": "Unieke Technologie",
+		  "description": "Direct verbonden met de SUMOKOIN blockchain!"
+		},
+		"openSource": {
+		  "title": "Volledig Open Source",
+		  "description": "Beschikbaar op GitHub!"
+		}
+	  }
+	},
+	"accountPage": {
+	  "title": "Account",
+	  "subtitle": "Bankrekening overzicht en transactie geschiedenis",
+	  "synchronizingBlock": {
+		"text": "Synchroniseren..."
+	  },
+	  "balanceBlock": {
+		"title": "Uw balans",
+		"unlocked": "Vrij beschikbaar"
+	  },
+	  "historyBlock": {
+		"title": "Transactie geschiedenis",
+		"pendingTxStatus": "Verwerken",
+		"emptyWallet": "Er is op dit moment geen bedrag in uw wallet.",
+		"waitSync": "Wacht aub even tot de wallet is geupdated.",
+		"beReallyPatient": "De eerste instellingen kunnen even duren...",
+		"getMSRAddress": "Ontvangen SUMO"
+	  },
+	  "txDetails":{
+		"title":"Transactie details",
+		"txHash":"TX Hash",
+		"feesOnTx":"TX Fee",
+		"blockHeight":"Block hoogte",
+		"paymentId":"Payment ID",
+		"txPrivKey":"TX Private sleutel"
+	  }
+	},
+	"changeWalletPasswordPage":{
+	  "title":"Verander uw wachtwoord",
+	  "oldPassword":{
+		"label":"Oud wachtwoord",
+		"invalid":"Het wachtwoord is niet juist"
+	  },
+	  "newPassword":{
+		"label":"Kies een nieuw wachtwoord voor uw wallet"
+	  },
+	  "newPasswordConfirm":{
+		"label":"Bevestig het nieuwe wachtwoord"
+	  },
+	  "confirm":"Verander het wachtwoord",
+	  "modalSuccess":{
+		"title":"Wachtwoord veranderd!",
+		"confirmText":"OK"
+	  }
+	},
+	"createWalletPage":{
+	  "generatingStep":{
+		"title":"Uw SUMOKOIN portemonnee zal nu worden aangemaakt...",
+		"subtitle":"Bijna klaar...",
+		"waitingMessage":"Uw SUMOKOIN portemonnee zal nu worden aangemaakt..."
+	  },
+	  "finalizationStep":{
+		"title":"Nou dat was best makkelijk! Uw online wallet is nu klaar!",
+		"subtitle":"Wees voorbereid om SUMOKOIN te gebruiken...",
+		"passwordSelectionBlock":{
+		  "label":"Bescherm uw wallet"
+		},
+		"passwordConfirmBlock":{
+		  "label":"Bevestig uw wachtwoord"
+		},
+		"validPassword":"Gebruik dit wachtwoord",
+		"backupBlock":{
+		  "title":"Sla uw inlog gegevens veilig op.",
+		  "option1":"Optie 1: ",
+		  "option2":"Optie 2: ",
+		  "titlePdf":"Download een PDF kopie",
+		  "titleManualWrite":"Schrijf uw sleutels op",
+		  "privateKeys":"Private sleutel",
+		  "mnemonicPhrase":"Mnemonic woordenreeks",
+		  "separatorManualMethodsSolution":" of ",
+		  "confirmManuallyWritten":"Ik heb mijn mnemonic (ezelsbruggetje) woordenreeks opgeschreven",
+		  "warningMessage":"**NIET VERLIEZEN!!!** Het kan niet hersteld worden als ze verloren zijn.<br/>**Ook met niemand delen!** De rekening zal worden leeggeroofd als deze keys door phising o.i.d. zal worden bemachtigd.<br/>**Maak een backup, sla deze bij voorkeur offline op!**.<br/>",
+		  "finishButton":"Ik begrijp het. Ga door."
+		}
+	  },
+	  "disclaimerBlock":{
+		"title":"Risico bij gebruik van SUMOKOIN Wallet",
+		"content":"SUMOKOIN Wallet is een web-based interface. Het helpt je om SUMOKOIN te gebruiken zonder een volledige node te installeren. <br/>We raden je aan om SUMOKOIN Wallet net zo te behandelen als dat u uw eigen portemonnee behandeld."
+	  }
+	},
+	"donatePage":{
+	  "title":"Doneer",
+	  "subtitle":"Help mee om de web wallet verder te ondersteunen en ontwikkelen",
+	  "webwalletBlock":{
+		"title":"Webwallet",
+		"content":"Deze Web wallet is gebaseerd op Gnock's webwallet en is volledig opgenomen en verder ontwikkeld door het SUMOKOIN ontwikkelaarsteam.<br/>Als u zelf wilt meehelpen met de verdere ontwikkeling, of wil bijdragen aan de hosting van de servers, of gewoon heel erg verliefd bent op deze app, dan kunt u doneren op: <br/><br/>"
+	  },
+	  "SUMOKOINFundBlock":{
+		"title":"SUMOKOIN Support Fund",
+		"content":"Om SUMOKOIN te ondersteunen, kunt u doneren op dit adres"
+	  }
+	},
+	"supportPage":{
+	  "title":"Support",
+	  "subtitle":"We zijn hier om u te helpen!",
+	  "getInTouchBlock":{
+		"title":"Laat wat horen!",
+		"content":"Heb je ideeën of andere hulp die u kunt bieden, neem vooral contact op!",
+		"discord":"SUMOKOIN Telegram Group"
+	  }
+	},
+	"networkPage":{
+	  "title":"Netwerk stats",
+	  "subtitle":"Inzichten in het SUMOKOIN netwerk",
+	  "statsBlock":{
+		"hashrate":"Netwerk hashrate",
+		"height":"Blockchain hoogte",
+		"difficulty":"Netwerk moeilijkheidsgraad",
+		"lastTimeBlock":"Laatst gevonden block",
+		"lastReward":"Laatste block beloning"
+	  }
+	},
+	"sendPage":{
+	  "title":"Verstuur SUMO",
+	  "sendBlock":{
+		"address":{
+		  "label":"Ontvangst adres",
+		  "invalid":"Het ontvangst adres klopt niet",
+		  "fundsTo":"Het bedrag wordt gestuurd naar",
+		  "receiver":"Ontvanger",
+		  "description":"Omschrijving"
+		},
+		"amount":{
+		  "label":"Bedrag te versturen",
+		  "invalid":"Het bedrag is niet juist"
+		},
+		"paymentId":{
+		  "label":"Payment ID (optioneel)",
+		  "invalid":"Het payment ID is niet juist. De lengte moet 16 karakters zijn"
+		},
+		"sendButton":"Versturen",
+		"cancelButton":"Afbreken"
+	  },
+	  "qrCodeScanning":{
+		"explication":"Toon de QR code"
+	  },
+	  "notEnoughMoneyModal":{
+		"title":"Oops...",
+		"content":"Uw hebt te weinig in de wallet zitten om dit te kunnen versturen",
+		"confirmText":"OK"
+	  },
+	  "thankYouDonationModal":{
+		"title":"Bedankt voor je donatie!",
+		"content":"Uw hulp en medewerking aan SUMOKOIN word erg gewaardeerd. <br/>Deze donatie helpt SUMOKOIN beter te maken.",
+		"confirmText":"OK"
+	  },
+	  "transferSentModal":{
+		"title":"Opdracht succesvol verstuurd!",
+		"confirmText":"OK"
+	  },
+	  "transferExceptionModal":{
+		"title":"Oepsie...",
+		"content":"Een fout is opgetreden. Geef deze foutmelding door op het support kanaal: {details}",
+		"confirmText":"OK"
+	  },
+	  "invalidAmountModal":{
+		"title":"Oepsie...",
+		"content":"Onjuist bedrag",
+		"confirmText":"OK"
+	  },
+	  "creatingTransferModal":{
+		"title":"Aanmaken van opdracht ...",
+		"content":"Geduld aub..."
+	  },
+	  "finalizingTransferModal":{
+		"title":"Afronden van opdracht...",
+		"content":"Geduld aub..."
+	  },
+	  "confirmTransactionModal":{
+		"title":"Bevestig opdracht?",
+		"content":"Bedrag: {amount}<br/>Transactiekosten: {fees}<br/>Totaal: {total}",
+		"confirmText":"Bevestig",
+		"cancelText":"Afbreken"
+	  },
+	  "waitingNfcModal":{
+		  "title":"Wachten op NFC",
+		  "content":"Leg uw telefoon een stukje dichterbij de andere"
+	  }
+	},
+	"receivePage":{
+	  "title":"Ontvangen SUMO",
+	  "receiveBlock":{
+		"address":{
+		  "title":"Uw adres om op te ontvangen:",
+		  "label":"Geef dit adres om te ontvangen"
+		},
+		"qrCode":{
+		  "title":"Of personaliseer de QR code:",
+		  "labelAmount":"Bedrag (optioneel)",
+		  "labelRecipient":"Naam ontvanger (optioneel)",
+		  "labelDescription":"Transactie omschrijving (optioneel)",
+		  "updateButton":"Update"
+		}
+	  },
+	  "qrBlock":{
+		"title":"Uw op maat gemaakte QR code"
+	  },
+	  "waitingNfcToWriteModal":{
+		  "title":"Wachten op NFC",
+		  "titleSuccess":"NFC Tag geschreven",
+		  "content":"Leg uw telefoon een stukje dichterbij de andere om te schrijven"
+	  },
+	  "nfcErrorModal":{
+		"titleInsufficientCapacity":"Tag capaciteit is ontoereikend"
+	  }
+	},
+	"miningPage":{
+	  "title":"Mine met uw browser",
+	  "subtitle":"Support het netwerk door te minen en krijg hiemee SUMOKOINs",
+	  "parameterBlock":{
+		"title":"Parameters",
+		"labelDestinationAddress":"Wallet om naartoe te minen",
+		"labelThreads":"Hoeveelheid van CPU threads (meer  = hogere hashrate)",
+		"start":"Start",
+		"stop":"Stop"
+	  },
+	  "statisticsBlocks":{
+		"title":"Statistieken",
+		"validShares":"Valid shares",
+		"hashrate":"Hashrate",
+		"maxHashrate":"Max Hashrate",
+		"dedicatedHardware":"Tip: Met volwaardige mining software zoals xmrig en goede hardware zoals recente processors en grafische kaarten kunt u het netwerk nog meer helpen en ... meer verdienen!",
+		"miningHandledBy":"Deze mining setup is afgehandeld door de mining pool get.SUMOKOINcoin.com"
+	  }
+	},
+	"settingsPage":{
+	  "title":"Instellingen",
+	  "subtitle":"Verander je instellingen hier",
+	  "versionBlock":{
+		"versionNumber":"Versie nummer: ",
+		"versionCode":"Versie code: "
+	  },
+	  "settingsBlock":{
+		"speed":{
+		  "label":"Snelheid om je wallet te updaten (kost iets meer resources)",
+		  "fastest":"Snelst",
+		  "fast":"Sneller",
+		  "medium":"Normaal",
+		  "slow":"Langzamer"
+		},
+		"language":{
+		  "label":"Taal"
+		},
+		"readMinerTx":{
+		  "label":"Lees miner transacties (alleen voor solo mining)"
+		}
+	  },
+	  "changePasswordButton":"Verander mijn wallet wachtwoord",
+	  "deleteWalletButton":"Verwijder mijn wallet (alleen de lokale kopie)",
+	  "walletSettings":{
+		"creationHeight":{
+		  "label":"Blockchain hoogte van aangemaakte wallet"
+		},
+		"currentScanningHeight": {
+		  "label": "Huidig gescande hoogte"
+		},
+		"updateButton":"Update"
+	  },
+	  "deleteWalletModal":{
+		"title":"Verwijder mijn wallet (alleen de lokale kopie)",
+		"content":"Wil je ECHT je walllet verwijderen?",
+		"confirmText":"Ja, zeker weten",
+		"cancelButtonText":"Afbreken"
+	  }
+	},
+	"importBasePage":{
+	  "parametersBlock":{
+		"title":"Instellingen",
+		"password":{
+		  "label":"Wachtwoord om je wallet te beveiligen"
+		},
+		"passwordConfirm":{
+		  "label":"Bevestig het wachtwoord",
+		  "invalid":"Het wachtwoord komt niet helemaal overeen met je andere wachtwoord."
+		},
+		"importHeight":{
+		  "label":"Hoogte vanaf waar te importeren:"
+		}
+	  }
+	},
+	"importFromQrPage":{
+	  "title":"Importeren van wallet vanaf een QR code",
+	  "subtitle":"Importeren van wallet vanaf een offline backup",
+	  "qrCodeBlock":{
+		"title":"QR code",
+		"startScanButton":"Start de scan",
+		"importButton":"Importeer"
+	  },
+	  "qrScanningBlock":{
+		"title":"Presenteer de QR code"
+	  }
+	},
+	"exportPage":{
+	  "title":"Backup uw login gegevens",
+	  "publicAddressBlock":{
+		"title":"Uw publieke SUMOKOIN adres"
+	  },
+	  "pdfBlock":{
+		"title":"PDF Backup",
+		"downloadButton":"Download"
+	  },
+	  "warningBlock":{
+		"title":"Waarschuwing",
+		"content":"Als u uw mnemonic phrase ergens opslaat, SLA DEZE DAN **NIET** OP in een tekstfile of iets dergelijks, voor uw eigen veiligheid." 
+	  },
+	  "exportBlock":{
+		"title":"Exporteer uw RAW login gegevens",
+		"privateKeysButton":"Toon mijn private keys",
+		"mnemonicKeysButton":"Toon mijn mnemonic phrase",
+		"fileButton":"Exporteer naar een file"
+	  },
+	  "walletKeysModal":{
+		"title":"Private keys",
+		"confirmText":"Exporteer",
+		"content":"Sla deze keys zorgvuldig op. <b>Bezit van deze keys betekend het bezit van de inhoud van de wallet</b> !<br/>Spend key: {privSpendKey}<br/>Private view key: {privViewKey}"
+	  },
+	  "mnemonicKeyModal":{
+		"title":"Mnemonic phrase",
+		"confirmText":"Exporteer",
+        "content":"Sla deze woordenreeks zorgvuldig op. <b>Bezit van deze woordenreeks betekend het bezit van de inhoud van de wallet</b> ! De reeks is:<br/>{mnemonic}"
+	  },
+	  "mnemonicLangSelectionModal":{
+		"title":"In welke taal wil je je mnemonic woordenreeks?",
+		"confirmText":"Exporteer",
+		"cancelButtonText":"Afbreken"
+	  }
+	},
+	"importPage":{
+	  "title":"Maak een nieuwe wallet",
+	  "subtitle":"Herstel vanuit eerdere keys, bestand of een mnemonic woordenreeks",
+	  "chooseMethod":"Kies je importeer methode. LET OP dat herstellen vanaf blockhoogte 0 erg lang kan duren, dus zorg dat er voldoende geduld beschikbaar is.",
+	  "fromKeys":"Vanuit keys",
+	  "fromFile":"Vanuit een bestand",
+	  "fromMnemonic":"Vanuit een mnemonic woordenreeks",
+	  "fromQr":"Vanuit een QR code"
+	},
+	"termsOfUsePage":{
+	  "title":"Gebruikersovereenkomst",
+	  "subtitle":"Lees aandachtig!"
+	},
+	"privacyPolicyPage":{
+	  "title":"Gebruikersovereenkomst",
+	  "subtitle":"Lees aandachtig!"
+	},
+	"importFromFilePage":{
+	  "title":"Importeer uw wallet vanuit een backup bestand",
+	  "subtitle":"Gebruik uw backup bestand om een wallet te importeren",
+	  "walletBlock":{
+		"title":"Wallet bestand",
+		"label":"Selecteer het bestand",
+		"importButton":"Importeer"
+	  }
+	},
+	"importFromMnemonicPage":{
+	  "title":"Importeer wallet vanuit een mnemonic woordenreeks",
+	  "subtitle":"Gebruik uw woordenreeks om een wallet te importeren",
+	  "mnemonicBlock":{
+		"title":"Mnemonic woordenreeks",
+		"mnemonic":{
+		  "label":"Mnemonic woordenreeks: 26 woorden",
+		  "invalid":"De mnemonic woordenreeks is onjuist",
+		  "language":"Taal"
+		},
+		"importButton":"Importeer"
+	  }
+	},
+	"importFromKeysPage":{
+	  "title":"Importeren van wallet vanuit sleutels",
+	  "subtitle":"Gebruik uw sleutels om een wallet te importeren",
+	  "parametersBlock":{
+		"viewOnlyWallet":{
+		  "label":"Wilt u een alleen-lezen wallet?"
+		}
+	  },
+	  "keysBlock":{
+		"titleNotViewOnly":"Wallet sleutels",
+		"titleViewOnly":"Alleen-lezen wallet",
+		"privateSpend":{
+		  "label":"Privé 'spend' sleutel"
+		},
+		"privateView":{
+		  "label":"Privé 'view' sleutel",
+		  "optional":"(optioneel)"
+		},
+		"publicKey":{
+		  "label":"Publieke sleutel"
+		},
+		"importButton":"Importeer"
+	  }
+	}
+  },
+  "number":{
+  },
+  "date":{
+	"short": {
+	  "year": "numeric", "month": "short", "day": "numeric"
+	},
+	"long": {
+	  "year": "numeric", "month": "short", "day": "numeric",
+	  "weekday": "short", "hour": "numeric", "minute": "numeric", "hour12": true
+	}
+  }
+}
