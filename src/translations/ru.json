@@ -1,0 +1,495 @@
+{
+  "website":{
+	"title":"Официальный web-кошелек Sumokoin",
+	"description":"Официальный онлайн кошелек Sumokoin - быстрый, анонимный, полностью поддерживается в браузере для вашей оптимальной безопасности"
+  },
+  "messages": {
+	"menu": {
+	  "home": "Home",
+	  "account": "Аккаунт",
+	  "send": "Отправить",
+	  "receive": "Получить",
+	  "export": "Экспорт",
+	  "donate": "Пожертвовать",
+	  "settings": "Настройки",
+	  "disconnect": "Отключение",
+	  "network": "Статистика сети"
+	},
+	"global": {
+	  "loading": "Загрузка",
+	  "disableSecurity":"Отключая эту защиту, я понимаю риски",
+	  "passwordInvalidRequirements":"Пароль должен состоять не менее чем из 8 символов - 1 прописной буквы, 1 строчной буквы, одной цифры и одного специального символа",
+	  "passwordConfirmationNotMatching":"Пароль не совпадает с первым написанным вами паролем",
+	  "download":"Download",
+	  "newVersionModal":{
+		"title":"Доступна новая версия",
+		"content":"Перезагрузить для загрузки новой версии?",
+		"confirmText":"Да",
+		"cancelText":"Назад"
+	  },
+	  "openWalletModal":{
+		"title":"Пароль кошелька",
+		"confirmText":"Подтвердить",
+		"cancelText":"Отмена"
+
+	  },
+	  "invalidPasswordModal":{
+		"title":"УУпс...",
+		"content":"Ваш пароль недействителен",
+		"confirmText":"OK"
+	  },
+	  "invalidMnemonicModal":{
+		"title":"УУпс...",
+		"content":"Мнемоническая фраза недействительна",
+		"confirmText":"OK"
+	  },
+	  "passwordNotComplexEnoughModal":{
+		"title":"Пароль недостаточно сложный",
+		"confirmText":"OK"
+	  },
+	  "permissionRequiredForCameraModal":{
+		"title":"УУпс...",
+		"content":"Для сканирования QR-кода необходимо разрешение на доступ к вашей камере",
+		"confirmText":"OK"
+	  }
+	},
+	"bottom": {
+	  "termsOfUse": "Условия использования",
+	  "privacyPolicy": "Политика приватности",
+	  "support": "Поддержка",
+	  "donate": "Пожертвования",
+	  "network": "Статистика сети",
+	  "miningPool": "Пул для майнинга",
+	  "github": "GitHub"
+	},
+	"homepage": {
+	  "mainTitle": "WEB-КОШЕЛЕК SUMOKOIN",
+	  "tagLine": "Самый простой способ использования SUMOKOIN",
+	  "actions": {
+		"loadWallet": "Загрузить мой кошелек",
+		"importWallet": "Импортировать кошелек",
+		"create": "Создать",
+		"createWallet": "Создать кошелек"
+	  },
+	  "notes": {
+		"secure": {
+		  "title": "Безопасный",
+		  "description": "Никаких серверов, полностью зашифрованный!"
+		},
+		"fast": {
+		  "title": "Быстрый",
+		  "description": "Везде, в любое время!"
+		},
+		"technology": {
+		  "title": "Уникальная технология",
+		  "description": "Взаимодействие напрямую с блокчейном Sumokoin!"
+		},
+		"openSource": {
+		  "title": "Полностью Open-source",
+		  "description": "Доступно на Github!"
+		}
+	  }
+	},
+	"accountPage": {
+	  "title": "Аккаунт",
+	  "subtitle": "Ваш счет и история транзакций",
+	  "synchronizingBlock": {
+		"text": "Синхронизация..."
+	  },
+	  "balanceBlock": {
+		"title": "Ваш баланс",
+		"unlocked": "Разблокированно"
+	  },
+	  "historyBlock": {
+		"title": "История транзакций",
+		"pendingTxStatus": "В ожидании",
+		"emptyWallet": "В настоящее время у вас нет средств в этом кошельке",
+		"waitSync": "Пожалуйста подождите обновления кошелька",
+		"beReallyPatient": "Первоначальная настройка может занять некоторое время...",
+		"getMSRAddress": "Получить SUMO"
+	  },
+	  "txDetails":{
+		"title":"Детали транзакций",
+		"txHash":"TX Hash",
+		"feesOnTx":"TX Fee",
+		"blockHeight":"Block Height",
+		"paymentId":"Payment ID",
+		"txPrivKey":"TX Private Key"
+	  }
+	},
+	"changeWalletPasswordPage":{
+	  "title":"Изменить пароль",
+	  "oldPassword":{
+		"label":"Старый пароль",
+		"invalid":"Пароль не подходит"
+	  },
+	  "newPassword":{
+		"label":"ВЫберите новый пароль, чтобы защитить свой кошелек"
+	  },
+	  "newPasswordConfirm":{
+		"label":"Подтвердите новый пароль"
+	  },
+	  "confirm":"Change the password",
+	  "modalSuccess":{
+		"title":"Пароль изменен!",
+		"confirmText":"OK"
+	  }
+	},
+	"createWalletPage":{
+	  "generatingStep":{
+		"title":"Ваш кошелек генерируется...",
+		"subtitle":"Почти готово",
+		"waitingMessage":"Генерируем ваш кошелек..."
+	  },
+	  "finalizationStep":{
+		"title":"Это было просто. Ваш аккаунт готов!",
+		"subtitle":"Будьте готовы использовать SUMOKOIN как никогда прежде",
+		"passwordSelectionBlock":{
+		  "label":"Защитите ваш кошелек"
+		},
+		"passwordConfirmBlock":{
+		  "label":"Подтвердите пароль"
+		},
+		"validPassword":"Пароль применен",
+		"backupBlock":{
+		  "title":"Сохраните ваши личные данные для восстановления.",
+		  "option1":"Опция 1: ",
+		  "option2":"Опция 2: ",
+		  "titlePdf":"Загрузить PDF копию",
+		  "titleManualWrite":"Записать ключи",
+		  "privateKeys":"Приватный ключ",
+		  "mnemonicPhrase":"Мнемоническая фраза",
+		  "separatorManualMethodsSolution":" or ",
+		  "confirmManuallyWritten":"Я сохранил свою seed фразу",
+		  "warningMessage":"**Не потеряйте эти данные!** Они не могут быть восстановлены при утере.<br/>**Не делитесь ими!** Ваши средства будут украдены, если вы используете эти файлы или seed фразу на вредоносном/фишинговом сайте.<br/>**Сделайте копии!** Храните их как миллион долларов, которыми они однажды могут стать.<br/>",
+		  "finishButton":"Я понимаю. Продолжить."
+		}
+	  },
+	  "disclaimerBlock":{
+		"title":"Риск использования SUMOKOIN кошелька",
+		"content":"Кошелек SUMOKOIN - это web-интерфейс. Он поможет вам использовать SUMOKOIN, не запуская ноду. <br/>Мы рекомендуем обращаться с кошельком SUMOKOIN так же, как с настоящим кошельком".
+	  }
+	},
+	"donatePage":{
+	  "title":"Пожервования",
+	  "subtitle":"Помощь в финансировании развития этого web-кошелька",
+	  "webwalletBlock":{
+		"title":"Web-кошелек",
+		"content":"Этот web-кошелек основан на web-кошельке Gnock и доработан командой Sumokoin.<br/>Если вы хотите помочь в разработке, оплате серверов, и приложений подобно этому, пожалуйста, рассмотрите возможность пожертвования: <br/><br/>".
+	  },
+	  "SUMOKOINFundBlock":{
+		"title":"Фонд поддержки SUMOKOIN",
+		"content":"Чтобы помочь SUMOKOIN, вы можете сделать пожертвование по этим адресам"
+	  }
+	},
+	"supportPage":{
+	  "title":"Поддержка",
+	  "subtitle":"Мы здесь, чтобы помочь вам!",
+	  "getInTouchBlock":{
+		"title":"Все будет сделано оперативно!",
+		"content":"У вас есть идеи или отзывы, которые могли бы помочь нам улучшить кошелек? Свяжитесь с нами!",
+		"discord":"Группа SUMOKOIN в Telegram"
+	  }
+	},
+	"networkPage":{
+	  "title":"Статистика сети",
+	  "subtitle":"Информация о сети SUMOKOIN",
+	  "statsBlock":{
+		"hashrate":"Hashrate сети",
+		"height":"Blockchain height",
+		"difficulty":"Трудность",
+		"lastTimeBlock":"Последний блок",
+		"lastReward":"Награда последнего блока"
+	  }
+	},
+	"sendPage":{
+	  "title":"Послать SUMO",
+	  "sendBlock":{
+		"address":{
+		  "label":"Адрес назначения",
+		  "invalid":"Адрес назначения недействителен",
+		  "fundsTo":"Средства будут отправлены на",
+		  "receiver":"Получатель",
+		  "description":"Описание"
+		},
+		"amount":{
+		  "label":"Количество к отправке",
+		  "invalid":"Количество недействительно"
+		},
+		"paymentId":{
+		  "label":"Payment ID (опционально)",
+		  "invalid":"Payment ID недействителен. Длина должна быть 16 символов"
+		},
+		"sendButton":"Послать",
+		"cancelButton":"Отменить"
+	  },
+	  "qrCodeScanning":{
+		"explication":"Предъявите QR-код"
+	  },
+	  "notEnoughMoneyModal":{
+		"title":"УУпс...",
+		"content":"Недостаточно средств в кошельке, чтобы осуществить этот перевод",
+		"confirmText":"OK"
+	  },
+	  "thankYouDonationModal":{
+		"title":"Спасибо за ваше пожертвование!",
+		"content":"Ваша помощь высоко ценится. <br/>Это пожертвование поможет сделать SUMOKOIN лучше",
+		"confirmText":"OK"
+	  },
+	  "transferSentModal":{
+		"title":"Перевод успешно отправлен!",
+		"confirmText":"OK"
+	  },
+	  "transferExceptionModal":{
+		"title":"УУпс...",
+		"content":"Произошла ошибка. Пожалуйста, сообщите об этой ошибке: {details}",
+		"confirmText":"OK"
+	  },
+	  "invalidAmountModal":{
+		"title":"УУпс...",
+		"content":"Неправильное количество",
+		"confirmText":"OK"
+	  },
+	  "creatingTransferModal":{
+		"title":"Перевод создается ...",
+		"content":"Пожалуйста подождите..."
+	  },
+	  "finalizingTransferModal":{
+		"title":"Завершение перевода ...",
+		"content":"Пожалуйста подождите..."
+	  },
+	  "confirmTransactionModal":{
+		"title":"Подтвердить перевод?",
+		"content":"Количество: {amount}<br/>Fees: {fees}<br/>Общее: {total}",
+		"confirmText":"Подтвердить",
+		"cancelText":"Отмена"
+	  },
+	  "waitingNfcModal":{
+		  "title":"Ожидание NFC",
+		  "content":"Поднесите телефон ближе к устройству"
+	  }
+	},
+	"receivePage":{
+	  "title":"Получить SUMO",
+	  "receiveBlock":{
+		"address":{
+		  "title":"Ваш адрес для получения средств:",
+		  "label":"Адрес для получения средств"
+		},
+		"qrCode":{
+		  "title":"Или персонализируйте QR-код:",
+		  "labelAmount":"Количество (опционально)",
+		  "labelRecipient":"Имя получателя (опционально)",
+		  "labelDescription":"Описание перевода (опционально)",
+		  "updateButton":"Обновить"
+		}
+	  },
+	  "qrBlock":{
+		"title":"Ваш QR-код"
+	  },
+	  "waitingNfcToWriteModal":{
+		  "title":"Ожидание NFC",
+		  "titleSuccess":"NFC-метка считана",
+		  "content":"Поднесите телефон ближе к метке NFC для записи"
+	  },
+	  "nfcErrorModal":{
+		"titleInsufficientCapacity":"Вместимость метки недостаточна"
+	  }
+	},
+	"miningPage":{
+	  "title":"Майните прямо в вашем браузере",
+	  "subtitle":"Поддержите сеть SUMO майнингом и получайте вознаграждения",
+	  "parameterBlock":{
+		"title":"Параметры",
+		"labelDestinationAddress":"Кошелек для майнинга",
+		"labelThreads":"Количество процессов (больше = больше hashrate)",
+		"start":"Старт",
+		"stop":"Стоп"
+	  },
+	  "statisticsBlocks":{
+		"title":"Статистика",
+		"validShares":"Valid shares",
+		"hashrate":"Hashrate",
+		"maxHashrate":"Максимальный Hashrate",
+		"dedicatedHardware":"Выделив программное и аппаратное обеспечение для майнинга, вы сможете заработать больше и помочь децентрализовать сеть",
+		"miningHandledBy": "Этими разработками занимается пул разработчиков get.SUMOKOINcoin.com"."
+	  }
+	},
+	"settingsPage":{
+	  "title":"Настройки",
+	  "subtitle":"Изменить свои парметры можно здесь",
+	  "versionBlock":{
+		"versionNumber":"Номер версии: ",
+		"versionCode":"Код версии: "
+	  },
+	  "settingsBlock":{
+		"speed":{
+		  "label":"Скорость обновления кошелька (потребляет больше ресурсов)",
+		  "fastest":"Самая быстрая",
+		  "fast":"Быстрая",
+		  "medium":"Средняя",
+		  "slow":"Медленная"
+		},
+		"language":{
+		  "label":"Язык"
+		},
+		"readMinerTx":{
+		  "label":"Считывать только майнинг-транзакции (только для соло-майнинга)"
+		}
+	  },
+	  "changePasswordButton":"Изменить пароль к моему кошельку",
+	  "deleteWalletButton":"Удалить мой кошелек (локальная копия)",
+	  "walletSettings":{
+		"creationHeight":{
+		  "label":"Высота блокчейна создания кошелька"
+		},
+		"currentScanningHeight": {
+		  "label": "текущая высота сканирования блокчейна"
+		},
+		"updateButton":"Обновление"
+	  },
+	  "deleteWalletModal":{
+		"title":"Удалить мой кошелек (локальная копия)",
+		"content":"Вы уверены, что хотите удалить свой кошелек?",
+		"confirmText":"Да, я хочу удалить кошелек",
+		"cancelButtonText":"Отмена"
+	  }
+	},
+	"importBasePage":{
+	  "parametersBlock":{
+		"title":"Параметры",
+		"password":{
+		  "label":"Пароль для защиты кошелька"
+		},
+		"passwordConfirm":{
+		  "label":"Подтвердите пароль",
+		  "invalid":"Пароль не совпадает с первым написанным вами паролем"
+		},
+		"importHeight":{
+		  "label":"Начать импорт с высоты блокчейна:"
+		}
+	  }
+	},
+	"importFromQrPage":{
+	  "title":"Импорт кошелька при помощи QR-кода",
+	  "subtitle":"Импорт кошелька из резервной оффлайн копии",
+	  "qrCodeBlock":{
+		"title":"QR-код",
+		"startScanButton":"Начать сканирование",
+		"importButton":"Импорт"
+	  },
+	  "qrScanningBlock":{
+		"title":"Предъявите QR-код"
+	  }
+	},
+	"exportPage":{
+	  "title":"Резервное копирование учетных данных",
+	  "publicAddressBlock":{
+		"title":"Ваш публичный адрес"
+	  },
+	  "pdfBlock":{
+		"title":"PDF Backup",
+		"downloadButton":"Загрузить"
+	  },
+	  "warningBlock":{
+		"title":"Предупреждение",
+		"content":"Если вы решили сохранить ваши личные ключи или мнемоническую фразу, ПОЖАЛУЙСТА, НЕ храните их в открытом виде для вашей собственной безопасности.<br/>Файл - это альтернативное решение, где ваши ключи зашифрованы и содержат резервную копию всех ваших транзакций, чтобы избавить вас от необходимости синхронизации в будущем".
+	  },
+	  "exportBlock":{
+		"title":"Экспорт ваших учетных RAW данных",
+		"privateKeysButton":"Получить мои приватные ключи",
+		"mnemonicKeysButton":"Получить мою мнемоническую фразу",
+		"fileButton":"Экспорт в файл"
+	  },
+	  "walletKeysModal":{
+		"title":"Приватные ключи",
+		"confirmText":"Экспорт",
+		"content":"Пожалуйста, храните эти ключи аккуратно. <b>Обладать ими означает владеть средствами, связанными с ними</b> !<br/>Клавиша разблокировки: {privSpendKey}<br/>Клавиша разблокировки: {privViewKey}".
+	  },
+	  "mnemonicKeyModal":{
+		"title":"Мнемоническая фраза",
+		"confirmText":"Экспорт",
+        "content":"Пожалуйста, храните эту мнемоническую фразу аккуратно. <Обладать ею означает владеть средствами, связанными с ней</b> ! Фраза:<br/>{mnemonic}".
+	  },
+	  "mnemonicLangSelectionModal":{
+		"title":"На каком языке вы хотите мнемоническую фразу?",
+		"confirmText":"Экспорт",
+		"cancelButtonText":"Отмена"
+	  }
+	},
+	"importPage":{
+	  "title":"Создать кошелек",
+	  "subtitle":"Из ранее созданных ключей, файла или мнемонической фразы",
+	  "chooseMethod":"Выберите способ импорта. Обратите внимание, что восстановление старого кошелька с высоты 0 может занять много времени, поэтому наберитесь терпения",
+	  "fromKeys":"Из Ключей",
+	  "fromFile":"Из файла",
+	  "fromMnemonic":"Из мнемонической фразы",
+	  "fromQr":"Из QR-кода"
+	},
+	"termsOfUsePage":{
+	  "title":"Условия использования",
+	  "subtitle":"Прочитайте их внимательно, пожалуйста"
+	},
+	"privacyPolicyPage":{
+	  "title":"Политика приватности",
+	  "subtitle":"Прочитайте ее внимательно, пожалуйста"
+	},
+	"importFromFilePage":{
+	  "title":"Импорт кошелька из файла резервной копии",
+	  "subtitle":"Используйте свой файл резервной копии для создания кошелька",
+	  "walletBlock":{
+		"title":"Файл кошелька",
+		"label":"Выбрать файл",
+		"importButton":"Импорт"
+	  }
+	},
+	"importFromMnemonicPage":{
+	  "title":"Импорт кошелька из мнемонической фразы",
+	  "subtitle":"Используйте свою фразу, чтобы создать кошелек",
+	  "mnemonicBlock":{
+		"title":"Мнемоническая фраза",
+		"mnemonic":{
+		  "label":"Мнемоническая фраза: 26 слов",
+		  "invalid":"Мнемоническая фраза недействительна",
+		  "language":"Язык"
+		},
+		"importButton":"Импорт"
+	  }
+	},
+	"importFromKeysPage":{
+	  "title":"Импорт кошелька при помощи приватных ключей",
+	  "subtitle":"Используйте приватные ключи, чтобы создать кошелек",
+	  "parametersBlock":{
+		"viewOnlyWallet":{
+		  "label":"Хотите посмотреть только кошелек?"
+		}
+	  },
+	  "keysBlock":{
+		"titleNotViewOnly":"Приватные ключи",
+		"titleViewOnly":"Только посмотреть кошелек",
+		"privateSpend":{
+		  "label":"Private spend key"
+		},
+		"privateView":{
+		  "label":"Private view key",
+		  "optional":"(опционально)"
+		},
+		"publicKey":{
+		  "label":"Public key"
+		},
+		"importButton":"Импорт"
+	  }
+	}
+  },
+  "number":{
+  },
+  "date":{
+	"short": {
+	  "year": "numeric", "month": "short", "day": "numeric"
+	},
+	"long": {
+	  "year": "numeric", "month": "short", "day": "numeric",
+	  "weekday": "short", "hour": "numeric", "minute": "numeric", "hour12": true
+	}
+  }
+}
