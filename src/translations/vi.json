@@ -9,7 +9,7 @@
 	  "account": "Tài Khoản",
 	  "send": "Gửi",
 	  "receive": "Nhận",
-	  "export": "Xuất",
+	  "export": "Xuất/Lưu TT Ví",
 	  "donate": "Đóng Góp",
 	  "settings": "Cài Đặt",
 	  "disconnect": "Ngắt Kết Nối",
@@ -58,7 +58,7 @@
 	  "support": "Ủng hộ",
 	  "donate": "Đóng góp",
 	  "network": "Thông tin mạng",
-	  "miningPool": "Mining Pool",
+	  "miningPool": "Pool đào tiền",
 	  "github": "GitHub"
 	},
 	"homepage": {
@@ -81,7 +81,7 @@
 		},
 		"technology": {
 		  "title": "Công nghệ độc đáo",
-		  "description": "Kết nối trực tiếp với blockchain của Sumokoin"
+		  "description": "Kết nối trực tiếp với Blockchain của Sumokoin"
 		},
 		"openSource": {
 		  "title": "Mã nguồn mở hoàn toàn",
@@ -111,7 +111,7 @@
 		"title":"Chi tiết giao dịch",
 		"txHash":"Hash GD",
 		"feesOnTx":"Phí GD",
-		"blockHeight":"Block Height",
+		"blockHeight":"Độ cao",
 		"paymentId":"Payment ID",
 		"txPrivKey":"Khóa mã riêng của GD"
 	  }
@@ -194,11 +194,11 @@
 	  "title":"Thông tin mạng",
 	  "subtitle":"Thông tin chi tiết về mạng SUMOKOIN",
 	  "statsBlock":{
-		"hashrate":"Hashrate",
-		"height":"Blockchain height",
-		"difficulty":"Difficulty",
-		"lastTimeBlock":"Thời gian tìm thấy block cuối",
-		"lastReward":"Block reward cuối"
+		"hashrate":"Tốc độ hash",
+		"height":"Độ cao blockchain",
+		"difficulty":"Độ khó",
+		"lastTimeBlock":"Thời gian tìm ra block cuối",
+		"lastReward":"Số tiền đào được ở block cuối"
 	  }
 	},
 	"sendPage":{
@@ -340,10 +340,10 @@
 	  "deleteWalletButton":"Xóa ví của tôi (bản lưu cục bộ)",
 	  "walletSettings":{
 		"creationHeight":{
-		  "label":"Height khởi tạo"
+		  "label":"Độ cao khởi tạo"
 		},
 		"currentScanningHeight": {
-		  "label": "Height hiện tại"
+		  "label": "Độ cao hiện tại"
 		},
 		"updateButton":"Cập Nhật"
 	  },
@@ -365,7 +365,7 @@
 		  "invalid":"Mật khẩu không khớp với mật khẩu đầu tiên"
 		},
 		"importHeight":{
-		  "label":"Height khởi tạo ví:"
+		  "label":"Độ cao khởi tạo ví:"
 		}
 	  }
 	},
@@ -398,7 +398,7 @@
 		"title":"Trích xuất thông tin ví",
 		"privateKeysButton":"Lấy khóa mã riêng",
 		"mnemonicKeysButton":"Lấy cụm từ ghi nhớ (seed)",
-		"fileButton":"Xuất thành tập tin"
+		"fileButton":"Lưu thành tập tin"
 	  },
 	  "walletKeysModal":{
 		"title":"Khóa Mã",

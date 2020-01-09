@@ -67,13 +67,13 @@
 	  "actions": {
 		"loadWallet": "Wallet laden",
 		"importWallet": "Wallet importeren",
-		"create": "Maken",
+		"create": "Wallet maken",
 		"createWallet": "Wallet aanmaken"
 	  },
 	  "notes": {
 		"secure": {
 		  "title": "Veilig",
-		  "description": "Geen servers, volledige encryptie!"
+		  "description": "Geen gegevens op servers, volledige encryptie!"
 		},
 		"fast": {
 		  "title": "Snel",
@@ -81,7 +81,7 @@
 		},
 		"technology": {
 		  "title": "Unieke Technologie",
-		  "description": "Direct verbonden met de SUMOKOIN blockchain!"
+		  "description": "Direct verbonden met de SUMOKOIN Blockchain!"
 		},
 		"openSource": {
 		  "title": "Volledig Open Source",
@@ -91,7 +91,7 @@
 	},
 	"accountPage": {
 	  "title": "Account",
-	  "subtitle": "Bankrekening overzicht en transactie geschiedenis",
+	  "subtitle": "Account overzicht en transactie geschiedenis",
 	  "synchronizingBlock": {
 		"text": "Synchroniseren..."
 	  },
@@ -102,8 +102,8 @@
 	  "historyBlock": {
 		"title": "Transactie geschiedenis",
 		"pendingTxStatus": "Verwerken",
-		"emptyWallet": "Er is op dit moment geen bedrag in uw wallet.",
-		"waitSync": "Wacht aub even tot de wallet is geupdated.",
+		"emptyWallet": "Er is op dit moment geen saldo op uw account.",
+		"waitSync": "Wacht a.u.b. even tot de wallet is geüpdate.",
 		"beReallyPatient": "De eerste instellingen kunnen even duren...",
 		"getMSRAddress": "Ontvangen SUMO"
 	  },
@@ -136,18 +136,18 @@
 	},
 	"createWalletPage":{
 	  "generatingStep":{
-		"title":"Uw SUMOKOIN portemonnee zal nu worden aangemaakt...",
+		"title":"Uw SUMOKOIN wallet zal nu worden aangemaakt...",
 		"subtitle":"Bijna klaar...",
-		"waitingMessage":"Uw SUMOKOIN portemonnee zal nu worden aangemaakt..."
+		"waitingMessage":"Uw SUMOKOIN wallet zal nu worden aangemaakt..."
 	  },
 	  "finalizationStep":{
-		"title":"Nou dat was best makkelijk! Uw online wallet is nu klaar!",
+		"title":"Uw online wallet is bijna klaar voor gebruik..",
 		"subtitle":"Wees voorbereid om SUMOKOIN te gebruiken...",
 		"passwordSelectionBlock":{
-		  "label":"Bescherm uw wallet"
+		  "label":"Vul hier uw wachtwoord in van uw webwallet:"
 		},
 		"passwordConfirmBlock":{
-		  "label":"Bevestig uw wachtwoord"
+		  "label":"Bevestig uw webwallet wachtwoord:"
 		},
 		"validPassword":"Gebruik dit wachtwoord",
 		"backupBlock":{
@@ -160,13 +160,13 @@
 		  "mnemonicPhrase":"Mnemonic woordenreeks",
 		  "separatorManualMethodsSolution":" of ",
 		  "confirmManuallyWritten":"Ik heb mijn mnemonic (ezelsbruggetje) woordenreeks opgeschreven",
-		  "warningMessage":"**NIET VERLIEZEN!!!** Het kan niet hersteld worden als ze verloren zijn.<br/>**Ook met niemand delen!** De rekening zal worden leeggeroofd als deze keys door phising o.i.d. zal worden bemachtigd.<br/>**Maak een backup, sla deze bij voorkeur offline op!**.<br/>",
+		  "warningMessage":"**NIET VERLIEZEN!!!** Uw wallet kan niet hersteld worden als deze gegevens verloren zijn.<br/>**Ook met niemand delen!** De rekening zal volledig worden leeggeroofd als deze keys door phising o.i.d. zal worden bemachtigd.<br/>**Maak een backup, sla deze bij voorkeur offline op!**.<br/>",
 		  "finishButton":"Ik begrijp het. Ga door."
 		}
 	  },
 	  "disclaimerBlock":{
 		"title":"Risico bij gebruik van SUMOKOIN Wallet",
-		"content":"SUMOKOIN Wallet is een web-based interface. Het helpt je om SUMOKOIN te gebruiken zonder een volledige node te installeren. <br/>We raden je aan om SUMOKOIN Wallet net zo te behandelen als dat u uw eigen portemonnee behandeld."
+		"content":"De SUMOKOIN Wallet is een web based interface. Een stuk laagdrempeliger in gebruik dan bijvoorbeeld de reguliere GUI wallet waarbij er een volledige node moet draaien/syncen. <br/>We raden u echter wel aan om SUMOKOIN Wallet net zo secuur te behandelen als dat u uw eigen fysieke portemonnee behandeld."
 	  }
 	},
 	"donatePage":{
@@ -174,7 +174,7 @@
 	  "subtitle":"Help mee om de web wallet verder te ondersteunen en ontwikkelen",
 	  "webwalletBlock":{
 		"title":"Webwallet",
-		"content":"Deze Web wallet is gebaseerd op Gnock's webwallet en is volledig opgenomen en verder ontwikkeld door het SUMOKOIN ontwikkelaarsteam.<br/>Als u zelf wilt meehelpen met de verdere ontwikkeling, of wil bijdragen aan de hosting van de servers, of gewoon heel erg verliefd bent op deze app, dan kunt u doneren op: <br/><br/>"
+		"content":"Deze Web wallet is gebaseerd op Gnock's webwallet en is volledig opgenomen en verder ontwikkeld door het SUMOKOIN ontwikkelaarsteam.<br/>Als u zelf wilt meehelpen met de verdere ontwikkeling, of wil bijdragen aan de hosting van de servers, of gewoon heel erg verliefd bent op deze functinaliteit, dan kunt u doneren op: <br/><br/>"
 	  },
 	  "SUMOKOINFundBlock":{
 		"title":"SUMOKOIN Support Fund",
@@ -227,12 +227,12 @@
 	  },
 	  "notEnoughMoneyModal":{
 		"title":"Oops...",
-		"content":"Uw hebt te weinig in de wallet zitten om dit te kunnen versturen",
+		"content":"Uw hebt te weinig saldo in de wallet zitten om dit te kunnen versturen",
 		"confirmText":"OK"
 	  },
 	  "thankYouDonationModal":{
-		"title":"Bedankt voor je donatie!",
-		"content":"Uw hulp en medewerking aan SUMOKOIN word erg gewaardeerd. <br/>Deze donatie helpt SUMOKOIN beter te maken.",
+		"title":"Bedankt voor uw donatie!",
+		"content":"Uw hulp en medewerking aan SUMOKOIN word erg gewaardeerd. <br/>Deze donatie helpt SUMOKOIN beter te maken, maar de getoonde waardering is ons nog veel meer waard!",
 		"confirmText":"OK"
 	  },
 	  "transferSentModal":{
@@ -265,7 +265,7 @@
 	  },
 	  "waitingNfcModal":{
 		  "title":"Wachten op NFC",
-		  "content":"Leg uw telefoon een stukje dichterbij de andere"
+		  "content":"Leg uw smartphone iets dichterbij de andere smartphone."
 	  }
 	},
 	"receivePage":{
@@ -311,7 +311,7 @@
 		"hashrate":"Hashrate",
 		"maxHashrate":"Max Hashrate",
 		"dedicatedHardware":"Tip: Met volwaardige mining software zoals xmrig en goede hardware zoals recente processors en grafische kaarten kunt u het netwerk nog meer helpen en ... meer verdienen!",
-		"miningHandledBy":"Deze mining setup is afgehandeld door de mining pool get.SUMOKOINcoin.com"
+		"miningHandledBy":"Deze mining setup is afgehandeld door de mining pool pool.sumokoin.org"
 	  }
 	},
 	"settingsPage":{
@@ -323,7 +323,7 @@
 	  },
 	  "settingsBlock":{
 		"speed":{
-		  "label":"Snelheid om je wallet te updaten (kost iets meer resources)",
+		  "label":"Snelheid om je wallet te updaten (sneller vereist meer capaciteit)",
 		  "fastest":"Snelst",
 		  "fast":"Sneller",
 		  "medium":"Normaal",
@@ -392,35 +392,35 @@
 	  },
 	  "warningBlock":{
 		"title":"Waarschuwing",
-		"content":"Als u uw mnemonic phrase ergens opslaat, SLA DEZE DAN **NIET** OP in een tekstfile of iets dergelijks, voor uw eigen veiligheid." 
+		"content":"Als u uw mnemonic woordenreeks ergens opslaat, SLA DEZE DAN **NIET** OP in een tekstfile of iets dergelijks, voor uw eigen veiligheid. <br/>Tip: Keepass is hiervoor een mooie oplossing." 
 	  },
 	  "exportBlock":{
 		"title":"Exporteer uw RAW login gegevens",
-		"privateKeysButton":"Toon mijn private keys",
-		"mnemonicKeysButton":"Toon mijn mnemonic phrase",
-		"fileButton":"Exporteer naar een file"
+		"privateKeysButton":"Toon mijn private sleutels",
+		"mnemonicKeysButton":"Toon mijn mnemonic woordenreeks",
+		"fileButton":"Exporteer naar een bestand"
 	  },
 	  "walletKeysModal":{
-		"title":"Private keys",
+		"title":"Private sleutels",
 		"confirmText":"Exporteer",
-		"content":"Sla deze keys zorgvuldig op. <b>Bezit van deze keys betekend het bezit van de inhoud van de wallet</b> !<br/>Spend key: {privSpendKey}<br/>Private view key: {privViewKey}"
+		"content":"Sla deze sleutels zorgvuldig op. <b>Bezit van deze sleutels betekend het bezit van de inhoud van de wallet</b> !<br/>Spend sleutel: {privSpendKey}<br/>Private view sleutel: {privViewKey}"
 	  },
 	  "mnemonicKeyModal":{
-		"title":"Mnemonic phrase",
+		"title":"Mnemonic woordenreeks",
 		"confirmText":"Exporteer",
         "content":"Sla deze woordenreeks zorgvuldig op. <b>Bezit van deze woordenreeks betekend het bezit van de inhoud van de wallet</b> ! De reeks is:<br/>{mnemonic}"
 	  },
 	  "mnemonicLangSelectionModal":{
-		"title":"In welke taal wil je je mnemonic woordenreeks?",
+		"title":"In welke taal wilt u uw mnemonic woordenreeks?",
 		"confirmText":"Exporteer",
 		"cancelButtonText":"Afbreken"
 	  }
 	},
 	"importPage":{
 	  "title":"Maak een nieuwe wallet",
-	  "subtitle":"Herstel vanuit eerdere keys, bestand of een mnemonic woordenreeks",
+	  "subtitle":"Herstel vanuit eerdere sleutels, bestand of een mnemonic woordenreeks",
 	  "chooseMethod":"Kies je importeer methode. LET OP dat herstellen vanaf blockhoogte 0 erg lang kan duren, dus zorg dat er voldoende geduld beschikbaar is.",
-	  "fromKeys":"Vanuit keys",
+	  "fromKeys":"Vanuit sleutels",
 	  "fromFile":"Vanuit een bestand",
 	  "fromMnemonic":"Vanuit een mnemonic woordenreeks",
 	  "fromQr":"Vanuit een QR code"
