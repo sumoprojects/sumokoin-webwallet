@@ -484,11 +484,11 @@
   },
   "date":{
 	"short": {
-	  "year": "numerik", "month": "short", "day": "numerik"
+	  "year": "numeric", "month": "short", "day": "numeric"
 	},
 	"long": {
-	  "year": "numerik", "month": "short", "day": "numerik",
-	  "weekday": "short", "hour": "numeric", "minute": "numerik", "hour12": true
+	  "year": "numeric", "month": "short", "day": "numeric",
+	  "weekday": "short", "hour": "numeric", "minute": "numeric", "hour12": true
 	}
   }
 }
