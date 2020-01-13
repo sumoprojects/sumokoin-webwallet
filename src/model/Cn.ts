@@ -3174,9 +3174,9 @@ export namespace CnTransactions{
 		let change_amount:number = Number(from_dsts[0].amount);
 		let final_total_wo_fee:string = "" + (Number(needed_money) - change_amount);
 
-		return	(<any>window).mymonero_core_js.monero_utils_promise.catch(function(e:any)
+		return	mymonero_core_js.monero_utils_promise.catch(function(e:any)
 		{
-			console.log("err", e)
+			console.log("mymonero_core_js error:", e)
 		}).then(function(monero_utils:any)
 		{
 			const ret = monero_utils.send_step2__try_create_transaction(
@@ -3194,7 +3194,7 @@ export namespace CnTransactions{
 				"1200", // fee_per_b,
 				"1", // fee_mask,
 				unlock_time, // unlock_time,
-				(<any>window).mymonero_core_js.nettype_utils.network_type.MAINNET, // nettype
+				mymonero_core_js.nettype_utils.network_type.MAINNET, // nettype
 				9 // fork version
 			)
 			// console.log("ret", JSON.stringify(ret, null, '  '))
