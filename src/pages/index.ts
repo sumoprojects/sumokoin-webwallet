@@ -19,15 +19,26 @@ import {VueRequireFilter, VueVar} from "../lib/numbersLab/VueAnnotate";
 import {DestructableView} from "../lib/numbersLab/DestructableView";
 import {Wallet} from "../model/Wallet";
 import {AppState} from "../model/AppState";
+import {BlockchainExplorer, NetworkInfo} from "../model/blockchain/BlockchainExplorer";
+import {BlockchainExplorerProvider} from "../providers/BlockchainExplorerProvider";
 
 let wallet : Wallet = DependencyInjectorInstance().getInstance(Wallet.name,'default', false);
 if(wallet !== null){
 	window.location.href = '#account';
 }
 
+let blockchainExplorer: BlockchainExplorer = BlockchainExplorerProvider.getInstance();
+
 class IndexView extends DestructableView{
 	@VueVar(false) hasLocalWallet !: boolean;
 	@VueVar(false) isWalletLoaded !: boolean;
+	@VueVar(0) networkHashrate !: number;
+	@VueVar(0) blockchainHeight !: number;
+	@VueVar(0) networkDifficulty !: number;
+	@VueVar(0) lastReward !: number;
+	@VueVar(0) lastBlockFound !: number;
+
+	private intervalRefreshStat = 0;
 
 	constructor(container : string){
 		super(container);
@@ -37,6 +48,12 @@ class IndexView extends DestructableView{
 		});
 		// this.importWallet();
 		AppState.disableLeftMenu();
+
+		let self = this;
+		this.intervalRefreshStat = setInterval(function(){
+			self.refreshStats();
+		}, 30*1000);
+		this.refreshStats();
 	}
 
 	destruct(): Promise<void> {
@@ -45,6 +62,16 @@ class IndexView extends DestructableView{
 
 	loadWallet(){
 		AppState.askUserOpenWallet();
+	}
+
+	refreshStats() {
+		blockchainExplorer.getNetworkInfo().then((info : NetworkInfo)=>{
+			this.networkDifficulty = info.difficulty;
+			this.networkHashrate = +((info.difficulty / config.avgBlockTime / 1000000).toFixed(3));
+			this.blockchainHeight = info.height;
+			this.lastReward = info.reward/Math.pow(10, config.coinUnitPlaces);
+			this.lastBlockFound = info.timestamp;
+		});
 	}
 
 }

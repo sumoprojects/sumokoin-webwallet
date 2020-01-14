@@ -1,0 +1,494 @@
+{
+  "website":{
+	"title":"Ví trực tuyến chính thức của Sumokoin",
+	"description":"Ví Sumokoin trực tuyến chính thức - nhanh chóng, ẩn danh và được xử lý hoàn toàn trong trình duyệt của bạn để đảm bảo tối ưu bảo mật"
+  },
+  "messages": {
+	"menu": {
+	  "home": "Trang Chủ",
+	  "account": "Tài Khoản",
+	  "send": "Gửi",
+	  "receive": "Nhận",
+	  "export": "Xuất/Lưu TT Ví",
+	  "donate": "Đóng Góp",
+	  "settings": "Cài Đặt",
+	  "disconnect": "Ngắt Kết Nối",
+	  "network": "Thông Tin Mạng"
+	},
+	"global": {
+	  "loading": "Đang tải",
+	  "disableSecurity":"Bỏ qua qui định bảo mật này. Tôi hiểu rõ rủi ro.",
+	  "passwordInvalidRequirements":"Mật khẩu cần ít nhất 8 ký tự - 1 chữ cái viết hoa, 1 chữ cái viết thường, một số và một ký tự đặc biệt",
+	  "passwordConfirmationNotMatching":"Mật khẩu không khớp với mật khẩu đầu tiên bạn đã viết",
+	  "download":"Tải xuống",
+	  "newVersionModal":{
+		"title":"Một phiên bản mới có sẵn",
+		"content":"Bạn có muốn tải lại để tải phiên bản mới?",
+		"confirmText":"Đồng Ý",
+		"cancelText":"Quay Lại"
+	  },
+	  "openWalletModal":{
+		"title":"Mật Khẩu Mở Ví",
+		"confirmText":"Xác Nhận",
+		"cancelText":"Hủy Bỏ"
+	  },
+	  "invalidPasswordModal":{
+		"title":"Có Lỗi...",
+		"content":"Mật khẩu của bạn không hợp lệ",
+		"confirmText":"OK"
+	  },
+	  "invalidMnemonicModal":{
+		"title":"Có Lỗi...",
+		"content":"Cụm từ ghi nhớ không hợp lệ",
+		"confirmText":"OK"
+	  },
+	  "passwordNotComplexEnoughModal":{
+		"title":"Mật khẩu không đủ độ phức tạp",
+		"confirmText":"OK"
+	  },
+	  "permissionRequiredForCameraModal":{
+		"title":"Có Lỗi...",
+		"content":"Cần có quyền truy cập vào máy ảnh của bạn để quét mã QR",
+		"confirmText":"OK"
+	  }
+	},
+	"bottom": {
+	  "termsOfUse": "Điều khoản sử dụng",
+	  "privacyPolicy": "Chính sách bảo mật",
+	  "support": "Ủng hộ",
+	  "donate": "Đóng góp",
+	  "network": "Thông tin mạng",
+	  "miningPool": "Pool đào tiền",
+	  "github": "GitHub"
+	},
+	"homepage": {
+	  "mainTitle": "VÍ TRỰC TUYẾN SUMOKOIN",
+	  "tagLine": "Cách đơn giản nhất để sử dụng SUMOKOIN",
+	  "actions": {
+		"loadWallet": "Mở Ví",
+		"importWallet": "Khôi Phục Ví",
+		"create": "Tạo Ví Mới",
+		"createWallet": "Tạo Ví Mới"
+	  },
+	  "notes": {
+		"secure": {
+		  "title": "Bảo Mật Cao",
+		  "description": "Được mã hóa hoàn toàn ở ngay trình duyệt, không qua máy chủ!"
+		},
+		"fast": {
+		  "title": "Nhanh - Tiện lợi",
+		  "description": "Gửi, nhận tiền mọi lúc, mọi nơi!"
+		},
+		"technology": {
+		  "title": "Công nghệ độc đáo",
+		  "description": "Kết nối trực tiếp với Blockchain của Sumokoin"
+		},
+		"openSource": {
+		  "title": "Mã nguồn mở hoàn toàn",
+		  "description": "Có trên Github!"
+		}
+	  }
+	},
+	"accountPage": {
+	  "title": "Tài Khoản",
+	  "subtitle": "Tổng quan tài khoản và lịch sử giao dịch của bạn",
+	  "synchronizingBlock": {
+		"text": "Đồng bộ hóa ..."
+	  },
+	  "balanceBlock": {
+		"title": "Số dư",
+		"unlocked": "Số dư có thể sử dụng"
+	  },
+	  "historyBlock": {
+		"title": "Lịch sử giao dịch",
+		"pendingTxStatus": "Đang chờ xử lý",
+		"emptyWallet": "Bạn hiện không có tiền trong ví này.",
+		"waitSync": "Vui lòng đợi cho đến khi ví được cập nhật.",
+		"beReallyPatient": "Việc thiết lập ban đầu có thể mất một chút thời gian ...",
+		"getMSRAddress": "Nhận SUMO"
+	  },
+	  "txDetails":{
+		"title":"Chi tiết giao dịch",
+		"txHash":"Hash GD",
+		"feesOnTx":"Phí GD",
+		"blockHeight":"Độ cao",
+		"paymentId":"Payment ID",
+		"txPrivKey":"Khóa mã riêng của GD"
+	  }
+	},
+	"changeWalletPasswordPage":{
+	  "title":"Thay đổi mật khẩu của bạn",
+	  "oldPassword":{
+		"label":"Mật khẩu cũ",
+		"invalid":"Mật khẩu không hợp lệ"
+	  },
+	  "newPassword":{
+		"label":"Chọn một mật khẩu mới để bảo vệ ví của bạn"
+	  },
+	  "newPasswordConfirm":{
+		"label":"Xác nhận mật khẩu mới"
+	  },
+	  "confirm":"Thay đổi mật khẩu",
+	  "modalSuccess":{
+		"title":"Mật khẩu đã được thay đổi!",
+		"confirmText":"OK"
+	  }
+	},
+	"createWalletPage":{
+	  "generatingStep":{
+		"title":"Ví của bạn đang được tạo ...",
+		"subtitle":"Gần xong rồi",
+		"waitingMessage":"Tạo ví của bạn ..."
+	  },
+	  "finalizationStep":{
+		"title":"Thật đơn giản! Tài khoản của bạn đã sẵn sàng!",
+		"subtitle":"Sẵn sàng sử dụng SUMOKOIN vô cùng tiện lợi",
+		"passwordSelectionBlock":{
+		  "label":"Bảo vệ ví của bạn"
+		},
+		"passwordConfirmBlock":{
+		  "label":"Xác nhận mật khẩu"
+		},
+		"validPassword":"Sử dụng mật khẩu này",
+		"backupBlock":{
+		  "title":"Lưu thông tin ví của bạn để phục hồi.",
+		  "option1":"Lựa chọn 1:",
+		  "option2":"Lựa chọn 2:",
+		  "titlePdf":"Tải xuống bản sao PDF",
+		  "titleManualWrite":"Lưu khóa mã riêng",
+		  "privateKeys":"Khóa mã riêng",
+		  "mnemonicPhrase":"Cụm từ ghi nhớ",
+		  "separatorManualMethodsSolution":" hoặc là",
+		  "confirmManuallyWritten":"Tôi đã lưu cụm từ ghi nhớ (seed)",
+		  "warningMessage":"** Đừng để mất seed! ** Không thể lấy lại được nếu bạn mất seed. <br/> ** Không chia sẻ! ** Tiền của bạn sẽ bị đánh cắp nếu bạn sử dụng tệp hoặc seed này trên các trang web độc hại/lừa đảo. <br/> ** Luôn tạo một bản sao lưu! ** Hãy bảo mật nó vì có thể một ngày nó trị giá hàng triệu đô-la. <br/>",
+		  "finishButton":"Tôi hiểu. Tiếp tục."
+		}
+	  },
+	  "disclaimerBlock":{
+		"title":"Rủi ro khi sử dụng ví SUMOCOIN",
+		"content":"Ví SUMOKOIN là một giao diện dựa trên web. Nó giúp bạn sử dụng SUMOKOIN mà không cần chạy một node SUMOKOIN đầy đủ. <br/> Chúng tôi khuyên bạn nên đối xử ví SUMOKOIN giống như bạn sẽ đối xử với ví tiền thực của mình."
+	  }
+	},
+	"donatePage":{
+	  "title":"Đóng góp",
+	  "subtitle":"Giúp tài trợ cho sự phát triển của ví này",
+	  "webwalletBlock":{
+		"title":"Ví Online",
+		"content":"Ví trực tuyến này dựa trên bản của Gnock và được Sumokoin cải biến và phát triển thêm. <br/> Nếu bạn muốn giúp phát triển, hãy đóng góp trả cho các máy chủ và như ứng dụng này, vui lòng xem xét quyên góp: <br / > <br/>"
+	  },
+	  "SUMOKOINFundBlock":{
+		"title":"Quỹ hỗ trợ SUMOKOIN",
+		"content":"Để giúp SUMOKOIN, bạn có thể đóng góp tại các địa chỉ này"
+	  }
+	},
+	"supportPage":{
+	  "title":"Ủng hộ",
+	  "subtitle":"Chúng tôi ở đây để giúp đỡ!",
+	  "getInTouchBlock":{
+		"title":"Hãy giữ liên lạc!",
+		"content":"Bạn có ý tưởng hoặc phản hồi có thể giúp chúng tôi cải thiện ví không? Xin liên hệ chúng tôi!",
+		"discord":"Tham gia nhóm Telegram"
+	  }
+	},
+	"networkPage":{
+	  "title":"Thông tin mạng",
+	  "subtitle":"Thông tin chi tiết về mạng SUMOKOIN",
+	  "statsBlock":{
+		"hashrate":"Tốc độ hash",
+		"height":"Độ cao blockchain",
+		"difficulty":"Độ khó",
+		"lastTimeBlock":"Thời gian tìm ra block cuối",
+		"lastReward":"Số tiền đào được ở block cuối"
+	  }
+	},
+	"sendPage":{
+	  "title":"Gửi SUMO",
+	  "sendBlock":{
+		"address":{
+		  "label":"Địa chỉ đích",
+		  "invalid":"Địa chỉ đích không hợp lệ",
+		  "fundsTo":"Tiền sẽ được gửi đến",
+		  "receiver":"Người nhận",
+		  "description":"Ghi chú"
+		},
+		"amount":{
+		  "label":"Số tiền cần gửi",
+		  "invalid":"Số tiền không hợp lệ"
+		},
+		"paymentId":{
+		  "label":"ID thanh toán (tùy chọn)",
+		  "invalid":"ID thanh toán không hợp lệ. Độ dài phải là 16 ký tự"
+		},
+		"sendButton":"Gửi",
+		"cancelButton":"Hủy Bỏ"
+	  },
+	  "qrCodeScanning":{
+		"explication":"Đưa vào mã QR"
+	  },
+	  "notEnoughMoneyModal":{
+		"title":"Có lỗi...",
+		"content":"Bạn không có đủ tiền trong ví để thực hiện giao dịch này",
+		"confirmText":"OK"
+	  },
+	  "thankYouDonationModal":{
+		"title":"Cảm ơn đóng góp của bạn!",
+		"content":"Chúng tôi đánh giá cao sự giúp đỡ của bạn. <br/> Việc đóng góp này sẽ giúp làm cho SUMOKOIN ngày càng tốt hơn",
+		"confirmText":"OK"
+	  },
+	  "transferSentModal":{
+		"title":"Giao dịch chuyển thành công!",
+		"confirmText":"OK"
+	  },
+	  "transferExceptionModal":{
+		"title":"Có lỗi...",
+		"content":"Xảy ra lỗi. Vui lòng báo chúng tôi về lỗi này: {chi tiết}",
+		"confirmText":"OK"
+	  },
+	  "invalidAmountModal":{
+		"title":"Có lỗi...",
+		"content":"Số tiền không hợp lệ",
+		"confirmText":"OK"
+	  },
+	  "creatingTransferModal":{
+		"title":"Tạo giao dịch ...",
+		"content":"Xin vui lòng chờ ..."
+	  },
+	  "finalizingTransferModal":{
+		"title":"Hoàn tất giao dịch ...",
+		"content":"Xin vui lòng chờ ..."
+	  },
+	  "confirmTransactionModal":{
+		"title":"Xác nhận chuyển khoản?",
+		"content":"Số tiền: {số tiền} <br/> Phí: {phí} <br/> Tổng: {tổng}",
+		"confirmText":"Xác Nhận",
+		"cancelText":"Hủy Bỏ"
+	  },
+	  "waitingNfcModal":{
+		  "title":"Đang tìm NFC",
+		  "content":"Hãy mang điện thoại của bạn đến gần thiết bị"
+	  }
+	},
+	"receivePage":{
+	  "title":"Nhận SUMO",
+	  "receiveBlock":{
+		"address":{
+		  "title":"Địa chỉ của bạn để nhận tiền:",
+		  "label":"Cung cấp địa chỉ này để nhận tiền"
+		},
+		"qrCode":{
+		  "title":"Hoặc tạo mã QR:",
+		  "labelAmount":"Số tiền (tùy chọn)",
+		  "labelRecipient":"Tên người nhận (tùy chọn)",
+		  "labelDescription":"Mô tả giao dịch (tùy chọn)",
+		  "updateButton":"Cập Nhật"
+		}
+	  },
+	  "qrBlock":{
+		"title":"Mã QR của bạn"
+	  },
+	  "waitingNfcToWriteModal":{
+		  "title":"Đang tìm NFC",
+		  "titleSuccess":"Thẻ NFC",
+		  "content":"Mang điện thoại của bạn đến gần thẻ NFC để nhập"
+	  },
+	  "nfcErrorModal":{
+		"titleInsufficientCapacity":"Dung lượng thẻ không đủ"
+	  }
+	},
+	"miningPage":{
+	  "title":"Đào SUMO trực tiếp trong trình duyệt của bạn",
+	  "subtitle":"Hỗ trợ mạng bằng cách đào và nhận SUMO",
+	  "parameterBlock":{
+		"title":"Thông số",
+		"labelDestinationAddress":"Ví của tôi",
+		"labelThreads":"Số lượng chủ đề (nhiều hơn = hashrate cao hơn)",
+		"start":"Bắt Đầu",
+		"stop":"Dừng Lại"
+	  },
+	  "statisticsBlocks":{
+		"title":"Thống kê",
+		"validShares":"Share hợp lệ",
+		"hashrate":"Hashrate",
+		"maxHashrate":"Hashrate cao nhất",
+		"dedicatedHardware":"Dùng phần mềm hay phần cứng đào tiền chuyên dụng bạn có thể kiếm thêm tiền và giúp phân tán mạng.",
+		"miningHandledBy":"Việc khai thác này được xử lý bởi nhóm khai thác get.SUMOKOIN.com"
+	  }
+	},
+	"settingsPage":{
+	  "title":"Cài Đặt",
+	  "subtitle":"Thay đổi thông số của bạn ở đây",
+	  "versionBlock":{
+		"versionNumber":"Số phiên bản:",
+		"versionCode":"Mã phiên bản:"
+	  },
+	  "settingsBlock":{
+		"speed":{
+		  "label":"Tốc độ cập nhật ví (nhanh hơn sẽ tiêu tốn nhiều tài nguyên hơn)",
+		  "fastest":"Nhanh nhất",
+		  "fast":"Nhanh",
+		  "medium":"Trung bình",
+		  "slow":"Chậm"
+		},
+		"language":{
+		  "label":"Ngôn ngữ"
+		},
+		"readMinerTx":{
+		  "label":"Đọc các giao dịch của miner (chỉ dành cho ví dùng đào coin solo)"
+		}
+	  },
+	  "changePasswordButton":"Thay đổi mật khẩu ví của tôi",
+	  "deleteWalletButton":"Xóa ví của tôi (bản lưu cục bộ)",
+	  "walletSettings":{
+		"creationHeight":{
+		  "label":"Độ cao khởi tạo"
+		},
+		"currentScanningHeight": {
+		  "label": "Độ cao hiện tại"
+		},
+		"updateButton":"Cập Nhật"
+	  },
+	  "deleteWalletModal":{
+		"title":"Xóa ví của tôi (bản sao cục bộ)",
+		"content":"Bạn có chắc chắn bạn thực sự muốn xóa ví của mình?",
+		"confirmText":"Vâng, Tôi Chắc Chắn",
+		"cancelButtonText":"Hủy Bỏ"
+	  }
+	},
+	"importBasePage":{
+	  "parametersBlock":{
+		"title":"Thông Số",
+		"password":{
+		  "label":"Mật khẩu để bảo vệ ví của bạn"
+		},
+		"passwordConfirm":{
+		  "label":"Xác nhận mật khẩu",
+		  "invalid":"Mật khẩu không khớp với mật khẩu đầu tiên"
+		},
+		"importHeight":{
+		  "label":"Độ cao khởi tạo ví:"
+		}
+	  }
+	},
+	"importFromQrPage":{
+	  "title":"Khôi phục ví từ mã QR",
+	  "subtitle":"Khôi phục ví từ bản sao lưu bên ngoài",
+	  "qrCodeBlock":{
+		"title":"Mã QR",
+		"startScanButton":"Bắt đầu quét",
+		"importButton":"Khôi Phục"
+	  },
+	  "qrScanningBlock":{
+		"title":"Đưa vào mã QR"
+	  }
+	},
+	"exportPage":{
+	  "title":"Sao lưu thông tin đăng nhập của bạn",
+	  "publicAddressBlock":{
+		"title":"Địa chỉ ví"
+	  },
+	  "pdfBlock":{
+		"title":"Sao lưu dạng tệp PDF",
+		"downloadButton":"Tải Xuống"
+	  },
+	  "warningBlock":{
+		"title":"Cảnh Báo",
+		"content":"Nếu bạn chọn lưu khóa mã riêng hoặc cụm từ ghi nhớ của mình, xin vui lòng KHÔNG lưu trữ chúng dưới dạng tệp văn bản thuần (không có mã hóa) để đảm bảo an toàn cho chính bạn. <br/> Xuất ra tập tin là một giải pháp thay thế trong đó khóa và các giao dịch được mã hóa để có thể phục hồi trong tương lai."
+	  },
+	  "exportBlock":{
+		"title":"Trích xuất thông tin ví",
+		"privateKeysButton":"Lấy khóa mã riêng",
+		"mnemonicKeysButton":"Lấy cụm từ ghi nhớ (seed)",
+		"fileButton":"Lưu thành tập tin"
+	  },
+	  "walletKeysModal":{
+		"title":"Khóa Mã",
+		"confirmText":"Đồng Ý",
+		"content":"Hãy lưu trữ các khóa mã này một cách cẩn thận. <strong>Sở hữu chúng đồng nghĩa với việc sở hữu các khoản tiền trong ví này</strong>!<br/> Khóa chi tiêu (spendkey): {privSpendKey} <br/> Khóa xem (viewkey): {privViewKey}"
+	  },
+	  "mnemonicKeyModal":{
+		"title":"Cụm từ ghi nhớ",
+		"confirmText":"Đồng Ý",
+        "content":"Vui lòng lưu trữ cụm từ ghi nhớ (seed) này một cách cẩn thận. <strong>Sở hữu chúng có nghĩa là sở hữu các khoản tiền trong ví này</strong>! Cụm từ là:<br/><br/> {mnemonic}"
+	  },
+	  "mnemonicLangSelectionModal":{
+		"title":"Chọn ngôn ngữ để xuất cụm từ ghi nhớ của bạn?",
+		"confirmText":"Đồng Ý",
+		"cancelButtonText":"Hủy Bỏ"
+	  }
+	},
+	"importPage":{
+	  "title":"Khôi Phục Ví",
+	  "subtitle":"Từ các khóa mã, tệp hoặc cụm từ ghi nhớ đã có",
+	  "chooseMethod":"Chọn phương thức khôi phục ví của bạn. Xin lưu ý rằng việc khôi phục ví từ đầu (height = 0) có thể mất nhiều thời gian vì vậy hãy kiên nhẫn.",
+	  "fromKeys":"Từ khóa mã",
+	  "fromFile":"Từ tệp sao lưu",
+	  "fromMnemonic":"Từ cụm từ ghi nhớ (seed)",
+	  "fromQr":"Từ mã QR"
+	},
+	"termsOfUsePage":{
+	  "title":"Điều khoản sử dụng",
+	  "subtitle":"Xin vui lòng đọc một cách cẩn thận."
+	},
+	"privacyPolicyPage":{
+	  "title":"Chính sách bảo mật",
+	  "subtitle":"Xin vui lòng đọc một cách cẩn thận."
+	},
+	"importFromFilePage":{
+	  "title":"Khôi phục ví từ tệp sao lưu",
+	  "subtitle":"Sử dụng tệp sao lưu của bạn để khôi phục ví",
+	  "walletBlock":{
+		"title":"Tập tin ví",
+		"label":"Chọn tập tin",
+		"importButton":"Khôi Phục"
+	  }
+	},
+	"importFromMnemonicPage":{
+	  "title":"Khôi phục ví từ cụm từ ghi nhớ (seed)",
+	  "subtitle":"Sử dụng cụm từ seed để khôi phục ví",
+	  "mnemonicBlock":{
+		"title":"Cụm từ ghi nhớ",
+		"mnemonic":{
+		  "label":"Cụm từ ghi nhớ: 26 từ",
+		  "invalid":"Cụm từ ghi nhớ không hợp lệ",
+		  "language":"Ngôn ngữ"
+		},
+		"importButton":"Khôi Phục"
+	  }
+	},
+	"importFromKeysPage":{
+	  "title":"Khôi phục ví từ khóa mã",
+	  "subtitle":"Sử dụng các khóa mã để khôi phục ví",
+	  "parametersBlock":{
+		"viewOnlyWallet":{
+		  "label":"Bạn có muốn tạo một ví chỉ xem (view-only)?"
+		}
+	  },
+	  "keysBlock":{
+		"titleNotViewOnly":"Khóa Mã Ví",
+		"titleViewOnly":"Ví chỉ xem (view-only)",
+		"privateSpend":{
+		  "label":"Khóa chi tiêu (spendkey)"
+		},
+		"privateView":{
+		  "label":"Khóa xem (viewkey)",
+		  "optional":"(không bắt buộc)"
+		},
+		"publicKey":{
+		  "label":"Khóa công khai"
+		},
+		"importButton":"Khôi Phục"
+	  }
+	}
+  },
+  "number":{
+  },
+  "date":{
+	"short": {
+	  "year": "numeric", "month": "short", "day": "numeric"
+	},
+	"long": {
+	  "year": "numeric", "month": "short", "day": "numeric",
+	  "weekday": "short", "hour": "numeric", "minute": "numeric", "hour12": true
+	}
+  }
+}

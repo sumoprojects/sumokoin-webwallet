@@ -1,0 +1,494 @@
+{
+  "website":{
+	"title":"Sumokoin官方網絡錢包",
+	"description":"該錢包在您的浏覽器中處理，以實現最佳安全性"
+  },
+  "messages": {
+	"menu": {
+	  "home": "首頁",
+	  "account": "帳戶",
+	  "send": "轉幣",
+	  "receive": "收幣",
+	  "export": "導出",
+	  "donate": "捐贈",
+	  "settings": "設置",
+	  "disconnect": "登出",
+	  "network": "網絡統計"
+	},
+	"global": {
+	  "loading": "正在加載",
+	  "disableSecurity":"請禁用此消息，我了解風險",
+	  "passwordInvalidRequirements":"密碼至少需要8個字符：一個大寫字母，一個小寫字母，一個數字和一個特殊字符",
+	  "passwordConfirmationNotMatching":"兩個密碼不一致",
+	  "download":"下載",
+	  "newVersionModal":{
+		"title":"有新版本可用",
+		"content":"是否要刷新頁面以加載新版本？",
+		"confirmText":"是",
+		"cancelText":"取消"
+	  },
+	  "openWalletModal":{
+		"title":"錢包密碼",
+		"confirmText":"確認",
+		"cancelText":"取消"
+	  },
+	  "invalidPasswordModal":{
+		"title":"糟了！",
+		"content":"密碼有誤",
+		"confirmText":"確定"
+	  },
+	  "invalidMnemonicModal":{
+		"title":"糟了！",
+		"content":"助記詞有誤",
+		"confirmText":"確定"
+	  },
+	  "passwordNotComplexEnoughModal":{
+		"title":"密碼不夠複雜",
+		"confirmText":"確定"
+	  },
+	  "permissionRequiredForCameraModal":{
+		"title":"糟了！",
+		"content":"掃描QR碼必有使用相機的權限",
+		"confirmText":"確定"
+	  }
+	},
+	"bottom": {
+	  "termsOfUse": "使用條款",
+	  "privacyPolicy": "隱私政策",
+	  "support": "技術支持",
+	  "donate": "捐贈",
+	  "network": "網絡統計",
+	  "miningPool": "礦池",
+	  "github": "GitHub"
+	},
+	"homepage": {
+	  "mainTitle": "Sumokoin官方網絡錢包",
+	  "tagLine": "使用SUMOKOIN的最簡單方法",
+	  "actions": {
+		"loadWallet": "加載錢包",
+		"importWallet": "導入錢包",
+		"create": "創建",
+		"createWallet": "創建錢包"
+	  },
+	  "notes": {
+		"secure": {
+		  "title": "安全",
+		  "description": "無服務器，完全加密！"
+		},
+		"fast": {
+		  "title": "快速",
+		  "description": "隨時隨地轉幣！"
+		},
+		"technology": {
+		  "title": "獨特技術",
+		  "description": "直接連上Sumokoin區塊鏈！"
+		},
+		"openSource": {
+		  "title": "完全開源",
+		  "description": "訪問GitHub看代碼！"
+		}
+	  }
+	},
+	"accountPage": {
+	  "title": "帳戶",
+	  "subtitle": "帳戶概述和交易記錄",
+	  "synchronizingBlock": {
+		"text": "正在同步。。。"
+	  },
+	  "balanceBlock": {
+		"title": "余額",
+		"unlocked": "已解鎖"
+	  },
+	  "historyBlock": {
+		"title": "交易記錄",
+		"pendingTxStatus": "待彙款",
+		"emptyWallet": "錢包目前沒有資金",
+		"waitSync": "請稍等，錢包正在同步",
+		"beReallyPatient": "第一次設置的同步也許會稍微長一點",
+		"getMSRAddress": "收款SUMO"
+	  },
+	  "txDetails":{
+		"title":"交易細節",
+		"txHash":"交易哈希",
+		"feesOnTx":"交易費",
+		"blockHeight":"區塊數",
+		"paymentId":"付款ID",
+		"txPrivKey":"交易私鑰"
+	  }
+	},
+	"changeWalletPasswordPage":{
+	  "title":"更改密碼",
+	  "oldPassword":{
+		"label":"舊密碼",
+		"invalid":"密碼無效"
+	  },
+	  "newPassword":{
+		"label":"請輸入錢包的新密碼"
+	  },
+	  "newPasswordConfirm":{
+		"label":"確認新密碼"
+	  },
+	  "confirm":"更改密碼",
+	  "modalSuccess":{
+		"title":"密碼已更改！",
+		"confirmText":"確定"
+	  }
+	},
+	"createWalletPage":{
+	  "generatingStep":{
+		"title":"錢包正在生成中。。。",
+		"subtitle":"快生成完啦！",
+		"waitingMessage":"正在生成您的錢包。。。"
+	  },
+	  "finalizationStep":{
+		"title":"完事啦！您的帳戶已經准備好！",
+		"subtitle":"好好做准備吧",
+		"passwordSelectionBlock":{
+		  "label":"保護您的錢包"
+		},
+		"passwordConfirmBlock":{
+		  "label":"確認密碼"
+		},
+		"validPassword":"使用此密碼",
+		"backupBlock":{
+		  "title":"備份您的私人憑據以進行恢複",
+		  "option1":"選項1：",
+		  "option2":"選項2：",
+		  "titlePdf":"下載PDF副本",
+		  "titleManualWrite":"手寫備份私鑰",
+		  "privateKeys":"私人密鑰",
+		  "mnemonicPhrase":"助記詞",
+		  "separatorManualMethodsSolution":"或",
+		  "confirmManuallyWritten":"我確認我已經記下我的助記詞",
+		  "warningMessage":"××千萬不要丟失！×× 如果丟失將無法恢複錢包。<br/>××千萬不要分享！×× 如果分享給他人，任何人都可以盜用您的資金。<br/> ××請進行備份！×× 請妥善備份您的私鑰，或許未來某天您可以用sumo購買海邊別墅。<br/>",
+		  "finishButton":"我了解。繼續。"
+		}
+	  },
+	  "disclaimerBlock":{
+		"title":"使用SUMOKOIN錢包的風險",
+		"content":"SUMOKOIN錢包是一個基于Web的界面。它可以幫助您使用SUMOKOIN而不用運行完整的SUMOKOIN節點。<br/>我們建議您謹慎使用。"
+	  }
+	},
+	"donatePage":{
+	  "title":"捐贈",
+	  "subtitle":"捐贈幫助開發並運行網絡錢包",
+	  "webwalletBlock":{
+		"title":"網絡錢包",
+		"content":"此網絡錢包基于Gnock的網絡錢包，並由Sumokoin開發人員采用並進一步開發。<br/>如果您想幫助開發，幫助支付服務器費用，並且喜歡此應用，請考慮捐款：<br/> <br/>"
+	  },
+	  "SUMOKOINFundBlock":{
+		"title":"SUMOKOIN支持基金",
+		"content":"為幫助SUMOKOIN，您可以向以下地址捐款"
+	  }
+	},
+	"supportPage":{
+	  "title":"支持",
+	  "subtitle":"我們為您提供幫助！",
+	  "getInTouchBlock":{
+		"title":"聯系我們！",
+		"content":"您有什麽想法或反饋可以幫助我們改善錢包嗎？聯系我們！",
+		"discord":"SUMOKOIN電報群"
+	  }
+	},
+	"networkPage":{
+	  "title":"網絡統計",
+	  "subtitle":"SUMOKOIN網絡統計",
+	  "statsBlock":{
+		"hashrate":"全網算力",
+		"height":"區塊高度",
+		"difficulty":"網絡難度",
+		"lastTimeBlock":"最近區塊時間",
+		"lastReward":"最近區塊獎勵"
+	  }
+	},
+	"sendPage":{
+	  "title":"轉發SUMO",
+	  "sendBlock":{
+		"address":{
+		  "label":"目標地址",
+		  "invalid":"目標地址有誤",
+		  "fundsTo":"資金將轉發到",
+		  "receiver":"收款人",
+		  "description":"備注"
+		},
+		"amount":{
+		  "label":"轉發金額",
+		  "invalid":"金額有誤"
+		},
+		"paymentId":{
+		  "label":"付款ID（可填）",
+		  "invalid":"付款ID有誤。長度必須為16個字符"
+		},
+		"sendButton":"轉幣",
+		"cancelButton":"取消"
+	  },
+	  "qrCodeScanning":{
+		"explication":"顯示二維碼"
+	  },
+	  "notEnoughMoneyModal":{
+		"title":"糟了！",
+		"content":"余額不足",
+		"confirmText":"確定"
+	  },
+	  "thankYouDonationModal":{
+		"title":"謝謝您的捐款！",
+		"content":"Sumokoin團隊向您表示感謝",
+		"confirmText":"確定"
+	  },
+	  "transferSentModal":{
+		"title":"轉幣成功！",
+		"confirmText":"確定"
+	  },
+	  "transferExceptionModal":{
+		"title":"糟了！",
+		"content":"發生錯誤。請報告此錯誤： {details}",
+		"confirmText":"確定"
+	  },
+	  "invalidAmountModal":{
+		"title":"糟了！",
+		"content":"金額有誤",
+		"confirmText":"確定"
+	  },
+	  "creatingTransferModal":{
+		"title":"正在創建轉移。。。",
+		"content":"請稍候。。。"
+	  },
+	  "finalizingTransferModal":{
+		"title":"正在完成轉帳。。。",
+		"content":"請稍候。。。"
+	  },
+	  "confirmTransactionModal":{
+		"title":"確認轉移？",
+		"content":"金額： {amount}<br/>費用： {fees}<br/>總計： {total}",
+		"confirmText":"確定",
+		"cancelText":"取消"
+	  },
+	  "waitingNfcModal":{
+		  "title":"正在等待",
+		  "content":"將您的手機靠近其他設備"
+	  }
+	},
+	"receivePage":{
+	  "title":"收款SUMO",
+	  "receiveBlock":{
+		"address":{
+		  "title":"您的收款地址：",
+		  "label":"向對方提供一下地址"
+		},
+		"qrCode":{
+		  "title":"或個性化二維碼：",
+		  "labelAmount":"“金額（可填）",
+		  "labelRecipient":"收件人名稱（可填）",
+		  "labelDescription":"交易描述（可填）",
+		  "updateButton":"更新"
+		}
+	  },
+	  "qrBlock":{
+		"title":"您的個性化二維碼"
+	  },
+	  "waitingNfcToWriteModal":{
+		  "title":"正在等待NFC",
+		  "titleSuccess":"已寫入NFC標簽",
+		  "content":"將您的手機靠近NFC標簽以進行寫入"
+	  },
+	  "nfcErrorModal":{
+		"titleInsufficientCapacity":"標簽容量不足"
+	  }
+	},
+	"miningPage":{
+	  "title":"直接在浏覽器中挖礦",
+	  "subtitle":"通過挖礦支持網絡並獲得SUMO獎勵",
+	  "parameterBlock":{
+		"title":"Parameters",
+		"labelDestinationAddress":"Wallet to mine",
+		"labelThreads":"Number of threads (more = higher hashrate)",
+		"start":"Start",
+		"stop":"Stop"
+	  },
+	  "statisticsBlocks":{
+		"title":"Statistics",
+		"validShares":"Valid shares",
+		"hashrate":"Hashrate",
+		"maxHashrate":"Max Hashrate",
+		"dedicatedHardware":"With dedicating mining software and hardware, you could earn more and help decentralize the network.",
+		"miningHandledBy":"This mining is handled by the mining pool get.SUMOKOINcoin.com"
+	  }
+	},
+	"settingsPage":{
+	  "title":"設置",
+	  "subtitle":"更改設置",
+	  "versionBlock":{
+		"versionNumber":"版本號：",
+		"versionCode":"版本代碼："
+	  },
+	  "settingsBlock":{
+		"speed":{
+		  "label":"錢包更新速度（將消耗更多資源）",
+		  "fastest":"最快",
+		  "fast":"快",
+		  "medium":"正常",
+		  "slow":"慢"
+		},
+		"language":{
+		  "label":"語言"
+		},
+		"readMinerTx":{
+		  "label":"讀取礦工交易（僅用于單獨采礦）"
+		}
+	  },
+	  "changePasswordButton":"更改密碼",
+	  "deleteWalletButton":"刪除錢包（本地副本）",
+	  "walletSettings":{
+		"creationHeight":{
+		  "label":"錢包的創建高度"
+		},
+		"currentScanningHeight": {
+		  "label": "當前掃描高度"
+		},
+		"updateButton":"更新"
+	  },
+	  "deleteWalletModal":{
+		"title":"刪除錢包（本地副本）",
+		"content":"您確定您真的要刪除您的錢包嗎？",
+		"confirmText":"我確定",
+		"cancelButtonText":"取消"
+	  }
+	},
+	"importBasePage":{
+	  "parametersBlock":{
+		"title":"設置",
+		"password":{
+		  "label":"保護錢包的密碼"
+		},
+		"passwordConfirm":{
+		  "label":"確認密碼",
+		  "invalid":"兩個密碼不一致"
+		},
+		"importHeight":{
+		  "label":"導入區塊高度："
+		}
+	  }
+	},
+	"importFromQrPage":{
+	  "title":"從二維碼導入錢包",
+	  "subtitle":"從離線備份導入錢包",
+	  "qrCodeBlock":{
+		"title":"二維碼",
+		"startScanButton":"開始掃描",
+		"importButton":"導入"
+	  },
+	  "qrScanningBlock":{
+		"title":"顯示二維碼"
+	  }
+	},
+	"exportPage":{
+	  "title":"備份您的憑據",
+	  "publicAddressBlock":{
+		"title":"公共地址"
+	  },
+	  "pdfBlock":{
+		"title":"PDF副本",
+		"downloadButton":"下載"
+	  },
+	  "warningBlock":{
+		"title":"警告",
+		"content":"如果您選擇保存私鑰或助記詞，請不要出于保護自身安全的目的將它們存儲在明文中。<br/>該文件是替代方案，其中密鑰被加密並包含一個備份所有交易，以節省以後的同步。"
+	  },
+	  "exportBlock":{
+		"title":"導出您的憑據",
+		"privateKeysButton":"獲取我的私鑰",
+		"mnemonicKeysButton":"獲取我的助記詞",
+		"fileButton":"導出到文件"
+	  },
+	  "walletKeysModal":{
+		"title":"私鑰",
+		"confirmText":"確定",
+		"content":"請仔細存儲這些密鑰。<b>擁有它們意味著擁有相關的資金</b>！<br/>支出密鑰：{privSpendKey} <br/>私有查看密鑰：{privViewKey}"
+	  },
+	  "mnemonicKeyModal":{
+		"title":"助記詞",
+		"confirmText":"確定",
+		"content":"請仔細存儲該助記詞。<b>擁有該助記詞意味著擁有相關的資金</b>！該短語是：<br/> {mnemonic}"
+	  },
+	  "mnemonicLangSelectionModal":{
+		"title":"您要使用哪種語言的助記詞？",
+		"confirmText":"導出",
+		"cancelButtonText":"取消"
+	  }
+	},
+	"importPage":{
+	  "title":"創建錢包",
+	  "subtitle":"使用以前創建的密鑰，文件或助記詞",
+	  "chooseMethod":"選擇您的導入方法。請注意，從0高度恢複舊錢包可能會花費很長時間，因此請耐心等待。",
+	  "fromKeys":"使用私鑰",
+	  "fromFile":"使用文件",
+	  "fromMnemonic":"使用助記詞",
+	  "fromQr":"使用二維碼"
+	},
+	"termsOfUsePage":{
+	  "title":"使用條款",
+	  "subtitle":"請仔細閱讀"
+	},
+	"privacyPolicyPage":{
+	  "title":"隱私政策",
+	  "subtitle":"請仔細閱讀"
+	},
+	"importFromFilePage":{
+	  "title":"從備份文件導入錢包",
+	  "subtitle":"使用您的備份文件創建錢包",
+	  "walletBlock":{
+		"title":"錢包文件",
+		"label":"錢包文件",
+		"importButton":"導入"
+	  }
+	},
+	"importFromMnemonicPage":{
+	  "title":"從助記詞短語導入錢包",
+	  "subtitle":"使用您的短語來創建錢",
+	  "mnemonicBlock":{
+		"title":"助記詞",
+		"mnemonic":{
+		  "label":"助記詞：26個單詞",
+		  "invalid":"助記詞有誤",
+		  "language":"語言"
+		},
+		"importButton":"導入"
+	  }
+	},
+	"importFromKeysPage":{
+	  "title":"從鑰匙中導入錢包",
+	  "subtitle":"使用您的密鑰創建錢包",
+	  "parametersBlock":{
+		"viewOnlyWallet":{
+		  "label":"您想創建僅查看的錢包嗎？"
+		}
+	  },
+	  "keysBlock":{
+		"titleNotViewOnly":"錢包鑰匙",
+		"titleViewOnly":"僅查看的錢包",
+		"privateSpend":{
+		  "label":"私有支付鑰匙"
+		},
+		"privateView":{
+		  "label":"私有視圖密鑰",
+		  "optional":"（可填）"
+		},
+		"publicKey":{
+		  "label":"公鑰"
+		},
+		"importButton":"導入"
+	  }
+	}
+  },
+  "number":{
+  },
+  "date":{
+	"short": {
+	  "year": "numeric", "month": "short", "day": "numeric"
+	},
+	"long": {
+	  "year": "numeric", "month": "short", "day": "numeric",
+	  "weekday": "short", "hour": "numeric", "minute": "numeric", "hour12": true
+	}
+  }
+}
