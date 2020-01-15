@@ -137,7 +137,7 @@
 	"createWalletPage":{
 	  "generatingStep":{
 		"title":"钱包正在生成中。。。",
-		"Subtitle":"即将生成完毕", 
+		"subtitle":"即将生成完毕", 
 		"waitingMessage":"正在生成您的钱包。。。"
 	  },
 	  "finalizationStep":{
