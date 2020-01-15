@@ -1,0 +1,500 @@
+{
+  "website": {
+    "title": "Resmi Sumokoin İnternet Cüzdanı",
+    "description": "Resmi Çevrimiçi Sumokoin Cüzdanı - Hızlı, anonim ve en iyi seviyede güvenlik için tamamen tarayıcınızın içinden yönetilebilir özelliğe sahip."
+  },
+  "messages": {
+    "menu": {
+      "home": "Giriş",
+      "account": "Hesap",
+      "send": "Gönder",
+      "receive": "Al",
+      "export": "Dışa Aktar",
+      "donate": "Bağış Yap",
+      "settings": "Ayarlar",
+      "disconnect": "Bağlantıyı Kes",
+      "network": "Ağ İstatistikleri"
+    },
+    "global": {
+      "loading": "Yükleniyor",
+      "disableSecurity": "Bu güvenliği pasif hale getir. Riskin farkındayım.",
+      "passwordInvalidRequirements": "Şifre en az sekiz karakterden meydfana gelmelidir: Bir büyük harf, bir küçük harf, bir sayı ve bir özel karakter",
+      "passwordConfirmationNotMatching": "Şifre, ilk yazdığınız şifreyle uyuşmuyor.",
+      "download": "İndir",
+      "newVersionModal": {
+        "title": "Cüzdanın yeni sürümü erişilebilir durumda.",
+        "content": "Cüzdanın yeni sürümünü yüklemek için cüzdanı kapatıp tekrar açmak ister misiniz?",
+        "confirmText": "Evet",
+        "cancelText": "Geri"
+      },
+      "openWalletModal": {
+        "title": "Cüzdan Şifresi",
+        "confirmText": "Onayla",
+        "cancelText": "İptal"
+      },
+      "invalidPasswordModal": {
+        "title": "Bir dakika...",
+        "content": "Girmiş olduğunuz şifre geçersiz gözüküyor.",
+        "confirmText": "Tamam"
+      },
+      "invalidMnemonicModal": {
+        "title": "Bir dakika...",
+        "content": "Hatırlatma sözcüğü geçersiz.",
+        "confirmText": "Tamam"
+      },
+      "passwordNotComplexEnoughModal": {
+        "title": "Şifreniz yeterince karmaşık değil.",
+        "confirmText": "Tamam"
+      },
+      "permissionRequiredForCameraModal": {
+        "title": "Bir dakika...",
+        "content": "Kare kodun taranabilmesi için kameranıza erişimi izni gerekiyor.",
+        "confirmText": "Tamam"
+      }
+    },
+    "bottom": {
+      "termsOfUse": "Kullanım Şartları",
+      "privacyPolicy": "Gizlilik Poliçesi",
+      "support": "Destek",
+      "donate": "Bağış Yap",
+      "network": "Ağ İstatistikleri",
+      "miningPool": "Madencilik Havuzu",
+      "github": "GitHub"
+    },
+    "homepage": {
+      "mainTitle": "SUMOKOIN İNTERNET CÜZDANI",
+      "tagLine": "SUMOKOIN´u Kullanmanın En Kolay Yolu",
+      "actions": {
+        "loadWallet": "Cüzdanımı Yükle",
+        "importWallet": "Bir Cüzdanı İçe Aktar",
+        "create": "Oluştur",
+        "createWallet": "Yeni Bir Cüzdan Aç"
+      },
+      "notes": {
+        "secure": {
+          "title": "Güvenli",
+          "description": "Sunucu Aracılı Değil ve Tam Şifreli!"
+        },
+        "fast": {
+          "title": "Hızlı",
+          "description": "İstediğiniz Zaman İstediğiniz Yere Gönderin!"
+        },
+        "technology": {
+          "title": "Eşsiz Teknoloji",
+          "description": "Sumokoin´un Blok Zincirine Doğrudan Bağlı!"
+        },
+        "openSource": {
+          "title": "Tam Açık Kaynağa Sahip",
+          "description": "Github Üzerinden Erişilebilir!"
+        }
+      }
+    },
+    "accountPage": {
+      "title": "Hesap",
+      "subtitle": "Hesap Görünümü ve Aktarım Geçmişi",
+      "synchronizingBlock": {
+        "text": "Eşzamanlama Yapılıyor..."
+      },
+      "balanceBlock": {
+        "title": "Hesap Bakiyeniz",
+        "unlocked": "Kilit AÇıldı"
+      },
+      "historyBlock": {
+        "title": "Aktarım Geçmişi",
+        "pendingTxStatus": "Bekliyor",
+        "emptyWallet": "Bu cüzdandaki bakiyeniz sıfır.",
+        "waitSync": "Lütfen cüzdan güncellenene kadar bekleyiniz.",
+        "beReallyPatient": "İlk kurulum işlemi biraz zaman alabilir...",
+        "getMSRAddress": "SUMO Havalesi Al"
+      },
+      "txDetails": {
+        "title": "Aktarım Ayrıntısı",
+        "txHash": "Aktarım İmzası",
+        "feesOnTx": "Aktarım Ücreti",
+        "blockHeight": "Blok Yüksekliği",
+        "paymentId": "Ödeme Kimliği",
+        "txPrivKey": "Aktarım Özel Anahtarı"
+      }
+    },
+    "changeWalletPasswordPage": {
+      "title": "Şifrenizi Değiştirin",
+      "oldPassword": {
+        "label": "Eski Şifre",
+        "invalid": "Şifre Geçersiz"
+      },
+      "newPassword": {
+        "label": "Cüzdanınızın güvenliği için yeni bir şifre belirleyiniz."
+      },
+      "newPasswordConfirm": {
+        "label": "Yeni Şifreyi Onaylayın"
+      },
+      "confirm": "Şifreyi Değiştirin",
+      "modalSuccess": {
+        "title": "Şifre Değişti!",
+        "confirmText": "Tamam"
+      }
+    },
+    "createWalletPage": {
+      "generatingStep": {
+        "title": "Cüzdanınız oluşturuluyor...",
+        "subtitle": "Neredeyse tamamlandı!",
+        "waitingMessage": "Cüzdanınız meydana getiriliyor..."
+      },
+      "finalizationStep": {
+        "title": "İşte bu kadar basit! Cüzdanınız kullanılmaya hazır!",
+        "subtitle": "SUMOKOIN´u daha önce olmadığı gibi kullanmaya hazır olun.",
+        "passwordSelectionBlock": {
+          "label": "Cüzdanınızı Koruyun"
+        },
+        "passwordConfirmBlock": {
+          "label": "Şifreyi Onaylayın"
+        },
+        "validPassword": "Bu şifreyi kullanın",
+        "backupBlock": {
+          "title": "Cüzdanınızı kurtarmak için özel bilgilerinizi kayıtlı tutun",
+          "option1": "Seçenek-1:",
+          "option2": "Seçenek-2:",
+          "titlePdf": "Bu Belgenin Bir PDF Kopyasını İndir",
+          "titleManualWrite": "Özel anahtarlarımı Yazdır",
+          "privateKeys": "Özel Anahtar",
+          "mnemonicPhrase": "Hatırlatma Sözcüğü",
+          "separatorManualMethodsSolution": " Veya",
+          "confirmManuallyWritten": "Tohum ifademi elimle yazdım.",
+          "warningMessage": "**Lütfen tohum ifadenizi kaybetmeyin, çünkü şayet kaybederseniz geri döndürülemez ve kurtarılamaz!** .<br/>**Özel ifadenizi hiç kimseyle paylaşmayınız!** Eğer bu dosyayı ya da özel tohum ifadenizi şüpheli / dolandırıcı bir sitede kullanırsanız, cüzdanınızdaki bakiyeniz çalınabilir!<br/>**Mutlaka yedek alın!** Adeta günün birinde milyonlarca dolarlık bir değere ulaşabilecekmiş gibi saklayın!<br/>",
+          "finishButton": "Okudum ve Anladım. Devam Edin."
+        }
+      },
+      "disclaimerBlock": {
+        "title": "SUMOKOIN Cüzdanını Kullanmanın Riski",
+        "content": "SUMOKOIN cüzdanı internet tabanlıdır ve SUMOKOIN´u tam bir SUMOKOIN düğümünü çalıştırmadan kullanmanızı sağlar. <br/>SUMOKOIN cüzdanına cebinizde taşıdığınız cüzdan gibi davranmanızı tavsiye ederiz"
+      }
+    },
+    "donatePage": {
+      "title": "Bağış Yap",
+      "subtitle": "Bu cüzdanın geliştirilmesine yardımcı olun.",
+      "webwalletBlock": {
+        "title": "İnternet Cüzdanı",
+        "content": "Bu internet cüzdanı Gnock´un internet cüzdanını esas almaktadır ve Sumokoin geliştiricileri tarafından daha ileri seviyede uyarlanarak geliştirilmiştir.<br/>Eğer bu geliştirme sürecine yardım etmek isterseniz, sunucu ücretlerinin ödenmesine yardım ediniz ve lütfen bağış düşününüz: <br/><br/>"
+      },
+      "SUMOKOINFundBlock": {
+        "title": "SUMOKOIN Destek Fonu",
+        "content": "SUMOKOIN´a yardım etmek için şu adreslere bağışta bulunaiblirsiniz:"
+      }
+    },
+    "supportPage": {
+      "title": "Destek",
+      "subtitle": "Size yardım etmek için buradayız!",
+      "getInTouchBlock": {
+        "title": "Haydi İletişime Geç!",
+        "content": "Cüzdanı daha iyi hale getirme noktasında bize yardım edebilecek görüş ya da geri bildirimleriniz mi var? Bizimle iletişime geçin!",
+        "discord": "SUMOKOIN Telegram Grubu"
+      }
+    },
+    "networkPage": {
+      "title": "Ağ İstatistikleri",
+      "subtitle": "SUMOKOIN Ağının İç Görünümü",
+      "statsBlock": {
+        "hashrate": "Ağın Şifre Algoritma Güç Oranı",
+        "height": "Blok Zincir Yüksekliği",
+        "difficulty": "Nağın Güçlük Derecesi",
+        "lastTimeBlock": "En Son Bulunan Blok Numarası",
+        "lastReward": "En Son Blok Ödül Oranı"
+      }
+    },
+    "sendPage": {
+      "title": "SUMO Gönder",
+      "sendBlock": {
+        "address": {
+          "label": "Gönderilecek Adres",
+          "invalid": "Gönderi Adresi Geçersiz",
+          "fundsTo": "Bakiye Şuaraya Gönderilecek:",
+          "receiver": "Alıcı",
+          "description": "Açıklama"
+        },
+        "amount": {
+          "label": "Gönderilecek SUMOKOIN Miktarı",
+          "invalid": "Miktar Geçersiz"
+        },
+        "paymentId": {
+          "label": "Ödeme Kimliği (Tercihe Bağlı)",
+          "invalid": "Ödeme kimliği geçersiz. Ödeme kimliğinin uzunluğu toplamda on altı karakter olmalıdır."
+        },
+        "sendButton": "Gönder",
+        "cancelButton": "İptal"
+      },
+      "qrCodeScanning": {
+        "explication": "Kare Kodu Sun"
+      },
+      "notEnoughMoneyModal": {
+        "title": "Bir dakika...",
+        "content": "Cüzdanınızda, bu gönderiyi gerçekleştirebilmek için yeterli bakiyeniz bulunmamaktadır.",
+        "confirmText": "Tamam"
+      },
+      "thankYouDonationModal": {
+        "title": "Yapmış olduğunuz bağış için teşekkür ederiz!",
+        "content": "Yardımınızı takdirle karşılıyoruz. <br/>Bu bağış, SUMOKOIN´u daha iyi hale getirecek.",
+        "confirmText": "Tamam"
+      },
+      "transferSentModal": {
+        "title": "Gönderi işlemi başarıyla tamamlandı!",
+        "confirmText": "Tamam"
+      },
+      "transferExceptionModal": {
+        "title": "Bir dakika...",
+        "content": "Bir hata meydana geldi. Lütfen bu hatayı bildiriniz: {details}",
+        "confirmText": "Tamam"
+      },
+      "invalidAmountModal": {
+        "title": "Bir dakika...",
+        "content": "Geçersiz Miktar",
+        "confirmText": "Tamam"
+      },
+      "creatingTransferModal": {
+        "title": "Gönderi oluşturuluyor...",
+        "content": "Lüften bekleyiniz..."
+      },
+      "finalizingTransferModal": {
+        "title": "Gönderi tamamlanıyor...",
+        "content": "Lütfen bekleyiniz..."
+      },
+      "confirmTransactionModal": {
+        "title": "Gönderiyi onaylıyor musunuz?",
+        "content": "Miktar: {amount}<br/>Ücretler: {fees}<br/>Total: {total}",
+        "confirmText": "Onayla",
+        "cancelText": "İptal"
+      },
+      "waitingNfcModal": {
+        "title": "(NFC) Yakın Saha İletişimi Bekleniyor...",
+        "content": "Lütfen telefonunuzu cihaza yaklaştırın."
+      }
+    },
+    "receivePage": {
+      "title": "SUMO Al",
+      "receiveBlock": {
+        "address": {
+          "title": "SUMO Havalesini Almak İçin Adresiniz:",
+          "label": "Karşı tarafın gönderisini almak için bu adresi ibraz ediniz."
+        },
+        "qrCode": {
+          "title": "Veya, kare kodu (QR COde) kişiselleştirin:",
+          "labelAmount": "Miktar (Tercihe Bağlı)",
+          "labelRecipient": "Alıcının Adı (Tercihe Bağlı)",
+          "labelDescription": "Havale AÇıklaması (Tercihe Bağlı)",
+          "updateButton": "Güncelle"
+        }
+      },
+      "qrBlock": {
+        "title": "Size Özel Kare Kodu ( QR Code)"
+      },
+      "waitingNfcToWriteModal": {
+        "title": "NFC - Yakın Saha İletişimi bekleniyor...",
+        "titleSuccess": "NFC - Yakın Saha İletişim Etiketi Yazıldı",
+        "content": "Yazım işlemi için, lütfen telefonunuzu Yakın Saha İletişim etiketine yaklaştırınız."
+      },
+      "nfcErrorModal": {
+        "titleInsufficientCapacity": "Etiket kapasitesi yetersiz."
+      }
+    },
+    "miningPage": {
+      "title": "Doğrudan tarayıcınızın içinden madencilik yapın.",
+      "subtitle": "Madencilik yaparak ağı destekleyin ve bunun karşılığında SUMO kazanın.",
+      "parameterBlock": {
+        "title": "Parametreler",
+        "labelDestinationAddress": "Madencilik Yapılacak Cüzdan",
+        "labelThreads": "Başlık Sayısı (Daha Fazla = Daha Yüksek Şifre Algoritma Güç Oranı)",
+        "start": "Başlat",
+        "stop": "Bitir"
+      },
+      "statisticsBlocks": {
+        "title": "İstatistikler",
+        "validShares": "Geçerli Hisse Payları",
+        "hashrate": "Şifre Algoritması Güç Oranı",
+        "maxHashrate": "En Yüksek Şifre Algoritması Güç Oranı",
+        "dedicatedHardware": "Madencilik yazılım ve doanımını kullanma yoluyla, daha fazla kazanabilir ve ağın merkeziyetsiz hale getirilmesine yardım edebilirsiniz.",
+        "miningHandledBy": "Bu madencilik işlemi, get.SUMOKOINcoin.com madencilik havuzu tarafından yönetilmektedir."
+      }
+    },
+    "settingsPage": {
+      "title": "Ayarlar",
+      "subtitle": "Parametrelerinizi Buradan Değiştirin",
+      "versionBlock": {
+        "versionNumber": "Sürüm Numarası:",
+        "versionCode": "Sürüm Kodu:"
+      },
+      "settingsBlock": {
+        "speed": {
+          "label": "Cüzdan Güncelleme Hızını Ayarla (Daha fazla kaynak tüketebilir)",
+          "fastest": "En Hızlı",
+          "fast": "Hızlı",
+          "medium": "Orta",
+          "slow": "Yavaş"
+        },
+        "language": {
+          "label": "Dil"
+        },
+        "readMinerTx": {
+          "label": "Madencilik Aktarımını Oku (Sadece Tek Kişilik Madencilik İşlemi İçin)"
+        }
+      },
+      "changePasswordButton": "Cüzdan Şifremi Değiştir",
+      "deleteWalletButton": "Cüzdanımı Sil (Yerel Kopya)",
+      "walletSettings": {
+        "creationHeight": {
+          "label": "Cüzdanın Oluşturulma Yüksekliği"
+        },
+        "currentScanningHeight": {
+          "label": "Mevcut Tarama Yüksekliği"
+        },
+        "updateButton": "Güncelle"
+      },
+      "deleteWalletModal": {
+        "title": "Cüzdanımı Sil (Yerel Kopya)",
+        "content": "Gerçekten cüzdanınızı silmek istediğinizden emin misiniz?",
+        "confirmText": "Evet",
+        "cancelButtonText": "İptal"
+      }
+    },
+    "importBasePage": {
+      "parametersBlock": {
+        "title": "Parametreler",
+        "password": {
+          "label": "Cüzdanınızı Korumak İçin Şifre"
+        },
+        "passwordConfirm": {
+          "label": "Şifreyi Onaylayın",
+          "invalid": "İkinci şifre, yazmış olduğunuz birinci şifreyle uyuşmuyor."
+        },
+        "importHeight": {
+          "label": "İçe Aktarmak İçin Yükseklik Değeri:"
+        }
+      }
+    },
+    "importFromQrPage": {
+      "title": "Bir Kare Kod Kullanarak Cüzdan İçe Aktarımı",
+      "subtitle": "Çevrim Dışı Yedek Kullanarak Cüzdan İçe Aktarımı",
+      "qrCodeBlock": {
+        "title": "Kare Kod - QR code",
+        "startScanButton": "Taramaya Başla",
+        "importButton": "İçe Aktar"
+      },
+      "qrScanningBlock": {
+        "title": "Kare Kodu Sun"
+      }
+    },
+    "exportPage": {
+      "title": "Kimlik Bilgilerinizi Yedekleyiniz",
+      "publicAddressBlock": {
+        "title": "Kamuya Açık Adresiniz"
+      },
+      "pdfBlock": {
+        "title": "PDF Dosya Yedeği",
+        "downloadButton": "İndir"
+      },
+      "warningBlock": {
+        "title": "İkaz",
+        "content": "Eğer özel anahtarlarınızı veya hatırlatma sözcüğünüzü kaydetmeyi tercih ederseniz, LÜTFEN GÜVENLİĞİNİZ İÇİN bunları açık şekilde yazılı halde bırtakmayınız.<br/>Dosya kaydı, anahtarlarınızın şifreli şekilde tutulması için alternatif bir çözümdür ve size daha ileride bir eş zamanlama temin etmek için bütün aktarım işlemlerinizin bir yedeğini barındırır."
+      },
+      "exportBlock": {
+        "title": "Kimliğinizi Dışa Aktarın",
+        "privateKeysButton": "Özel Anahtarlarımı Getir",
+        "mnemonicKeysButton": "Hatırlatma Sözcüğümü Getir",
+        "fileButton": "Bir Dosyaya Aktar"
+      },
+      "walletKeysModal": {
+        "title": "Özel Anahtarlar",
+        "confirmText": "Dışa Aktar",
+        "content": "Lütfen bu anahtarları dikkatli bir şekilde saklayınız. <b>Bu anahtarlara sahip olmak demek, bu anahtarların bağlı olduğu hesap bakiyesine de sahip olmak demektir!</b><br/>İşlem Anahtarı: {privSpendKey}<br/>Özel Görünüm Anahtarı: {privViewKey}"
+      },
+      "mnemonicKeyModal": {
+        "title": "Hatırlatma Sözcüğü",
+        "confirmText": "Dışa Aktar",
+        "content": "Lütfen bu hatırlatma sözcüğünü güvenli bir şekilde saklayınız.<b>Bu hatırlatma sözcüğüne sahip olmak demek, bunun bağlantılı olduğu hesap bakiyesine sahip olmak demektir!</b>Hatırlatma Sözcüğü:<br/>{mnemonic}"
+      },
+      "mnemonicLangSelectionModal": {
+        "title": "Hatırlatma sözcüğünüzü hangi dilde istersiniz?",
+        "confirmText": "Dışa Aktar",
+        "cancelButtonText": "İptal"
+      }
+    },
+    "importPage": {
+      "title": "Cüzdan Oluştur",
+      "subtitle": "Daha önceki bir anahtar, dosya ya da hatırlatma sözcüğü ile",
+      "chooseMethod": "İçe aktarım yöntemini seçiniz. Lütfen sıfır yüksekliğinden itibaren bir cüzdan içe aktarım işleminin uzun sürebileceğine dikkat ediniz ve sabırlı olunuz.",
+      "fromKeys": "Anahtar Kullanarak",
+      "fromFile": "Dosya Kullanarak",
+      "fromMnemonic": "Hatırlatma Sözcüğü Kullanarak",
+      "fromQr": "Kare Kod Kullanarak"
+    },
+    "termsOfUsePage": {
+      "title": "Kullanım Şartları",
+      "subtitle": "Lütfen dikkalice okuyunuz."
+    },
+    "privacyPolicyPage": {
+      "title": "Güvenlik Poliçesi",
+      "subtitle": "Lütfen dikkatlice okuyunuz."
+    },
+    "importFromFilePage": {
+      "title": "Bir Yedek Dosyası Kullanarak Cüzdan İçe Aktarım İşlemi",
+      "subtitle": "Cüzdan oluşturmak için yedek dosyanızı kuıllanın",
+      "walletBlock": {
+        "title": "Cüzdan Dosyası",
+        "label": "Dosyayı Seçin",
+        "importButton": "İçe Aktar"
+      }
+    },
+    "importFromMnemonicPage": {
+      "title": "Hatırlatma Sözcüğü Kullanarak Cüzdan İçe Aktarım İşlemi",
+      "subtitle": "Cüzdan oluşturmak için hatırlatma sözcüğünüzü kullanın",
+      "mnemonicBlock": {
+        "title": "Hatırlatma Sözcüğü",
+        "mnemonic": {
+          "label": "Hatırlatma Sözcüğü: Yirmi Altı Kelime",
+          "invalid": "Girmiş Olduğunuz Hatırlatma Sözcüğü Geçersiz",
+          "language": "Dil"
+        },
+        "importButton": "İçe Aktar"
+      }
+    },
+    "importFromKeysPage": {
+      "title": "Anahtar Kullanarak Cüzdan İçe Aktarım İşlemi",
+      "subtitle": "Cüzdan oluşturmak için anahtarlarınızı kullanın",
+      "parametersBlock": {
+        "viewOnlyWallet": {
+          "label": "Sadece cüzdanı görüntülemek mi istiyorsunuz?"
+        }
+      },
+      "keysBlock": {
+        "titleNotViewOnly": "Cüzdan Anahtarları",
+        "titleViewOnly": "Sadece Cüzdanı Görüntüle",
+        "privateSpend": {
+          "label": "Özel İşlem Anahtarı"
+        },
+        "privateView": {
+          "label": "Özel Görünüm Anahtarı",
+          "optional": "(Tercihe Bağlı)"
+        },
+        "publicKey": {
+          "label": "Kamuya Açık Anahtar"
+        },
+        "importButton": "İçe Aktar"
+      }
+    }
+  },
+  "number": {},
+  "date": {
+    "short": {
+      "year": "numeric",
+      "month": "short",
+      "day": "numeric"
+    },
+    "long": {
+      "year": "numeric",
+      "month": "short",
+      "day": "numeric",
+      "weekday": "short",
+      "hour": "numeric",
+      "minute": "numeric",
+      "hour12": true
+    }
+  }
+}

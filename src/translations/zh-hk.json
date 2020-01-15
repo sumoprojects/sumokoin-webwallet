@@ -17,7 +17,7 @@
 	},
 	"global": {
 	  "loading": "正在加載",
-	  "disableSecurity":"請禁用此消息，我了解風險",
+	  "disableSecurity":"關閉安全檢查，我接受風險。",
 	  "passwordInvalidRequirements":"密碼至少需要8個字符：一個大寫字母，一個小寫字母，一個數字和一個特殊字符",
 	  "passwordConfirmationNotMatching":"兩個密碼不一致",
 	  "download":"下載",
@@ -33,12 +33,12 @@
 		"cancelText":"取消"
 	  },
 	  "invalidPasswordModal":{
-		"title":"糟了！",
+		"title":"非常抱歉！",
 		"content":"密碼有誤",
 		"confirmText":"確定"
 	  },
 	  "invalidMnemonicModal":{
-		"title":"糟了！",
+		"title":"非常抱歉！",
 		"content":"助記詞有誤",
 		"confirmText":"確定"
 	  },
@@ -47,8 +47,8 @@
 		"confirmText":"確定"
 	  },
 	  "permissionRequiredForCameraModal":{
-		"title":"糟了！",
-		"content":"掃描QR碼必有使用相機的權限",
+		"title":"非常抱歉！",
+		"content":"掃描二維碼並授權使用相機的權限",
 		"confirmText":"確定"
 	  }
 	},
@@ -137,11 +137,11 @@
 	"createWalletPage":{
 	  "generatingStep":{
 		"title":"錢包正在生成中。。。",
-		"subtitle":"快生成完啦！",
+		"Subtitle":"即將生成完畢", 
 		"waitingMessage":"正在生成您的錢包。。。"
 	  },
 	  "finalizationStep":{
-		"title":"完事啦！您的帳戶已經准備好！",
+		"title":"全部完成！您的賬戶已成功開戶！",
 		"subtitle":"好好做准備吧",
 		"passwordSelectionBlock":{
 		  "label":"保護您的錢包"
@@ -186,7 +186,7 @@
 	  "subtitle":"我們為您提供幫助！",
 	  "getInTouchBlock":{
 		"title":"聯系我們！",
-		"content":"您有什麽想法或反饋可以幫助我們改善錢包嗎？聯系我們！",
+		"Content":"如您有建議和反饋以幫助我們不斷提高，請聯系我們。",
 		"discord":"SUMOKOIN電報群"
 	  }
 	},
@@ -226,7 +226,7 @@
 		"explication":"顯示二維碼"
 	  },
 	  "notEnoughMoneyModal":{
-		"title":"糟了！",
+		"title":"非常抱歉！",  
 		"content":"余額不足",
 		"confirmText":"確定"
 	  },
@@ -240,12 +240,12 @@
 		"confirmText":"確定"
 	  },
 	  "transferExceptionModal":{
-		"title":"糟了！",
+		"title":"非常抱歉！",
 		"content":"發生錯誤。請報告此錯誤： {details}",
 		"confirmText":"確定"
 	  },
 	  "invalidAmountModal":{
-		"title":"糟了！",
+		"title":"非常抱歉！",
 		"content":"金額有誤",
 		"confirmText":"確定"
 	  },
@@ -273,7 +273,7 @@
 	  "receiveBlock":{
 		"address":{
 		  "title":"您的收款地址：",
-		  "label":"向對方提供一下地址"
+		  "label":"請向對方提供一下地址"
 		},
 		"qrCode":{
 		  "title":"或個性化二維碼：",
@@ -349,7 +349,7 @@
 	  },
 	  "deleteWalletModal":{
 		"title":"刪除錢包（本地副本）",
-		"content":"您確定您真的要刪除您的錢包嗎？",
+		"content":"您確定真的要刪除您的錢包嗎？",
 		"confirmText":"我確定",
 		"cancelButtonText":"取消"
 	  }
@@ -392,7 +392,7 @@
 	  },
 	  "warningBlock":{
 		"title":"警告",
-		"content":"如果您選擇保存私鑰或助記詞，請不要出于保護自身安全的目的將它們存儲在明文中。<br/>該文件是替代方案，其中密鑰被加密並包含一個備份所有交易，以節省以後的同步。"
+		"content":"如果您選擇保存私鑰或助記詞，請不要出于保護自身安全的目的將它們存儲在明文中。<br/>該文件是替代方案，其中密鑰被加密並包含一個備份所有交易，以便節省之後的同步。" 
 	  },
 	  "exportBlock":{
 		"title":"導出您的憑據",
@@ -403,12 +403,12 @@
 	  "walletKeysModal":{
 		"title":"私鑰",
 		"confirmText":"確定",
-		"content":"請仔細存儲這些密鑰。<b>擁有它們意味著擁有相關的資金</b>！<br/>支出密鑰：{privSpendKey} <br/>私有查看密鑰：{privViewKey}"
+		"content":"請仔細存儲這些密鑰。<b>擁有它們意味著擁有相應的資金</b>！<br/>支出密鑰：{privSpendKey} <br/>私有查看密鑰：{privViewKey}"
 	  },
 	  "mnemonicKeyModal":{
 		"title":"助記詞",
 		"confirmText":"確定",
-		"content":"請仔細存儲該助記詞。<b>擁有該助記詞意味著擁有相關的資金</b>！該短語是：<br/> {mnemonic}"
+		"content":"請仔細存儲該助記詞。<b>擁有該助記詞意味著擁有相應的資金</b>！該短語是：<br/> {mnemonic}"
 	  },
 	  "mnemonicLangSelectionModal":{
 		"title":"您要使用哪種語言的助記詞？",
@@ -444,7 +444,7 @@
 	},
 	"importFromMnemonicPage":{
 	  "title":"從助記詞短語導入錢包",
-	  "subtitle":"使用您的短語來創建錢",
+	  "Subtitle":"使用您的短語來創建錢包",
 	  "mnemonicBlock":{
 		"title":"助記詞",
 		"mnemonic":{
@@ -465,7 +465,7 @@
 	  },
 	  "keysBlock":{
 		"titleNotViewOnly":"錢包鑰匙",
-		"titleViewOnly":"僅查看的錢包",
+		"titleViewOnly":"僅能查看的錢包",
 		"privateSpend":{
 		  "label":"私有支付鑰匙"
 		},
@@ -492,3 +492,4 @@
 	}
   }
 }
+

@@ -17,7 +17,7 @@
 	},
 	"global": {
 	  "loading": "正在加载",
-	  "disableSecurity":"请禁用此消息，我了解风险",
+	  "disableSecurity":"关闭安全检查，我接受风险。",
 	  "passwordInvalidRequirements":"密码至少需要8个字符：一个大写字母，一个小写字母，一个数字和一个特殊字符",
 	  "passwordConfirmationNotMatching":"两个密码不一致",
 	  "download":"下载",
@@ -33,12 +33,12 @@
 		"cancelText":"取消"
 	  },
 	  "invalidPasswordModal":{
-		"title":"糟了！",
+		"title":"非常抱歉！",
 		"content":"密码有误",
 		"confirmText":"确定"
 	  },
 	  "invalidMnemonicModal":{
-		"title":"糟了！",
+		"title":"非常抱歉！",
 		"content":"助记词有误",
 		"confirmText":"确定"
 	  },
@@ -47,8 +47,8 @@
 		"confirmText":"确定"
 	  },
 	  "permissionRequiredForCameraModal":{
-		"title":"糟了！",
-		"content":"扫描QR码必有使用相机的权限",
+		"title":"非常抱歉！",
+		"content":"扫描二维码并授权使用相机的权限",
 		"confirmText":"确定"
 	  }
 	},
@@ -137,11 +137,11 @@
 	"createWalletPage":{
 	  "generatingStep":{
 		"title":"钱包正在生成中。。。",
-		"subtitle":"快生成完啦！",
+		"Subtitle":"即将生成完毕", 
 		"waitingMessage":"正在生成您的钱包。。。"
 	  },
 	  "finalizationStep":{
-		"title":"完事啦！您的帐户已经准备好！",
+		"title":"全部完成！您的账户已成功开户！",
 		"subtitle":"好好做准备吧",
 		"passwordSelectionBlock":{
 		  "label":"保护您的钱包"
@@ -186,7 +186,7 @@
 	  "subtitle":"我们为您提供帮助！",
 	  "getInTouchBlock":{
 		"title":"联系我们！",
-		"content":"您有什么想法或反馈可以帮助我们改善钱包吗？联系我们！",
+		"Content":"如您有建议和反馈以帮助我们不断提高，请联系我们。",
 		"discord":"SUMOKOIN电报群"
 	  }
 	},
@@ -226,7 +226,7 @@
 		"explication":"显示二维码"
 	  },
 	  "notEnoughMoneyModal":{
-		"title":"糟了！",
+		"title":"非常抱歉！",  
 		"content":"余额不足",
 		"confirmText":"确定"
 	  },
@@ -240,12 +240,12 @@
 		"confirmText":"确定"
 	  },
 	  "transferExceptionModal":{
-		"title":"糟了！",
+		"title":"非常抱歉！",
 		"content":"发生错误。请报告此错误： {details}",
 		"confirmText":"确定"
 	  },
 	  "invalidAmountModal":{
-		"title":"糟了！",
+		"title":"非常抱歉！",
 		"content":"金额有误",
 		"confirmText":"确定"
 	  },
@@ -273,7 +273,7 @@
 	  "receiveBlock":{
 		"address":{
 		  "title":"您的收款地址：",
-		  "label":"向对方提供一下地址"
+		  "label":"请向对方提供一下地址"
 		},
 		"qrCode":{
 		  "title":"或个性化二维码：",
@@ -349,7 +349,7 @@
 	  },
 	  "deleteWalletModal":{
 		"title":"删除钱包（本地副本）",
-		"content":"您确定您真的要删除您的钱包吗？",
+		"content":"您确定真的要删除您的钱包吗？",
 		"confirmText":"我确定",
 		"cancelButtonText":"取消"
 	  }
@@ -392,7 +392,7 @@
 	  },
 	  "warningBlock":{
 		"title":"警告",
-		"content":"如果您选择保存私钥或助记词，请不要出于保护自身安全的目的将它们存储在明文中。<br/>该文件是替代方案，其中密钥被加密并包含一个备份所有交易，以节省以后的同步。"
+		"content":"如果您选择保存私钥或助记词，请不要出于保护自身安全的目的将它们存储在明文中。<br/>该文件是替代方案，其中密钥被加密并包含一个备份所有交易，以便节省之后的同步。" 
 	  },
 	  "exportBlock":{
 		"title":"导出您的凭据",
@@ -403,12 +403,12 @@
 	  "walletKeysModal":{
 		"title":"私钥",
 		"confirmText":"确定",
-		"content":"请仔细存储这些密钥。<b>拥有它们意味着拥有相关的资金</b>！<br/>支出密钥：{privSpendKey} <br/>私有查看密钥：{privViewKey}"
+		"content":"请仔细存储这些密钥。<b>拥有它们意味着拥有相应的资金</b>！<br/>支出密钥：{privSpendKey} <br/>私有查看密钥：{privViewKey}"
 	  },
 	  "mnemonicKeyModal":{
 		"title":"助记词",
 		"confirmText":"确定",
-		"content":"请仔细存储该助记词。<b>拥有该助记词意味着拥有相关的资金</b>！该短语是：<br/> {mnemonic}"
+		"content":"请仔细存储该助记词。<b>拥有该助记词意味着拥有相应的资金</b>！该短语是：<br/> {mnemonic}"
 	  },
 	  "mnemonicLangSelectionModal":{
 		"title":"您要使用哪种语言的助记词？",
@@ -444,7 +444,7 @@
 	},
 	"importFromMnemonicPage":{
 	  "title":"从助记词短语导入钱包",
-	  "subtitle":"使用您的短语来创建钱",
+	  "Subtitle":"使用您的短语来创建钱包",
 	  "mnemonicBlock":{
 		"title":"助记词",
 		"mnemonic":{
@@ -465,7 +465,7 @@
 	  },
 	  "keysBlock":{
 		"titleNotViewOnly":"钱包钥匙",
-		"titleViewOnly":"仅查看的钱包",
+		"titleViewOnly":"仅能查看的钱包",
 		"privateSpend":{
 		  "label":"私有支付钥匙"
 		},
@@ -492,3 +492,4 @@
 	}
   }
 }
+
