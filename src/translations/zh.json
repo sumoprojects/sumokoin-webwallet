@@ -137,7 +137,7 @@
 	"createWalletPage":{
 	  "generatingStep":{
 		"title":"钱包正在生成中。。。",
-		"Subtitle":"即将生成完毕", 
+		"subtitle":"即将生成完毕", 
 		"waitingMessage":"正在生成您的钱包。。。"
 	  },
 	  "finalizationStep":{
@@ -186,7 +186,7 @@
 	  "subtitle":"我们为您提供帮助！",
 	  "getInTouchBlock":{
 		"title":"联系我们！",
-		"Content":"如您有建议和反馈以帮助我们不断提高，请联系我们。",
+		"content":"如您有建议和反馈以帮助我们不断提高，请联系我们。",
 		"discord":"SUMOKOIN电报群"
 	  }
 	},
@@ -444,7 +444,7 @@
 	},
 	"importFromMnemonicPage":{
 	  "title":"从助记词短语导入钱包",
-	  "Subtitle":"使用您的短语来创建钱包",
+	  "subtitle":"使用您的短语来创建钱包",
 	  "mnemonicBlock":{
 		"title":"助记词",
 		"mnemonic":{
