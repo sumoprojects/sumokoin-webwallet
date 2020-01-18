@@ -12,9 +12,19 @@
 	<!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://wallet.sumokoin.com 'unsafe-eval' ; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">-->
 	<meta name="referrer" content="none">
 	<meta name="msapplication-tap-highlight" content="no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css" rel="stylesheet">
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+	<link href='http://fonts.googleapis.com/css?family=Lato:400' rel='stylesheet' type='text/css'>
 
 	<link rel="stylesheet" href="assets/css/main.css" />
-	<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="assets/css/all.min.css" />
+
 
 	<link rel="manifest" href="/manifest.json">
 
@@ -29,8 +39,8 @@
 	<link rel="icon" type="image/png" href="assets/img/icons/icon-144x144.png">
 
 	<!-- Windows -->
-	<meta name="msapplication-TileColor" content="#36393">
-	<meta name="theme-color" content="#36393">
+	<meta name="msapplication-TileColor" content="#0E0E63">
+	<meta name="theme-color" content="#0E0E63">
 
 	<meta name="description" content="" />
 	<meta property="og:description" content="" />
@@ -54,52 +64,107 @@
 	<a href="#!index" class="toggleMenu"><i class="fa fa-bars" aria-hidden="true"></i></a>
 </div>
 
-<div id="menu" >
-	<a><img src="./assets/img/logo.png"/></a>
-	<a href="#!index" class="onlyNotConnected"><span class="icon" ><i class="fa fa-money fa-lg" aria-hidden="true"></i></span> {{ $t("menu.home") }}</a>
-	<a href="#!account" class="onlyWhenConnected"><span class="icon" ><i class="fa fa-money fa-lg" aria-hidden="true"></i></span> {{ $t("menu.account") }}</a>
-	<a href="#!send" class="onlyWhenConnected notViewOnlyWallet"><span class="icon" ><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i></span> {{ $t("menu.send") }}</a>
-	<a href="#!receive" class="onlyWhenConnected"><span class="icon" ><i class="fa fa-sign-in fa-lg" aria-hidden="true"></i></span> {{ $t("menu.receive") }}</a>
-	<a href="#!export" class="onlyWhenConnected"><span class="icon" ><i class="fa fa-folder-open fa-lg" aria-hidden="true"></i></span> {{ $t("menu.export") }}</a>
-	<a href="#!settings" class="onlyWhenConnected"><span class="icon" ><i class="fa fa-wrench fa-lg" aria-hidden="true"></i></span> {{ $t("menu.settings") }}</a>
-	<a href="#!donate" ><span class="icon" ><i class="fa fa-thumbs-up fa-lg" aria-hidden="true"></i></span> {{ $t("menu.donate") }}</a>
-	<a href="#!disconnect"  class="onlyWhenConnected"><span class="icon" ><i class="fa fa-ban fa-lg" aria-hidden="true"></i></span> {{ $t("menu.disconnect") }}</a>
-	<a href="#!network" ><span class="icon" ><i class="fa fa-area-chart fa-lg" aria-hidden="true"></i></span> {{ $t("menu.network") }}</a>
-</div>
 
-<div id="pageLoading" >
-	<i class="fa fa-refresh fa-pulse fa-3x fa-fw"></i>
-	<span class="sr-only">{{ $t("global.loading") }}...</span>
-</div>
+
 
 <div id="page" ></div>
 
+<!-- Modal Terms of use -->
+<div class="modal fade" id="termsofuse" tabindex="-1" role="dialog" aria-labelledby="termsofuselabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="termsofuselabel">Terms of Use</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+It is understood that interactions with wallet.sumokoin.com's web wallet are entirely client-side.
+That wallet.sumokoin.com has no control or access to your wallet's private keys, nor do they have the ability to recover your funds in any event of loss.
+In all circumstances, wallet.sumokoin.com, Sumokoin Core Team, Sumokoin promoters, or any entity affiliated with the Sumokoin project will not be liable for loss or misuse of funds held using the aforementioned wallet.
+Users also understand and agree that they are solely responsible for providing a secure environment to interact with a wallet.sumokoin.com web wallet.
+Additionally, wallet.sumokoin.com cannot, and will not, be held liable for use of funds originating from or arriving to a web wallet.
+By creating, importing, or interacting with a wallet on wallet.sumokoin.com, you implicitly agree to these terms, and absolve the website owners and affiliates of any and all liability.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">I Understand</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal Terms of use end -->
+
+<!-- Modal Support -->
+<div class="modal fade" id="support" tabindex="-1" role="dialog" aria-labelledby="termsofuselabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="termsofuselabel">Need help?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+	Join our Telegram Group <a href="https://t.me/sumokoinofficial">https://t.me/sumokoinofficial</a>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">I Understand</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal Support end -->
+
+<!-- Modal Donate -->
+<div class="modal fade" id="donate" tabindex="-1" role="dialog" aria-labelledby="termsofuselabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="termsofuselabel">Donate</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+	This Web wallet is based on Gnock's webwallet and is adopted and further developed by Sumokoin developers.
+	If you want to help the development, help to pay for the servers, and like this app, please consider a donation.
+	<br><br>
+	<a href="#send?address=Sumoo64zh7dRFyB8dgDWZMLmzKBgGXYWZCG4NBF2VcvzEuiSQpMjyyiYJ1Ra696pZu56PPFQNBDdB1rZjyeX1RVKeWZgHg7pTxj" >Click here to Donate</a>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">I Understand</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal dONATE end -->
+
+
+
+
 <div id="copyright" v-cloak="" >
-      <div class="hideOnNative" >© 2019 www.sumokoin.org</div>
+      <div class="hideOnNative" >Copyright 2020 Sumokoin.org</div>
       <div class="links" >
-	      <select v-model="language" class="hideOnNative">
+	      <select v-model="language" >
 		      <option value="en">English</option>
 		      <option value="de">Deutsch</option>
-		      <option value="es">Español</option>
-		      <option value="fr">Français</option>
-		      <option value="el">Ελληνικά</option>
+		      <option value="es">Espanol</option>
+		      <option value="fr">Francais</option>
 		      <option value="hu">Magyar</option>
 		      <option value="id">Bahasa Indonesia</option>
 		      <option value="it">Italiano</option>
 		      <option value="nl">Nederlands</option>
 		      <option value="pl">Polski</option>
-		      <option value="ru">Русский</option>
-		      <option value="sr">Српски</option>
-		      <option value="tr">Turkçe</option>
-		      <option value="vi">Tiếng Việt</option>
-		      <option value="zh">简体中文</option>
-		      <option value="zh-hk">繁體中文</option>
+		      <option value="ru">Russian</option>
+		      <option value="tr">Tuskish</option>
+		      <option value="vi">Vietnamese</option>
+		      <option value="zh">Chinese</option>
+		      <option value="zh-hk">Chinese-Simiplified</option>
 	      </select>
-	      <a href="#!termsOfUse" >{{ $t("bottom.termsOfUse") }}</a>
-	      <a href="#!privacyPolicy" >{{ $t("bottom.privacyPolicy") }}</a>
-	      <a class="hideOnNative" href="#!support" >{{ $t("bottom.support") }}</a>
-	      <a class="hideOnNative" href="#!donate" >{{ $t("bottom.donate") }}</a>
-	      <a class="hideOnNative" href="#!network" >{{ $t("bottom.network") }}</a>
+	      <a href="#" data-toggle="modal" data-target="#termsofuse" >{{ $t("bottom.termsOfUse") }}</a>
+	      <a class="hideOnNative" href="#" data-toggle="modal" data-target="#support" >{{ $t("bottom.support") }}</a>
+	      <a class="hideOnNative" href="#" data-toggle="modal" data-target="#donate" >{{ $t("bottom.donate") }}</a>
 	      <a class="hideOnNative" href="https://github.com/sumoprojects/sumokoin-webwallet" target="_blank">{{ $t("bottom.github") }}</a>
 	</div>
 	<div class="cb" ></div>

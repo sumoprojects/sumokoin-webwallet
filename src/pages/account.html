@@ -1,21 +1,49 @@
-<div id="app" class="body-root" v-cloak="">
-	<div class="body-header" >
-		<div class="header-title">
-			<i class="fa fa-money fa-lg" aria-hidden="true"></i> {{ $t("accountPage.title") }}
-		</div>
-		<div class="header-subtitle" >
-			{{ $t("accountPage.subtitle") }}
+<div id="app" class="indexTab content" v-cloak="">
+
+
+	<div class="hideOnNonNative" >
+
+		<div class="mainBlock" >
+               		<div class="headline" >
+				<h1>{{ $t("homepage.mainTitle") }}</h1>
+				<h2>{{ $t("homepage.tagLine") }}</h2>
+			</div>
 		</div>
 	</div>
-	<div class="body-content" >
+	<div class="hideOnNative" >
+		<div class="mainBlock" >
+			<div class="actions" >
+	<img src="https://i.imgur.com/I4WlwI3.png" width="180" > 
+
+                <div class="right">
+					<a href="#!account" class="btn btn-primary btn-sm">{{ $t("menu.account") }}</a>
+					<a href="#!send" class="btn btn-primary btn-sm">{{ $t("menu.send") }}</a>
+					<a href="#!receive" class="btn btn-primary btn-sm">{{ $t("menu.receive") }}</a>
+					<a href="#!export" class="btn btn-primary btn-sm">{{ $t("menu.export") }}</a>
+					<a href="#!settings" class="btn btn-primary btn-sm">{{ $t("menu.settings") }}</a>
+					<a href="#!disconnect" class="btn btn-danger btn-sm">{{ $t("menu.disconnect") }}</a>
+
+
+
+				</div>
+
+			</div>
+<div class="container-md">
+<div class="card">
+  <div class="card-body">
+
+
+
 
 		<div class="panel inline" v-if="currentScanBlock+2 < blockchainHeight" >
 			<div class="progress" >
-				<div class="bar" :style="'width:'+((currentScanBlock+1)/blockchainHeight*100 | 0)+'%'" >{{(((currentScanBlock+1)/blockchainHeight*1000 | 0) / 10)}}%</div>
+				<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" :style="'width:'+((currentScanBlock+1)/blockchainHeight*100 | 0)+'%'" >{{(((currentScanBlock+1)/blockchainHeight*1000 | 0) / 10)}}%</div>
 				<label>
 					{{ $t("accountPage.synchronizingBlock.text") }} <span class="currentScanBlock" >{{currentScanBlock+1}}</span>/<span class="blockchainHeight" >{{blockchainHeight}}</span>
 				</label>
 			</div>
+
+
 		</div>
 
 		<div class="panel">
@@ -29,6 +57,8 @@
 				</div>
 			</div>
 		</div>
+
+
 
 		<div class="panel nopadding">
 			<div class="body" >
@@ -52,7 +82,7 @@
 								</tr>
 								<tr>
                                     <td class="direction" ></td>
-									<td colspan="3" class="tx-hash" >{{transaction.hash}}</td><!--UNDER-->
+									<td colspan="2" class="tx-hash" @click="moreInfoOnTx(transaction)"><i>{{transaction.hash}}</td><!--UNDER-->
 								</tr>
 							</template>
 							<tr v-if="transactions.length == 0" >
@@ -65,7 +95,7 @@
 										</template>
 									</span><br>
 									<div class="actions tc" >
-										<a href="#receive" class="btn">{{ $t("accountPage.historyBlock.getMSRAddress") }}</a>
+										<a href="#receive" class="btn btn-primary btn-sm">{{ $t("accountPage.historyBlock.getMSRAddress") }}</a>
 									</div>
 								</td>
 							</tr>
@@ -75,7 +105,16 @@
 				</div>
 			</div>
 		</div>
-        <script src="https://widgets.coingecko.com/coingecko-coin-price-static-headline-widget.js"></script>
-        <coingecko-coin-price-static-headline-widget  coin-ids="sumokoin,bitcoin,ethereum" currency="usd" locale="en"></coingecko-coin-price-static-headline-widget>
 	</div>
+
+
+
+
+  </div>
 </div>
+
+
+</div>
+
+
+		</div>
