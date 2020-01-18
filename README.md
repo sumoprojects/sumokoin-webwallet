@@ -22,6 +22,7 @@ Encryption is done with a certified library, [Tweetnacl.Js.](https://github.com/
 - MyMonero (Paul Shapiro)
 - quangvu3
 - sumogr
+- zer039
 
 ## Translations
 

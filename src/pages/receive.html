@@ -1,10 +1,43 @@
-<textarea id="clipboardTextarea" style="width:0;height:0;position:absolute;top:0;left:0;"></textarea>
-<div id="app" class="body-root receiveTab" v-cloak="">
-	<div class="body-header" >
-		<div class="header-title">
-			<i class="fa fa-sign-in fa-lg" aria-hidden="true"></i> {{ $t("receivePage.title") }}
+<div id="app" class="indexTab content" v-cloak="">
+
+
+	<div class="hideOnNonNative" >
+
+		<div class="mainBlock" >
+               		<div class="headline" >
+				<h1>{{ $t("homepage.mainTitle") }}</h1>
+				<h2>{{ $t("homepage.tagLine") }}</h2>
+			</div>
 		</div>
 	</div>
+	<div class="hideOnNative" >
+		<div class="mainBlock" >
+			<div class="actions" >
+	<img src="https://i.imgur.com/I4WlwI3.png" width="180" > 
+
+                <div class="right">
+					<a href="#!account" class="btn btn-primary btn-sm"><i class="fas fa-user"></i> {{ $t("menu.account") }}</a>
+					<a href="#!send" class="btn btn-primary btn-sm"><i class="fas fa-arrow-circle-right"></i> {{ $t("menu.send") }}</a>
+					<a href="#!receive" class="btn btn-primary btn-sm"><i class="fas fa-arrow-circle-left"></i> {{ $t("menu.receive") }}</a>
+					<a href="#!export" class="btn btn-primary btn-sm"><i class="fas fa-file-export"></i> {{ $t("menu.export") }}</a>
+					<a href="#!settings" class="btn btn-primary btn-sm"><i class="fas fa-cogs"></i> {{ $t("menu.settings") }}</a>
+					<a href="#!disconnect" class="btn btn-danger btn-sm"><i class="fas fa-sign-out-alt"></i> {{ $t("menu.disconnect") }}</a>
+
+
+
+				</div>
+
+			</div>
+<div class="container-md">
+<div class="card">
+  <div class="card-body">
+
+		<div class="body-header" >
+			<div class="header-title">
+				<i class="fas fa-arrow-circle-left"></i> {{ $t("receivePage.title") }}
+			</div>
+		</div>
+
 	<div class="body-content" >
 		<div class="panel">
 			<div class="body" >
@@ -37,7 +70,7 @@
 						<input type="text" v-model="paymentId" maxlength="8"/>
 					</div>-->
 					<div class="actions" >
-						<button class="btn primary" @click="generateQrCode()" >{{ $t("receivePage.receiveBlock.qrCode.updateButton") }}</button>
+						<button class="btn btn-primary" @click="generateQrCode()" >{{ $t("receivePage.receiveBlock.qrCode.updateButton") }}</button>
 					</div>
 				</div>
 			</div>
@@ -68,5 +101,8 @@
 				</div>
 			</div>
 		</div>
-	</div>
+
+  </div>
 </div>
+</div>
+	</div>

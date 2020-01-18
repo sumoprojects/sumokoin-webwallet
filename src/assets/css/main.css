@@ -25,9 +25,11 @@ div,p,input,label{box-sizing: border-box;}
 
 body{
 	overflow-y: hidden;
-	font-weight: normal;
-	background: #f7f7f7;
+	font-weight: 300;
+	font-family: Lato,sans-serif;
+	background-image: linear-gradient(#0E0E63, #211f8c);
 }
+
 body.menuHidden{
 	overflow-y: auto;
 }
@@ -113,7 +115,6 @@ body.menuDisabled #topBar{
 	overflow: auto;
 }
 body.menuHidden #menu {
-	left:-100%;
 }
 /* computer */
 @media screen and (min-width: 600px) {
@@ -148,7 +149,6 @@ body.menuHidden #menu {
 #menu a:last-child{
 	border-bottom:none;
 }
-#menu a .icon{display:inline-block;width:30px;text-align: center;}
 #menu img{
 	max-width: 100%;
 	max-height: 40px;
@@ -160,7 +160,7 @@ body.menuHidden #menu {
 	top:0;
 	bottom:0;
 	width: 100%;
-	background: rgba(255,255,255,0.6);
+	background-image: linear-gradient(#0E0E63, #211f8c);
 	z-index: 10;
 	text-align: center;
 	color:black;
@@ -177,7 +177,6 @@ body.menuHidden #pageLoading{
 
 #page{
 	position: relative;
-	left:280px;
 }
 body.menuHidden #page,body.menuDisabled #page{
 	left:0;
@@ -186,7 +185,6 @@ body.menuHidden #page,body.menuDisabled #page{
 @media screen and (min-width: 600px) {
 	body.menuHidden #page,#page{
 		left:0;right:0;
-		margin-left: 280px;
 	}
 	body.menuDisabled #page{
 		margin-left: 0;
@@ -194,13 +192,11 @@ body.menuHidden #page,body.menuDisabled #page{
 }
 
 #copyright{
-	padding:30px 0;
-	color: #474E5D;
+	padding-bottom: 30px;
+	color: #ffffff;
 	font-size: 14px;
-	padding-left:10px;
 	position: relative;
 	left:0;right:0;
-	margin-left:280px;
 	text-align: center;
 }
 body.menuDisabled #copyright{
@@ -218,13 +214,13 @@ body.transparent #copyright{
 }
 
 
-#copyright a{color: #474E5D;text-decoration: none;}
+#copyright a{color: #ffffff;text-decoration: none;}
 #copyright .links a, #copyright .links select{
 	display:inline-block;
 	margin-right: 10px;
 }
 #copyright .links{
-	padding-top:10px;
+	padding-top:0px;
 }
 
 .home-network-stats{
@@ -337,14 +333,6 @@ body.transparent #copyright{
 /*
 .sendTab{
 
-}
-.sendTab .icon{
-	text-align: center;
-	padding-top:20px;
-}
-.sendTab .icon i{
-	font-size: 60px;
-	color:#146DBD;
 }
 .sendTab label{
 	display: block;
@@ -475,14 +463,13 @@ body.transparent #copyright{
 	}
 }
 .indexTab .mainBlock{
-	min-height:90vh;
+	min-height:40vh;
 	position: relative;
 	/*background: url(../img/binary-background.jpg) #146DBD;*/
 	text-align: center;
-	background-image: url(../img/landing/75-usersthink-stock-image.jpg);
 	background-position: center center;
 	background-size: cover;
-	margin-bottom:160px;
+	margin-bottom: 30px;
 }
 body.native .indexTab .mainBlock {
 	height: 100vh;
@@ -510,7 +497,7 @@ body.native .indexTab .mainBlock {
       padding: 0 20px;
       margin-bottom: 0;
       font-size: 40px;
-      text-shadow: 1.5px 1.5px 0px rgba(82, 91, 254);
+      font-family: Lato,sans-serif;
 }
 
 .indexTab .mainBlock h2{
@@ -520,7 +507,10 @@ body.native .indexTab .mainBlock {
 .indexTab .mainBlock > .actions{
 	text-align: left;
 	color:white;
-	padding:20px;
+	padding-left:65px;
+	padding-right:65px;
+	padding-top:30px;
+	padding-bottom:65px;
 	vertical-align: middle;
 }
 body.native .indexTab .mainBlock > .actions{
@@ -529,25 +519,15 @@ body.native .indexTab .mainBlock > .actions{
 .indexTab .mainBlock > .actions img{
 	max-height: 35px;
 }
-.indexTab .mainBlock > .actions .btn{
-	/*padding:3px;*/
-	background: white;
-	margin-top: 0;
-	margin-right: 20px;
-}
-.indexTab .mainBlock > .actions .btn.basic{
-	background: none;
-	color:white;
-	border-color: white;
-}
 .indexTab .mainBlock > .actions .right{
 	text-align: right;
 	float:right;
 }
 @media screen and (max-width: 940px) {
-	.indexTab .mainBlock > .actions .right{
+	.indexTab .mainBlock > .actions{
 		float:none;
 		margin-top:15px;
+
 	}
 }
 .indexTab .notesBlock{
@@ -697,7 +677,7 @@ body.native .indexTab .mainBlock > .actions{
 
 /*=====================================*/
 body{
-	font-family: "Noto Sans", sans-serif;
+	font-family: Lato,sans-serif;
 	font-weight: normal;
 	font-size: 14px;
 	line-height: 1;
@@ -722,10 +702,6 @@ body{
 	color: #474E5D;
 	line-height: 1;
 	margin-bottom: 15px;
-}
-.body-header .header-title-icon {
-	vertical-align: top;
-	margin-right: 3px;
 }
 .body-header .header-subtitle {
 	font-size: 14px;
@@ -813,66 +789,6 @@ body{
 .message.warning{background-color: #fffaf3;color: #573a08;}
 
 
-/*=================BUTTONS====================*/
-.btn{
-	text-decoration: none;
-	background:#e0e1e2 none;
-	cursor: pointer;
-	color: rgba(0,0,0,.6);
-	border: none;
-	display: inline-block;
-	font-weight: 400;
-	letter-spacing: .05em;
-	margin-top: .5rem;
-	margin-bottom: 0;
-	text-align: center;
-	-ms-touch-action: manipulation;
-	touch-action: manipulation;
-	vertical-align: middle;
-	font-size: 1.07rem;
-	line-height: 1.4;
-	border-radius: .28571429rem;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	-webkit-transition: all .25s ease;
-	-o-transition: all ease .25s;
-	transition: all .25s ease;
-	padding: .78571429em 1.5em .78571429em;
-}
-.btn.basic{background:none;color:#e0e1e2;border:2px solid #e0e1e2;}
-.btn.basic:hover{background:none !important;color:#e0e1e2;border:2px solid #e0e1e2;}
-.btn:hover{background-color: #cacbcd;color: rgba(0,0,0,.8);}
-
-.btn.primary{color: #fff;background-color: #2185d0;}
-.btn.primary.basic{color: #2185d0;border-color: #2185d0;}
-.btn.primary:hover {background-color: #1678c2;}
-.btn.primary.basic:hover{color: #1678c2;border-color: #1678c2;}
-
-.btn.teal{background-color: #00b5ad;color: #fff;}
-.btn.teal:hover{background-color: #009c95;color: #fff;}
-
-.btn.green{background-color: #4cb860;color: #fff;}
-.btn.green:hover{background-color: #499c4e;color: #fff;}
-
-.btn:disabled,.btn.disabled{
-	cursor: default;
-	opacity: .45!important;
-	background-image: none!important;
-	-webkit-box-shadow: none!important;
-	box-shadow: none!important;
-	pointer-events: none!important;
-}
-
-.btn.mini{font-size: .78571429rem;}
-.btn.tiny{font-size: .85714286rem;}
-.btn.small{font-size: .92857143rem;}
-.btn.medium{font-size: 1rem;}
-.btn.large{font-size: 1.14285714rem;}
-.btn.big{font-size: 1.28571429rem;}
-.btn.huge{font-size: 1.42857143rem;}
-.btn.massive{font-size: 1.71428571rem;}
 
 
 /*==================FORMS===================*/
@@ -991,7 +907,10 @@ body{
 /*===================TEXT=================*/
 .center,.tc{text-align:center}
 .left,.tl{text-align:left}
-.right,.tr{text-align:right}
+.right,.tr{
+text-align:right
+
+}
 .clearBoth,.cb{clear:both;}
 
 .text.loader{
@@ -1040,29 +959,3 @@ body{
 @-webkit-keyframes loader{from{-webkit-transform:rotate(0);transform:rotate(0)}to{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}
 @keyframes loader{from{-webkit-transform:rotate(0);transform:rotate(0)}to{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}
 
-/*===================PROGRESS=================*/
-.progress{
-	height:24px;
-	border-radius: .28571429rem;
-	position: relative;
-	display: block;
-	max-width: 100%;
-	background: rgba(0,0,0,.1);
-	margin-bottom:1.5rem;
-	text-align: center;
-}
-.progress .bar{
-	display: block;
-	position: relative;
-	width: 0;
-	min-width: 2em;
-	background: #888;
-	border-radius: .28571429rem;
-	-webkit-transition: width .1s ease,background-color .1s ease;
-	transition: width .1s ease,background-color .1s ease;
-	height:24px;line-height:24px;
-	color:white;
-}
-.progress .label{
-	display: block;
-}

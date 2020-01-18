@@ -1,12 +1,33 @@
-<div id="app" class="body-root" v-cloak="">
-	<div class="body-header" >
-		<div class="header-title">
-			{{ $t("importFromMnemonicPage.title") }}
-		</div>
-		<div class="header-subtitle" >
-			{{ $t("importFromMnemonicPage.subtitle") }}
+<div id="app" class="indexTab content" v-cloak="">
+
+
+	<div class="hideOnNonNative" >
+
+		<div class="mainBlock" >
+               		<div class="headline" >
+				<h1>{{ $t("homepage.mainTitle") }}</h1>
+				<h2>{{ $t("homepage.tagLine") }}</h2>
+			</div>
 		</div>
 	</div>
+	<div class="hideOnNative" >
+		<div class="mainBlock" >
+			<div class="actions" >
+	<img src="https://i.imgur.com/I4WlwI3.png" width="180" > 
+
+                <div class="right">
+					<a href="#" class="btn btn-primary btn-sm"><i class="fas fa-arrow-circle-left"></i> Back</a>
+
+
+				</div>
+
+			</div>
+<div class="container-md">
+<div class="card">
+  <div class="card-body">
+
+
+
 	<div class="body-content" >
 		<div class="panel">
 			<div class="body" >
@@ -18,7 +39,7 @@
 						<div v-if="insecurePassword && !forceInsecurePassword" class="message error">
 							{{ $t("global.passwordInvalidRequirements") }}
 							<div class="tc">
-								<button @click="forceInsecurePasswordCheck()" class="btn mini">{{ $t("global.disableSecurity") }}</button>
+								<button @click="forceInsecurePasswordCheck()" class="btn btn-primary">{{ $t("global.disableSecurity") }}</button>
 							</div>
 						</div>
 					</div>
@@ -59,11 +80,17 @@
 					</div>
 
 					<div class="actions tc" >
-						<button @click="importWallet()" class="btn primary" :disabled="!formValid()" >{{ $t("importFromMnemonicPage.mnemonicBlock.importButton") }}</button>
+						<button @click="importWallet()" class="btn btn-primary" :disabled="!formValid()" >{{ $t("importFromMnemonicPage.mnemonicBlock.importButton") }}</button>
 					</div>
 				</div>
 			</div>
 		</div>
 
 	</div>
+
+
+
+  </div>
 </div>
+</div>
+	</div>

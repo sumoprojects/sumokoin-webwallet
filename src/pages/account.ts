@@ -36,6 +36,7 @@ class AccountView extends DestructableView{
 	@VueVar(Math.pow(10, config.coinUnitPlaces)) currencyDivider !: number;
 
 	intervalRefresh : number = 0;
+	sumotimeout : number = 0;
 
 	constructor(container : string){
 		super(container);
@@ -44,6 +45,9 @@ class AccountView extends DestructableView{
 		this.intervalRefresh = setInterval(function(){
 			self.refresh();
 		}, 1*1000);
+		this.sumotimeout = setTimeout(function(){
+			self.sumobtc();
+		}, 500)
 		this.refresh();
 	}
 
@@ -59,6 +63,27 @@ class AccountView extends DestructableView{
 		});
 
 		this.refreshWallet();
+	}
+
+	sumobtc(){
+		$.getJSON('https://api.coingecko.com/api/v3/coins/sumokoin', function(data: any) {
+		
+		//Now I'm gonna print the object got from coingecko
+		console.log("Sumo-BTC Object: " + data);
+
+		//position of comma and relative prints more in depth from the object got before
+		var amnt: any = (wallet.amount / 1000000000).toFixed(6);
+		console.log("Sumo to BTC is: " + data.market_data.current_price.btc);
+		console.log("Sumo to USD is: " + data.market_data.current_price.usd);
+
+		//printing wallet amount
+		console.log("This account has " + wallet.amount + " SUMO");
+		//sumo to btc conversion
+		console.log("Conversion SUMO > BTC is: " + data.market_data.current_price.btc * amnt);
+		
+		//send the values to html div "sumobtc"
+		document.getElementById('sumobtc')!.innerHTML = "<small>BTC " + (data.market_data.current_price.btc * amnt).toFixed(7) + " - USD " + (data.market_data.current_price.usd * amnt).toFixed(2) +  "$</small>";
+		});
 	}
 
 	moreInfoOnTx(transaction : Transaction){

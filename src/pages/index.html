@@ -1,5 +1,6 @@
 <div id="app" class="indexTab content" v-cloak="">
 	<div class="hideOnNonNative" >
+
 		<div class="mainBlock" >
                		<div class="headline" >
 				<h1>{{ $t("homepage.mainTitle") }}</h1>
@@ -14,63 +15,31 @@
 	</div>
 	<div class="hideOnNative" >
 		<div class="mainBlock" >
-            <div class="left home-network-stats">
-                <span style="text-transform:uppercase">{{ $t("networkPage.title") }}</span><br/><br/>
-                {{ $t("networkPage.statsBlock.hashrate") }}: {{networkHashrate}}MH/s<br/>
-                {{ $t("networkPage.statsBlock.height") }}: {{blockchainHeight}}<br/>
-                {{ $t("networkPage.statsBlock.difficulty") }}: {{networkDifficulty}}<br/>
-                {{ $t("networkPage.statsBlock.lastTimeBlock") }}: {{ $d(new Date(lastBlockFound*1000), 'long')}}<br/>
-                {{ $t("networkPage.statsBlock.lastReward") }}: {{lastReward}} SUMO
-            </div>
 			<div class="actions" >
+	<img src="https://i.imgur.com/I4WlwI3.png" width="180" > 
+
                 <div class="right">
-					<a href="#" @click="loadWallet()" v-if="hasLocalWallet" class="btn mini basic">{{ $t("homepage.actions.loadWallet") }}</a>
-					<a href="#!import" class="btn mini">{{ $t("homepage.actions.importWallet") }}</a>
-					<a href="#!createWallet" class="btn mini">{{ $t("homepage.actions.create") }}</a>
-				</div>
+					
+					<a href="#!import" class="btn btn-primary btn-sm"><i class="fas fa-file-import"></i> {{ $t("homepage.actions.importWallet") }}</a>
+					<a href="#!createWallet" class="btn btn-primary btn-sm"><i class="fas fa-plus-circle"></i> {{ $t("homepage.actions.createWallet") }}</a>
+		</div>
 			</div>
             <br clear="both">
             <div class="center" style="margin-bottom: 20px">
-                <div class="headline"><h1>{{ $t("homepage.mainTitle") }}</h1></div>
-                <img style="margin: 30px auto 10px" src="./assets/img/logo_white.png" alt="Sumokoin"/>
-                <div class="callToAction tc" >
-                    <a href="#" @click="loadWallet()" v-if="hasLocalWallet" class="btn basic" style="margin-right:20px">{{ $t("homepage.actions.loadWallet") }}</a>
-                    <a href="#!createWallet" class="btn primary" >{{ $t("homepage.actions.createWallet") }}</a>
+                <div class="headline"><h1>Welcome to Sumokoin Web Wallet</h1></div>
+		<font color="white">We are currently at block height <i class="fas fa-arrows-alt-v"></i> {{blockchainHeight}}, Hashrate <i class="fas fa-microchip"></i> {{networkHashrate}} MH/s with Difficulty <i class="fas fa-wave-square"></i> {{networkDifficulty}}</font><br><br>
+                
+		<br>
+		<font color="white" v-if="hasLocalWallet"><span class="badge badge-info">Info</span>
+ You can log into your last Wallet by pressing "Load Wallet"</font><br><br>
+
+		<div class="callToAction tc" >
+                    <a href="#" @click="loadWallet()" v-if="hasLocalWallet" class="btn btn-light btn-lg" style="margin-right:20px"><i class="fas fa-save"></i> {{ $t("homepage.actions.loadWallet") }}</a>
+                    <a href="#!createWallet" class="btn btn-primary btn-lg" style="margin-right:20px" ><i class="fas fa-plus-circle"></i> {{ $t("homepage.actions.createWallet") }}</a>
+                    <a href="#!import" class="btn btn-primary btn-lg" data-toggle="tooltip" data-placement="top" title="Tooltip on top" ><i class="fas fa-file-import"></i> {{ $t("homepage.actions.importWallet") }}</a>
+
                 </div>
             </div>
-		</div>
-
-		<div class="notesBlock" >
-			<div class="container" >
-				<div class="notes" >
-					<div class="block">
-						<i class="fa fa-lock" aria-hidden="true"></i><br/>
-						<h3>{{ $t("homepage.notes.secure.title") }}</h3>
-						<h4>{{ $t("homepage.notes.secure.description") }}</h4>
-					</div>
-				</div>
-				<div class="notes" >
-					<div class="block">
-						<i class="fa fa-paper-plane" aria-hidden="true"></i><br/>
-						<h3>{{ $t("homepage.notes.fast.title") }}</h3>
-						<h4>{{ $t("homepage.notes.fast.description") }}</h4>
-					</div>
-				</div>
-				<div class="notes" >
-					<div class="block">
-						<i class="fa fa-sitemap" aria-hidden="true"></i><br/>
-						<h3>{{ $t("homepage.notes.technology.title") }}</h3>
-						<h4>{{ $t("homepage.notes.technology.description") }}</h4>
-					</div>
-				</div>
-				<div class="notes" >
-					<div class="block">
-						<i class="fa fa-folder-open-o" aria-hidden="true"></i><br/>
-						<h3>{{ $t("homepage.notes.openSource.title") }}</h3>
-						<a href="https://github.com/sumoprojects/sumokoin-webwallet" target="_blank" rel="nofollow"><h4>{{ $t("homepage.notes.openSource.description") }}</h4></a>
-					</div>
-				</div>
-			</div>
 		</div>
 	</div>
 </div>

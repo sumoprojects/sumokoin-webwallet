@@ -1,7 +1,7 @@
 {
   "website":{
-	"title":"Official Sumokoin Web Wallet",
-	"description":"Official online Sumokoin wallet - fast, anonymous, and fully handled in your browser for optimal security"
+	"title":"Sumokoin - Web Wallet",
+	"description":"Official Sumokoin Web Wallet - fast, anonymous, and fully handled in your browser for optimal security."
   },
   "messages": {
 	"menu": {
@@ -65,10 +65,10 @@
 	  "mainTitle": "SUMOKOIN WEB WALLET",
 	  "tagLine": "The simplest way to use SUMOKOIN",
 	  "actions": {
-		"loadWallet": "Load my wallet",
-		"importWallet": "Import a wallet",
+		"loadWallet": "Load Wallet",
+		"importWallet": "Import Wallet",
 		"create": "Create",
-		"createWallet": "Create a wallet"
+		"createWallet": "Create Wallet"
 	  },
 	  "notes": {
 		"secure": {
@@ -408,7 +408,7 @@
 	  "mnemonicKeyModal":{
 		"title":"Mnemonic phrase",
 		"confirmText":"Export",
-        "content":"Please store this mnemonic phrase carefully. <b>Possessing it means possessing the funds associated</b> ! The phrase is:<br/>{mnemonic}"
+        "content":"Please store this mnemonic phrase carefully. <b>Possessing it means possessing the funds associated</b> ! The phrase is:<br/> <br>{mnemonic}"
 	  },
 	  "mnemonicLangSelectionModal":{
 		"title":"In which language do you want your mnemonic phrase?",
