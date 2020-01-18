@@ -16,12 +16,12 @@
 	<img src="https://i.imgur.com/I4WlwI3.png" width="180" > 
 
                 <div class="right">
-					<a href="#!account" class="btn btn-primary btn-sm">{{ $t("menu.account") }}</a>
-					<a href="#!send" class="btn btn-primary btn-sm">{{ $t("menu.send") }}</a>
-					<a href="#!receive" class="btn btn-primary btn-sm">{{ $t("menu.receive") }}</a>
-					<a href="#!export" class="btn btn-primary btn-sm">{{ $t("menu.export") }}</a>
-					<a href="#!settings" class="btn btn-primary btn-sm">{{ $t("menu.settings") }}</a>
-					<a href="#!disconnect" class="btn btn-danger btn-sm">{{ $t("menu.disconnect") }}</a>
+					<a href="#!account" class="btn btn-primary btn-sm"><i class="fas fa-user"></i> {{ $t("menu.account") }}</a>
+					<a href="#!send" class="btn btn-primary btn-sm"><i class="fas fa-arrow-circle-right"></i> {{ $t("menu.send") }}</a>
+					<a href="#!receive" class="btn btn-primary btn-sm"><i class="fas fa-arrow-circle-left"></i> {{ $t("menu.receive") }}</a>
+					<a href="#!export" class="btn btn-primary btn-sm"><i class="fas fa-file-export"></i> {{ $t("menu.export") }}</a>
+					<a href="#!settings" class="btn btn-primary btn-sm"><i class="fas fa-cogs"></i> {{ $t("menu.settings") }}</a>
+					<a href="#!disconnect" class="btn btn-danger btn-sm"><i class="fas fa-sign-out-alt"></i> {{ $t("menu.disconnect") }}</a>
 
 
 
@@ -62,7 +62,7 @@
 
 		<div class="panel nopadding">
 			<div class="body" >
-				<div class="header-title" >{{ $t("accountPage.historyBlock.title") }}</div>
+				<div class="header-title" ><i class="fas fa-list"></i> {{ $t("accountPage.historyBlock.title") }}</div>
 				<div class="content" style="padding: 10px">
 
 					<div class="transactions" >
@@ -95,7 +95,7 @@
 										</template>
 									</span><br>
 									<div class="actions tc" >
-										<a href="#receive" class="btn btn-primary btn-sm">{{ $t("accountPage.historyBlock.getMSRAddress") }}</a>
+										<a href="#receive" class="btn btn-primary">{{ $t("accountPage.historyBlock.getMSRAddress") }}</a>
 									</div>
 								</td>
 							</tr>

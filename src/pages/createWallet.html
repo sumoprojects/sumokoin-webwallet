@@ -1,7 +1,34 @@
-<canvas id="canvasExport" style="display: none;"></canvas>
+<div id="app" class="indexTab content" v-cloak="">
 
-<div id="app" class="body-root" v-cloak="">
-	<div class="body-header" v-if="step == 0">
+
+	<div class="hideOnNonNative" >
+
+		<div class="mainBlock" >
+               		<div class="headline" >
+				<h1>{{ $t("homepage.mainTitle") }}</h1>
+				<h2>{{ $t("homepage.tagLine") }}</h2>
+			</div>
+		</div>
+	</div>
+	<div class="hideOnNative" >
+		<div class="mainBlock" >
+			<div class="actions" >
+	<img src="https://i.imgur.com/I4WlwI3.png" width="180" > 
+
+                <div class="right">
+					<a href="#" class="btn btn-primary btn-sm"><i class="fas fa-user"></i> Back</a>
+
+
+
+				</div>
+
+			</div>
+<div class="container-md">
+<div class="card">
+  <div class="card-body">
+
+
+<div class="body-header" v-if="step == 0">
 		<div class="header-title">
 			{{ $t("createWalletPage.generatingStep.title") }}
 		</div>
@@ -38,7 +65,7 @@
 						<div v-if="insecurePassword && !forceInsecurePassword && walletPassword != ''" class="message error">
 							{{ $t("global.passwordInvalidRequirements") }}
 							<div class="tc">
-								<button @click="forceInsecurePasswordCheck()" class="btn mini">{{ $t("global.disableSecurity") }}</button>
+								<button @click="forceInsecurePasswordCheck()" class="btn btn-primary">{{ $t("global.disableSecurity") }}</button>
 							</div>
 						</div>
 					</div>
@@ -52,7 +79,7 @@
 					</div>
 
 					<div class="actions tc">
-						<button @click="exportStep()" class="btn primary" :disabled="!(this.walletPassword !== '' && (!this.insecurePassword || this.forceInsecurePassword) && walletPassword == walletPassword2)">{{ $t("createWalletPage.finalizationStep.validPassword") }}</button>
+						<button @click="exportStep()" class="btn btn-primary" :disabled="!(this.walletPassword !== '' && (!this.insecurePassword || this.forceInsecurePassword) && walletPassword == walletPassword2)">{{ $t("createWalletPage.finalizationStep.validPassword") }}</button>
 					</div>
 				</div>
 			</div>
@@ -64,7 +91,7 @@
 					<div class="step hideOnNative" >
 						<div class="title" ><span class="hideOnNative">{{ $t("createWalletPage.finalizationStep.backupBlock.option1") }}</span>{{ $t("createWalletPage.finalizationStep.backupBlock.titlePdf") }}</div>
 						<div class="content tc actions" >
-							<button @click="downloadBackup()" class="btn">{{ $t("global.download") }}</button>
+							<button @click="downloadBackup()" class="btn btn-primary">{{ $t("global.download") }}</button>
 						</div>
 					</div>
 					<div class="step">
@@ -84,13 +111,13 @@
 								</div>
 							</div>
 							<div class="tc actions" >
-								<button @click="walletBackupMade=true" class="btn">{{ $t("createWalletPage.finalizationStep.backupBlock.confirmManuallyWritten") }}</button>
+								<button @click="walletBackupMade=true" class="btn btn-primary">{{ $t("createWalletPage.finalizationStep.backupBlock.confirmManuallyWritten") }}</button>
 							</div>
 						</div>
 					</div>
 					<div v-html="$t('createWalletPage.finalizationStep.backupBlock.warningMessage')"></div>
 					<div class="actions" >
-						<button :disabled="!walletBackupMade" @click="finish()" class="btn green">{{ $t("createWalletPage.finalizationStep.backupBlock.finishButton") }}</button>
+						<button :disabled="!walletBackupMade" @click="finish()" class="btn btn-primary">{{ $t("createWalletPage.finalizationStep.backupBlock.finishButton") }}</button>
 					</div>
 				</div>
 			</div>
@@ -103,4 +130,12 @@
 			</div>
 		</div>
 	</div>
+
+
+
+
+
+  </div>
 </div>
+</div>
+	</div>
