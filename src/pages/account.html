@@ -70,8 +70,10 @@
 							<template v-for="transaction of transactions" v-if="transaction.isFullyChecked()">
 								<tr class="transaction" :class="(transaction.blockHeight === 0 ? 'pending' : '')">
 									<td class="direction" >
-										<i v-if="transaction.ins.length == 0" class="fa fa-arrow-right amount more" aria-hidden="true"></i>
-										<i v-else="" class="fa fa-arrow-left amount less" aria-hidden="true"></i>
+
+										<span v-if="transaction.ins.length == 0" class="badge badge-success"><i class="fas fa-arrow-circle-left"></i></span>
+										<span v-else="" class="badge badge-danger"><i class="fas fa-arrow-circle-right"></i></span>
+
 									</td><!--LEfT-->
 									<td class="timestamp" v-if="transaction.blockHeight > 0">{{$d(new Date(transaction.timestamp*1000), 'long')}}</td>
 									<td class="timestamp" v-else="">{{ $t("accountPage.historyBlock.pendingTxStatus") }}...</td>
@@ -107,8 +109,43 @@
 		</div>
 	</div>
 
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sendcoins">
+  Send
+</button> -->
+
+<!-- Modal send coins -->
+<div class="modal fade" id="sendcoins" tabindex="-1" role="dialog" aria-labelledby="excoins" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="excoins"><i class="fas fa-arrow-circle-right"></i> Send</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+<form>
+    <p class="text-left"><b>Send to Address</b></p>
+  <div class="form-group">
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="addresshelp" placeholder="Sumoo4hjzq7NJerCAYCiMQEY3...">
+    <small id="addresshelp" class="form-text text-muted"><p class="text-left"><span class="badge badge-info">Info</span> Write the address where you want to send funds.</p></small>
+  </div>
+<p class="text-left"><b>Amount</b></p>
+  <div class="form-group">
+    <input type="text" class="form-control" id="exampleInputPassword1" aria-describedby="amounthelp" placeholder="0">
+    <small id="amounthelp" class="form-text text-muted"><p class="text-left"><span class="badge badge-info">Info</span> Write the amount you want to send.</p></small>
+  </div>
+      <div class="modal-footer">
 
 
+      </div>
+
+</form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal send coins end -->
 
   </div>
 </div>

@@ -27,8 +27,9 @@ body{
 	overflow-y: hidden;
 	font-weight: 300;
 	font-family: Lato,sans-serif;
-	background: #0E0E63;
+	background-image: linear-gradient(#0E0E63, #211f8c);
 }
+
 body.menuHidden{
 	overflow-y: auto;
 }

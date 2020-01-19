@@ -27,7 +27,7 @@
             <br clear="both">
             <div class="center" style="margin-bottom: 20px">
                 <div class="headline"><h1>Welcome to Sumokoin Web Wallet</h1></div>
-		<font color="white">We are currently at block height <i class="fas fa-arrows-alt-v"></i> {{blockchainHeight}}, mining <i class="fas fa-microchip"></i> at {{networkHashrate}} MH/s with difficulty <i class="fas fa-wave-square"></i> {{networkDifficulty}}</font><br><br>
+		<font color="white">We are currently at block height <i class="fas fa-arrows-alt-v"></i> {{blockchainHeight}}, mining at <i class="fas fa-microchip"></i> {{networkHashrate}} MH/s with difficulty <i class="fas fa-wave-square"></i> {{networkDifficulty}}</font><br><br>
                 
 		<br>
 		<font color="white" v-if="hasLocalWallet"><span class="badge badge-info">Info</span>
@@ -36,7 +36,7 @@
 		<div class="callToAction tc" >
                     <a href="#" @click="loadWallet()" v-if="hasLocalWallet" class="btn btn-light btn-lg" style="margin-right:20px"><i class="fas fa-save"></i> {{ $t("homepage.actions.loadWallet") }}</a>
                     <a href="#!createWallet" class="btn btn-primary btn-lg" style="margin-right:20px" ><i class="fas fa-plus-circle"></i> {{ $t("homepage.actions.createWallet") }}</a>
-                    <a href="#!import" class="btn btn-primary btn-lg" ><i class="fas fa-file-import"></i> {{ $t("homepage.actions.importWallet") }}</a>
+                    <a href="#!import" class="btn btn-primary btn-lg" data-toggle="tooltip" data-placement="top" title="Tooltip on top" ><i class="fas fa-file-import"></i> {{ $t("homepage.actions.importWallet") }}</a>
 
                 </div>
             </div>
