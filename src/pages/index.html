@@ -27,11 +27,11 @@
             <br clear="both">
             <div class="center" style="margin-bottom: 20px">
                 <div class="headline"><h1>Welcome to Sumokoin Web Wallet</h1></div>
-		<font color="white">We are currently at block height <i class="fas fa-arrows-alt-v"></i> {{blockchainHeight}}, mining at <i class="fas fa-microchip"></i> {{networkHashrate}} MH/s with difficulty <i class="fas fa-wave-square"></i> {{networkDifficulty}}</font><br><br>
+		<font color="white">We are currently at block height <i class="fas fa-arrows-alt-v"></i> {{blockchainHeight}}, Hashrate <i class="fas fa-microchip"></i> {{networkHashrate}} MH/s with Difficulty <i class="fas fa-wave-square"></i> {{networkDifficulty}}</font><br><br>
                 
 		<br>
 		<font color="white" v-if="hasLocalWallet"><span class="badge badge-info">Info</span>
- You can log into your last account by pressing "Load Wallet"</font><br><br>
+ You can log into your last Wallet by pressing "Load Wallet"</font><br><br>
 
 		<div class="callToAction tc" >
                     <a href="#" @click="loadWallet()" v-if="hasLocalWallet" class="btn btn-light btn-lg" style="margin-right:20px"><i class="fas fa-save"></i> {{ $t("homepage.actions.loadWallet") }}</a>

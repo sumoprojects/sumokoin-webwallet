@@ -36,10 +36,11 @@
 
 
 		<div class="panel inline" v-if="currentScanBlock+2 < blockchainHeight" >
+<i class="fas fa-sync"></i> {{ $t("accountPage.synchronizingBlock.text") }}
 			<div class="progress" >
 				<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" :style="'width:'+((currentScanBlock+1)/blockchainHeight*100 | 0)+'%'" >{{(((currentScanBlock+1)/blockchainHeight*1000 | 0) / 10)}}%</div>
 				<label>
-					{{ $t("accountPage.synchronizingBlock.text") }} <span class="currentScanBlock" >{{currentScanBlock+1}}</span>/<span class="blockchainHeight" >{{blockchainHeight}}</span>
+					 <span class="currentScanBlock" >{{currentScanBlock+1}}</span>/<span class="blockchainHeight" >{{blockchainHeight}}</span>
 				</label>
 			</div>
 
@@ -48,7 +49,7 @@
 
 		<div class="panel">
 			<div class="body">
-				<div class="header-title" >{{ $t("accountPage.balanceBlock.title") }}</div>
+				<div class="header-title" ><i class="fas fa-wallet"></i> {{ $t("accountPage.balanceBlock.title") }}</div>
 				<div class="content">
 					<span class="walletAmount" style="color:#62b42f; font-size:x-large;font-weight:bold">{{ Number(walletAmount / currencyDivider).toFixed(6) }}</span><span style="font-size:x-large;font-weight:bold"> SUMO</span>
 					<tempate class="amount unlocked" v-if="unlockedWalletAmount !== walletAmount" >
@@ -75,12 +76,12 @@
 								<tr class="transaction" :class="(transaction.blockHeight === 0 ? 'pending' : '')">
 									<td class="direction" >
 
-										<span v-if="transaction.ins.length == 0" class="badge badge-success"><i class="fas fa-arrow-circle-left"></i></span>
-										<span v-else="" class="badge badge-danger"><i class="fas fa-arrow-circle-right"></i></span>
+										<span v-if="transaction.ins.length == 0" class="badge badge-success"><i class="fas fa-arrow-circle-right"></i></span>
+										<span v-else="" class="badge badge-danger"><i class="fas fa-arrow-circle-left"></i></span>
 
 									</td><!--LEfT-->
-									<td class="timestamp" v-if="transaction.blockHeight > 0">{{$d(new Date(transaction.timestamp*1000), 'long')}}</td>
-									<td class="timestamp" v-else="">{{ $t("accountPage.historyBlock.pendingTxStatus") }}...</td>
+									<td class="timestamp" v-if="transaction.blockHeight > 0"><i class="far fa-clock"></i> {{$d(new Date(transaction.timestamp*1000), 'long')}}</td>
+									<td class="timestamp" v-else=""><i class="far fa-clock"></i> {{ $t("accountPage.historyBlock.pendingTxStatus") }}...</td>
 									<td :class="'amount '+(transaction.getAmount() > 0 ? 'more' : 'less')" >{{ Number(transaction.getAmount() / currencyDivider).toFixed(6) }}</td>
 									<td class="moreInfo">
 										<i class="fa fa-search" aria-hidden="true" @click="moreInfoOnTx(transaction)"></i>
