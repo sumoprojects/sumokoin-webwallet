@@ -1,0 +1,495 @@
+{
+  "website":{
+	"title":"Oficijalen SUMOKOIN veb pari~nik",
+	"description":"Oficjalen SUMOKOIN onlajn pari~nik- brz, anonimen i potpolno sproveden vo va{iot prebaruva~ za va{a sigurnost"
+  },
+  "messages": {
+	"menu": {
+	  "home": "Doma",
+	  "account": "Smetka",
+	  "send": "Prati",
+	  "receive": "Primi",
+	  "export": "Izvezi",
+	  "donate": "Doniraj",
+	  "settings": "Postavki",
+	  "disconnect": "Isklu~i",
+	  "network": "Status na mre`a"
+	},
+	"global": {
+	  "loading": "Polni",
+	  "disableSecurity":"Isklu~i ja ovaa bezbednosna merka, go razbiram rizikot",
+	  "passwordInvalidRequirements":"Na lozinkata i trebaat najmalku 8 karakteri - 1 golema bukva, 1 edna mala bukva, eden broj i eden specijalen karakter",
+	  "passwordConfirmationNotMatching":"Lozinkata ne e ista so taa {to e pi{ana prviot pat",
+	  "download":"Simni",
+	  "newVersionModal":{
+		"title":"Nova verzija e dostapna",
+		"content":"Dali sakate da prepolnite za nova verzija?",
+		"confirmText":"Da",
+		"cancelText":"Ne"
+	  },
+	  "openWalletModal":{
+		"title":"Lozinka na pari~nik",
+		"confirmText":"Potvrdi",
+		"cancelText":"Otka`i"
+	  },
+	  "invalidPasswordModal":{
+		"title":"Upss...",
+		"content":"Va{ata lozinka e nevalidna",
+		"confirmText":"OK"
+	  },
+	  "invalidMnemonicModal":{
+		"title":"Upss...",
+		"content":"Mnemoniskata fraza e nevalidna",
+		"confirmText":"OK"
+	  },
+	  "passwordNotComplexEnoughModal":{
+		"title":"Lozinkata ne e dovolno slo`ena",
+		"confirmText":"OK"
+	  },
+	  "permissionRequiredForCameraModal":{
+		"title":"Upss...",
+		"content":"Potrebna e dozvola za pristap do va{ata kamera za skenirawe na QR kodot",
+		"confirmText":"OK"
+	  }
+	},
+	"bottom": {
+	  "termsOfUse": "Uslovi za upotreba",
+	  "privacyPolicy": "Polisa za privatnost",
+	  "support": "Podr{ka",
+	  "donate": "Donacii",
+	  "network": "Statistika za mre`ata",
+	  "miningPool": "Pul za kopawe",
+	  "github": "GitHub"
+	},
+	"homepage": {
+	  "mainTitle": "SUMOKOIN VEB PARI^NIK",
+	  "tagLine": "Najlesniot na~in za koristewe na SUMOKOIN",
+	  "actions": {
+		"loadWallet": "Vklu~i go mojot pari~nik",
+		"importWallet": "Uvezi pari~nik",
+		"create": "Kreiraj",
+		"createWallet": "Kreiraj pari~nik"
+	  },
+	  "notes": {
+		"secure": {
+		  "title": "Bezbeden",
+		  "description": "Bez serveri, potpolno enkriptiran!"
+		},
+		"fast": {
+		  "title": "Brz",
+		  "description": "Pratete bilo kade, bilo koga!"
+		},
+		"technology": {
+		  "title": "Unikatna tehnologija",
+		  "description": "Povrzan direktno na SUMOKOIN blok~ejnot!"
+		},
+		"openSource": {
+		  "title": "Potpolno open-sors",
+		  "description": "Dostapen na githab!"
+		}
+	  }
+	},
+	"accountPage": {
+	  "title": "Smetka",
+	  "subtitle": "Pregled na va{ata smetka i istorija na transakcii",
+	  "synchronizingBlock": {
+		"text": "Se sinhronizira..."
+	  },
+	  "balanceBlock": {
+		"title": "Va{iot balans",
+		"unlocked": "Otklu~eni"
+	  },
+	  "historyBlock": {
+		"title": "Istorija na transakcii",
+		"pendingTxStatus": "Na ~ekawe",
+		"emptyWallet": "Vo momentov nemate sredtsva vo va{iot pari~nik.",
+		"waitSync": "Ve molime po~ekajte dodeka pari~nikot se nadgradi.",
+		"beReallyPatient": "Prvi~noto setirawe mo`e da potrae.
+..",
+		"getMSRAddress": "Primi SUMO"
+	  },
+	  "txDetails":{
+		"title":"Detali za transakcijata",
+		"txHash":"TX Ha{",
+		"feesOnTx":"TX taksa",
+		"blockHeight":"Visina na blok",
+		"paymentId":"Payment ID",
+		"txPrivKey":"TX Privaten klu~"
+	  }
+	},
+	"changeWalletPasswordPage":{
+	  "title":"Promena na lozinka",
+	  "oldPassword":{
+		"label":"Stara Lozinka",
+		"invalid":"Lozinkata e nevalidna"
+	  },
+	  "newPassword":{
+		"label":"Odberete nova lozinka za da go za{titite va{iot pari~nik"
+	  },
+	  "newPasswordConfirm":{
+		"label":"Potvrdete ja novata lozinka"
+	  },
+	  "confirm":"Promenete lozinka",
+	  "modalSuccess":{
+		"title":"Lozinkata e promeneta!",
+		"confirmText":"OK"
+	  }
+	},
+	"createWalletPage":{
+	  "generatingStep":{
+		"title":"Va{iot pari~nik se kreira...",
+		"subtitle":"Skoro gotovo",
+		"waitingMessage":"Kreirawe na va{iot pari~nik..."
+	  },
+	  "finalizationStep":{
+		"title":"Toa be{e lesno. Va{ata smekta e spremna!",
+		"subtitle":"Spremete se da go koristite SUMOKOIN kako nikoga[ dosega",
+		"passwordSelectionBlock":{
+		  "label":"Za{titete go va{iot pari~nik"
+		},
+		"passwordConfirmBlock":{
+		  "label":"Potvrda na lozinkata"
+		},
+		"validPassword":"Upotrebi ja ovaa lozinka",
+		"backupBlock":{
+		  "title":"Za~uvajte |i va{ite li~ni akreditivi.",
+		  "option1":"Option 1: ",
+		  "option2":"Option 2: ",
+		  "titlePdf":"Simni PDF kopija",
+		  "titleManualWrite":"Zapi{i 'i moite klu~evi",
+		  "privateKeys":"Privaten Klu~",
+		  "mnemonicPhrase":"Mnemoni~ni Klu~evi",
+		  "separatorManualMethodsSolution":" ili ",
+		  "confirmManuallyWritten":"Ja zapi{av mojada fraza",
+		  "warningMessage":"**Nemoj da ja izgubi{!** Ako e izgubena, nema na~in da se povrati.<br/>**Nemoj da ja spodeluva{!** Tvoite sredtsva 'e bidat ukradeni dokolku go spodeli{ tvojot fajl ili fraza na maliciozen fi{ing sajt.<br/>**Napravi bekap!** Obezbedi go kako da e vredi milioni .<br/>",
+		  "finishButton":"Razbiram, prodol`i."
+		}
+	  },
+	  "disclaimerBlock":{
+		"title":"Rizik pri koristewe na SUMOKOIN pari~nikot",
+		"content":"SUMOKOIN pari~nikot e veb baziran interfejs. Korisno e ako go koristite SUMOKOIN bez koristewe na celosen SUMOKOIN nod. <br/>Prepora~uvame da go tretirate SUMOKOIN pari~nikot isto kako da e va{iot vistinski pari~nik."
+	  }
+	},
+	"donatePage":{
+	  "title":"Doniraj",
+	  "subtitle":"Pomognete go natamo{niot razvoj na ovoj veb pari~nik ",
+	  "webwalletBlock":{
+		"title":"Veb Pari~nik",
+		"content":"Ovoj veb pari~nik e baziran na veb pari~nikot na Gnok i e adaptiran i ponatamu razvivan od SUMOKOIN  developerite.<br/>Ako sakate da go pomognete razvojot i pla]aweto na serverite, i ako vi se dopa\a ovaa aplikacija, ve molime donirajte: <br/><br/>"
+	  },
+	  "SUMOKOINFundBlock":{
+		"title":"SUMOKOIN fond za podr{ka",
+		"content":"Za da mu pomognete na SUMOKOIN mo`e da donirate na edna od slednive adresi"
+	  }
+	},
+	"supportPage":{
+	  "title":"Podr{ka",
+	  "subtitle":"Tuka sme da pomogneme!",
+	  "getInTouchBlock":{
+		"title":"Da bideme vo kontakt!",
+		"content":"Dali imate idei ili fidbek koi {to bi pomognale vo razvojot? Kontaktirajte ne!",
+		"discord":"SUMOKOIN Telegram grupa"
+	  }
+	},
+	"networkPage":{
+	  "title":"Status na mre`ata",
+	  "subtitle":"Pregled na SUMOKOIN  mre`ata",
+	  "statsBlock":{
+		"hashrate":"Ha{rejt na mre`ata",
+		"height":"Visina na blok~ejnot",
+		"difficulty":"Nivo na te`ina na mre`ata",
+		"lastTimeBlock":"Posledno pronajden blok",
+		"lastReward":"Posledna blok nagrada"
+	  }
+	},
+	"sendPage":{
+	  "title":"Isprati SUMO",
+	  "sendBlock":{
+		"address":{
+		  "label":"Adresa na destinacijata",
+		  "invalid":"Destinacionata adresa e nevalidna",
+		  "fundsTo":"Sredtsvata }e bidat isprateni na",
+		  "receiver":"Prima~",
+		  "description":"Opis"
+		},
+		"amount":{
+		  "label":"Koli~ina za pra}awe",
+		  "invalid":"Koli~inata e nevalidna"
+		},
+		"paymentId":{
+		  "label":"Payment ID (optional)",
+		  "invalid":"The payment ID is invalid. The length must be 16 characters"
+		},
+		"sendButton":"Prati",
+		"cancelButton":"Otka`i"
+	  },
+	  "qrCodeScanning":{
+		"explication":"Prika`i go QR kodot"
+	  },
+	  "notEnoughMoneyModal":{
+		"title":"Upss...",
+		"content":"Nemate dovolno sredtsva vo va{iot pari~nik za da go dovr{ite transferot",
+		"confirmText":"OK"
+	  },
+	  "thankYouDonationModal":{
+		"title":"Blagodarime za va{ata donacija!",
+		"content":"Va{ata pomo{e dobredojdena. <br/>Ovaa donacija }e pomogne SUMOKOIN  da stane u{te podobar",
+		"confirmText":"OK"
+	  },
+	  "transferSentModal":{
+		"title":"Transferot e uspe{no ispraten!",
+		"confirmText":"OK"
+	  },
+	  "transferExceptionModal":{
+		"title":"Uupss...",
+		"content":"Se pojavi gre{ka, ve molime prijavete ja : {details}",
+		"confirmText":"OK"
+	  },
+	  "invalidAmountModal":{
+		"title":"Upss...",
+		"content":"Nevalidna koli~ina",
+		"confirmText":"OK"
+	  },
+	  "creatingTransferModal":{
+		"title":"Se kreira transfer...",
+		"content":"Ve molime po~ekajte..."
+	  },
+	  "finalizingTransferModal":{
+		"title":"Transferot se finalizira...",
+		"content":"Ve molime po~ekajte..."
+	  },
+	  "confirmTransactionModal":{
+		"title":"Potvrdete go transferot?",
+		"content":"Amount: {amount}<br/>Fees: {fees}<br/>Total: {total}",
+		"confirmText":"Potvrdi",
+		"cancelText":"Otka`i"
+	  },
+	  "waitingNfcModal":{
+		  "title":"Se ~eka NFC",
+		  "content":"Pribli`ete go va{iot telefon poblisku do uredot"
+	  }
+	},
+	"receivePage":{
+	  "title":"Primi SUMO",
+	  "receiveBlock":{
+		"address":{
+		  "title":"Va{ata adresa za primawe sredtsva:",
+		  "label":"Dadete ja ovaa adresa za da primite sredtsva"
+		},
+		"qrCode":{
+		  "title":"Ili personaliziraj go QR kodot:",
+		  "labelAmount":"Koli~ina (opcionalno)",
+		  "labelRecipient":"Ime na primao~ot (opcionalno)",
+		  "labelDescription":"Opis na transakcijata (opcionalno)",
+		  "updateButton":"Osve`i"
+		}
+	  },
+	  "qrBlock":{
+		"title":"Va{iot personaliziran QR kod"
+	  },
+	  "waitingNfcToWriteModal":{
+		  "title":" Se ~eka NFC",
+		  "titleSuccess":"NFC tag zapi{an",
+		  "content":"Pribli`ete go va{iot telefon do NFC tagot za zapi{uvawe"
+	  },
+	  "nfcErrorModal":{
+		"titleInsufficientCapacity":"Nedovolen kapacitet na tagot"
+	  }
+	},
+	"miningPage":{
+	  "title":"Kopaj direktno vo tvojot prebaruva~",
+	  "subtitle":"Podr`ete ja mre`ata so kopawe i bidete nagradeni so SUMO",
+	  "parameterBlock":{
+		"title":"Parametri",
+		"labelDestinationAddress":"Pari~nik za kopawe",
+		"labelThreads":"Broj na tredovi(pove}e = povisok ha{rejt)",
+		"start":"Start",
+		"stop":"Stop"
+	  },
+	  "statisticsBlocks":{
+		"title":"Statistika",
+		"validShares":"Validni [erovi",
+		"hashrate":"Ha{rejt",
+		"maxHashrate":"Maksimum ha{rejt",
+		"dedicatedHardware":"So koristewe na poseben hardver i softver za kopawe, mo`ete da zarabotite pove}e, a so toa ja podr`uvate i mre`ata.",
+		"miningHandledBy":"Ova kopawe se vr{i na  get.SUMOKOINcoin.com"
+	  }
+	},
+	"settingsPage":{
+	  "title":"Postavki",
+	  "subtitle":"Promenete gi va{ite parametri ovde",
+	  "versionBlock":{
+		"versionNumber":"Broj na verzija: ",
+		"versionCode":"Kod na verzija: "
+	  },
+	  "settingsBlock":{
+		"speed":{
+		  "label":"Brzina na nadgradba na pari~nik (]e koristi pove}e resursi)",
+		  "fastest":"Najbrzo",
+		  "fast":"Brzo",
+		  "medium":"Sredno",
+		  "slow":"Sporo"
+		},
+		"language":{
+		  "label":"Jazik"
+		},
+		"readMinerTx":{
+		  "label":"Pro~itaj gi transakciite na kopa~ot (samo za solo kopawe)"
+		}
+	  },
+	  "changePasswordButton":"Promeni lozinka na mojot pari~nik",
+	  "deleteWalletButton":"Izbri{i go mojot pari~nik (lokalnata kopija)",
+	  "walletSettings":{
+		"creationHeight":{
+		  "label":"Blok visina na kreirawe na pari~nik"
+		},
+		"currentScanningHeight": {
+		  "label": "Momentalna visina na skenirawe"
+		},
+		"updateButton":"Nadgradi"
+	  },
+	  "deleteWalletModal":{
+		"title":"Izbri{i go mojot pari~nik(Lokalna kopija)",
+		"content":"Dali ste sigurni deka NAVISTINA sakate da go izbri{ete va{iot pari~nik ?",
+		"confirmText":"Da, siguren sum",
+		"cancelButtonText":"Otka`i"
+	  }
+	},
+	"importBasePage":{
+	  "parametersBlock":{
+		"title":"Parametri",
+		"password":{
+		  "label":"Lozinka za da go za{titite va{iot pari~nik"
+		},
+		"passwordConfirm":{
+		  "label":"Potvrdete ja lozinkata",
+		  "invalid":"Lozinkata ne e ista so prvata lozinka {to ja napi{avte"
+		},
+		"importHeight":{
+		  "label":"Blok visina za import:"
+		}
+	  }
+	},
+	"importFromQrPage":{
+	  "title":"Uvezuvawe na pari~nik od QR kod",
+	  "subtitle":"Uvezi pari~nik od oflajn bekap",
+	  "qrCodeBlock":{
+		"title":"QR kod",
+		"startScanButton":"Po~ni so skenirawe",
+		"importButton":"Uvezi"
+	  },
+	  "qrScanningBlock":{
+		"title":"Poka`i go QR kodot"
+	  }
+	},
+	"exportPage":{
+	  "title":"Za~uvaj gi tvoite akreditivi",
+	  "publicAddressBlock":{
+		"title":"Tvojata javna adresa"
+	  },
+	  "pdfBlock":{
+		"title":"PDF kopija",
+		"downloadButton":"Simni"
+	  },
+	  "warningBlock":{
+		"title":"Vnimanie",
+		"content":"Ako odberete da go za~uvate va{iot privaten klu~ ili mnemoni~na fraza, VE MOLIME NEMOJTE da gi skladirate vo ~ist tekst dokument, za va{a bezbednost.<br/>Ovoj fajl e alternativno re{enie vo koj va{ite klu~evi se enkriptirani i sodr`at bekap  na site va{i transakciiza da ve po{tedat od idni sinhronizacii ."
+	  },
+	  "exportBlock":{
+		"title":"Izvezi gi tvoite RAW akreditacii ",
+		"privateKeysButton":"Prika`i gi moite privatni klu~evi",
+		"mnemonicKeysButton":"Prika`i ja mojata mnemoni~na fraza",
+		"fileButton":"Izvezi vo fajl"
+	  },
+	  "walletKeysModal":{
+		"title":"Privatni klu~evi",
+		"confirmText":"Izvezi",
+		"content":"Ve molime za~uvajte gi ovie klu~evi vnimatelno. <b>Samo koga gi imate niv, gi imate i sretsvata povrzani so niv</b> !<br/>Spend key: {privSpendKey}<br/>Private view key: {privViewKey}"
+	  },
+	  "mnemonicKeyModal":{
+		"title":"Mnemoni~na fraza",
+		"confirmText":"Izvezi",
+        "content":"Ve molime skladirajte ja ovaa mnemoni~na fraza vnimatelno. <b>Poseeduvajki ja zna~i deka |i poseduvate i sretsvata povrzani so nea</b> ! Frazata e:<br/>{mnemonic}"
+	  },
+	  "mnemonicLangSelectionModal":{
+		"title":"Na koj jazik sakate da bide va{ata mnemoni~na fraza?",
+		"confirmText":"Izvezi",
+		"cancelButtonText":"Otka`i"
+	  }
+	},
+	"importPage":{
+	  "title":"Kreiraj Pari~nik",
+	  "subtitle":"Od prethodno kreirani klu~evi, fajl ili mnemoni~na fraza",
+	  "chooseMethod":"Izberete go va{iot metod na uvezuvawe. Vnimavajte, obnovuvawe na pari~nik od blok 0 mo`no e da trae podolgo vreme, ve molime bidete strplivi.",
+	  "fromKeys":"Od klu~evi",
+	  "fromFile":"Od fajl",
+	  "fromMnemonic":"Od mnemoni~na fraza",
+	  "fromQr":"Od QR kod"
+	},
+	"termsOfUsePage":{
+	  "title":"Uslovi za upotreba",
+	  "subtitle":"Ve molime pro~itajte gi vnimatelno."
+	},
+	"privacyPolicyPage":{
+	  "title":"Polisa za privatnost",
+	  "subtitle":"Ve molime pro~itajte gi vnimatelno."
+	},
+	"importFromFilePage":{
+	  "title":"Uvezuvawe pari~nik od bekap fajl",
+	  "subtitle":"Iskoristete go va{iot bekap fajl da kreirate pari~nik",
+	  "walletBlock":{
+		"title":"Fajl od pari~nik",
+		"label":"Odberete fajl",
+		"importButton":"Uvezi"
+	  }
+	},
+	"importFromMnemonicPage":{
+	  "title":"Uvezuvawe pari~nk od mnemoni~na fraza",
+	  "subtitle":"Iskoristete ja va{ata fraza za kreirawe na pari~nik",
+	  "mnemonicBlock":{
+		"title":"Mnemoni~na fraza",
+		"mnemonic":{
+		  "label":"Mnemoni~na fraza: 26 zborovi",
+		  "invalid":"Mnemoni~nata fraza e nevalidna",
+		  "language":"Jazik"
+		},
+		"importButton":"Uvezi"
+	  }
+	},
+	"importFromKeysPage":{
+	  "title":"Uvezuvawe na pari~nik od klu~evi",
+	  "subtitle":"Upotrebete gi va{ite klu~evi za kreirawe na pari~nik",
+	  "parametersBlock":{
+		"viewOnlyWallet":{
+		  "label":"Dali sakate pari~nik samo za pregled?"
+		}
+	  },
+	  "keysBlock":{
+		"titleNotViewOnly":"Klu~evi od pari~nik",
+		"titleViewOnly":"Pari~nik samo za pregled",
+		"privateSpend":{
+		  "label":"Privaten klu~ za pla}awe"
+		},
+		"privateView":{
+		  "label":"Privaten klu~ za pregled",
+		  "optional":"(optional)"
+		},
+		"publicKey":{
+		  "label":"Javen klu~"
+		},
+		"importButton":"Uvezi"
+	  }
+	}
+  },
+  "number":{
+  },
+  "date":{
+	"short": {
+	  "year": "numeric", "month": "short", "day": "numeric"
+	},
+	"long": {
+	  "year": "numeric", "month": "short", "day": "numeric",
+	  "weekday": "short", "hour": "numeric", "minute": "numeric", "hour12": true
+	}
+  }
+}
