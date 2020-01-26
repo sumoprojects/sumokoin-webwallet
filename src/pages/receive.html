@@ -34,7 +34,7 @@
 
 		<div class="body-header" >
 			<div class="header-title">
-				<i class="fas fa-arrow-circle-right"></i> {{ $t("receivePage.title") }}
+				<i class="fas fa-arrow-circle-left"></i> {{ $t("receivePage.title") }}
 			</div>
 		</div>
 
@@ -70,7 +70,7 @@
 						<input type="text" v-model="paymentId" maxlength="8"/>
 					</div>-->
 					<div class="actions" >
-						<button class="btn primary" @click="generateQrCode()" >{{ $t("receivePage.receiveBlock.qrCode.updateButton") }}</button>
+						<button class="btn btn-primary" @click="generateQrCode()" >{{ $t("receivePage.receiveBlock.qrCode.updateButton") }}</button>
 					</div>
 				</div>
 			</div>

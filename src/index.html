@@ -75,7 +75,11 @@ integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNm
 </div>
 
 
-
+<div id="pageLoading" >
+	
+	<i style="color: white;" class="fas fa-circle-notch fa-spin"></i>
+	
+</div>
 
 
 <div id="page" ></div>
@@ -111,7 +115,7 @@ By creating, importing, or interacting with a wallet on wallet.sumokoin.com, you
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="termsofuselabel">Need help?</h5>
+        <h5 class="modal-title" id="termsofuselabel"><i class="fab fa-telegram"></i> Need help?</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -120,7 +124,7 @@ By creating, importing, or interacting with a wallet on wallet.sumokoin.com, you
 	Join our Telegram Group <a href="https://t.me/sumokoinofficial">https://t.me/sumokoinofficial</a>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">I Understand</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fas fa-thumbs-up"></i> Ok, I will!</button>
       </div>
     </div>
   </div>
@@ -155,9 +159,8 @@ By creating, importing, or interacting with a wallet on wallet.sumokoin.com, you
 
 
 <div id="copyright" v-cloak="" >
-      <div class="hideOnNative" ><i class="fas fa-copyright"></i> Copyright 2020 <a href="https://sumokoin.org">Sumoprojects</a></div>
       <div class="links" >
-	      <select v-model="language" >
+	      <select class="custom-select-sm" v-model="language" >
 		      <option value="en">English</option>
 		      <option value="de">Deutsch</option>
 		      <option value="es">Espanol</option>
@@ -173,11 +176,14 @@ By creating, importing, or interacting with a wallet on wallet.sumokoin.com, you
 		      <option value="zh">Chinese</option>
 		      <option value="zh-hk">Chinese-Simiplified</option>
 	      </select>
-	      <a href="#" data-toggle="modal" data-target="#termsofuse" >{{ $t("bottom.termsOfUse") }}</a>
-	      <a class="hideOnNative" href="#" data-toggle="modal" data-target="#support" >{{ $t("bottom.support") }}</a>
-	      <a class="hideOnNative" href="#" data-toggle="modal" data-target="#donate" >{{ $t("bottom.donate") }}</a>
-	      <a class="hideOnNative" href="https://github.com/sumoprojects/sumokoin-webwallet" target="_blank">{{ $t("bottom.github") }}</a>
-	</div>
+	      <a href="#" data-toggle="modal" data-target="#termsofuse" ><i class="fas fa-asterisk"></i> {{ $t("bottom.termsOfUse") }}</a>
+	      <a class="hideOnNative" href="#" data-toggle="modal" data-target="#support" ><i class="fab fa-telegram"></i> {{ $t("bottom.support") }}</a>
+	      <a class="hideOnNative" href="#" data-toggle="modal" data-target="#donate" ><i class="fas fa-donate"></i> {{ $t("bottom.donate") }}</a>
+	      <a class="hideOnNative" href="https://github.com/sumoprojects/sumokoin-webwallet" target="_blank"><i class="fab fa-github"></i> {{ $t("bottom.github") }}</a>
+	</div><br>
+      <div class="hideOnNative" ><i class="fas fa-copyright"></i> Copyright 2020 - <a href="https://sumokoin.org">Sumoprojects</a><br>
+	<small>support@sumokoin.org</small></div>
+
 	<div class="cb" ></div>
 </div>
 
