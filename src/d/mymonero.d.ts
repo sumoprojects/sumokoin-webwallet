@@ -1,1 +1,0 @@
-declare var mymonero_core_js : any;
