@@ -39,15 +39,15 @@ define(["require", "exports", "../lib/numbersLab/VueAnnotate", "../lib/numbersLa
         function AccountView(container) {
             var _this = _super.call(this, container) || this;
             _this.intervalRefresh = 0;
+            _this.sumotimeout = 0;
             var self = _this;
             AppState_1.AppState.enableLeftMenu();
             _this.intervalRefresh = setInterval(function () {
                 self.refresh();
             }, 1 * 1000);
-            _this.intervalRefresh2 = setTimeout(function () {
+            _this.sumotimeout = setTimeout(function () {
                 self.sumobtc();
-            }, 1000);
-
+            }, 500);
             _this.refresh();
             return _this;
         }
@@ -61,29 +61,23 @@ define(["require", "exports", "../lib/numbersLab/VueAnnotate", "../lib/numbersLa
                 self.blockchainHeight = height;
             });
             this.refreshWallet();
-
-	    
         };
-
-	AccountView.prototype.sumobtc = function () {
-
-	$.getJSON('https://api.coingecko.com/api/v3/coins/sumokoin', function(data) {
-	var n = (wallet.amount / 1000000000).toFixed(6);
-    	console.log("Sumo price in btc is now: " + data.market_data.current_price.btc)
-    	console.log("Sumo price in usd is now: " + data.market_data.current_price.usd)
-
-	console.log("wallet amount is: " + n)
-
-	console.log("sum is: " + data.market_data.current_price.btc * n)
-	document.getElementById('sumobtc').innerHTML = "<small>BTC " + (data.market_data.current_price.btc * n).toFixed(7) + " - USD " + (data.market_data.current_price.usd * n).toFixed(2) +  "$</small>";
-
-    	});
-
-	
-	};
-
+        AccountView.prototype.sumobtc = function () {
+            $.getJSON('https://api.coingecko.com/api/v3/coins/sumokoin', function (data) {
+                //Now I'm gonna print the object got from coingecko
+                console.log("Sumo-BTC Object: " + data);
+                //position of comma and relative prints more in depth from the object got before
+                var amnt = (wallet.amount / 10000000000).toFixed(6);
+                console.log("Sumo to BTC is: " + data.market_data.current_price.btc);
+                console.log("Sumo to USD is: " + data.market_data.current_price.usd);
+                //printing wallet amount
+                console.log("This account has " + wallet.amount + " SUMO");
+                //sumo to btc conversion
+                console.log("Conversion SUMO > BTC is: " + data.market_data.current_price.btc * amnt);
+                document.getElementById('sumobtc').innerHTML = "<small>BTC " + (data.market_data.current_price.btc * amnt).toFixed(7) + " - USD " + (data.market_data.current_price.usd * amnt).toFixed(2) + "$</small>";
+            });
+        };
         AccountView.prototype.moreInfoOnTx = function (transaction) {
-
             var explorerUrlHash = config.testnet ? config.testnetExplorerUrlHash : config.mainnetExplorerUrlHash;
             var explorerUrlBlock = config.testnet ? config.testnetExplorerUrlBlock : config.mainnetExplorerUrlBlock;
             var feesHtml = '';
@@ -107,10 +101,7 @@ define(["require", "exports", "../lib/numbersLab/VueAnnotate", "../lib/numbersLa
                 html: "\n<div class=\"tl\" >\n\t<div><strong>" + i18n.t('accountPage.txDetails.txHash') + "</strong>: <a href=\"" + explorerUrlHash.replace('{ID}', transaction.hash) + "\" target=\"_blank\">" + transaction.hash + "</a></div>\n\t" + paymentId + "\n\t" + feesHtml + "\n\t" + txPrivKeyMessage + "\n\t" + blockHeight + "\t\n</div>"
             });
         };
-
-
         AccountView.prototype.refreshWallet = function () {
-
             this.currentScanBlock = wallet.lastHeight;
             this.walletAmount = wallet.amount;
             this.unlockedWalletAmount = wallet.unlockedAmount(this.currentScanBlock);

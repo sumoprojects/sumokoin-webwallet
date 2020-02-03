@@ -293,9 +293,7 @@ define(["require", "exports", "../lib/numbersLab/DestructableView", "../lib/numb
                                     type: 'success',
                                     title: i18n.t('sendPage.transferSentModal.title'),
                                     confirmButtonText: i18n.t('sendPage.transferSentModal.confirmText'),
-                                }).then(function() {
-   			 window.location = "#account";
-				});
+                                });
                             promise.then(function () {
                                 if (self.redirectUrlAfterSend !== null) {
                                     window.location.href = self.redirectUrlAfterSend.replace('{TX_HASH}', rawTxData.raw.hash);
@@ -406,7 +404,7 @@ define(["require", "exports", "../lib/numbersLab/DestructableView", "../lib/numb
             VueAnnotate_1.VueVar(false)
         ], SendView.prototype, "destinationAddressValid", void 0);
         __decorate([
-            VueAnnotate_1.VueVar('0')
+            VueAnnotate_1.VueVar('10.5')
         ], SendView.prototype, "amountToSend", void 0);
         __decorate([
             VueAnnotate_1.VueVar(false)

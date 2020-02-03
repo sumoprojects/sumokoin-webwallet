@@ -17,27 +17,27 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox
 workbox.precaching.precacheAndRoute([
   {
     "url": "api.html",
-    "revision": "6e68267e8db11842a67b1e14ed405326"
+    "revision": "2be099f85bc4cb84deb08830b9e552a0"
   },
   {
     "url": "api.js",
-    "revision": "dbc90fc2e497a450d640a40d3673460b"
+    "revision": "c875535b401e2ae6282e5b9b6b7b5905"
   },
   {
     "url": "assets/css/all.min.css",
-    "revision": "500d1a92f875b1d96d37a3a3f8f0438c"
+    "revision": "cb48443d20b81eb897ecd468a07b9b93"
   },
   {
     "url": "assets/css/font-awesome.css",
-    "revision": "c495654869785bc3df60216616814ad1"
+    "revision": "4bb3dd721c4652feee0953261d329710"
   },
   {
     "url": "assets/css/fontawesome.min.css",
-    "revision": "fc6ece0b999d414f53c25c3999397fee"
+    "revision": "df34c2c14966c1d8a86393b4598a9390"
   },
   {
     "url": "assets/css/main.css",
-    "revision": "702301f28490e23e2cbe27c4df272dc7"
+    "revision": "1e50369cb3e2af6af18ff3544b6bc81e"
   },
   {
     "url": "assets/img/favicon.ico",
@@ -89,83 +89,83 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "assets/js/fontawesome.min.js",
-    "revision": "eb29d17399d1b21d670f97a72beb8c9a"
+    "revision": "2fb836c9cece5d1337e28983f0f10b17"
   },
   {
     "url": "config.js",
-    "revision": "73f2150c64c47dd1e182a37e663aec20"
+    "revision": "51dcc9db9c836dc228fdcda93efdf559"
   },
   {
     "url": "d/vue-i118n.js",
-    "revision": "5e60d2e13017ae982538f352d04a961c"
+    "revision": "85fd5089c3278f8f544a3691fd38f49b"
   },
   {
     "url": "index.html",
-    "revision": "23ae63a9382fba04bf31431d1342af70"
+    "revision": "966df1695d9fc9097d0ea68d00b5186a"
   },
   {
     "url": "index.js",
-    "revision": "5ba1c1991b3f8bb2bfba01f211bf0077"
+    "revision": "3caf8de168a07900515596440bd5656e"
   },
   {
     "url": "lib/base58.js",
-    "revision": "3d523c0162d6911fd675c9ed1b7389a8"
+    "revision": "cad61541b48010d7e792f394567995a7"
   },
   {
     "url": "lib/biginteger.js",
-    "revision": "f5a873c5716a9d3481501cad3f3e5ca7"
+    "revision": "530a07476fdc1ca4e90f0696dde85709"
   },
   {
     "url": "lib/cn_utils_native.js",
-    "revision": "94d65c88ed19007552b6593fa6fc68d1"
+    "revision": "6f382226c0962599661c49e5b5952d77"
   },
   {
     "url": "lib/crypto.js",
-    "revision": "d51c76b2e08308f8cca1f68c5c298a6f"
+    "revision": "94a47d1cad1e87e779eb29e21225f1e4"
   },
   {
     "url": "lib/decoder.min.js",
-    "revision": "889b2bf53f2adc26ca2688e012c4e00b"
+    "revision": "87eac23b87a1b14b80563b5fe775bc17"
   },
   {
     "url": "lib/FileSaver.min.js",
-    "revision": "e8fdc5ad52084fa417f1fec6b6de3b29"
+    "revision": "d2e0d52146931b50ded6b4a8cadb6f8f"
   },
   {
     "url": "lib/jquery-3.2.1.min.js",
-    "revision": "c9f5aeeca3ad37bf2aa006139b935f0a"
+    "revision": "473957cfb255a781b42cb2af51d54a3b"
   },
   {
     "url": "lib/jspdf.min.js",
-    "revision": "27385efc6fa2eccc9dde7da0081b1a98"
+    "revision": "bcc6f9c8d3b58438d8e8aa24314b41f9"
   },
   {
     "url": "lib/kjua-0.1.1.min.js",
-    "revision": "ca69d4f40f8c17ff592123dc35c1ea18"
+    "revision": "f0ea94e8c4cbc705eaaf8b6cede15389"
   },
   {
     "url": "lib/mnemonic.js",
-    "revision": "f30940176ec1e71b5a5f0c9b784a98b9"
+    "revision": "f81f584bb025513e9544900b0e9d0c31"
   },
   {
     "url": "lib/mymonero_core_js/monero_utils/MyMoneroCoreCpp_ASMJS.asm.js",
-    "revision": "7d4542f0ab07fd8c569b6fbfbbd3a989"
+    "revision": "8daf2691d66a09662411f94a8d88e19f"
   },
   {
     "url": "lib/mymonero-core.js",
-    "revision": "143be26cfe08e8589c5c0b8980a7641f"
+    "revision": "c81d3ef565cd1ef86be34523bc89d9b2"
   },
   {
     "url": "lib/nacl-fast-cn.js",
-    "revision": "1fe1387eb865d9e843697a9d315d95b1"
+    "revision": "5a4c4d33ad852ae5cce33dcc2c3d29a3"
   },
   {
     "url": "lib/nacl-fast.js",
-    "revision": "5a51809c2c6021ce3aa12bfb8ac3a670"
+    "revision": "b606f76ba3e865fa88487f1f4f174cf4"
   },
   {
     "url": "lib/nacl-fast.min.js",
-    "revision": "72444801c9affc1654ef12860c67e976"
+    "revision": "4e5450d2e030eed0c1b96cccd68ab8db"
   },
   {
     "url": "lib/nacl-util.min.js",
@@ -173,7 +173,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "lib/nacl.js",
-    "revision": "bf72b0a25fc3edf0c1a638aa43642714"
+    "revision": "43f0590d1bd0d155c37168eef6375e14"
   },
   {
     "url": "lib/nacl.min.js",
@@ -181,179 +181,179 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "lib/numbersLab/Context.js",
-    "revision": "40c29d848d2e19cdff2399a1f4a0ec08"
+    "revision": "ebb2aae3a749741226613dd291cc2839"
   },
   {
     "url": "lib/numbersLab/DependencyInjector.js",
-    "revision": "3a74b2036a4e4730d2454b96732fb562"
+    "revision": "56b74e4cb0875af2c45a175cdf436ebd"
   },
   {
     "url": "lib/numbersLab/DestructableView.js",
-    "revision": "c34f21327cd00c4b69dd88f33a60b7fc"
+    "revision": "130f58a50d4641ce84928ccbacf1a965"
   },
   {
     "url": "lib/numbersLab/Logger.js",
-    "revision": "8c2a28644d0112f8934f6ac54ada17ac"
+    "revision": "de9da3f513d18d131cbe7fd783105cd5"
   },
   {
     "url": "lib/numbersLab/Observable.js",
-    "revision": "84e5ac65bf05cee513a1fb77801de7b8"
+    "revision": "d3bede42dfc41a78b4d50647bdb74646"
   },
   {
     "url": "lib/numbersLab/Router.js",
-    "revision": "a953a6888f51569be1a2d699c4ef986e"
+    "revision": "35a09adb39f912c4ec5aa285c37cca80"
   },
   {
     "url": "lib/numbersLab/VueAnnotate.js",
-    "revision": "322eccaecb8cbbfba7b1f7a10ba9cf3b"
+    "revision": "503a173798ba5bfb0598061b62864920"
   },
   {
     "url": "lib/polyfills/core.min.js",
-    "revision": "6ff449122255e7a91fb884ea7016c601"
+    "revision": "24ea10196602bef524ef5d66fd817556"
   },
   {
     "url": "lib/polyfills/crypto.js",
-    "revision": "13647291f45a582eee64e000b09d9567"
+    "revision": "3a8031a409f6cc6937a963163b2c5c9b"
   },
   {
     "url": "lib/polyfills/textEncoding/encoding-indexes.js",
-    "revision": "50f27403be5972eae4831f5b69db1f80"
+    "revision": "23aac331aa32854db80d7fb673353df8"
   },
   {
     "url": "lib/polyfills/textEncoding/encoding.js",
-    "revision": "cfc731bd62baec239b2c4daf33b5e810"
+    "revision": "67d0aec3a86eb870aeb5ebb41c5b9150"
   },
   {
     "url": "lib/require.js",
-    "revision": "bebd45d1f406bbe61424136b03e50895"
+    "revision": "5b08692433e727db32f63db348f4837b"
   },
   {
     "url": "lib/sha3.js",
-    "revision": "9f298ac7e4ee707645a8d711f3ed916b"
+    "revision": "c38274b1eab5b932269f17bb9cc759b0"
   },
   {
     "url": "lib/sweetalert2.js",
-    "revision": "05d0ad9be02eed806a5ab62986c3456b"
+    "revision": "53b14a7b90b850c7876bfb73fe59beb2"
   },
   {
     "url": "lib/vue-i18n.js",
-    "revision": "e6661e4c9407136f4aca71aaea06b35e"
+    "revision": "fe8f6691b4ed710c1cb85182ab223a3f"
   },
   {
     "url": "lib/vue.min.js",
-    "revision": "5283b86cbf48a538ee3cbebac633ccd4"
+    "revision": "3e7fd9458a2147045ce499aa4ccc27f6"
   },
   {
     "url": "manifest.json",
-    "revision": "7263c536795b711d14ab594536107af5"
+    "revision": "d51399efae86c5ef94dcbc8a0c93546e"
   },
   {
     "url": "model/AppState.js",
-    "revision": "a4f13154b1fc0d3caa864bc6144f4772"
+    "revision": "166700e727ffe8965ce4104a22dd1f59"
   },
   {
     "url": "model/blockchain/BlockchainExplorer.js",
-    "revision": "f38ab86de3e385035147b61190c1e1ff"
+    "revision": "d6d40c2136d1a323875a08cd9fdf5bd5"
   },
   {
     "url": "model/blockchain/BlockchainExplorerRpc2.js",
-    "revision": "7bc3608b756cdbdb1da67635283e50a9"
+    "revision": "fbe61feac64f4d32b9fdd64061408b3b"
   },
   {
     "url": "model/blockchain/BlockchainExplorerRpcDaemon.js",
-    "revision": "f085f1aba0ec13652c609b3490432e3a"
+    "revision": "59876059835c6394d96add53b46a0684"
   },
   {
     "url": "model/Cn.js",
-    "revision": "1daca527d006ba1e0d3128e5158ae87a"
+    "revision": "1acde1ce511dbb81c6feffc4c9c20496"
   },
   {
     "url": "model/CoinUri.js",
-    "revision": "a8d4eea58a272c4af50db832644c4c54"
+    "revision": "d3ca69aa111b44eea46926f8b05e3211"
   },
   {
     "url": "model/Constants.js",
-    "revision": "b1cbabd41b94bf64be95526bf46c4f23"
+    "revision": "cdd693e72400596bd0bf8999b9ec9f46"
   },
   {
     "url": "model/KeysRepository.js",
-    "revision": "1d20a0a5c60b5cf292fd81da981b109d"
+    "revision": "00ad6288cff36348cfcb421d11756ede"
   },
   {
     "url": "model/MathUtil.js",
-    "revision": "7f559b68c432164e2ad261f162d57335"
+    "revision": "abb139f8ad4a6d8d79499d34207a82fa"
   },
   {
     "url": "model/Mnemonic.js",
-    "revision": "f4e047d213768bf6ef83d4ca521b7142"
+    "revision": "50b6411e2c532baf7f56cbff7daccd55"
   },
   {
     "url": "model/MnemonicLang.js",
-    "revision": "4975ad84e9b2d8b06c587402a1b16486"
+    "revision": "f8d547627a6b4dacdaecbac32a169233"
   },
   {
     "url": "model/Nfc.js",
-    "revision": "5e79dba2eccb2e4a6be22903911ef4d0"
+    "revision": "7e399a97da4ef764b528401d84951474"
   },
   {
     "url": "model/Password.js",
-    "revision": "c0c85c860432cce2a11c6c713d4c4898"
+    "revision": "cf55f6790d20972b5932bfe2f49e1790"
   },
   {
     "url": "model/QRReader.js",
-    "revision": "075c42294139c4d342d3dfe3b64ef850"
+    "revision": "4f2000ccdffec3450c3564b7ccad1997"
   },
   {
     "url": "model/Storage.js",
-    "revision": "ef81f34a9d7f8db75d2e6bb8709fae5f"
+    "revision": "07fc77843e1f7d8f764185ade6cbe82a"
   },
   {
     "url": "model/Transaction.js",
-    "revision": "318d8cc97f0c1eadd424136d0df2b85e"
+    "revision": "9a299d6bd6bad7c39404a43058ffb67c"
   },
   {
     "url": "model/TransactionsExplorer.js",
-    "revision": "4544314e04d2b2d6a6cadc0a3a0639e2"
+    "revision": "e8bd1f647d480f3514274b933472edb0"
   },
   {
     "url": "model/Translations.js",
-    "revision": "554041f979415c00deb2710211c461fc"
+    "revision": "ab370d008a22c7f15e05ff7a80776746"
   },
   {
     "url": "model/Wallet.js",
-    "revision": "f8aa636e5cd06bed64874c6e998f2d1f"
+    "revision": "72bf711109ea192d648fc3ce9a518a68"
   },
   {
     "url": "model/WalletRepository.js",
-    "revision": "7965681b945458de3c5f019c2aced758"
+    "revision": "8f3f3955ec2b03409818bf68936e6456"
   },
   {
     "url": "model/WalletWatchdog.js",
-    "revision": "03879c71b3d95772be42bd3286434846"
+    "revision": "4cb7dff1034b27df6ce7da1e7c20a304"
   },
   {
     "url": "pages/account.html",
-    "revision": "6976477aa97f5855adef9110d1c6217f"
+    "revision": "64ce4a1be91ada7be71882a0b78b4b0f"
   },
   {
     "url": "pages/account.js",
-    "revision": "daac4162759284a858629ecefcb7f358"
+    "revision": "c989aab065922e50e0899f68659b7761"
   },
   {
     "url": "pages/changeWalletPassword.html",
-    "revision": "1347a045c8b53fc16f08a8c0a377c68e"
+    "revision": "c341885c193af90669e24438887f25dd"
   },
   {
     "url": "pages/changeWalletPassword.js",
-    "revision": "b62caa4c3ae7d315aff385361cddfc6d"
+    "revision": "ad9dc179bf08935fb86d81a6e0c047cb"
   },
   {
     "url": "pages/createWallet.html",
-    "revision": "2c110ca3a28139a77f9580c588eda250"
+    "revision": "9d5e828ea8c8271c56e997ac7a9f0785"
   },
   {
     "url": "pages/createWallet.js",
-    "revision": "2cf6db6bd7951d6f62a11b2d44367209"
+    "revision": "ad13a1cef88b89dbc90dde4a6a964df7"
   },
   {
     "url": "pages/disconnect.html",
@@ -361,159 +361,159 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "pages/disconnect.js",
-    "revision": "3594698740c48755bfb42a88ac737180"
+    "revision": "a2771001f905e32049f0301329387401"
   },
   {
     "url": "pages/donate.html",
-    "revision": "79cf1ae5a0210470d50df6581754e0b1"
+    "revision": "d57d6e4c799c2422ae2e256dff171204"
   },
   {
     "url": "pages/donate.js",
-    "revision": "fbd9a3915391c25ee01c7fd7fbe777f2"
+    "revision": "17f263a9cde6cfafadfdb7eb4f3737a3"
   },
   {
     "url": "pages/export.html",
-    "revision": "f3a2e99d20142b169a57bee36de6cb16"
+    "revision": "8c9e3537e894af4ef023e4400207a92d"
   },
   {
     "url": "pages/export.js",
-    "revision": "57a0c4fdd814aa24247998ec2a5b7c01"
+    "revision": "a6c35fdc3ec1f756c3619f17657ef7d3"
   },
   {
     "url": "pages/import.html",
-    "revision": "5ff2269c7be4b264f7a1776612d51f75"
+    "revision": "d4a20d8ccadf4b0e9038b845c91da684"
   },
   {
     "url": "pages/import.js",
-    "revision": "16a4b5d6f0489c94418372e05af982d6"
+    "revision": "44ea2b901c09a46d4cd5a95e2370ae40"
   },
   {
     "url": "pages/importFromFile.html",
-    "revision": "2c110ca3a28139a77f9580c588eda250"
+    "revision": "9d5e828ea8c8271c56e997ac7a9f0785"
   },
   {
     "url": "pages/importFromFile.js",
-    "revision": "5a0efe3990cb52e92ef4aca97bae4033"
+    "revision": "70b26a5096e46302d23a6723308f98a4"
   },
   {
     "url": "pages/importFromKeys.html",
-    "revision": "8e75270f91e8e15c173a57f7ff248680"
+    "revision": "9a056ee5a96f0f80c1a51da662e047ba"
   },
   {
     "url": "pages/importFromKeys.js",
-    "revision": "9e490de691f19902432534577bc203a5"
+    "revision": "4cbdad812099014cbaa64276ca6fca8d"
   },
   {
     "url": "pages/importFromMnemonic.html",
-    "revision": "116174b2379b7c6599aaff2bc9f4a46c"
+    "revision": "40ca05b1b751e60f8391fe2412ac7e9d"
   },
   {
     "url": "pages/importFromMnemonic.js",
-    "revision": "e1fb59a3979e3ff819c1def5fd3f1f0c"
+    "revision": "6af43727d02caabf1a305c3cbf68a8da"
   },
   {
     "url": "pages/importFromQr.html",
-    "revision": "172fc490fa9a97ed146895e0f35aeedc"
+    "revision": "d066f402ce1243383d024820920704b0"
   },
   {
     "url": "pages/importFromQr.js",
-    "revision": "ce4f27af88edaa212bd9e5f80390a254"
+    "revision": "794529cc55521e6fde514f1f025c66b3"
   },
   {
     "url": "pages/index.html",
-    "revision": "a770dcd5db944113a600d358ae66962c"
+    "revision": "8aec1c9b760e84ee5340fae1a4f90ee3"
   },
   {
     "url": "pages/index.js",
-    "revision": "283fadc1adb2ac642ebb55b2c19b6f85"
+    "revision": "377b9b6716de6cd87b25a140027ecebe"
   },
   {
     "url": "pages/network.html",
-    "revision": "e68a7754281fe6c5ed9e2b2bec65927e"
+    "revision": "9003215793a9e23112628a2130b0c19e"
   },
   {
     "url": "pages/network.js",
-    "revision": "6b239b68f29215dbad1f49feb6c881f8"
+    "revision": "415eedba078222692dfed2062ffb7509"
   },
   {
     "url": "pages/privacyPolicy.html",
-    "revision": "f5cbd71e83b1dbc6224352622054426e"
+    "revision": "2532a4fc0ebc2f0e86c9c2fb2bb3ad6c"
   },
   {
     "url": "pages/privacyPolicy.js",
-    "revision": "a06e415fe7eaf88807bf25d83989dc1c"
+    "revision": "2d6c08d5981265293d29bce566ab2bdb"
   },
   {
     "url": "pages/receive.html",
-    "revision": "418a603dd6c0ff1512724d87f2d50225"
+    "revision": "e5a789df0a962752030d3c57627a6745"
   },
   {
     "url": "pages/receive.js",
-    "revision": "f2d8ea6d27b1e9d457bd04fce8a7d921"
+    "revision": "ce9cef4e1935e24a887a2d04c5faa60f"
   },
   {
     "url": "pages/send.html",
-    "revision": "d4bb9bcd27187b9cea32749232141940"
+    "revision": "cb59b23ea1a745ae5e4d8db408379630"
   },
   {
     "url": "pages/send.js",
-    "revision": "1631b41a16e99bf77a66b14860d9cadb"
+    "revision": "c4963e394336746f04300fda99484053"
   },
   {
     "url": "pages/settings.html",
-    "revision": "61003e3dcb0af598120ef9c57241be09"
+    "revision": "be8a078d0009f5447089c6d2def272c2"
   },
   {
     "url": "pages/settings.js",
-    "revision": "ac0fa3b4f44b3b3b534f4a2d726b2bc3"
+    "revision": "cab861270abad0cdb72ea9c8ce220d34"
   },
   {
     "url": "pages/support.html",
-    "revision": "9bc660a0f02538279c3f24ee15b4a55c"
+    "revision": "63dc6f6aec66b617745ad85bb72810c7"
   },
   {
     "url": "pages/support.js",
-    "revision": "b9dc72108aa6602ee5e3eb8614c4913d"
+    "revision": "f8135fd2b9c7f8744750ae6520c0fabf"
   },
   {
     "url": "pages/termsOfUse.html",
-    "revision": "31cf49357939c2505233f2e8d921293b"
+    "revision": "3eed6fc9b8ef136b25c395c6b9cd79ee"
   },
   {
     "url": "pages/termsOfUse.js",
-    "revision": "1e0462ca4750db68f111cd17bbd9d740"
+    "revision": "db3af3ca3c81ead32a62ac01c84a1608"
   },
   {
     "url": "providers/BlockchainExplorerProvider.js",
-    "revision": "b8ab1f768b46ccd24ab0eccaecddea6b"
+    "revision": "caf7bbc7dda7b0d9ae45913326a2cf1d"
   },
   {
     "url": "service-worker-raw.js",
-    "revision": "3f7443e2724e74587330aff15f93149e"
+    "revision": "47711885594600fb63e07580fa331c04"
   },
   {
     "url": "translations/de.json",
-    "revision": "d38a047f490f5d2c8903d7cd71711408"
+    "revision": "290eefb771691a0686fff0cd5b7be38e"
   },
   {
     "url": "translations/el.json",
-    "revision": "92d8218d37f7324def311d8957de2997"
+    "revision": "8be660dcd0fbd7d86b58129647e8c2d2"
   },
   {
     "url": "translations/en.json",
-    "revision": "d982ed645c0d66ec4413334cc68a60e1"
+    "revision": "a8da0387820b99602572c79a75105702"
   },
   {
     "url": "translations/es.json",
-    "revision": "8199d29c12800ab037325d4eef4b8f93"
+    "revision": "088dfd35ff4be8daec17f9a403dc92b5"
   },
   {
     "url": "translations/fr.json",
-    "revision": "ff103f76dfcfb9998784a4fadf18a3b9"
+    "revision": "5feecc7c8f8ba056b2911093faea8209"
   },
   {
     "url": "translations/hu.json",
-    "revision": "20071211495fd68a64c0dba84f08b499"
+    "revision": "c9da9352d3e7e742a3b8b132b6798d5b"
   },
   {
     "url": "translations/id.json",
@@ -521,7 +521,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "translations/it.json",
-    "revision": "60126f41e19171fbde9b1a17a0a48547"
+    "revision": "ac3576b83595c47c0b3332d585d6ee89"
   },
   {
     "url": "translations/nl.json",
@@ -529,7 +529,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "translations/pl.json",
-    "revision": "bf01b78dc119b8ce2246ec82621d8f6d"
+    "revision": "d353059258a8601b42ca5d807a3afcdc"
   },
   {
     "url": "translations/ru.json",
@@ -537,35 +537,35 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "translations/sr.json",
-    "revision": "23866628da70b7d836e5d0760dd72076"
+    "revision": "88bee149ee361667129736f12016e54f"
   },
   {
     "url": "translations/tr.json",
-    "revision": "038bfa412f397a3b31df4760ef098f34"
+    "revision": "2e5bfa0f73c98d5598bbd9c787399aff"
   },
   {
     "url": "translations/vi.json",
-    "revision": "216c0140c8e68c7064b597564394b339"
+    "revision": "416dd9e5790410904819e172df0e1a87"
   },
   {
     "url": "translations/zh-hk.json",
-    "revision": "4501f5ba09fc498c2551350fc6ab0c2d"
+    "revision": "bf41b6e6a72436da250e097cf1446527"
   },
   {
     "url": "translations/zh.json",
-    "revision": "70381b05c06b3b80c2ff7cf661ba4d73"
+    "revision": "afaac536092fee09cb10ba05b6cc016b"
   },
   {
     "url": "utils/Url.js",
-    "revision": "bea48b6015e471205293f17c12d76e6c"
+    "revision": "9bc2c6a7dcb4c4340e8f61f845b95e15"
   },
   {
     "url": "workers/TransferProcessing.js",
-    "revision": "143e683c63d657e58e977a90229cd712"
+    "revision": "5a44cd52a9ecfeeb59386211ef92ee24"
   },
   {
     "url": "workers/TransferProcessingEntrypoint.js",
-    "revision": "461730c620fbdd40eb1882809faa7b49"
+    "revision": "8b4756a48114019f3aa70c2f82cd29d9"
   }
 ]);
 self.addEventListener('message', function (event) {

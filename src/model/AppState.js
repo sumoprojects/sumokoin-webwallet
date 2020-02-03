@@ -80,10 +80,9 @@ define(["require", "exports", "../lib/numbersLab/DependencyInjector", "./Wallet"
                 swal({
                     title: i18n.t('global.openWalletModal.title'),
                     input: 'password',
-                    showCancelButton: false,
-		    showCloseButton: true,
-                    confirmButtonText: '<i class="far fa-check-circle"></i> ' + i18n.t('global.openWalletModal.confirmText'),
-                    cancelButtonText: '<i class="fas fa-ban"></i> ' + i18n.t('global.openWalletModal.cancelText'),
+                    showCancelButton: true,
+                    confirmButtonText: i18n.t('global.openWalletModal.confirmText'),
+                    cancelButtonText: i18n.t('global.openWalletModal.cancelText'),
                 }).then(function (result) {
                     setTimeout(function () {
                         if (result.value) {
