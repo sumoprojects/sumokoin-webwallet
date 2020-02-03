@@ -404,7 +404,7 @@ define(["require", "exports", "../lib/numbersLab/DestructableView", "../lib/numb
             VueAnnotate_1.VueVar(false)
         ], SendView.prototype, "destinationAddressValid", void 0);
         __decorate([
-            VueAnnotate_1.VueVar('10.5')
+            VueAnnotate_1.VueVar('')
         ], SendView.prototype, "amountToSend", void 0);
         __decorate([
             VueAnnotate_1.VueVar(false)

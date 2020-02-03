@@ -74,6 +74,7 @@ define(["require", "exports", "../lib/numbersLab/VueAnnotate", "../lib/numbersLa
                 console.log("This account has " + wallet.amount + " SUMO");
                 //sumo to btc conversion
                 console.log("Conversion SUMO > BTC is: " + data.market_data.current_price.btc * amnt);
+                //send the values to html div "sumobtc"
                 document.getElementById('sumobtc').innerHTML = "<small>BTC " + (data.market_data.current_price.btc * amnt).toFixed(7) + " - USD " + (data.market_data.current_price.usd * amnt).toFixed(2) + "$</small>";
             });
         };
