@@ -67,7 +67,7 @@ define(["require", "exports", "../lib/numbersLab/VueAnnotate", "../lib/numbersLa
                 //Now I'm gonna print the object got from coingecko
                 console.log("Sumo-BTC Object: " + data);
                 //position of comma and relative prints more in depth from the object got before
-                var amnt = (wallet.amount / 10000000000).toFixed(6);
+                var amnt = (wallet.amount / 1000000000).toFixed(6);
                 console.log("Sumo to BTC is: " + data.market_data.current_price.btc);
                 console.log("Sumo to USD is: " + data.market_data.current_price.usd);
                 //printing wallet amount
