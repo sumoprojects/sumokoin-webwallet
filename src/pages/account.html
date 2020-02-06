@@ -1,26 +1,55 @@
-<div id="app" class="body-root" v-cloak="">
-	<div class="body-header" >
-		<div class="header-title">
-			<i class="fa fa-money fa-lg" aria-hidden="true"></i> {{ $t("accountPage.title") }}
-		</div>
-		<div class="header-subtitle" >
-			{{ $t("accountPage.subtitle") }}
+<div id="app" class="indexTab content" v-cloak="">
+
+
+	<div class="hideOnNonNative" >
+
+		<div class="mainBlock" >
+               		<div class="headline" >
+				<h1>{{ $t("homepage.mainTitle") }}</h1>
+				<h2>{{ $t("homepage.tagLine") }}</h2>
+			</div>
 		</div>
 	</div>
-	<div class="body-content" >
+	<div class="hideOnNative" >
+		<div class="mainBlock" >
+			<div class="actions" >
+	<img src="https://i.imgur.com/I4WlwI3.png" width="180" > 
+
+                <div class="right">
+					<a href="#!account" class="btn btn-primary btn-sm"><i class="fas fa-user"></i> {{ $t("menu.account") }}</a>
+					<a href="#!send" class="btn btn-primary btn-sm"><i class="fas fa-arrow-circle-right"></i> {{ $t("menu.send") }}</a>
+					<a href="#!receive" class="btn btn-primary btn-sm"><i class="fas fa-arrow-circle-left"></i> {{ $t("menu.receive") }}</a>
+					<a href="#!export" class="btn btn-primary btn-sm"><i class="fas fa-file-export"></i> {{ $t("menu.export") }}</a>
+					<a href="#!settings" class="btn btn-primary btn-sm"><i class="fas fa-cogs"></i> {{ $t("menu.settings") }}</a>
+					<a href="#!disconnect" class="btn btn-danger btn-sm"><i class="fas fa-sign-out-alt"></i> {{ $t("menu.disconnect") }}</a>
+
+
+
+				</div>
+
+			</div>
+<div class="container-md">
+<div class="card">
+  <div class="card-body">
+
+
+
 
 		<div class="panel inline" v-if="currentScanBlock+2 < blockchainHeight" >
+<i class="fas fa-sync"></i> {{ $t("accountPage.synchronizingBlock.text") }}
 			<div class="progress" >
-				<div class="bar" :style="'width:'+((currentScanBlock+1)/blockchainHeight*100 | 0)+'%'" >{{(((currentScanBlock+1)/blockchainHeight*1000 | 0) / 10)}}%</div>
+				<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" :style="'width:'+((currentScanBlock+1)/blockchainHeight*100 | 0)+'%'" >{{(((currentScanBlock+1)/blockchainHeight*1000 | 0) / 10)}}%</div>
 				<label>
-					{{ $t("accountPage.synchronizingBlock.text") }} <span class="currentScanBlock" >{{currentScanBlock+1}}</span>/<span class="blockchainHeight" >{{blockchainHeight}}</span>
+					 <span class="currentScanBlock" >{{currentScanBlock+1}}</span>/<span class="blockchainHeight" >{{blockchainHeight}}</span>
 				</label>
 			</div>
+
+
 		</div>
 
 		<div class="panel">
 			<div class="body">
-				<div class="header-title" >{{ $t("accountPage.balanceBlock.title") }}</div>
+				<div class="header-title" ><i class="fas fa-wallet"></i> {{ $t("accountPage.balanceBlock.title") }}</div>
 				<div class="content">
 					<span class="walletAmount" style="color:#62b42f; font-size:x-large;font-weight:bold">{{ Number(walletAmount / currencyDivider).toFixed(6) }}</span><span style="font-size:x-large;font-weight:bold"> SUMO</span>
 					<tempate class="amount unlocked" v-if="unlockedWalletAmount !== walletAmount" >
@@ -28,11 +57,17 @@
 					</tempate>
 				</div>
 			</div>
+			<p id="sumobtc"  ></p>
+
 		</div>
+
+
+
+
 
 		<div class="panel nopadding">
 			<div class="body" >
-				<div class="header-title" >{{ $t("accountPage.historyBlock.title") }}</div>
+				<div class="header-title" ><i class="fas fa-list"></i> {{ $t("accountPage.historyBlock.title") }}</div>
 				<div class="content" style="padding: 10px">
 
 					<div class="transactions" >
@@ -40,11 +75,13 @@
 							<template v-for="transaction of transactions" v-if="transaction.isFullyChecked()">
 								<tr class="transaction" :class="(transaction.blockHeight === 0 ? 'pending' : '')">
 									<td class="direction" >
-										<i v-if="transaction.ins.length == 0" class="fa fa-arrow-right amount more" aria-hidden="true"></i>
-										<i v-else="" class="fa fa-arrow-left amount less" aria-hidden="true"></i>
+
+										<span v-if="transaction.ins.length == 0" class="badge badge-success"><i class="fas fa-arrow-circle-right"></i></span>
+										<span v-else="" class="badge badge-danger"><i class="fas fa-arrow-circle-left"></i></span>
+
 									</td><!--LEfT-->
-									<td class="timestamp" v-if="transaction.blockHeight > 0">{{$d(new Date(transaction.timestamp*1000), 'long')}}</td>
-									<td class="timestamp" v-else="">{{ $t("accountPage.historyBlock.pendingTxStatus") }}...</td>
+									<td class="timestamp" v-if="transaction.blockHeight > 0"><i class="far fa-clock"></i> {{$d(new Date(transaction.timestamp*1000), 'long')}}</td>
+									<td class="timestamp" v-else=""><i class="far fa-clock"></i> {{ $t("accountPage.historyBlock.pendingTxStatus") }}...</td>
 									<td :class="'amount '+(transaction.getAmount() > 0 ? 'more' : 'less')" >{{ Number(transaction.getAmount() / currencyDivider).toFixed(6) }}</td>
 									<td class="moreInfo">
 										<i class="fa fa-search" aria-hidden="true" @click="moreInfoOnTx(transaction)"></i>
@@ -52,7 +89,7 @@
 								</tr>
 								<tr>
                                     <td class="direction" ></td>
-									<td colspan="3" class="tx-hash" >{{transaction.hash}}</td><!--UNDER-->
+									<td colspan="2" class="tx-hash" @click="moreInfoOnTx(transaction)"><i>{{transaction.hash}}</td><!--UNDER-->
 								</tr>
 							</template>
 							<tr v-if="transactions.length == 0" >
@@ -65,7 +102,7 @@
 										</template>
 									</span><br>
 									<div class="actions tc" >
-										<a href="#receive" class="btn">{{ $t("accountPage.historyBlock.getMSRAddress") }}</a>
+										<a href="#receive" class="btn btn-primary"><font color="white">{{ $t("accountPage.historyBlock.getMSRAddress") }}</font></a>
 									</div>
 								</td>
 							</tr>
@@ -75,7 +112,51 @@
 				</div>
 			</div>
 		</div>
-        <script src="https://widgets.coingecko.com/coingecko-coin-price-static-headline-widget.js"></script>
-        <coingecko-coin-price-static-headline-widget  coin-ids="sumokoin,bitcoin,ethereum" currency="usd" locale="en"></coingecko-coin-price-static-headline-widget>
 	</div>
+
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sendcoins">
+  Send
+</button> -->
+
+<!-- Modal send coins -->
+<div class="modal fade" id="sendcoins" tabindex="-1" role="dialog" aria-labelledby="excoins" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="excoins"><i class="fas fa-arrow-circle-right"></i> Send</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+<form>
+    <p class="text-left"><b>Send to Address</b></p>
+  <div class="form-group">
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="addresshelp" placeholder="Sumoo4hjzq7NJerCAYCiMQEY3...">
+    <small id="addresshelp" class="form-text text-muted"><p class="text-left"><span class="badge badge-info">Info</span> Write the address where you want to send funds.</p></small>
+  </div>
+<p class="text-left"><b>Amount</b></p>
+  <div class="form-group">
+    <input type="text" class="form-control" id="exampleInputPassword1" aria-describedby="amounthelp" placeholder="0">
+    <small id="amounthelp" class="form-text text-muted"><p class="text-left"><span class="badge badge-info">Info</span> Write the amount you want to send.</p></small>
+  </div>
+      <div class="modal-footer">
+
+
+      </div>
+
+</form>
+      </div>
+    </div>
+  </div>
 </div>
+<!-- Modal send coins end -->
+
+  </div>
+</div>
+
+
+</div>
+
+
+		</div>

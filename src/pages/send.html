@@ -1,44 +1,77 @@
-<div id="app" class="body-root sendTab" v-cloak="">
-	<div class="qrCodeScanningContainer native" id="nativeCameraPreview" >
-		<h2 class="text" >{{ $t("sendPage.qrCodeScanning.explication") }}</h2>
-		<div class="close" @click="stopScan()">
-			<i class="fa fa-close" aria-hidden="true"></i>
+<div id="app" class="indexTab content" v-cloak="">
+
+
+	<div class="hideOnNonNative" >
+
+		<div class="mainBlock" >
+               		<div class="headline" >
+				<h1>{{ $t("homepage.mainTitle") }}</h1>
+				<h2>{{ $t("homepage.tagLine") }}</h2>
+			</div>
 		</div>
 	</div>
+	<div class="hideOnNative" >
+		<div class="mainBlock" >
+			<div class="actions" >
+	<img src="https://i.imgur.com/I4WlwI3.png" width="180" > 
 
-	<div id="appContent" >
+                <div class="right">
+					<a href="#!account" class="btn btn-primary btn-sm"><i class="fas fa-user"></i> {{ $t("menu.account") }}</a>
+					<a href="#!send" class="btn btn-primary btn-sm"><i class="fas fa-arrow-circle-right"></i> {{ $t("menu.send") }}</a>
+					<a href="#!receive" class="btn btn-primary btn-sm"><i class="fas fa-arrow-circle-left"></i> {{ $t("menu.receive") }}</a>
+					<a href="#!export" class="btn btn-primary btn-sm"><i class="fas fa-file-export"></i> {{ $t("menu.export") }}</a>
+					<a href="#!settings" class="btn btn-primary btn-sm"><i class="fas fa-cogs"></i> {{ $t("menu.settings") }}</a>
+					<a href="#!disconnect" class="btn btn-danger btn-sm"><i class="fas fa-sign-out-alt"></i> {{ $t("menu.disconnect") }}</a>
+
+
+
+				</div>
+
+			</div>
+<div class="container-md">
+<div class="card">
+  <div class="card-body">
+
+<div id="appContent" >
 		<div class="body-header" >
 			<div class="header-title">
-				<i class="fa fa-sign-out fa-lg" aria-hidden="true"></i> {{ $t("sendPage.title") }}
+				<i class="fas fa-arrow-circle-right"></i> {{ $t("sendPage.title") }}
 			</div>
 		</div>
 		<div class="body-content" >
 			<div class="panel">
 				<div class="body" >
 					<div class="field action" >
-						<label>{{ $t("sendPage.sendBlock.address.label") }}</label>
-						<div class="subfield" >
-							<input type="text" v-model="destinationAddressUser" placeholder="Write the address where you want to send funds" :readonly="lockedForm" :class="{ twoActions: nfcAvailable}"/>
-							<span class="action" @click="startScan()"><i class="scanButton fa fa-camera" aria-hidden="true"></i></span>
-							<span class="action" @click="startNfcScan()" v-if="nfcAvailable"><i class="scanButton fa fa-rss" aria-hidden="true"></i></span>
+						<div v-if="!destinationAddressValid && destinationAddressUser != ''" class="alert alert-warning alert-dismissible fade show">
+							  <strong>Holy guacamole!</strong> Seems like your address field is not correct!
 						</div>
-						<div v-if="!destinationAddressValid && destinationAddressUser != ''" class="message error">
-							{{ $t("sendPage.sendBlock.address.invalid") }}
-						</div>
-						<div v-if="domainAliasAddress !== null" class="message">
+						<div v-if="domainAliasAddress !== null" class="alert alert-danger">
 							<b>{{ $t("sendPage.sendBlock.address.fundsTo") }}: </b> {{destinationAddress}}
 						</div>
-						<div v-if="txDestinationName !== null"  class="message">
+						<div v-if="txDestinationName !== null"  class="alert alert-danger">
 							<b>{{ $t("sendPage.sendBlock.address.fundsTo") }}: </b>{{txDestinationName}}
 						</div>
-						<div v-if="txDescription !== null" class="message">
+						<div v-if="txDescription !== null" class="alert alert-danger">
 							<b>{{ $t("sendPage.sendBlock.address.description") }}: </b>{{txDescription}}
 						</div>
+
+						<br>
+
+    <p class="text-left"><b><label><i class="fas fa-arrow-circle-right"></i> {{ $t("sendPage.sendBlock.address.label") }}</label></b></p>
+
+						
+						<div class="subfield" >
+							<input type="text" v-model="destinationAddressUser" placeholder="Sumoo4hjzq7NJerCAYCiMQEY3..." class="form-control"/>
+</div>	
+						    <small id="addresshelp" class="form-text text-muted"><p class="text-left"><span class="badge badge-info">Info</span> Write the address where you want to send funds.</p></small>
+
 					</div>
 
 					<div class="field" >
-						<label>{{ $t("sendPage.sendBlock.amount.label") }}</label>
-						<input class="amountInput" type="text" v-model="amountToSend" placeholder="0.0 SUMO" :readonly="lockedForm"/>
+    <p class="text-left"><b><label><i class="fas fa-sort-amount-up-alt"></i> {{ $t("sendPage.sendBlock.amount.label") }}</label></b></p>
+						<input class="form-control" type="text" v-model="amountToSend" placeholder="" :readonly="lockedForm"/>
+						    <small id="amounthelp" class="form-text text-muted"><p class="text-left"><span class="badge badge-info">Info</span> Write the amount you want to send.</p></small>
+
 						<div v-if="!amountToSendValid && amountToSend != ''" class="message error">
 							{{ $t("sendPage.sendBlock.amount.invalid") }}
 						</div>
@@ -47,29 +80,23 @@
 					<!--<div class="field">
 						<label>{{ $t("sendPage.sendBlock.paymentId.label") }}</label>
 						<input class="amountInput" type="text" v-model="paymentId" placeholder="" :readonly="lockedForm"/>
-						<div v-if="!paymentIdValid && paymentId != ''" class="message error">
+<div v-if="!paymentIdValid && paymentId != ''" class="message error">
 							{{ $t("sendPage.sendBlock.paymentId.invalid") }}
 						</div>
 					</div>-->
 
 					<div class="actions tc">
-						<button type="button" class="btn primary" @click="send()" :disabled="!destinationAddressValid || !amountToSendValid" >{{ $t("sendPage.sendBlock.sendButton") }}</button>
+						<button type="button" class="btn btn-primary" @click="send()" :disabled="!destinationAddressValid || !amountToSendValid" ><i class="fas fa-arrow-circle-right"></i> Continue</button>
 					</div>
 					<div class="actions tc" v-if="lockedForm" >
-						<button type="button" class="btn small" @click="reset()" >{{ $t("sendPage.sendBlock.cancelButton") }}</button>
+						<button type="button" class="btn btn-primary" @click="reset()" >{{ $t("sendPage.sendBlock.cancelButton") }}</button>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<div class="qrCodeScanningContainer" :class="(qrScanning ? '' : 'hidden')">
-			<div class="close" @click="stopScan()">
-				<i class="fa fa-close" aria-hidden="true"></i>
-			</div>
-			<h2>{{ $t("sendPage.qrCodeScanning.explication") }}</h2>
-			<div class="videoContainer" >
-				<video width="100" id="cameraVideoFluxForDelivery" autoplay></video>
-			</div>
-		</div>
 	</div>
+  </div>
 </div>
+</div>
+	</div>

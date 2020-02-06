@@ -1,13 +1,39 @@
-<div id="app" class="body-root" v-cloak="">
-	<div class="body-header" >
-		<div class="header-title">
-			<i class="fa fa-wrench fa-lg" aria-hidden="true"></i> {{ $t("settingsPage.title") }}
-		</div>
-		<div class="header-subtitle" >
-			{{ $t("settingsPage.subtitle") }}
+<div id="app" class="indexTab content" v-cloak="">
+
+
+	<div class="hideOnNonNative" >
+
+		<div class="mainBlock" >
+               		<div class="headline" >
+				<h1>{{ $t("homepage.mainTitle") }}</h1>
+				<h2>{{ $t("homepage.tagLine") }}</h2>
+			</div>
 		</div>
 	</div>
-	<div class="body-content" >
+	<div class="hideOnNative" >
+		<div class="mainBlock" >
+			<div class="actions" >
+	<img src="https://i.imgur.com/I4WlwI3.png" width="180" > 
+
+                <div class="right">
+					<a href="#!account" class="btn btn-primary btn-sm"><i class="fas fa-user"></i> {{ $t("menu.account") }}</a>
+					<a href="#!send" class="btn btn-primary btn-sm"><i class="fas fa-arrow-circle-right"></i> {{ $t("menu.send") }}</a>
+					<a href="#!receive" class="btn btn-primary btn-sm"><i class="fas fa-arrow-circle-left"></i> {{ $t("menu.receive") }}</a>
+					<a href="#!export" class="btn btn-primary btn-sm"><i class="fas fa-file-export"></i> {{ $t("menu.export") }}</a>
+					<a href="#!settings" class="btn btn-primary btn-sm"><i class="fas fa-cogs"></i> {{ $t("menu.settings") }}</a>
+					<a href="#!disconnect" class="btn btn-danger btn-sm"><i class="fas fa-sign-out-alt"></i> {{ $t("menu.disconnect") }}</a>
+
+
+
+				</div>
+
+			</div>
+<div class="container-md">
+<div class="card">
+  <div class="card-body">
+
+
+<div class="body-content" >
 		<div class="panel inline" v-if="nativeVersionCode !== 0">
 			<div class="body" >
 				<div class="content" >
@@ -25,20 +51,20 @@
 						<select v-model="language">
 							<option value="en">English</option>
 							<option value="de">Deutsch</option>
-							<option value="es">Español</option>
-							<option value="fr">Français</option>
-							<option value="el">Ελληνικά</option>
+							<option value="es">Espa�ol</option>
+							<option value="fr">Fran�ais</option>
+							<option value="el">????????</option>
 							<option value="hu">Magyar</option>
 							<option value="id">Bahasa Indonesia</option>
 							<option value="it">Italiano</option>
 							<option value="nl">Nederlands</option>
 							<option value="pl">Polski</option>
-							<option value="ru">Русский</option>
-							<option value="sr">Српски</option>
-							<option value="tr">Turkçe</option>
-							<option value="vi">Tiếng Việt</option>
-							<option value="zh">简体中文</option>
-							<option value="zh-hk">繁體中文</option>
+							<option value="ru">???????</option>
+							<option value="sr">??????</option>
+							<option value="tr">Turk�e</option>
+							<option value="vi">Ti?ng Vi?t</option>
+							<option value="zh">????</option>
+							<option value="zh-hk">????</option>
 						</select>
 					</div>
 				</div>
@@ -68,7 +94,7 @@
 		<div class="panel inline">
 			<div class="body" >
 				<div class="content tc" >
-					<a href="#!changeWalletPassword" class="btn" >{{ $t("settingsPage.changePasswordButton") }}</a>
+					<a href="#!changeWalletPassword" class="btn btn-primary" ><font color="white">{{ $t("settingsPage.changePasswordButton") }}</font></a>
 				</div>
 			</div>
 		</div>
@@ -76,7 +102,7 @@
 		<div class="panel inline">
 			<div class="body" >
 				<div class="content tc" >
-					<button class="btn" @click="deleteWallet()" >{{ $t("settingsPage.deleteWalletButton") }}</button>
+					<button class="btn btn-primary" @click="deleteWallet()" >{{ $t("settingsPage.deleteWalletButton") }}</button>
 				</div>
 			</div>
 		</div>
@@ -93,10 +119,14 @@
 						<input type="number" v-model="scanHeight" />
 					</div>
 					<div class="actions tc">
-						<button @click="updateWalletSettings()" class="btn" >{{ $t("settingsPage.walletSettings.updateButton") }}</button>
+						<button @click="updateWalletSettings()" class="btn btn-primary" >{{ $t("settingsPage.walletSettings.updateButton") }}</button>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
+  </div>
 </div>
+</div>
+	</div>
