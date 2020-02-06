@@ -1,45 +1,47 @@
 <div id="app" class="indexTab content" v-cloak="">
-
-
-	<div class="hideOnNonNative" >
-
-		<div class="mainBlock" >
-               		<div class="headline" >
+	<div class="hideOnNonNative">
+		<div class="mainBlock">
+			<div class="headline">
 				<h1>{{ $t("homepage.mainTitle") }}</h1>
 				<h2>{{ $t("homepage.tagLine") }}</h2>
 			</div>
 		</div>
 	</div>
-	<div class="hideOnNative" >
-		<div class="mainBlock" >
-			<div class="actions" >
-	<img src="https://i.imgur.com/I4WlwI3.png" width="180" > 
+	<div class="hideOnNative">
+		<div class="mainBlock">
+			<div class="actions">
+				<img src="https://i.imgur.com/I4WlwI3.png" width="180">
 
-                <div class="right">
+				<div class="right">
 					<a href="#" class="btn btn-primary btn-sm"><i class="fas fa-arrow-circle-left"></i> Back</a>
-
-
-
 				</div>
-
 			</div>
-<div class="container-md">
-<div class="card">
-  <div class="card-body">
+			<div class="container-md">
+				<div class="card">
+					<div class="card-body">
 
-<div class="body-content" >
-		<div class="panel">
-			<div class="body" >
-				<div class="header-title" ><small>{{ $t("importPage.chooseMethod") }}</small></div>
-				<div class="content tc" >
-					<a href="#!importFromKeys" class="btn btn-primary" ><font color="white"><i class="fas fa-key"></i> {{ $t("importPage.fromKeys") }}</font></a>
-					<a href="#!importFromMnemonic" class="btn btn-primary" ><font color="white"><i class="fas fa-seedling"></i> {{ $t("importPage.fromMnemonic") }}</font></a>
+						<div class="body-content">
+							<div class="panel">
+								<div class="body">
+									<div class="header-title"><small>{{ $t("importPage.chooseMethod") }}</small></div>
+									<div class="content tc">
+										<a href="#!importFromKeys" class="btn btn-primary">
+											<font color="white"><i class="fas fa-key"></i>
+												{{ $t("importPage.fromKeys") }}</font>
+										</a>
+										<a href="#!importFromFile" class="btn btn-primary">
+											<font color="white"><i class="fas fa-file"></i>
+												{{ $t("importPage.fromFile") }}</font>
+										</a>
+										<a href="#!importFromMnemonic" class="btn btn-primary">
+											<font color="white"><i class="fas fa-seedling"></i>
+												{{ $t("importPage.fromMnemonic") }}</font>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-
-  </div>
-</div>
-</div>
-	</div>

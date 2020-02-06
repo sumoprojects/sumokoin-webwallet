@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>Sumokoin Web Wallet</title>
@@ -12,20 +13,26 @@
 	<!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://wallet.sumokoin.com 'unsafe-eval' ; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">-->
 	<meta name="referrer" content="none">
 	<meta name="msapplication-tap-highlight" content="no">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<link rel="stylesheet" href="assets/css/font-awesome.css">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css" rel="stylesheet">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
-integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"  crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+		integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous">
+	</script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+	</script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" crossorigin="anonymous">
+	</script>
 
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet"
+		href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
 
 	<link href='http://fonts.googleapis.com/css?family=Lato:400' rel='stylesheet' type='text/css'>
 
@@ -69,151 +76,161 @@ integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNm
 
 
 <body class="menuHidden menuDisabled">
+	<div id="topBar">
+		<a href="#!index" class="toggleMenu"><i class="fa fa-bars" aria-hidden="true"></i></a>
+	</div>
+	<div id="pageLoading">
+		<i style="color: white;" class="fas fa-circle-notch fa-spin"></i>
+	</div>
+	<div id="page"></div>
 
-<div id="topBar" >
-	<a href="#!index" class="toggleMenu"><i class="fa fa-bars" aria-hidden="true"></i></a>
-</div>
+	<!-- Modal Terms of use -->
+	<div class="modal fade" id="termsofuse" tabindex="-1" role="dialog" aria-labelledby="termsofuselabel"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="termsofuselabel">Terms of Use</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					It is understood that interactions with wallet.sumokoin.com's web wallet are entirely client-side.
+					That wallet.sumokoin.com has no control or access to your wallet's private keys, nor do they have
+					the ability to recover your funds in any event of loss.
+					In all circumstances, wallet.sumokoin.com, Sumokoin Core Team, Sumokoin promoters, or any entity
+					affiliated with the Sumokoin project will not be liable for loss or misuse of funds held using the
+					aforementioned wallet.
+					Users also understand and agree that they are solely responsible for providing a secure environment
+					to interact with a wallet.sumokoin.com web wallet.
+					Additionally, wallet.sumokoin.com cannot, and will not, be held liable for use of funds originating
+					from or arriving to a web wallet.
+					By creating, importing, or interacting with a wallet on wallet.sumokoin.com, you implicitly agree to
+					these terms, and absolve the website owners and affiliates of any and all liability.
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">I Understand</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal Terms of use end -->
 
+	<!-- Modal Support -->
+	<div class="modal fade" id="support" tabindex="-1" role="dialog" aria-labelledby="termsofuselabel"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="termsofuselabel"><i class="fab fa-telegram"></i> Need help?</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					Join our Telegram Group <a href="https://t.me/sumokoinofficial">https://t.me/sumokoinofficial</a>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fas fa-thumbs-up"></i>
+						Ok, I will!</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal Support end -->
 
-<div id="pageLoading" >
-	
-	<i style="color: white;" class="fas fa-circle-notch fa-spin"></i>
-	
-</div>
+	<!-- Modal Donate -->
+	<div class="modal fade" id="donate" tabindex="-1" role="dialog" aria-labelledby="termsofuselabel"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="termsofuselabel">Donate</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					This Web wallet is based on Gnock's webwallet and is adopted and further developed by Sumokoin
+					developers.
+					If you want to help the development, help to pay for the servers, and like this app, please consider
+					a donation.
+					<br><br>
+					<a
+						href="#send?address=Sumoo64zh7dRFyB8dgDWZMLmzKBgGXYWZCG4NBF2VcvzEuiSQpMjyyiYJ1Ra696pZu56PPFQNBDdB1rZjyeX1RVKeWZgHg7pTxj">Click
+						here to Donate</a>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">I Understand</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal dONATE end -->
+	<div id="copyright" v-cloak="">
+		<div class="links">
+			<select class="custom-select-sm" v-model="language">
+				<option value="en">English</option>
+				<option value="de">Deutsch</option>
+				<option value="es">Español</option>
+				<option value="fr">Français</option>
+				<option value="el">Ελληνικά</option>
+				<option value="hu">Magyar</option>
+				<option value="id">Bahasa Indonesia</option>
+				<option value="it">Italiano</option>
+				<option value="nl">Nederlands</option>
+				<option value="pl">Polski</option>
+				<option value="ru">Русский</option>
+				<option value="sr">Српски</option>
+				<option value="zh">简体中文</option>
+				<option value="zh-hk">繁體中文</option>
+				<option value="vi">Tiếng Việt</option>
+			</select>
+			<a href="#" data-toggle="modal" data-target="#termsofuse"><i class="fas fa-asterisk"></i>
+				{{ $t("bottom.termsOfUse") }}</a>
+			<a class="hideOnNative" href="#" data-toggle="modal" data-target="#support"><i class="fab fa-telegram"></i>
+				{{ $t("bottom.support") }}</a>
+			<a class="hideOnNative" href="#" data-toggle="modal" data-target="#donate"><i class="fas fa-donate"></i>
+				{{ $t("bottom.donate") }}</a>
+			<a class="hideOnNative" href="https://github.com/sumoprojects/sumokoin-webwallet" target="_blank"><i
+					class="fab fa-github"></i> {{ $t("bottom.github") }}</a>
+		</div><br>
+		<div class="hideOnNative"><i class="fas fa-copyright"></i> Copyright 2020 - <a
+				href="https://sumokoin.org">Sumoprojects</a><br>
+			<small>support@sumokoin.org</small></div>
 
+		<div class="cb"></div>
+	</div>
 
-<div id="page" ></div>
+	<!--<script src="lib/polyfills/weakmap.min.js"></script>-->
+	<script src="lib/mymonero-core.js"></script>
+	<script src="lib/polyfills/core.min.js"></script>
+	<script src="lib/polyfills/textEncoding/encoding-indexes.js"></script>
+	<script src="lib/polyfills/textEncoding/encoding.js"></script>
+	<script src="lib/polyfills/crypto.js"></script>
 
-<!-- Modal Terms of use -->
-<div class="modal fade" id="termsofuse" tabindex="-1" role="dialog" aria-labelledby="termsofuselabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="termsofuselabel">Terms of Use</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-It is understood that interactions with wallet.sumokoin.com's web wallet are entirely client-side.
-That wallet.sumokoin.com has no control or access to your wallet's private keys, nor do they have the ability to recover your funds in any event of loss.
-In all circumstances, wallet.sumokoin.com, Sumokoin Core Team, Sumokoin promoters, or any entity affiliated with the Sumokoin project will not be liable for loss or misuse of funds held using the aforementioned wallet.
-Users also understand and agree that they are solely responsible for providing a secure environment to interact with a wallet.sumokoin.com web wallet.
-Additionally, wallet.sumokoin.com cannot, and will not, be held liable for use of funds originating from or arriving to a web wallet.
-By creating, importing, or interacting with a wallet on wallet.sumokoin.com, you implicitly agree to these terms, and absolve the website owners and affiliates of any and all liability.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">I Understand</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Modal Terms of use end -->
-
-<!-- Modal Support -->
-<div class="modal fade" id="support" tabindex="-1" role="dialog" aria-labelledby="termsofuselabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="termsofuselabel"><i class="fab fa-telegram"></i> Need help?</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-	Join our Telegram Group <a href="https://t.me/sumokoinofficial">https://t.me/sumokoinofficial</a>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fas fa-thumbs-up"></i> Ok, I will!</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Modal Support end -->
-
-<!-- Modal Donate -->
-<div class="modal fade" id="donate" tabindex="-1" role="dialog" aria-labelledby="termsofuselabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="termsofuselabel">Donate</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-	This Web wallet is based on Gnock's webwallet and is adopted and further developed by Sumokoin developers.
-	If you want to help the development, help to pay for the servers, and like this app, please consider a donation.
-	<br><br>
-	<a href="#send?address=Sumoo64zh7dRFyB8dgDWZMLmzKBgGXYWZCG4NBF2VcvzEuiSQpMjyyiYJ1Ra696pZu56PPFQNBDdB1rZjyeX1RVKeWZgHg7pTxj" >Click here to Donate</a>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">I Understand</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Modal dONATE end -->
-
-
-
-
-<div id="copyright" v-cloak="" >
-      <div class="links" >
-	      <select class="custom-select-sm" v-model="language" >
-		      <option value="en">English</option>
-		      <option value="de">Deutsch</option>
-		      <option value="es">Espanol</option>
-		      <option value="fr">Francais</option>
-		      <option value="hu">Magyar</option>
-		      <option value="id">Bahasa Indonesia</option>
-		      <option value="it">Italiano</option>
-		      <option value="nl">Nederlands</option>
-		      <option value="pl">Polski</option>
-		      <option value="ru">Russian</option>
-		      <option value="tr">Tuskish</option>
-		      <option value="vi">Vietnamese</option>
-		      <option value="zh">Chinese</option>
-		      <option value="zh-hk">Chinese-Simiplified</option>
-	      </select>
-	      <a href="#" data-toggle="modal" data-target="#termsofuse" ><i class="fas fa-asterisk"></i> {{ $t("bottom.termsOfUse") }}</a>
-	      <a class="hideOnNative" href="#" data-toggle="modal" data-target="#support" ><i class="fab fa-telegram"></i> {{ $t("bottom.support") }}</a>
-	      <a class="hideOnNative" href="#" data-toggle="modal" data-target="#donate" ><i class="fas fa-donate"></i> {{ $t("bottom.donate") }}</a>
-	      <a class="hideOnNative" href="https://github.com/sumoprojects/sumokoin-webwallet" target="_blank"><i class="fab fa-github"></i> {{ $t("bottom.github") }}</a>
-	</div><br>
-      <div class="hideOnNative" ><i class="fas fa-copyright"></i> Copyright 2020 - <a href="https://sumokoin.org">Sumoprojects</a><br>
-	<small>support@sumokoin.org</small></div>
-
-	<div class="cb" ></div>
-</div>
-
-<!--<script src="lib/polyfills/weakmap.min.js"></script>-->
-<script src="lib/mymonero-core.js"></script>
-<script src="lib/polyfills/core.min.js"></script>
-<script src="lib/polyfills/textEncoding/encoding-indexes.js"></script>
-<script src="lib/polyfills/textEncoding/encoding.js"></script>
-<script src="lib/polyfills/crypto.js"></script>
-
-<script src="lib/biginteger.js"></script>
-<script src="config.js"></script>
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js" ></script>-->
-<script src="lib/vue.min.js" ></script>
-<script src="lib/vue-i18n.js" ></script>
-<script src="lib/jquery-3.2.1.min.js"></script>
-<script src="lib/sweetalert2.js"></script>
-<script src="lib/sha3.js"></script>
-<script src="lib/crypto.js"></script>
-<!--<script src="lib/qrcode.min.js"></script>-->
-<script src="lib/kjua-0.1.1.min.js"></script>
-<!--<script src="lib/nacl-fast-cn.js"></script>-->
-<script src="lib/nacl-fast.js"></script>
-<script src="lib/nacl-util.min.js"></script>
-<script src="lib/base58.js"></script>
-<script src="lib/jspdf.min.js"></script>
-<!--<script src="lib/mnemonic.js"></script>-->
-<script src="lib/cn_utils_native.js"></script>
-<script src="lib/FileSaver.min.js"></script>
-<script data-main="index.js" src="lib/require.js"></script>
+	<script src="lib/biginteger.js"></script>
+	<script src="config.js"></script>
+	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js" ></script>-->
+	<script src="lib/vue.min.js"></script>
+	<script src="lib/vue-i18n.js"></script>
+	<script src="lib/jquery-3.2.1.min.js"></script>
+	<script src="lib/sweetalert2.js"></script>
+	<script src="lib/sha3.js"></script>
+	<script src="lib/crypto.js"></script>
+	<!--<script src="lib/qrcode.min.js"></script>-->
+	<script src="lib/kjua-0.1.1.min.js"></script>
+	<!--<script src="lib/nacl-fast-cn.js"></script>-->
+	<script src="lib/nacl-fast.js"></script>
+	<script src="lib/nacl-util.min.js"></script>
+	<script src="lib/base58.js"></script>
+	<script src="lib/jspdf.min.js"></script>
+	<!--<script src="lib/mnemonic.js"></script>-->
+	<script src="lib/cn_utils_native.js"></script>
+	<script src="lib/FileSaver.min.js"></script>
+	<script data-main="index.js" src="lib/require.js"></script>
 
 </body>
+
 </html>
