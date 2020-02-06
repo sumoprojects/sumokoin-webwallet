@@ -110,7 +110,10 @@ interface RequireConfig {
 interface RequireModule {
 
 
-    config(): { };
+    config(): {
+	    waitSeconds: 0
+
+	 };
 
 }
 
