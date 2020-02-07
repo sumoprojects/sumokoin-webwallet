@@ -1,134 +1,140 @@
 <div id="app" class="indexTab content" v-cloak="">
-
-
-	<div class="hideOnNonNative" >
-
-		<div class="mainBlock" >
-               		<div class="headline" >
+	<div class="hideOnNonNative">
+		<div class="mainBlock">
+			<div class="headline">
 				<h1>{{ $t("homepage.mainTitle") }}</h1>
 				<h2>{{ $t("homepage.tagLine") }}</h2>
 			</div>
 		</div>
 	</div>
-	<div class="hideOnNative" >
-		<div class="mainBlock" >
-			<div class="actions" >
-	<img src="https://i.imgur.com/I4WlwI3.png" width="180" > 
+	<div class="hideOnNative">
+		<div class="mainBlock">
+			<div class="actions">
+				<img src="https://i.imgur.com/I4WlwI3.png" width="180">
 
-                <div class="right">
-					<a href="#!account" class="btn btn-primary btn-sm"><i class="fas fa-user"></i> {{ $t("menu.account") }}</a>
-					<a href="#!send" class="btn btn-primary btn-sm"><i class="fas fa-arrow-circle-right"></i> {{ $t("menu.send") }}</a>
-					<a href="#!receive" class="btn btn-primary btn-sm"><i class="fas fa-arrow-circle-left"></i> {{ $t("menu.receive") }}</a>
-					<a href="#!export" class="btn btn-primary btn-sm"><i class="fas fa-file-export"></i> {{ $t("menu.export") }}</a>
-					<a href="#!settings" class="btn btn-primary btn-sm"><i class="fas fa-cogs"></i> {{ $t("menu.settings") }}</a>
-					<a href="#!disconnect" class="btn btn-danger btn-sm"><i class="fas fa-sign-out-alt"></i> {{ $t("menu.disconnect") }}</a>
-
-
-
-				</div>
-
-			</div>
-<div class="container-md">
-<div class="card">
-  <div class="card-body">
-
-
-<div class="body-content" >
-		<div class="panel inline" v-if="nativeVersionCode !== 0">
-			<div class="body" >
-				<div class="content" >
-					<div>{{ $t("settingsPage.versionBlock.versionNumber") }}{{nativeVersionNumber}}</div>
-					<div>{{ $t("settingsPage.versionBlock.versionCode") }}{{nativeVersionCode}}</div>
+				<div class="right">
+					<a href="#!account" class="btn btn-primary btn-sm"><i class="fas fa-user"></i>
+						{{ $t("menu.account") }}</a>
+					<a href="#!send" class="btn btn-primary btn-sm"><i class="fas fa-arrow-circle-right"></i>
+						{{ $t("menu.send") }}</a>
+					<a href="#!receive" class="btn btn-primary btn-sm"><i class="fas fa-arrow-circle-left"></i>
+						{{ $t("menu.receive") }}</a>
+					<a href="#!export" class="btn btn-primary btn-sm"><i class="fas fa-file-export"></i>
+						{{ $t("menu.export") }}</a>
+					<a href="#!settings" class="btn btn-primary btn-sm"><i class="fas fa-cogs"></i>
+						{{ $t("menu.settings") }}</a>
+					<a href="#!disconnect" class="btn btn-danger btn-sm"><i class="fas fa-sign-out-alt"></i>
+						{{ $t("menu.disconnect") }}</a>
 				</div>
 			</div>
-		</div>
+			<div class="container-md">
+				<div class="card">
+					<div class="card-body">
+						<div class="body-content">
+							<div class="panel inline" v-if="nativeVersionCode !== 0">
+								<div class="body">
+									<div class="content">
+										<div>{{ $t("settingsPage.versionBlock.versionNumber") }}{{nativeVersionNumber}}
+										</div>
+										<div>{{ $t("settingsPage.versionBlock.versionCode") }}{{nativeVersionCode}}
+										</div>
+									</div>
+								</div>
+							</div>
 
-		<div class="panel">
-			<div class="body" >
-				<div class="content" >
-					<div class="field">
-						<label>{{ $t("settingsPage.settingsBlock.language.label") }}</label>
-						<select v-model="language">
-	    	      <option value="en">English</option>
-    		      <option value="de">Deutsch</option>
-    		      <option value="es">Español</option>
-    		      <option value="fr">Français</option>
-    		      <option value="el">Ελληνικά</option>
-    		      <option value="hr">Hrvatski</option>
-    		      <option value="hu">Magyar</option>
-    		      <option value="id">Bahasa Indonesia</option>
-    		      <option value="it">Italiano</option>
-    		      <option value="mk">Македонски</option>
-    		      <option value="nl">Nederlands</option>
-    		      <option value="pl">Polski</option>
-    		      <option value="ru">Русский</option>
-    		      <option value="sr">Српски</option>
-    		      <option value="tr">Turkçe</option>
-	    	      <option value="vi">Tiếng Việt</option>
-		          <option value="zh">简体中文</option>
-		          <option value="zh-hk">繁體中文</option>
-						</select>
+							<div class="panel">
+								<div class="body">
+									<div class="content">
+										<div class="field">
+											<label>{{ $t("settingsPage.settingsBlock.language.label") }}</label>
+											<select v-model="language">
+	    	     									        <option value="en">English</option>
+   										                <option value="de">Deutsch</option>
+    									                        <option value="es">Espanol</option>
+    									   		        <option value="fr">Francais</option>
+    		      										<option value="el">Ελληνικά</option>
+    		 									        <option value="hr">Hrvatski</option>
+    										    	        <option value="hu">Magyar</option>
+    		      									        <option value="id">Bahasa Indonesia</option>
+    		 							                        <option value="it">Italiano</option>
+    		      									        <option value="mk">Македонски</option>
+    		      					                                        <option value="nl">Nederlands</option>
+    		      										<option value="pl">Polski</option>
+    		     									        <option value="ru">Русский</option>
+    		     										<option value="sr">Српски</option>
+    		      										<option value="tr">Turkce</option>
+	    	      								                <option value="vi">Tiếng Việt</option>
+		        									<option value="zh">简体中文</option>
+		     					                                        <option value="zh-hk">繁體中文</option>
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="panel">
+								<div class="body">
+									<div class="content">
+										<div class="field">
+											<label>{{ $t("settingsPage.settingsBlock.speed.label") }}</label>
+											<select v-model="readSpeed">
+												<option value="2">{{ $t("settingsPage.settingsBlock.speed.fastest") }}
+												</option>
+												<option value="10">{{ $t("settingsPage.settingsBlock.speed.fast") }}
+												</option>
+												<option value="50">{{ $t("settingsPage.settingsBlock.speed.medium") }}
+												</option>
+												<option value="100">{{ $t("settingsPage.settingsBlock.speed.slow") }}
+												</option>
+											</select>
+										</div>
+										<div class="field checkbox toggle">
+											<input type="checkbox" name="public" v-model="checkMinerTx">
+											<label>{{ $t("settingsPage.settingsBlock.readMinerTx.label") }}</label>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="panel inline">
+								<div class="body">
+									<div class="content tc">
+										<a href="#!changeWalletPassword" class="btn btn-primary">
+											<font color="white">{{ $t("settingsPage.changePasswordButton") }}</font>
+										</a>
+									</div>
+								</div>
+							</div>
+
+							<div class="panel inline">
+								<div class="body">
+									<div class="content tc">
+										<button class="btn btn-primary"
+											@click="deleteWallet()">{{ $t("settingsPage.deleteWalletButton") }}</button>
+									</div>
+								</div>
+							</div>
+
+							<div class="panel">
+								<div class="body">
+									<div class="content">
+										<div class="field">
+											<label>{{ $t("settingsPage.walletSettings.creationHeight.label") }}</label>
+											<input type="number" v-model="creationHeight" />
+										</div>
+										<div class="field">
+											<label>{{ $t("settingsPage.walletSettings.currentScanningHeight.label") }}</label>
+											<input type="number" v-model="scanHeight" />
+										</div>
+										<div class="actions tc">
+											<button @click="updateWalletSettings()"
+												class="btn btn-primary">{{ $t("settingsPage.walletSettings.updateButton") }}</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-
-		<div class="panel">
-			<div class="body" >
-				<div class="content" >
-					<div class="field">
-						<label>{{ $t("settingsPage.settingsBlock.speed.label") }}</label>
-						<select v-model="readSpeed" >
-							<option value="2" >{{ $t("settingsPage.settingsBlock.speed.fastest") }}</option>
-							<option value="10" >{{ $t("settingsPage.settingsBlock.speed.fast") }}</option>
-							<option value="50" >{{ $t("settingsPage.settingsBlock.speed.medium") }}</option>
-							<option value="100" >{{ $t("settingsPage.settingsBlock.speed.slow") }}</option>
-						</select>
-					</div>
-					<div class="field checkbox toggle">
-						<input type="checkbox" name="public" v-model="checkMinerTx">
-						<label>{{ $t("settingsPage.settingsBlock.readMinerTx.label") }}</label>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="panel inline">
-			<div class="body" >
-				<div class="content tc" >
-					<a href="#!changeWalletPassword" class="btn btn-primary" ><font color="white">{{ $t("settingsPage.changePasswordButton") }}</font></a>
-				</div>
-			</div>
-		</div>
-
-		<div class="panel inline">
-			<div class="body" >
-				<div class="content tc" >
-					<button class="btn btn-primary" @click="deleteWallet()" >{{ $t("settingsPage.deleteWalletButton") }}</button>
-				</div>
-			</div>
-		</div>
-
-		<div class="panel">
-			<div class="body" >
-				<div class="content" >
-					<div class="field">
-						<label>{{ $t("settingsPage.walletSettings.creationHeight.label") }}</label>
-						<input type="number" v-model="creationHeight" />
-					</div>
-					<div class="field">
-						<label>{{ $t("settingsPage.walletSettings.currentScanningHeight.label") }}</label>
-						<input type="number" v-model="scanHeight" />
-					</div>
-					<div class="actions tc">
-						<button @click="updateWalletSettings()" class="btn btn-primary" >{{ $t("settingsPage.walletSettings.updateButton") }}</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-  </div>
-</div>
-</div>
-	</div>
