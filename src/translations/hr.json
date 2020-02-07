@@ -1,0 +1,496 @@
+﻿{
+  "website":{
+	"title":"Oficijalni Sumokoin Veb Novčanik",
+	"description":"Oficijalni onlajn novčanik za Masari valutu koji je anoniman, siguran, i u potpunosti se oslanja na Vaš pretraživač u cilju optimalne bezbednosti."
+  },
+  "messages": {
+	"menu": {
+	  "home": "Početna",
+	  "account": "Nalog",
+	  "send": "Pošalji",
+	  "receive": "Primi",
+	  "export": "Izvoz",
+	  "donate": "Pokloni",
+	  "settings": "Postavljanje",
+	  "disconnect": "Prekini vezu",
+	  "network": "Mreža"
+	},
+	"global": {
+	  "loading": "Učitavam",
+	  "disableSecurity":"Isključi sigurnost, razumem i prihvatam rizik",
+	  "passwordInvalidRequirements":"Lozinka mora da se sastoji iz najmanje 8 karaktera, jednog velikog slova, jednog malog slova, jednog broja i jednog simbola",
+	  "passwordConfirmationNotMatching":"Lozinke se ne podudaraju",
+	  "download":"Preuzmi",
+	  "newVersionModal":{
+		"title":"Nova verzija je dostupna",
+		"content":"Da li želite da osvežite stranicu i učitate novu verziju ?",
+		"confirmText":"Da",                                      
+		"cancelText":"Kasnije"
+	  },
+	  "openWalletModal":{
+		"title":"'Lozinka novčanika'",
+		"confirmText":"Otvori",
+		"cancelText":"Otkaži"
+	  },
+	  "invalidPasswordModal":{
+		"title":"Ups...",
+		"content":"Neispravna lozinka",
+		"confirmText":"U redu"
+	  },
+	  "invalidMnemonicModal":{
+		"title":"Ups...",
+		"content":"Mnemonička fraza nije ispravna",
+		"confirmText":"U redu"
+	  },
+	  "passwordNotComplexEnoughModal":{
+		"title":"Lozinka nije dovoljno složena",
+		"confirmText":"U redu"
+	  },
+	  "permissionRequiredForCameraModal":{
+		"title":"Ups...",
+		"content":"Potrebna dozvola za pristup kameri u cilju skeniranja QR koda",
+		"confirmText":"U redu"
+	  }
+	},
+	"bottom": {
+	  "termsOfUse": "Pravila korišćenja",
+	  "privacyPolicy": "Pravila o zaštiti privatnosti",
+	  "support": "Podrška",
+	  "donate": "Pokloni",
+	  "network": "Mreža",
+	  "miningPool": "Rudareni pul",
+	  "github": "Github"
+	},
+	"homepage": {
+	  "mainTitle": "Bezbedan Sumokoin Novčanik",
+	  "tagLine": "Najjednostavniji način da koristite Sumokoin, bilo kada i bilo gde!",
+	  "actions": {
+		"loadWallet": "Učitaj novčanik",
+		"importWallet": "Uvezi novčanik",
+		"create": "Napravi",
+		"createWallet": "Napravi novčanik"
+	  },
+	  "notes": {
+		"secure": {
+		  "title": "Sigurnost",
+		  "description": "Bez servera, potpuna enkripcija !"
+		},
+		"fast": {
+		  "title": "Brzina",
+		  "description": "Šaljite bilo gde, bilo kada !"
+		},
+		"technology": {
+		  "title": "Jedinstvena tehnologija",
+		  "description": "Povezan direktno sa Sumokoin Blokčejnom!"
+		},
+		"openSource": {
+		  "title": "Kod je u potpunosti dostupan (open-source)",
+		  "description": "Dostupno na GitHub"
+		}
+	  }
+	},
+	"accountPage": {
+	  "title": "Nalog",
+	  "subtitle": "Pregled naloga i transakcija",
+	  "synchronizingBlock": {
+		"text": "Sinhronizacija u toku"
+	  },
+	  "balanceBlock": {
+		"title": "Vaša sredstva",
+		"unlocked": "Otključano"
+	  },
+	  "historyBlock": {
+		"title": "Istorija vaših transakcija",
+		"pendingTxStatus": "Na čekanju",
+		"emptyWallet": "Trenutno nemate sredstava u novčaniku",
+		"waitSync": "Sačekajte da se novčanik osveži",
+		"beReallyPatient": "Ovaj postupak može da potraje...",
+		"getMSRAddress": "Adresa za prijem novčića"
+	  },
+	  "txDetails":{
+		"title":"Detalj transakcije",
+		"txHash":"Tx hash",
+		"feesOnTx":"Naknada na transakciju",
+		"blockHeight":"Visina bloka",
+		"paymentId":"Payment ID",
+		"txPrivKey":"Privatni ključ transakcije"
+	  }
+	},
+	"changeWalletPasswordPage":{
+	  "title":"Promenite lozinku",
+	  "oldPassword":{
+		"label":"Stara lozinka",
+		"invalid":"Pogrešna lozinka"
+	  },
+	  "newPassword":{
+		"label":"Izaberite novu lozinku",
+		"invalid":" Lozinka mora da se sastoji iz najmanje 8 karaktera, jednog velikog slova, jednog malog slova, jednog broja i jednog simbola"
+	  },
+	  "newPasswordConfirm":{
+		"label":"Potvrdite novu lozinku"
+	  },
+	  "confirm":"Promeni lozinku",
+	  "modalSuccess":{
+		"title":"Lozinka promijenjena !",
+		"confirmText":"U redu"
+	  }
+	},
+	"createWalletPage":{
+	  "generatingStep":{
+		"title":"Generisanje novčanika u toku...",
+		"subtitle":"Proces je pri kraju",
+		"waitingMessage":"Generišem novčanik..."
+	  },
+	  "finalizationStep":{
+		"title":"Korak finalizacije. Vaš nalog je spreman!",
+		"subtitle":"Spremite se da koristite Sumokoin bilo gde i bilo kad.",
+		"passwordSelectionBlock":{
+		  "label":"Zaštitite vaše podatke"
+		},
+		"passwordConfirmBlock":{
+		  "label":"Potvrdite lozinku"
+		},
+		"validPassword":"Koristite ovu lozinku",
+		"backupBlock":{
+		  "title":"I preuzmite šifrovanu kopiju vaših podataka za buduću upotrebu ",
+		  "option1":"Opcija 1: ",
+		  "option2":"Opcija 2: ",
+		  "titlePdf":"Preuzmite PDF",
+		  "titleManualWrite":"Zapišite ključeve",
+		  "privateKeys":"Privatni ključ",
+		  "mnemonicPhrase":"Mnemonička fraza",
+		  "separatorManualMethodsSolution":" ili ",
+		  "confirmManuallyWritten":"Zapisao sam",
+		  "warningMessage":"**Čuvajte ove podatke!** U slučaju gubitka, podaci ne mogu biti vraćeni.<br/>**Ne delite podatke ni sa kim!** Vaša sredstva mogu biti ukradena ukoliko koristite ove podatke na drugim sajtovima sumnjivog sadržaja.<br/>**Napravite rezervu (backup)!** Obezbedite podatke kao da vrede milion dolara.<br/>",
+		  "finishButton":"Razumem. Nastavi"
+		}
+	  },
+	  "disclaimerBlock":{
+		"title":"Rizici korišćenja Sumokoin novčanika",
+		"content":"Sumokoin novčanik je interfejs na mreži. Osmišljen je da pomogne pri upotrebi Sumokoin valute bez potrebe za pokretanjem softvera na ličnom računaru. <br/>Predlažemo da se odnosite prema Sumokoin novčaniku kao prema svom ličnom koji koristite svakodnevno."
+	  }
+	},
+	"donatePage":{
+	  "title":"Pokloni",
+	  "subtitle":"Pomozite pri finansiranju razvoja i plaćanja računa.",
+	  "webwalletBlock":{
+		"title":"Veb novčanik",
+		"content":"Ovaj servis je delo kontributora pod imenom Gnock.<br/>Ukoliko želite da pomognete pri daljem razvoju ove aplikacije, molimo vas da razmislite o donaciji.<br/><br/>"
+	  },
+	  "masariFundBlock":{
+		"title":"Sumokoin novčanik za donacije",
+		"content":"Ukoliko ste zainteresovani da pomognete, možete to učiniti slanjem sredstava na sledeću adresu"
+	  }
+	},
+	"supportPage":{
+	  "title":"Podrška",
+	  "subtitle":"Ukoliko vam je potrebna podrška, tu smo da pomognemo!",
+	  "getInTouchBlock":{
+		"title":"Kontaktirajte nas!",
+		"content":"Ako imate ideje ili predloge koji bi mogli da pomognu pri daljem razvoju ovog servisa, kontaktirajte nas!",
+		"discord":"Sumokoin Diskord Server"
+	  }
+	},
+	"networkPage":{
+	  "title":"Mreža",
+	  "subtitle":"Uvid u Sumokoin mrežu",
+	  "statsBlock":{
+		"hashrate":"Hešrejt mreže",
+		"height":"Blokčejn visina",
+		"difficulty":"Teškoća mreže",
+		"lastTimeBlock":"Poslednji pronađeni blok",
+		"lastReward":"Poslednja blok nagrada"
+	  }
+	},
+	"sendPage":{
+	  "title":"Šalji SUMO",
+	  "sendBlock":{
+		"address":{
+		  "label":"Pošalji na adresu",
+		  "invalid":"Adresa neispravna",
+		  "fundsTo":"Sredstva će biti poslata na",
+		  "receiver":"Primalac",
+		  "description":"Opis"
+		},
+		"amount":{
+		  "label":"Količina za slanje",
+		  "invalid":"Količina neispravna"
+		},
+		"paymentId":{
+		  "label":"ID uplate(proizvoljan korak)",
+		  "invalid":"ID uplate neispravan. Dužina mora biti između 16 i 64 karaktera"
+		},
+		"sendButton":"Pošalji",
+		"cancelButton":"Otkaži"
+	  },
+	  "qrCodeScanning":{
+		"explication":"Skeniranje QR koda"
+	  },
+	  "notEnoughMoneyModal":{
+		"title":"Ups...",
+		"content":"Nemate dovoljno sredstava za ovaj transfer",
+		"confirmText":"U redu"
+	  },
+	  "thankYouDonationModal":{
+		"title":"Hvala vam na donaciji!",
+		"content":"Vaša pomoć je dobrodošla.<br/>Vaša donacija će pomoći pri daljem razvitku Sumokoina",
+		"confirmText":"Zatvori"
+	  },
+	  "transferSentModal":{
+		"title":"Transfer uspešan!",
+		"confirmText":"Zatvori"
+	  },
+	  "transferExceptionModal":{
+		"title":"Ups...",
+		"content":"Došlo je do greške. Molimo prijavite grešku: {details}",
+		"confirmText":"Zatvori"
+	  },
+	  "invalidAmountModal":{
+		"title":"Ups...",
+		"content":"Količina pogrešna",
+		"confirmText":"Zatvori"
+	  },
+	  "creatingTransferModal":{
+		"title":"Pripremam transfer...",
+		"content":"Molimo sačekajte..."
+	  },
+	  "finalizingTransferModal":{
+		"title":"Finaliziram transfer...",
+		"content":"Molimo sačekajte..."
+	  },
+	  "confirmTransactionModal":{
+		"title":"Potvrdi transfer?",
+		"content":"'Količina: {amount}<br/>Provizija: {fees}<br/>Ukupno: {total}",
+		"confirmText":"Potvrdi",
+		"cancelText":"Otkaži"
+	  },
+	  "waitingNfcModal":{
+		"title":"Waiting Nfc",
+		"content":"Bring closer to the other device"
+	  }
+	},
+	"receivePage":{
+	  "title":"Primi SUMO",
+	  "receiveBlock":{
+		"address":{
+		  "title":"Adresa za primanje novčića",
+		  "label":"Priložite ovu adresu ukoliko želite da primite novčiće"
+		},
+		"qrCode":{
+		  "title":"Ili pomoću QR koda",
+		  "labelAmount":"Količina (proizvoljna opcija)",
+		  "labelRecipient":"Ime primaoca(proizvoljna opcija)",
+		  "labelDescription":"Opis transakcije(proizvoljna opcija)",
+		  "updateButton":"Ažuriraj"
+		}
+	  },
+	  "qrBlock":{
+		"title":"Vaš QR kod"
+	  },
+	  "waitingNfcToWriteModal":{
+		"title":"Waiting Nfc",
+		"titleSuccess":"Nfc Tag written",
+		"content":"Bring closer the NFC tag to write"
+	  },
+	  "nfcErrorModal":{
+		"titleInsufficientCapacity":"Kapacitet oznake nedovoljan"
+	  }
+	},
+	"miningPage":{
+	  "title":"Rudarite direktno iz pretraživača",
+	  "subtitle":"Podržite mrežu i povećajte stabilnost, bićete nagrađeni Sumokoin novčićima",
+	  "parameterBlock":{
+		"title":"Parametri",
+		"labelDestinationAddress":"Novčanik za rudarenje",
+		"labelThreads":"Broj jezgara(više = veći hešrejt)",
+		"start":"Start",
+		"stop":"Stop"
+	  },
+	  "statisticsBlocks":{
+		"title":"Statistika",
+		"validShares":"Validnih udijela",
+		"hashrate":"Hešrejt",
+		"maxHashrate":"Maksimalni Hešrejt",
+		"dedicatedHardware":"Sa odgovarajućim softverom za rudarenje možete očekivati 2 do 3 puta veći hešrejt.<br/>Pored toga, softver za rudarenje vam omogućava da koristite i grafičku karticu.",
+		"miningHandledBy":"Rudarenje je omogućeno i kontrolisano od strane get.sumokoin.com"
+	  }
+	},
+	"settingsPage":{
+	  "title":"Podešavanja",
+	  "subtitle":"Promenite podešavanja ovde",
+	  "versionBlock":{
+		"versionNumber":"Versija broj: ",
+		"versionCode":"Versija code: "
+	  },
+	  "settingsBlock":{
+		"speed":{
+		  "label":"Brzina ažuriranja novčanika(utiče na potrošnju energije)",
+		  "fastest":"Najbrže",
+		  "fast":"Brzo",
+		  "medium":"Srednje",
+		  "slow":"Sporo"
+		},
+		"language":{
+		  "label":"Language"
+		},
+		"readMinerTx":{
+		  "label":"Transakcije rudara(samo za solo rudarenje)"
+		}
+	  },
+	  "changePasswordButton":"Promeni lozinku novčanika",
+	  "deleteWalletButton":"Obriši moj novčanik(lokalna kopija)",
+	  "walletSettings":{
+		"creationHeight":{
+		  "label":"Blok visina pri kreaciji novčanika"
+		},
+		"currentScanningHeight": {
+		  "label": "Trenutna visina skeniranja"
+		},
+		"updateButton":"Ažuriraj"
+	  },
+	  "deleteWalletModal":{
+		"title":"Obriši moj novčanik(lokalna kopija)",
+		"content":"Da li ste SIGURNI da želite brisanje novčanika ?",
+		"confirmText":"Da, siguran sam",
+		"cancelButtonText":"Otkaži"
+	  }
+	},
+	"importBasePage":{
+	  "parametersBlock":{
+		"title":"Parametri",
+		"password":{
+		  "label":"Lozinka za zaštitu novčanika"
+		},
+		"passwordConfirm":{
+		  "label":"Potvrdite lozinku",
+		  "invalid":"Lozinka se ne podudara sa prvim unosom"
+		},
+		"importHeight":{
+		  "label":"Blok visina za uvoz"
+		}
+	  }
+	},
+	"importFromQrPage":{
+	  "title":"Uvoz novčanika preko QR koda",
+	  "subtitle":"Uvezi novčanik iz oflajn datoteke",
+	  "qrCodeBlock":{
+		"title":"QR kod",
+		"startScanButton":"Pokreni skeniranje",
+		"importButton":"Uvezi"
+	  },
+	  "qrScanningBlock":{
+		"title":"Priložite QR kod"
+	  }
+	},
+	"exportPage":{
+	  "title":"Sačuvajte vaše podatke",
+	  "publicAddressBlock":{
+		"title":"Vaša adresa"
+	  },
+	  "pdfBlock":{
+		"title":"Pdf čuvanje",
+		"downloadButton":"Preuzmi"
+	  },
+	  "warningBlock":{
+		"title":"Upozorenje",
+		"content":"Ukoliko se odlučite da sačuvate podatke vašeg novčanika, MOLIMO VAS nemojte ih čuvati na vidnom i lako dostupnom mestu.<br/>Ovaj fajl je alternativno rešenje koje sadrži kompletan set šifrovanih parametara potrebnih za buduću restoraciju i sinhronizaciju."
+	  },
+	  "exportBlock":{
+		"title":"Izvezi SIROVE podatke",
+		"privateKeysButton":"Moji privatni ključevi",
+		"mnemonicKeysButton":"Moja mnemonička fraza",
+		"fileButton":"Sačuvaj kao fajl"
+	  },
+	  "walletKeysModal":{
+		"title":"Privatni ključevi",
+		"confirmText":"U redu",
+		"content":"Molimo bas da čuvate ove podatke na bezbednom mestu. <b>Posedovanje ovih ključeva znači posedovanje svih sredstava vezanih za pomenute ključeve.</b> !<br/>Potrošački ključ: {privSpendKey}<br/>Privatni ključ: {privViewKey}"
+	  },
+	  "mnemonicKeyModal":{
+		"title":"Privatni ključevi",
+		"confirmText":"U redu",
+		"content":"Molimo vas da pažljivo čuvate mnemoničku frazu. <b>Posedovanje iste vam omogućava pristup sredstvima vezanim za ovaj novčanik</b> ! Vaša fraza je:<br/>{mnemonic}"
+	  },
+	  "mnemonicLangSelectionModal":{
+		"title":"Izaberite jezik za mnemoničku frazu",
+		"confirmText":"Izvezi",
+		"cancelButtonText":"Otkaži"
+	  }
+	},
+	"importPage":{
+	  "title":"Uvezi novčanik",
+	  "subtitle":"Od prethodno dobijenih ključeva, fajla, ili mnemoničke fraze",
+	  "chooseMethod":"Izaberi metod",
+	  "fromKeys":"Pomoću ključeva",
+	  "fromFile":"Pomoću fajla",
+	  "fromMnemonic":"Pomoću mnemoničke fraze",
+	  "fromQr":"Pomoću QR koda"
+	},
+	"termsOfUsePage":{
+	  "title":"Pravila korišćenja",
+	  "subtitle":"Molimo pažljivo pročitajte"
+	},
+	"privacyPolicyPage":{
+	  "title":"Privacy Policy",
+	  "subtitle":"Molimo pažljivo pročitajte"
+	},
+	"importFromFilePage":{
+	  "title":"Uvoz novčanika pomoću fajla",
+	  "subtitle":"Iskoristite preuzeti bekap fajl za uvoz novčanika",
+	  "walletBlock":{
+		"title":"Fajl novčanika",
+		"label":"Izaberite fajl",
+		"importButton":"Uvezi"
+	  }
+	},
+	"importFromMnemonicPage":{
+	  "title":"Uvoz novčanika pomoću mnemoničke fraze",
+	  "subtitle":"Iskoristite postojeću frazu za uvoz novčanika",
+	  "mnemonicBlock":{
+		"title":"Mnemominčka fraza",
+		"mnemonic":{
+		  "label":"Mnemonička fraza: 25 reči",
+		  "invalid":"Neispravna mnemonička fraza",
+		  "language":"Jezik"
+		},
+		"importButton":"Uvezi"
+	  }
+	},
+	"importFromKeysPage":{
+	  "title":"Uvoz novčanika pomoću ključeva",
+	  "subtitle":"Iskoristite ključeve za uvoz novčanika",
+	  "parametersBLock":{
+		"viewOnlyWallet":{
+		  "label":"Da li želite novčanik samo za pregled (view-only) ?"
+		}
+	  },
+	  "keysBlock":{
+		"titleNotViewOnly":"Ključevi novčanika",
+		"titleViewOnly":"View-only novčanik",
+		"privateSpend":{
+		  "label":"Privatni potrošački ključ"
+		},
+		"privateView":{
+		  "label":"Privatni ključ za pregled",
+		  "optional":"(proizvoljna opcija)"
+		},
+		"publicKey":{
+		  "label":"Javni ključ"
+		},
+		"importButton":"Uvezi"
+	  }
+	}
+  },
+  "number":{
+  },
+  "date":{
+	"short": {
+	  "year": "numeric", "month": "short", "day": "numeric"
+	},
+	"long": {
+	  "year": "numeric", "month": "short", "day": "numeric",
+	  "weekday": "short", "hour": "numeric", "minute": "numeric", "hour12": false
+	}
+  }
+}
+
