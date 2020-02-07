@@ -1,141 +1,144 @@
 <div id="app" class="indexTab content" v-cloak="">
-
-
-	<div class="hideOnNonNative" >
-
-		<div class="mainBlock" >
-               		<div class="headline" >
+	<div class="hideOnNonNative">
+		<div class="mainBlock">
+			<div class="headline">
 				<h1>{{ $t("homepage.mainTitle") }}</h1>
 				<h2>{{ $t("homepage.tagLine") }}</h2>
 			</div>
 		</div>
 	</div>
-	<div class="hideOnNative" >
-		<div class="mainBlock" >
-			<div class="actions" >
-	<img src="https://i.imgur.com/I4WlwI3.png" width="180" > 
-
-                <div class="right">
+	<div class="hideOnNative">
+		<div class="mainBlock">
+			<div class="actions">
+				<img src="https://i.imgur.com/I4WlwI3.png" width="180">
+				<div class="right">
 					<a href="#" class="btn btn-primary btn-sm"><i class="fas fa-user"></i> Back</a>
-
-
-
-				</div>
-
-			</div>
-<div class="container-md">
-<div class="card">
-  <div class="card-body">
-
-
-<div class="body-header" v-if="step == 0">
-		<div class="header-title">
-			{{ $t("createWalletPage.generatingStep.title") }}
-		</div>
-		<div class="header-subtitle" >
-			{{ $t("createWalletPage.generatingStep.subtitle") }}
-		</div>
-	</div>
-	<div class="body-header" v-if="step == 1 || step == 2">
-		<div class="header-title">
-			{{ $t("createWalletPage.finalizationStep.title") }}
-		</div>
-		<div class="header-subtitle" >
-			{{ $t("createWalletPage.finalizationStep.subtitle") }}
-		</div>
-	</div>
-
-	<div class="body-content" >
-		<div class="panel" v-if="step == 0">
-			<div class="body" >
-				<div class="content tc" >
-					<div class="text loader">
-						{{ $t("createWalletPage.generatingStep.waitingMessage") }}
-					</div>
 				</div>
 			</div>
-		</div>
-		<div class="panel" v-if="step == 1">
-			<div class="body" >
-				<div class="header-title" >{{ $t("createWalletPage.finalizationStep.title") }}</div>
-				<div class="content" >
-					<div class="field" >
-						<label>{{ $t("createWalletPage.finalizationStep.passwordSelectionBlock.label") }}</label>
-						<input type="password" v-model="walletPassword" autocomplete="off">
-						<div v-if="insecurePassword && !forceInsecurePassword && walletPassword != ''" class="message error">
-							{{ $t("global.passwordInvalidRequirements") }}
-							<div class="tc">
-								<button @click="forceInsecurePasswordCheck()" class="btn btn-primary">{{ $t("global.disableSecurity") }}</button>
+			<div class="container-md">
+				<div class="card">
+					<div class="card-body">
+						<div class="body-header" v-if="step == 0">
+							<div class="header-title">
+								{{ $t("createWalletPage.generatingStep.title") }}
+							</div>
+							<div class="header-subtitle">
+								{{ $t("createWalletPage.generatingStep.subtitle") }}
 							</div>
 						</div>
-					</div>
-
-					<div class="field">
-						<label>{{ $t("createWalletPage.finalizationStep.passwordConfirmBlock.label") }}</label>
-						<input type="password" name="public" v-model="walletPassword2">
-						<div v-if="walletPassword != '' && walletPassword2 != '' && walletPassword != walletPassword2" class="message error">
-							{{ $t("global.passwordConfirmationNotMatching") }}
+						<div class="body-header" v-if="step == 1 || step == 2">
+							<div class="header-title">
+								{{ $t("createWalletPage.finalizationStep.title") }}
+							</div>
+							<div class="header-subtitle">
+								{{ $t("createWalletPage.finalizationStep.subtitle") }}
+							</div>
 						</div>
-					</div>
 
-					<div class="actions tc">
-						<button @click="exportStep()" class="btn btn-primary" :disabled="!(this.walletPassword !== '' && (!this.insecurePassword || this.forceInsecurePassword) && walletPassword == walletPassword2)">{{ $t("createWalletPage.finalizationStep.validPassword") }}</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="panel" v-if="step == 2">
-			<div class="body" >
-				<div class="header-title" >{{ $t("createWalletPage.finalizationStep.backupBlock.title") }}</div>
-				<div class="content" >
-					<div class="step hideOnNative" >
-						<div class="title" ><span class="hideOnNative">{{ $t("createWalletPage.finalizationStep.backupBlock.option1") }}</span>{{ $t("createWalletPage.finalizationStep.backupBlock.titlePdf") }}</div>
-						<div class="content tc actions" >
-							<button @click="downloadBackup()" class="btn btn-primary">{{ $t("global.download") }}</button>
-						</div>
-					</div>
-					<div class="step">
-						<div class="title" ><span class="hideOnNative" >{{ $t("createWalletPage.finalizationStep.backupBlock.option2") }}</span>{{ $t("createWalletPage.finalizationStep.backupBlock.titleManualWrite") }}</div>
-						<div class="content" >
-							<div class="message" >
-								<div class="title" >{{ $t("createWalletPage.finalizationStep.backupBlock.privateKeys") }}</div>
-								<div class="content" >
-									{{newWallet.keys.priv.spend}}
+						<div class="body-content">
+							<div class="panel" v-if="step == 0">
+								<div class="body">
+									<div class="content tc">
+										<div class="text loader">
+											{{ $t("createWalletPage.generatingStep.waitingMessage") }}
+										</div>
+									</div>
 								</div>
 							</div>
-							{{ $t("createWalletPage.finalizationStep.backupBlock.separatorManualMethodsSolution") }}<br/>
-							<div class="message" >
-								<div class="title" >{{ $t("createWalletPage.finalizationStep.backupBlock.mnemonicPhrase") }}</div>
-								<div class="content" >
-									{{mnemonicPhrase}}
+							<div class="panel" v-if="step == 1">
+								<div class="body">
+									<div class="header-title">{{ $t("createWalletPage.finalizationStep.title") }}</div>
+									<div class="content">
+										<div class="field">
+											<label>{{ $t("createWalletPage.finalizationStep.passwordSelectionBlock.label") }}</label>
+											<input type="password" v-model="walletPassword" autocomplete="off">
+											<div v-if="insecurePassword && !forceInsecurePassword && walletPassword != ''"
+												class="message error">
+												{{ $t("global.passwordInvalidRequirements") }}
+												<div class="tc">
+													<button @click="forceInsecurePasswordCheck()"
+														class="btn btn-primary">{{ $t("global.disableSecurity") }}</button>
+												</div>
+											</div>
+										</div>
+
+										<div class="field">
+											<label>{{ $t("createWalletPage.finalizationStep.passwordConfirmBlock.label") }}</label>
+											<input type="password" name="public" v-model="walletPassword2">
+											<div v-if="walletPassword != '' && walletPassword2 != '' && walletPassword != walletPassword2"
+												class="message error">
+												{{ $t("global.passwordConfirmationNotMatching") }}
+											</div>
+										</div>
+
+										<div class="actions tc">
+											<button @click="exportStep()" class="btn btn-primary"
+												:disabled="!(this.walletPassword !== '' && (!this.insecurePassword || this.forceInsecurePassword) && walletPassword == walletPassword2)">{{ $t("createWalletPage.finalizationStep.validPassword") }}</button>
+										</div>
+									</div>
 								</div>
 							</div>
-							<div class="tc actions" >
-								<button @click="walletBackupMade=true" class="btn btn-primary">{{ $t("createWalletPage.finalizationStep.backupBlock.confirmManuallyWritten") }}</button>
+							<div class="panel" v-if="step == 2">
+								<div class="body">
+									<div class="header-title">
+										{{ $t("createWalletPage.finalizationStep.backupBlock.title") }}</div>
+									<div class="content">
+										<div class="step hideOnNative">
+											<div class="title"><span
+													class="hideOnNative">{{ $t("createWalletPage.finalizationStep.backupBlock.option1") }}</span>{{ $t("createWalletPage.finalizationStep.backupBlock.titlePdf") }}
+											</div>
+											<div class="content tc actions">
+												<button @click="downloadBackup()"
+													class="btn btn-primary">{{ $t("global.download") }}</button>
+											</div>
+										</div>
+										<div class="step">
+											<div class="title"><span
+													class="hideOnNative">{{ $t("createWalletPage.finalizationStep.backupBlock.option2") }}</span>{{ $t("createWalletPage.finalizationStep.backupBlock.titleManualWrite") }}
+											</div>
+											<div class="content">
+												<div class="message">
+													<div class="title">
+														{{ $t("createWalletPage.finalizationStep.backupBlock.privateKeys") }}
+													</div>
+													<div class="content">
+														{{newWallet.keys.priv.spend}}
+													</div>
+												</div>
+												{{ $t("createWalletPage.finalizationStep.backupBlock.separatorManualMethodsSolution") }}<br />
+												<div class="message">
+													<div class="title">
+														{{ $t("createWalletPage.finalizationStep.backupBlock.mnemonicPhrase") }}
+													</div>
+													<div class="content">
+														{{mnemonicPhrase}}
+													</div>
+												</div>
+												<div class="tc actions">
+													<button @click="walletBackupMade=true"
+														class="btn btn-primary">{{ $t("createWalletPage.finalizationStep.backupBlock.confirmManuallyWritten") }}</button>
+												</div>
+											</div>
+										</div>
+										<div
+											v-html="$t('createWalletPage.finalizationStep.backupBlock.warningMessage')">
+										</div>
+										<div class="actions">
+											<button :disabled="!walletBackupMade" @click="finish()"
+												class="btn btn-primary">{{ $t("createWalletPage.finalizationStep.backupBlock.finishButton") }}</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="panel inline hideOnNative">
+								<div class="body">
+									<div class="header-title">{{ $t("createWalletPage.disclaimerBlock.title") }}</div>
+									<div class="content" v-html="$t('createWalletPage.disclaimerBlock.content')"></div>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div v-html="$t('createWalletPage.finalizationStep.backupBlock.warningMessage')"></div>
-					<div class="actions" >
-						<button :disabled="!walletBackupMade" @click="finish()" class="btn btn-primary">{{ $t("createWalletPage.finalizationStep.backupBlock.finishButton") }}</button>
 					</div>
 				</div>
 			</div>
 		</div>
-
-		<div class="panel inline hideOnNative" >
-			<div class="body" >
-				<div class="header-title" >{{ $t("createWalletPage.disclaimerBlock.title") }}</div>
-				<div class="content" v-html="$t('createWalletPage.disclaimerBlock.content')"></div>
-			</div>
-		</div>
-	</div>
-
-
-
-
-
-  </div>
-</div>
-</div>
-	</div>
