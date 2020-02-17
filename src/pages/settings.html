@@ -10,22 +10,54 @@
 	<div class="hideOnNative">
 		<div class="mainBlock">
 			<div class="actions">
-				<img src="https://i.imgur.com/I4WlwI3.png" width="180">
+				<div class="d-block d-sm-none d-md-none d-lg-none d-xl-none" data-size="xs">
 
-				<div class="right">
-					<a href="#!account" class="btn btn-primary btn-sm"><i class="fas fa-user"></i>
-						{{ $t("menu.account") }}</a>
-					<a href="#!send" class="btn btn-primary btn-sm"><i class="fas fa-arrow-circle-right"></i>
-						{{ $t("menu.send") }}</a>
-					<a href="#!receive" class="btn btn-primary btn-sm"><i class="fas fa-arrow-circle-left"></i>
-						{{ $t("menu.receive") }}</a>
-					<a href="#!export" class="btn btn-primary btn-sm"><i class="fas fa-file-export"></i>
-						{{ $t("menu.export") }}</a>
-					<a href="#!settings" class="btn btn-primary btn-sm"><i class="fas fa-cogs"></i>
-						{{ $t("menu.settings") }}</a>
-					<a href="#!disconnect" class="btn btn-danger btn-sm"><i class="fas fa-sign-out-alt"></i>
-						{{ $t("menu.disconnect") }}</a>
+
+					<center>mobile version<br><img src="https://i.imgur.com/I4WlwI3.png" width="180"></center><br><br>
+					<div class="center">
+						<a href="#!account" class="btn btn-primary btn-sm"
+							style="margin-left: 5px; margin-bottom: 5px;"><i class="fas fa-user"></i>
+							{{ $t("menu.account") }}</a>
+						<a href="#!send" class="btn btn-primary btn-sm" style="margin-left: 5px; margin-bottom: 5px;"><i
+								class="fas fa-arrow-circle-right"></i>
+							{{ $t("menu.send") }}</a>
+						<a href="#!receive" class="btn btn-primary btn-sm"
+							style="margin-left: 5px; margin-bottom: 5px;"><i class="fas fa-arrow-circle-left"></i>
+							{{ $t("menu.receive") }}</a>
+						<a href="#!export" class="btn btn-primary btn-sm"
+							style="margin-left: 5px; margin-bottom: 5px;"><i class="fas fa-file-export"></i>
+							{{ $t("menu.export") }}</a>
+						<a href="#!settings" class="btn btn-primary btn-sm"
+							style="margin-left: 5px; margin-bottom: 5px;"><i class="fas fa-cogs"></i>
+							{{ $t("menu.settings") }}</a>
+						<a href="#!disconnect" class="btn btn-danger btn-sm"
+							style="margin-left: 5px; margin-bottom: 5px;"><i class="fas fa-sign-out-alt"></i>
+							{{ $t("menu.disconnect") }}</a>
+					</div>
+
 				</div>
+
+				<div class="d-none d-sm-none d-md-none d-lg-none d-xl-block" data-size="xl">
+
+					<img src="https://i.imgur.com/I4WlwI3.png" width="180">
+
+					<div class="right">
+						<a href="#!account" class="btn btn-primary btn-sm"><i class="fas fa-user"></i>
+							{{ $t("menu.account") }}</a>
+						<a href="#!send" class="btn btn-primary btn-sm"><i class="fas fa-arrow-circle-right"></i>
+							{{ $t("menu.send") }}</a>
+						<a href="#!receive" class="btn btn-primary btn-sm"><i class="fas fa-arrow-circle-left"></i>
+							{{ $t("menu.receive") }}</a>
+						<a href="#!export" class="btn btn-primary btn-sm"><i class="fas fa-file-export"></i>
+							{{ $t("menu.export") }}</a>
+						<a href="#!settings" class="btn btn-primary btn-sm"><i class="fas fa-cogs"></i>
+							{{ $t("menu.settings") }}</a>
+						<a href="#!disconnect" class="btn btn-danger btn-sm"><i class="fas fa-sign-out-alt"></i>
+							{{ $t("menu.disconnect") }}</a>
+					</div>
+
+				</div>
+
 			</div>
 			<div class="container-md">
 				<div class="card">
@@ -48,24 +80,24 @@
 										<div class="field">
 											<label>{{ $t("settingsPage.settingsBlock.language.label") }}</label>
 											<select v-model="language">
-	    	     									        <option value="en">English</option>
-   										                <option value="de">Deutsch</option>
-    									                        <option value="es">Espanol</option>
-    									   		        <option value="fr">Francais</option>
-    		      										<option value="el">Ελληνικά</option>
-    		 									        <option value="hr">Hrvatski</option>
-    										    	        <option value="hu">Magyar</option>
-    		      									        <option value="id">Bahasa Indonesia</option>
-    		 							                        <option value="it">Italiano</option>
-    		      									        <option value="mk">Македонски</option>
-    		      					                                        <option value="nl">Nederlands</option>
-    		      										<option value="pl">Polski</option>
-    		     									        <option value="ru">Русский</option>
-    		     										<option value="sr">Српски</option>
-    		      										<option value="tr">Turkce</option>
-	    	      								                <option value="vi">Tiếng Việt</option>
-		        									<option value="zh">简体中文</option>
-		     					                                        <option value="zh-hk">繁體中文</option>
+												<option value="en">English</option>
+												<option value="de">Deutsch</option>
+												<option value="es">Espanol</option>
+												<option value="fr">Francais</option>
+												<option value="el">Ελληνικά</option>
+												<option value="hr">Hrvatski</option>
+												<option value="hu">Magyar</option>
+												<option value="id">Bahasa Indonesia</option>
+												<option value="it">Italiano</option>
+												<option value="mk">Македонски</option>
+												<option value="nl">Nederlands</option>
+												<option value="pl">Polski</option>
+												<option value="ru">Русский</option>
+												<option value="sr">Српски</option>
+												<option value="tr">Turkce</option>
+												<option value="vi">Tiếng Việt</option>
+												<option value="zh">简体中文</option>
+												<option value="zh-hk">繁體中文</option>
 											</select>
 										</div>
 									</div>

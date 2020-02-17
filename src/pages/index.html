@@ -17,6 +17,38 @@
 	<div class="hideOnNative">
 		<div class="mainBlock">
 			<div class="actions">
+<div class="d-block d-sm-none d-md-none d-lg-none d-xl-none" data-size="xs">
+
+
+<center>mobile version<br><img src="https://i.imgur.com/I4WlwI3.png" width="180"></center>
+			<div class="center" style="margin-bottom: 20px">
+				<div class="headline">
+					<h3>Welcome to Sumokoin Web Wallet</h3>
+				</div>
+				<font color="white">We are currently at block height <i class="fas fa-arrows-alt-v"></i>
+					{{blockchainHeight}}, Hashrate <i class="fas fa-microchip"></i> {{networkHashrate}} MH/s with
+					Difficulty <i class="fas fa-wave-square"></i> {{networkDifficulty}}</font><br><br>
+
+			</div>
+				<center><div class="callToAction tc">
+					<a href="#" @click="loadWallet()" v-if="hasLocalWallet" class="btn btn-light btn-lg"
+						><i class="fas fa-save"></i>
+						{{ $t("homepage.actions.loadWallet") }}</a><br><br>
+					<a href="#!createWallet" class="btn btn-primary btn-lg"><i
+							class="fas fa-plus-circle"></i> {{ $t("homepage.actions.createWallet") }}</a><br><br>
+					<a href="#!import" class="btn btn-primary btn-lg" data-toggle="tooltip" data-placement="top"
+						title="Tooltip on top"><i class="fas fa-file-import"></i>
+						{{ $t("homepage.actions.importWallet") }}</a>
+				</div></center>
+
+
+
+</div>
+
+<div class="d-none d-sm-none d-md-none d-lg-none d-xl-block" data-size="xl">
+
+
+
 				<img src="https://i.imgur.com/I4WlwI3.png" width="180">
 				<div class="right">
 					<a href="#!import" class="btn btn-primary btn-sm"><i class="fas fa-file-import"></i>
@@ -24,7 +56,7 @@
 					<a href="#!createWallet" class="btn btn-primary btn-sm"><i class="fas fa-plus-circle"></i>
 						{{ $t("homepage.actions.createWallet") }}</a>
 				</div>
-			</div>
+
 			<br clear="both">
 			<div class="center" style="margin-bottom: 20px">
 				<div class="headline">
@@ -49,6 +81,12 @@
 						{{ $t("homepage.actions.importWallet") }}</a>
 				</div>
 			</div>
+
+
+
+
+
+</div>
 		</div>
 	</div>
 </div>
