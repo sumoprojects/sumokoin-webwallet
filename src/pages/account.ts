@@ -86,6 +86,13 @@ class AccountView extends DestructableView{
 		});
 	}
 
+	truncate(input: String) {
+		if (input.length > 10)
+		   return input.substring(0,10) + '...';
+		else
+		   return input;
+	 };
+
 	moreInfoOnTx(transaction : Transaction){
 		let explorerUrlHash = config.testnet ? config.testnetExplorerUrlHash : config.mainnetExplorerUrlHash;
 		let explorerUrlBlock = config.testnet ? config.testnetExplorerUrlBlock : config.mainnetExplorerUrlBlock;
@@ -100,6 +107,8 @@ class AccountView extends DestructableView{
 
 		let txPrivKeyMessage = '';
 		let txPrivKey = wallet.findTxPrivateKeyWithHash(transaction.hash);
+		let truncatedhash = this.truncate(transaction.hash);
+		//document.getElementById('truncatedhash')!.innerHTML = " " + truncatedhash;
 		if(txPrivKey !== null){
 			txPrivKeyMessage = `<div><strong>`+i18n.t('accountPage.txDetails.txPrivKey')+`</strong>: `+txPrivKey+`</a></div>`;
 		}
