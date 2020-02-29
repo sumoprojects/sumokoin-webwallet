@@ -29,7 +29,7 @@
 	  },
 	  "openWalletModal":{
 		"title":"Tarca jelszava",
-		"confirmText":"Êonfirmal",
+		"confirmText":"ï¿½onfirmal",
 		"cancelText":"Megsem"
 	  },
 	  "invalidPasswordModal":{
@@ -64,6 +64,7 @@
 	"homepage": {
 	  "mainTitle": "Biztonsagos Sumokoin tarca",
 	  "tagLine": "A Sumokoin hasznalatanak legegyszerubb modja - barhol es barmikor",
+	  "alreadylogged": "You can log into your last Wallet by pressing Load Wallet",
 	  "actions": {
 		"loadWallet": "Tarca betoltese",
 		"importWallet": "Tarcaimportalas",

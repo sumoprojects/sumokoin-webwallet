@@ -64,6 +64,7 @@
 	"homepage": {
 	  "mainTitle": "VÍ TRỰC TUYẾN SUMOKOIN",
 	  "tagLine": "Cách đơn giản nhất để sử dụng SUMOKOIN",
+	  "alreadylogged": "You can log into your last Wallet by pressing Load Wallet",
 	  "actions": {
 		"loadWallet": "Mở Ví",
 		"importWallet": "Khôi Phục Ví",

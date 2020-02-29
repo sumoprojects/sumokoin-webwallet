@@ -75,8 +75,7 @@
 										<div class="field action">
 											<div v-if="!destinationAddressValid && destinationAddressUser != ''"
 												class="alert alert-warning alert-dismissible fade show">
-												<strong>Holy guacamole!</strong> Seems like your address field is not
-												correct!
+												{{ $t("sendPage.sendBlock.address.invalid") }}
 											</div>
 											<div v-if="domainAliasAddress !== null" class="alert alert-danger">
 												<b>{{ $t("sendPage.sendBlock.address.fundsTo") }}: </b>
@@ -102,8 +101,7 @@
 													placeholder="Sumoo4hjzq7NJerCAYCiMQEY3..." class="form-control" />
 											</div>
 											<small id="addresshelp" class="form-text text-muted">
-												<p class="text-left"><span class="badge badge-info">Info</span> Write
-													the address where you want to send funds.</p>
+												<p class="text-left"><span class="badge badge-info">Info</span> {{ $t("sendPage.sendBlock.address.label") }}</p>
 											</small>
 
 										</div>
@@ -114,8 +112,7 @@
 											<input class="form-control" type="text" v-model="amountToSend"
 												placeholder="" :readonly="lockedForm" />
 											<small id="amounthelp" class="form-text text-muted">
-												<p class="text-left"><span class="badge badge-info">Info</span> Write
-													the amount you want to send.</p>
+												<p class="text-left"><span class="badge badge-info">Info</span> {{ $t("sendPage.sendBlock.amount.label") }}</p>
 											</small>
 
 											<div v-if="!amountToSendValid && amountToSend != ''" class="message error">
@@ -134,7 +131,7 @@
 										<div class="actions tc">
 											<button type="button" class="btn btn-primary" @click="send()"
 												:disabled="!destinationAddressValid || !amountToSendValid"><i
-													class="fas fa-arrow-circle-right"></i> Continue</button>
+													class="fas fa-arrow-circle-right"></i> {{ $t("menu.send") }}</button>
 										</div>
 										<div class="actions tc" v-if="lockedForm">
 											<button type="button" class="btn btn-primary"

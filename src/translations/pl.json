@@ -24,7 +24,7 @@
     "newVersionModal":{
     "title":"Nowa wersja jest dostepna",
     "content":"Czy chcesz ponownie zaladowac, aby uzyskac nowa wersje?",
-    "confirmText":"Âierzmowac",
+    "confirmText":"ï¿½ierzmowac",
     "cancelText":"Wstecz"
 	  },
     "openWalletModal":{
@@ -64,7 +64,8 @@
 	 "homepage": {
 	    "mainTitle": "Bezpieczny Sumokoin Wallet",
 	    "tagLine": "Najprostrzy sposob na uzywanie Sumokoin - wszedzie o kazdej porze",
-	    "actions": {
+      "alreadylogged": "You can log into your last Wallet by pressing Load Wallet",
+      "actions": {
 	    "loadWallet": "Otworz moj portfel",
 	    "importWallet": "Zaimportuj portfel",
 	    "create": "Utworz",
