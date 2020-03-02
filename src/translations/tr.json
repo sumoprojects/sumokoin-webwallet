@@ -64,7 +64,6 @@
     "homepage": {
       "mainTitle": "SUMOKOIN İNTERNET CÜZDANI",
       "tagLine": "SUMOKOIN´u Kullanmanın En Kolay Yolu",
-      "alreadylogged": "You can log into your last Wallet by pressing Load Wallet",
       "actions": {
         "loadWallet": "Cüzdanımı Yükle",
         "importWallet": "Bir Cüzdanı İçe Aktar",

@@ -64,7 +64,6 @@
 	"homepage": {
 	  "mainTitle": "Sumokoin官方网络钱包",
 	  "tagLine": "使用SUMOKOIN的最简单方法",
-	  "alreadylogged": "You can log into your last Wallet by pressing Load Wallet",
 	  "actions": {
 		"loadWallet": "加载钱包",
 		"importWallet": "导入钱包",

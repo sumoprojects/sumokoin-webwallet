@@ -64,7 +64,6 @@
 	"homepage": {
 	  "mainTitle": "Bezbedan Sumokoin Novčanik",
 	  "tagLine": "Najjednostavniji način da koristite Sumokoin, bilo kada i bilo gde!",
-	  "alreadylogged": "You can log into your last Wallet by pressing Load Wallet",
 	  "actions": {
 		"loadWallet": "Učitaj novčanik",
 		"importWallet": "Uvezi novčanik",

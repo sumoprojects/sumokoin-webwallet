@@ -64,7 +64,6 @@
 	"homepage": {
 	  "mainTitle": "Sumokoin Web-Wallet",
 	  "tagLine": "Der einfachste Weg, Sumokoin jederzeit und uberall zu nutzen",
-	  "alreadylogged": "Sie können sich in Ihre letzte Brieftasche einloggen, indem Sie auf Brieftasche laden klicken",
 	  "actions": {
 		"loadWallet": "Lade meine Wallet",
 		"importWallet": "Importiere eine Wallet",

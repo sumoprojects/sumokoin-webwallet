@@ -64,7 +64,6 @@
 	"homepage": {
 	  "mainTitle": "СУМОКОИН ВЕБ ПАРИЧНИК",
 	  "tagLine": "Најлесниот начин за користење на СУМОКОИН",
-	  "alreadylogged": "You can log into your last Wallet by pressing Load Wallet",
 	  "actions": {
 		"loadWallet": "Вклучи го мојот паричник",
 		"importWallet": "Увези паричник",

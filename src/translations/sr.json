@@ -64,7 +64,6 @@
 	"homepage": {
 	  "mainTitle": "Безбедан Сумокоин Новчаник",
 	  "tagLine": "Најједноставнији начин да користите Сумокоин, било када и било где!",
-	  "alreadylogged": "You can log into your last Wallet by pressing Load Wallet",
 	  "actions": {
 		"loadWallet": "Учитај новчаник",
 		"importWallet": "Увези новчаник",

@@ -65,7 +65,6 @@
 	"homepage": {
 	  "mainTitle": "WEB-КОШЕЛЕК SUMOKOIN",
 	  "tagLine": "Самый простой способ использования SUMOKOIN",
-	  "alreadylogged": "You can log into your last Wallet by pressing Load Wallet",
 	  "actions": {
 		"loadWallet": "Загрузить мой кошелек",
 		"importWallet": "Импортировать кошелек",

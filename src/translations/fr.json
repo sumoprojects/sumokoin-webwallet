@@ -64,7 +64,6 @@
 	"homepage": {
 	  "mainTitle": "Portefeuille securise pour Sumokoin",
 	  "tagLine": "Le moyen le plus simple d'utiliser Sumokoin, n'importe ou, n'importe quand",
-	  "alreadylogged": "You can log into your last Wallet by pressing Load Wallet",
 	  "actions": {
 		"loadWallet": "Charger mon portefeuille",
 		"importWallet": "Importer un portefeuille",

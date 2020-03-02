@@ -64,7 +64,6 @@
 	"homepage": {
 	  "mainTitle": "Sumokoin Cartera Segura",
 	  "tagLine": "La forma mas sencilla de usar Sumokoin - en cualquier lugar y en cualquier momento",
-	  "alreadylogged": "You can log into your last Wallet by pressing Load Wallet",
 	  "actions": {
 		"loadWallet": "Cargar mi cartera",
 		"importWallet": "Importar carteta",
