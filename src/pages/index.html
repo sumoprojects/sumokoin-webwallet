@@ -18,14 +18,14 @@
 		<div class="mainBlock">
 			<div class="actions">
 				<div class="d-block d-sm-block d-md-block d-lg-block d-xl-none" data-size="xs sm md lg">
-					<center>mobile version<br><img src="https://i.imgur.com/I4WlwI3.png" width="180"></center>
+					<center><img src="https://i.imgur.com/I4WlwI3.png" width="180"></center>
 			<div class="center" style="margin-bottom: 20px">
 				<div class="headline">
-					<h3>Welcome to Sumokoin Web Wallet</h3>
+					<h3>{{ $t("homepage.mainTitle") }}</h3>
 				</div>
-				<font color="white">We are currently at block height <i class="fas fa-arrows-alt-v"></i>
-					{{blockchainHeight}}, Hashrate <i class="fas fa-microchip"></i> {{networkHashrate}} MH/s with
-					Difficulty <i class="fas fa-wave-square"></i> {{networkDifficulty}}</font><br><br>
+				<font color="white">{{ $t("homepage.tagLine") }} <i class="fas fa-arrows-alt-v"></i>
+					{{blockchainHeight}}, {{ $t("networkPage.statsBlock.hashrate") }} <i class="fas fa-microchip"></i> {{networkHashrate}} MH/s    
+					{{ $t("networkPage.statsBlock.difficulty") }} <i class="fas fa-wave-square"></i> {{networkDifficulty}}</font><br><br>
 
 			</div>
 				<center><div class="callToAction tc">
@@ -53,15 +53,13 @@
 			<br clear="both">
 			<div class="center" style="margin-bottom: 20px">
 				<div class="headline">
-					<h1>Welcome to Sumokoin Web Wallet</h1>
+					<h1>{{ $t("homepage.mainTitle") }}</h1>
 				</div>
-				<font color="white">We are currently at block height <i class="fas fa-arrows-alt-v"></i>
-					{{blockchainHeight}}, Hashrate <i class="fas fa-microchip"></i> {{networkHashrate}} MH/s with
-					Difficulty <i class="fas fa-wave-square"></i> {{networkDifficulty}}</font><br><br>
+				<font color="white">{{ $t("homepage.tagLine") }} <i class="fas fa-arrows-alt-v"></i>
+					{{blockchainHeight}}, {{ $t("networkPage.statsBlock.hashrate") }} <i class="fas fa-microchip"></i> {{networkHashrate}} MH/s 
+					{{ $t("networkPage.statsBlock.difficulty") }} <i class="fas fa-wave-square"></i> {{networkDifficulty}}</font><br><br>
 
 				<br>
-				<font color="white" v-if="hasLocalWallet"><span class="badge badge-info">Info</span>
-					You can log into your last Wallet by pressing "Load Wallet"</font><br><br>
 
 				<div class="callToAction tc">
 					<a href="#" @click="loadWallet()" v-if="hasLocalWallet" class="btn btn-light btn-lg"
