@@ -4,7 +4,7 @@
   "description": "Fully client side web wallet for Sumokoin",
   "main": "index.js",
   "dependencies": {
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "typescript": "^2.9.2",
     "workbox-build": "^3.3.0"
   },
