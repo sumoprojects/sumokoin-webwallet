@@ -21,7 +21,7 @@ global.config = {
 	integratedAddressPrefixTestnet: 0x34f51a,
 	subAddressPrefix: 0x8319a,
 	subAddressPrefixTestnet: 0x1d351a,
-	feePerKB: new JSBigInt('1200000'),
+	feePerKB: new JSBigInt('2000000'),
 	dustThreshold: new JSBigInt('10000000'),
 	defaultMixin: 48, // default value mixin
 
