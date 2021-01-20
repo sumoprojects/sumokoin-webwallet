@@ -67,7 +67,8 @@ export namespace CnVars{
 		Full = 1,
 		Simple = 2,
 		Bulletproof = 3,  // Full
-		Bulletproof2 = 4  // Simple
+		Bulletproof2 = 4,  // Simple
+		CLSAG = 5
 	}
 
 	export let H = "8b655970153799af2aeadc9ff1add0ea6c7251d54154cfa92c173a0dd39c1f94"; //base H for amounts
@@ -1084,6 +1085,12 @@ export namespace CnTransactions{
 						i,
 						mask);
 					break;
+				case CnVars.RCT_TYPE.CLSAG:
+					amount = CnTransactions.decodeRctSimple(rv,
+						scalar1,
+						i,
+						mask);
+					break;						
 				default:
 					console.log('Unsupported rc type', rv.type);
 					// cerr << "Unsupported rct type: " << rv.type << endl;
