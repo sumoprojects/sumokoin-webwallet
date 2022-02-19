@@ -282,7 +282,7 @@ export namespace CnUtils{
 		let exp = new RegExp("[0-9a-fA-F]{" + hex.length + "}");
 		return exp.test(hex);
 	}
-	
+
 	export function ge_scalarmult_base(sec : string) : string{
 		return CnUtils.sec_key_to_pub(sec);
 	}
@@ -845,7 +845,7 @@ export namespace Cn{
 		let checksum = CnUtils.cn_fast_hash(data);
 		return cnBase58.encode(data + checksum.slice(0, ADDRESS_CHECKSUM_SIZE * 2));
 	}
-	
+
 	export function create_address(seed : string) : {
 		spend:{
 			sec:string,
@@ -1058,37 +1058,10 @@ export namespace CnTransactions{
 		try
 		{
 			// console.log(rv.type,'RCTTypeSimple='+RCTTypeSimple,'RCTTypeFull='+RCTTypeFull);
-			switch (rv.type)
-			{
-				case CnVars.RCT_TYPE.Simple:
-					amount = CnTransactions.decodeRctSimple(rv,
-						scalar1,
-						i,
-						mask);//[5;10]ms
-					break;
-				case CnVars.RCT_TYPE.Full:
-					amount = CnTransactions.decodeRctSimple(rv,
-						scalar1,
-						i,
-						mask);
-					break;
-				case CnVars.RCT_TYPE.Bulletproof:
-					amount = CnTransactions.decodeRctSimple(rv,
-						scalar1,
-						i,
-						mask);
-					break;
-				case CnVars.RCT_TYPE.Bulletproof2:
-					amount = CnTransactions.decodeRctSimple(rv,
-						scalar1,
-						i,
-						mask);
-					break;
-				default:
-					console.log('Unsupported rc type', rv.type);
-					// cerr << "Unsupported rct type: " << rv.type << endl;
-					return false;
-			}
+      amount = CnTransactions.decodeRctSimple(rv,
+        scalar1,
+        i,
+        mask);
 		}
 		catch (e)
 		{
@@ -1522,7 +1495,7 @@ export namespace CnTransactions{
 			prvkey: tx.prvkey
 		};
 	}
-	
+
 	export function get_tx_prefix_hash(tx : CnTransactions.Transaction) {
 		let prefix = CnTransactions.serialize_tx(tx, true);
 		return CnUtils.cn_fast_hash(prefix);
@@ -3195,7 +3168,7 @@ export namespace CnTransactions{
 				"1", // fee_mask,
 				unlock_time, // unlock_time,
 				mymonero_core_js.nettype_utils.network_type.MAINNET, // nettype
-				9 // fork version
+				10 // fork version
 			)
 			// console.log("ret", JSON.stringify(ret, null, '  '))
 
