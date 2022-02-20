@@ -80,14 +80,15 @@
 									{{ $t("accountPage.balanceBlock.title") }}</div>
 								<div class="content">
 									<span v-if="unlockedWalletAmount === walletAmount" class="walletAmount"
-										style="color:#62b42f; font-size:x-large;font-weight:bold">{{ Number(walletAmount / currencyDivider).toFixed(6) }}</span>
+										style="color:#62b42f; font-size:x-large; font-weight:bold">{{ Number(walletAmount / currencyDivider).toFixed(6) }}</span>
                   <span v-else class="walletAmount"
-										style="font-size:x-large;font-weight:bold">{{ Number(walletAmount / currencyDivider).toFixed(6) }}</span>
+										style="color:#474E5D; font-size:x-large; font-weight:bold">{{ Number(walletAmount / currencyDivider).toFixed(6) }}</span>
                   <span
-                    style="font-size:x-large;font-weight:bold"> SUMO</span>
+                    style="font-size:large"> SUMO</span>
 									<tempate class="amount unlocked" v-if="unlockedWalletAmount !== walletAmount">
 										<br /><span class="walletAmount">{{ $t("accountPage.balanceBlock.unlocked") }}:
-											<span style="color: #62b42f; font-weight: bold;">{{ Number(unlockedWalletAmount / currencyDivider).toFixed(6) }}</span></span> SUMO
+											<span style="color: #62b42f; font-weight: bold;">{{ Number(unlockedWalletAmount / currencyDivider).toFixed(6) }}</span></span>
+                      <span style="font-size: 90%;"> SUMO</span>
 									</tempate>
 								</div>
 							</div>
