@@ -79,12 +79,15 @@
 								<div class="header-title"><i class="fas fa-wallet"></i>
 									{{ $t("accountPage.balanceBlock.title") }}</div>
 								<div class="content">
-									<span class="walletAmount"
-										style="color:#62b42f; font-size:x-large;font-weight:bold">{{ Number(walletAmount / currencyDivider).toFixed(6) }}</span><span
-										style="font-size:x-large;font-weight:bold"> SUMO</span>
+									<span v-if="unlockedWalletAmount === walletAmount" class="walletAmount"
+										style="color:#62b42f; font-size:x-large;font-weight:bold">{{ Number(walletAmount / currencyDivider).toFixed(6) }}</span>
+                  <span v-else class="walletAmount"
+										style="font-size:x-large;font-weight:bold">{{ Number(walletAmount / currencyDivider).toFixed(6) }}</span>
+                  <span
+                    style="font-size:x-large;font-weight:bold"> SUMO</span>
 									<tempate class="amount unlocked" v-if="unlockedWalletAmount !== walletAmount">
 										<br /><span class="walletAmount">{{ $t("accountPage.balanceBlock.unlocked") }}:
-											{{ Number(unlockedWalletAmount / currencyDivider).toFixed(6) }}</span> SUMO
+											<span style="color: #62b42f; font-weight: bold;">{{ Number(unlockedWalletAmount / currencyDivider).toFixed(6) }}</span></span> SUMO
 									</tempate>
 								</div>
 							</div>
@@ -106,13 +109,13 @@
 													<tr class="transaction"
 														:class="(transaction.blockHeight === 0 ? 'pending' : '')">
 														<td class="direction">
-	
+
 															<span v-if="transaction.ins.length == 0"
 																class="badge badge-success"><i
 																	class="fas fa-arrow-circle-right"></i></span>
 															<span v-else="" class="badge badge-danger"><i
 																	class="fas fa-arrow-circle-left"></i></span>
-	
+
 														</td>
 														<!--LEfT-->
 														<td class="timestamp" v-if="transaction.blockHeight > 0"><i
@@ -168,13 +171,13 @@
 													<tr class="transaction"
 														:class="(transaction.blockHeight === 0 ? 'pending' : '')">
 														<td class="direction">
-	
+
 															<span v-if="transaction.ins.length == 0"
 																class="badge badge-success"><i
 																	class="fas fa-arrow-circle-right"></i></span>
 															<span v-else="" class="badge badge-danger"><i
 																	class="fas fa-arrow-circle-left"></i></span>
-	
+
 														</td>
 														<!--LEfT-->
 														<td class="timestamp" v-if="transaction.blockHeight > 0"><i
@@ -221,11 +224,11 @@
 									</div>
 
 
-									
 
 
 
-								</div> 
+
+								</div>
 							</div>
 						</div>
 					</div>
