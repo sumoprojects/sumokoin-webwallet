@@ -23,7 +23,7 @@ const buildSW = () => {
 		swDest: 'src/service-worker.js',
 		globDirectory: 'src',
 		globPatterns: [
-			'**\/*.{js,css,html,json,png,ico,jpg}',
+			'**\/*.{js,wasm,css,html,json,png,ico,jpg}',
 		],
 		globIgnores:[
 			'd/Vue.js', 'src/service-worker-raw.js'
