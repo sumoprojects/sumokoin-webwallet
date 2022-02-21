@@ -1,5 +1,6 @@
 
 /*
+ * Copyright (c) 2021, Sumokoin.org
  * Copyright (c) 2018, Gnock
  * Copyright (c) 2018, The Masari Project
  *

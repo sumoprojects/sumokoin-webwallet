@@ -1,4 +1,5 @@
 /*
+ * Copyright (c) 2021, Sumokoin.org
  * Copyright (c) 2018, Gnock
  * Copyright (c) 2018, The Masari Project
  *
@@ -16,7 +17,7 @@
 import {Transaction, TransactionIn, TransactionOut} from "./Transaction";
 import {KeysRepository, UserKeys} from "./KeysRepository";
 import {Observable} from "../lib/numbersLab/Observable";
-import {Cn, CnTransactions} from "./Cn";
+import {Cn, CnTransactions, CnNativeBride} from "./Cn";
 
 export type RawWalletOptions = {
 	checkMinerTx?:boolean,
@@ -326,7 +327,7 @@ export class Wallet extends Observable{
 				if(needDerivation) {
 					let derivation = '';
 					try {
-						derivation = Cn.generate_key_derivation(tx.txPubKey, this.keys.priv.view);//9.7ms
+						derivation = CnNativeBride.generate_key_derivation(tx.txPubKey, this.keys.priv.view);//9.7ms
 					} catch (e) {
 						continue;
 					}
