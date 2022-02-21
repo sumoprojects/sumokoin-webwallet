@@ -1,4 +1,5 @@
 /*
+ * Copyright (c) 2021, Sumokoin.org
  * Copyright (c) 2018, Gnock
  * Copyright (c) 2018, The Masari Project
  *
@@ -112,7 +113,7 @@ export class TransactionsExplorer {
 			console.error('Weird tx !', rawTransaction);
 			return false;
 		}
-		
+
 		try {
 			return parseInt(rawTransaction.vout[0].amount) !== 0;
 		} catch(err) {
@@ -410,7 +411,7 @@ export class TransactionsExplorer {
 	): Promise<{ raw: { hash: string, prvkey: string, raw: string }, signed: any }> {
 		return new Promise<{ raw: { hash: string, prvkey: string, raw: string }, signed: any }>(function (resolve, reject) {
 			try {
-				CnTransactions.create_transaction2(
+				CnTransactions.create_transaction(
 					{
 						spend: wallet.keys.pub.spend,
 						view: wallet.keys.pub.view
@@ -419,10 +420,10 @@ export class TransactionsExplorer {
 						view: wallet.keys.priv.view
 					},
 					from_dsts,
-					to_dsts, 
+					to_dsts,
 					usingOuts,
-					mix_outs, 
-					mixin, 
+					mix_outs,
+					mixin,
 					neededFee,
 					0, // unlock_time
 					1	// priority

@@ -1,16 +1,16 @@
 # Sumokoin Web Wallet
 This web wallet is doing everything client-side to give the best privacy to users.
-The server is currently only used to optimize the communication with the daemon and compress the blockchain.  
+The server is currently only used to optimize the communication with the daemon and compress the blockchain.
 
-Note: This requirement may be removed in the future once daemons evolve and return enough data.  
+Note: This requirement may be removed in the future once daemons evolve and return enough data.
 
 # Security
-**No keys, seeds, or sensitive data is sent to the server**  
-If you find a potential security issue, please contact me so we/I can patch it as soon as possible.  
+**No keys, seeds, or sensitive data is sent to the server**
+If you find a potential security issue, please contact me so we/I can patch it as soon as possible.
 Encryption is done with a certified library, [Tweetnacl.Js.](https://github.com/dchest/tweetnacl-js)
 
 # Copyright and Contributors
-- Copyright (c) 2019, Sumokoin Project
+- Copyright (c) 2022, Sumokoin Project
 - Copyright (c) 2018, Gnock
 - Copyright (c) 2019, MyMonero.com
 - Copyright (c) 2018, The Masari Project
@@ -34,9 +34,9 @@ Encryption is done with a certified library, [Tweetnacl.Js.](https://github.com/
 - Greek: GeraltOfTrivia
 
 # Contributing
-- You can help Sumokoin by translation the wallet in your native language, it's really easy!  
+- You can help Sumokoin by translation the wallet in your native language, it's really easy!
 Read [the translations guide](TRANSLATIONS.md) to get instructions on how to do that
-- Report bugs & ideas to help us improve the web wallet by opening an issue 
+- Report bugs & ideas to help us improve the web wallet by opening an issue
 
 # Features (non-exhaustive)
 - Complete wallet sync without server side processing for security
